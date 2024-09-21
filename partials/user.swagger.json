@@ -1,0 +1,1658 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "user.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "UserService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/developer/user_groups": {
+      "get": {
+        "summary": "3.12 Fetch All User Groups",
+        "operationId": "UserService_FetchAllUserGroups",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUserGroupsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "UserService"
+        ]
+      },
+      "post": {
+        "summary": "3.11 Create User Group",
+        "operationId": "UserService_CreateUserGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userCreateUserGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/user_groups/{id}": {
+      "get": {
+        "summary": "3.13 Fetch User Group",
+        "operationId": "UserService_FetchUserGroups",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUserGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      },
+      "delete": {
+        "summary": "3.15 Delete User Group",
+        "operationId": "UserService_DeleteUserGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      },
+      "put": {
+        "summary": "3.14 Update User Group",
+        "operationId": "UserService_UpdateUserGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceUpdateUserGroupBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/user_groups/{id}/access_policies": {
+      "get": {
+        "summary": "3.22 Fetch the Access Policies Assigned to a User Group",
+        "operationId": "UserService_FetchUserGroupAccessPolicies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyAccessPoliciesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identity ID of the user group. Get it from the API,\n /api/v1/developer/user_groups",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      },
+      "put": {
+        "summary": "3.21 Assign Access Policy to User Group",
+        "operationId": "UserService_AssignUserGroupAccessPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUserGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceAssignUserGroupAccessPolicyBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/user_groups/{id}/user/delete": {
+      "post": {
+        "summary": "3.17 Uniassigh User from User Group",
+        "operationId": "UserService_UnassignUserFromUserGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceUnassignUserFromUserGroupBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/user_groups/{id}/users": {
+      "get": {
+        "summary": "3.18 Fetch Users in a User Group",
+        "operationId": "UserService_FetchUsersInUserGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUsersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identify ID of the user group",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      },
+      "post": {
+        "summary": "3.16 Assign User to User Group",
+        "operationId": "UserService_AssignUserToUserGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceAssignUserToUserGroupBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/user_groups/{id}/users/all": {
+      "get": {
+        "summary": "3.19 Fetch All Users in a User Group",
+        "operationId": "UserService_FetchAllUsersInUserGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUsersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identify ID of the user group",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users": {
+      "post": {
+        "summary": "3.2 Create User",
+        "operationId": "UserService_CreateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userCreateUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/users": {
+      "get": {
+        "summary": "3.5 Fetch All Users",
+        "operationId": "UserService_FetchAllUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUsersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "params.expand",
+            "description": "Whether to expand the access_policy field. If true, your app must",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "params.pageNum",
+            "description": "include \"expand[]=access_policy\" in the request URL paramters\n\nCurrent page number in the pagination",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "params.pageSize",
+            "description": "Number of users per page.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/{id}": {
+      "get": {
+        "summary": "3.4 Fetch User",
+        "operationId": "UserService_FetchUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "params.expand",
+            "description": "Whether to expand the access_policy field. If true, your app must include\n \"expand[]=access_policy\" in the request URL paramters",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      },
+      "put": {
+        "summary": "3.3 Update User",
+        "operationId": "UserService_UpdateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceUpdateUserBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/{id}/access_policies": {
+      "get": {
+        "summary": "3.20 Fetch the Access Policies Assigned to a User",
+        "operationId": "UserService_FetchUserAccessPolicies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyAccessPoliciesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identify ID of the user",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "params.onlyUserPolicies",
+            "description": "False: all policies of the group the user belongs to are shown.\n True: only the policies assigned directly to the user are shown.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      },
+      "put": {
+        "summary": "3.6 Assign Access Policy to User",
+        "operationId": "UserService_AssignUserAccessPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceAssignUserAccessPolicyBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/{id}/nfc_cards": {
+      "put": {
+        "summary": "3.7 Assign NFC Card from User",
+        "operationId": "UserService_AssignUserNfcCard",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceAssignUserNfcCardBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/{id}/nfc_cards/delete": {
+      "delete": {
+        "summary": "3.8 Unassign NFC Card from User",
+        "operationId": "UserService_UnassignUserNfcCard",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body.token",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/{id}/pin_codes": {
+      "put": {
+        "summary": "3.9 Assign PIN Code to User",
+        "operationId": "UserService_AssignUserPinCode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceAssignUserPinCodeBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/{id}/unassign-nfc-card": {
+      "delete": {
+        "summary": "3.10 Unassign PIN Code from user",
+        "operationId": "UserService_UnassignUserPinCode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "UserServiceAssignUserAccessPolicyBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userAssignUserAccessPolicyRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userAssignUserAccessPolicyRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userAssignUserAccessPolicyRequestBody"
+        }
+      }
+    },
+    "UserServiceAssignUserGroupAccessPolicyBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userAssignUserGroupAccessPolicyRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userAssignUserGroupAccessPolicyRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userAssignUserGroupAccessPolicyRequestBody"
+        }
+      }
+    },
+    "UserServiceAssignUserNfcCardBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userAssignUserNfcCardRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userAssignUserNfcCardRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userAssignUserNfcCardRequestBody"
+        }
+      }
+    },
+    "UserServiceAssignUserPinCodeBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userAssignUserPinCodeRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userAssignUserPinCodeRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userAssignUserPinCodeRequestBody"
+        }
+      }
+    },
+    "UserServiceAssignUserToUserGroupBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userAssignUserToUserGroupRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userAssignUserToUserGroupRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userAssignUserToUserGroupRequestBody"
+        }
+      }
+    },
+    "UserServiceUnassignUserFromUserGroupBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userUnassignUserFromUserGroupRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userUnassignUserFromUserGroupRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userUnassignUserFromUserGroupRequestBody"
+        }
+      }
+    },
+    "UserServiceUpdateUserBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userUpdateUserRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userUpdateUserRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userUpdateUserRequestBody"
+        }
+      }
+    },
+    "UserServiceUpdateUserGroupBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userUpdateUserGroupRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userUpdateUserGroupRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userUpdateUserGroupRequestBody"
+        }
+      }
+    },
+    "access_policyAccessPoliciesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyAccessPolicy"
+          }
+        }
+      }
+    },
+    "access_policyAccessPolicy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sharedResource"
+          }
+        },
+        "scheduleId": {
+          "type": "string"
+        }
+      }
+    },
+    "googlerpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+        }
+      },
+      "additionalProperties": {},
+      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(\u0026foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\nExample 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\nExample 4: Pack and unpack a message in Go\n\n     foo := \u0026pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := \u0026pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\n\nJSON\n\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": \u003cstring\u003e,\n      \"lastName\": \u003cstring\u003e\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    },
+    "sharedNFC_Card": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "sharedPIN_Code": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "sharedResource": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID of the door group"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name of the door group"
+        },
+        "type": {
+          "type": "string",
+          "title": "Type of the door group"
+        }
+      }
+    },
+    "sharedStatusCodeResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "2.3 Success Code, 2.4 Error Code"
+    },
+    "userAssignUserAccessPolicyRequestBody": {
+      "type": "object",
+      "properties": {
+        "accessPolicyIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "userAssignUserAccessPolicyRequestParams": {
+      "type": "object"
+    },
+    "userAssignUserAccessPolicyRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.6 - PUT - Assign Access Policies to User"
+    },
+    "userAssignUserGroupAccessPolicyRequestBody": {
+      "type": "object",
+      "properties": {
+        "accessPolicyIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Identity ID of the access policy. Get it from the API,\n /api/v1/developer/access_policies"
+        }
+      }
+    },
+    "userAssignUserGroupAccessPolicyRequestParams": {
+      "type": "object"
+    },
+    "userAssignUserGroupAccessPolicyRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identity ID of the user group. Get it from the API,\n /api/v1/developer/user_groups"
+        }
+      },
+      "title": "3.21 - PUT - Assign Access Policy to User Group"
+    },
+    "userAssignUserNfcCardRequestBody": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "title": "token of the nfc card"
+        },
+        "forceAdd": {
+          "type": "boolean",
+          "title": "determine whether to overwrite an NFC card that has"
+        }
+      }
+    },
+    "userAssignUserNfcCardRequestParams": {
+      "type": "object"
+    },
+    "userAssignUserNfcCardRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.7 - PUT - Assign NFC Card to User"
+    },
+    "userAssignUserPinCodeRequestBody": {
+      "type": "object",
+      "properties": {
+        "pinCode": {
+          "type": "string"
+        }
+      }
+    },
+    "userAssignUserPinCodeRequestParams": {
+      "type": "object"
+    },
+    "userAssignUserPinCodeRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.9 - PUT - Assign PIN Code to User"
+    },
+    "userAssignUserToUserGroupRequestBody": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Get it from the API, /api/v1/developer/users\n The api documentation reads as a method for one user ID, but the repeated\n string implies that it may support multiple user IDs at once."
+        }
+      }
+    },
+    "userAssignUserToUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userAssignUserToUserGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Get it from the API, /api/v1/developer/user_groups"
+        }
+      },
+      "title": "3.16 - POST - Assign User to User Group"
+    },
+    "userCreateUserGroupRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userCreateUserGroupRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userCreateUserGroupRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userCreateUserGroupRequestBody"
+        }
+      }
+    },
+    "userCreateUserGroupRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "name of the group"
+        },
+        "upId": {
+          "type": "string",
+          "title": "parent group ID, get from /api/v1/developer/user_groups"
+        }
+      }
+    },
+    "userCreateUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userCreateUserGroupRequestPath": {
+      "type": "object",
+      "title": "3.11 - POST - Create User Group"
+    },
+    "userCreateUserRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userCreateUserRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userCreateUserRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userCreateUserRequestBody"
+        }
+      }
+    },
+    "userCreateUserRequestBody": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "userEmail": {
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "onboardTime": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "userCreateUserRequestParams": {
+      "type": "object"
+    },
+    "userCreateUserRequestPath": {
+      "type": "object",
+      "title": "3.2 - POST - User Registration"
+    },
+    "userDeleteUserGroupRequestBody": {
+      "type": "object"
+    },
+    "userDeleteUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userDeleteUserGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.15 - DELETE - Delete User Group"
+    },
+    "userFetchAllUserGroupsRequestBody": {
+      "type": "object"
+    },
+    "userFetchAllUserGroupsRequestParams": {
+      "type": "object"
+    },
+    "userFetchAllUserGroupsRequestPath": {
+      "type": "object",
+      "title": "3.12 - GET - Fetch All User Groups"
+    },
+    "userFetchAllUsersInUserGroupRequestBody": {
+      "type": "object"
+    },
+    "userFetchAllUsersInUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userFetchAllUsersInUserGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identify ID of the user group"
+        }
+      },
+      "title": "3.19 - GET - Fetch All Users in a User Group, including subgroups"
+    },
+    "userFetchAllUsersRequestBody": {
+      "type": "object"
+    },
+    "userFetchAllUsersRequestParams": {
+      "type": "object",
+      "properties": {
+        "expand": {
+          "type": "boolean",
+          "title": "Whether to expand the access_policy field. If true, your app must"
+        },
+        "pageNum": {
+          "type": "string",
+          "description": "Current page number in the pagination",
+          "title": "include \"expand[]=access_policy\" in the request URL paramters"
+        },
+        "pageSize": {
+          "type": "string",
+          "description": "Number of users per page."
+        }
+      }
+    },
+    "userFetchAllUsersRequestPath": {
+      "type": "object",
+      "title": "3.5 - GET - Fetch All Users"
+    },
+    "userFetchUserAccessPoliciesRequestBody": {
+      "type": "object"
+    },
+    "userFetchUserAccessPoliciesRequestParams": {
+      "type": "object",
+      "properties": {
+        "onlyUserPolicies": {
+          "type": "boolean",
+          "description": "False: all policies of the group the user belongs to are shown.\n True: only the policies assigned directly to the user are shown."
+        }
+      }
+    },
+    "userFetchUserAccessPoliciesRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identify ID of the user"
+        }
+      },
+      "title": "3.20 - GET - Fetch the Access Policies Assigned to a User"
+    },
+    "userFetchUserGroupAccessPoliciesRequestBody": {
+      "type": "object"
+    },
+    "userFetchUserGroupAccessPoliciesRequestParams": {
+      "type": "object"
+    },
+    "userFetchUserGroupAccessPoliciesRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identity ID of the user group. Get it from the API,\n /api/v1/developer/user_groups"
+        }
+      },
+      "title": "3.22 - GET - Fetch the Access Policies Assigned to a User Group"
+    },
+    "userFetchUserGroupRequestBody": {
+      "type": "object"
+    },
+    "userFetchUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userFetchUserGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.13 - GET - Fetch User Group"
+    },
+    "userFetchUserRequestBody": {
+      "type": "object"
+    },
+    "userFetchUserRequestParams": {
+      "type": "object",
+      "properties": {
+        "expand": {
+          "type": "boolean",
+          "title": "Whether to expand the access_policy field. If true, your app must include\n \"expand[]=access_policy\" in the request URL paramters"
+        }
+      }
+    },
+    "userFetchUserRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.4 - GET - Fetch User"
+    },
+    "userFetchUsersInUserGroupRequestBody": {
+      "type": "object"
+    },
+    "userFetchUsersInUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userFetchUsersInUserGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identify ID of the user group"
+        }
+      },
+      "title": "3.18 - GET - Fetch Users in a User Group"
+    },
+    "userStatus": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "PENDING",
+        "DEACTIVATED"
+      ],
+      "default": "ACTIVE"
+    },
+    "userUnassignUserFromUserGroupRequestBody": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Get it from the API, /api/v1/developer/users\n The api documentation reads as a method for one user ID, but the repeated\n string implies that it may support multiple user IDs at once."
+        }
+      }
+    },
+    "userUnassignUserFromUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userUnassignUserFromUserGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identify ID of the user group"
+        }
+      },
+      "title": "3.17 - POST - Unassign User from User Group"
+    },
+    "userUnassignUserNfcCardRequestBody": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "userUnassignUserNfcCardRequestParams": {
+      "type": "object"
+    },
+    "userUnassignUserNfcCardRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.8 - PUT - Unassign NFC Card from User"
+    },
+    "userUnassignUserPinCodeRequestBody": {
+      "type": "object"
+    },
+    "userUpdateUserGroupRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "name of the group"
+        },
+        "upId": {
+          "type": "string",
+          "title": "parent group ID, get from /api/v1/developer/user_groups"
+        }
+      }
+    },
+    "userUpdateUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userUpdateUserGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.14 - PUT - Update User Group"
+    },
+    "userUpdateUserRequestBody": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "userEmail": {
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "onboardTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/userStatus"
+        }
+      }
+    },
+    "userUpdateUserRequestParams": {
+      "type": "object"
+    },
+    "userUpdateUserRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.3 - PUT - Update User"
+    },
+    "userUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "string"
+        },
+        "userEmail": {
+          "type": "string"
+        },
+        "emailStatus": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "onboardTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nfcCards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sharedNFC_Card"
+          }
+        },
+        "pinCode": {
+          "$ref": "#/definitions/sharedPIN_Code"
+        },
+        "accessPolicyIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "accessPolicies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyAccessPolicy"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/userStatus"
+        }
+      }
+    },
+    "userUserGroup": {
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "upId": {
+          "type": "string"
+        },
+        "upIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "userUserGroupResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/userUserGroup"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "userUserGroupsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/userUserGroup"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "userUserResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/userUser"
+        }
+      }
+    },
+    "userUsersResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/userUser"
+          }
+        }
+      }
+    }
+  }
+}

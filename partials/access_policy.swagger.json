@@ -1,0 +1,1273 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "access_policy.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "Access Policy"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/developer/access_policies": {
+      "get": {
+        "summary": "5.6 Fetch All Access Policies",
+        "operationId": "AccessPolicyService_FetchAllAccessPolicies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyAccessPoliciesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "post": {
+        "summary": "5.2 Create Access Policy",
+        "operationId": "AccessPolicyService_CreateAccessPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyAccessPolicyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/access_policyCreateAccessPolicyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      }
+    },
+    "/api/v1/developer/access_policies/holiday_groups": {
+      "get": {
+        "summary": "5.12 Fetch All Holiday Groups",
+        "operationId": "AccessPolicyService_FetchAllHolidayGroups",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyHolidayGroupSummaryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "post": {
+        "summary": "5.8 Create Holiday Group",
+        "operationId": "AccessPolicyService_CreateHolidayGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyHolidayGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/access_policyCreateHolidayGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      }
+    },
+    "/api/v1/developer/access_policies/holiday_groups/{id}": {
+      "get": {
+        "summary": "5.11 Fetch Holiday Group",
+        "operationId": "AccessPolicyService_FetchHolidayGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyHolidayGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identity ID of the holiday group.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "delete": {
+        "summary": "5.10 Delete Holiday Group",
+        "operationId": "AccessPolicyService_DeleteHolidayGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyHolidayGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identity ID of the holiday group.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "put": {
+        "summary": "5.9 Update Holiday Group",
+        "operationId": "AccessPolicyService_UpdateHolidayGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyHolidayGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AccessPolicyServiceUpdateHolidayGroupBody"
+            }
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      }
+    },
+    "/api/v1/developer/access_policies/schedules": {
+      "get": {
+        "summary": "5.17 Fetch All Schedules",
+        "operationId": "AccessPolicyService_FetchAllSchedules",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policySchedulesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "post": {
+        "summary": "5.14 Create Schedule",
+        "operationId": "AccessPolicyService_CreateSchedule",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyScheduleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/access_policyCreateScheduleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      }
+    },
+    "/api/v1/developer/access_policies/schedules/{id}": {
+      "get": {
+        "summary": "5.16 Fetch Schedule",
+        "operationId": "AccessPolicyService_FetchSchedule",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyScheduleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identity ID of the schedule.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "delete": {
+        "summary": "5.18 Delete Schedule",
+        "operationId": "AccessPolicyService_DeleteSchedule",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyScheduleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identity ID of the schedule.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "put": {
+        "summary": "5.15 Update Schedule",
+        "operationId": "AccessPolicyService_UpdateSchedule",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyScheduleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AccessPolicyServiceUpdateScheduleBody"
+            }
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      }
+    },
+    "/api/v1/developer/access_policies/{id}": {
+      "get": {
+        "summary": "5.5 Fetch Access Policy",
+        "operationId": "AccessPolicyService_FetchAccessPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyAccessPolicyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identity ID of the access policy.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "delete": {
+        "summary": "5.4 Delete Access Policy",
+        "operationId": "AccessPolicyService_DeleteAccessPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyAccessPolicyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identity ID of the access policy.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "put": {
+        "summary": "5.3 Update Access Policy",
+        "operationId": "AccessPolicyService_UpdateAccessPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyAccessPolicyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AccessPolicyServiceUpdateAccessPolicyBody"
+            }
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "AccessPolicyServiceUpdateAccessPolicyBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/access_policyUpdateAccessPolicyRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/access_policyUpdateAccessPolicyRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/access_policyUpdateAccessPolicyRequestBody"
+        }
+      }
+    },
+    "AccessPolicyServiceUpdateHolidayGroupBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/access_policyUpdateHolidayGroupRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/access_policyUpdateHolidayGroupRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/access_policyUpdateHolidayGroupRequestBody"
+        }
+      }
+    },
+    "AccessPolicyServiceUpdateScheduleBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/access_policyUpdateScheduleRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/access_policyUpdateScheduleRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/access_policyUpdateScheduleRequestBody"
+        }
+      }
+    },
+    "access_policyAccessPoliciesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyAccessPolicy"
+          }
+        }
+      }
+    },
+    "access_policyAccessPolicy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sharedResource"
+          }
+        },
+        "scheduleId": {
+          "type": "string"
+        }
+      }
+    },
+    "access_policyAccessPolicyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/access_policyAccessPolicy"
+        }
+      }
+    },
+    "access_policyCreateAccessPolicyRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/access_policyCreateAccessPolicyRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/access_policyCreateAccessPolicyRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/access_policyCreateAccessPolicyRequestBody"
+        }
+      }
+    },
+    "access_policyCreateAccessPolicyRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the access policy."
+        },
+        "resource": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sharedResource"
+          },
+          "description": "Used to assign accessible locations to the access policy."
+        },
+        "scheduleId": {
+          "type": "string",
+          "description": "Identity ID of the schedule. Assign additional schedules."
+        }
+      }
+    },
+    "access_policyCreateAccessPolicyRequestParams": {
+      "type": "object"
+    },
+    "access_policyCreateAccessPolicyRequestPath": {
+      "type": "object",
+      "title": "5.2 - POST - Create Access Policy"
+    },
+    "access_policyCreateHolidayGroupRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/access_policyCreateHolidayGroupRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/access_policyCreateHolidayGroupRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/access_policyCreateHolidayGroupRequestBody"
+        }
+      }
+    },
+    "access_policyCreateHolidayGroupRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the holiday group."
+        },
+        "description": {
+          "type": "string",
+          "title": "Description of the holiday group"
+        },
+        "holidays": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyHoliday"
+          },
+          "description": "show a list of the holidays within the holiday group."
+        }
+      }
+    },
+    "access_policyCreateHolidayGroupRequestParams": {
+      "type": "object"
+    },
+    "access_policyCreateHolidayGroupRequestPath": {
+      "type": "object",
+      "title": "5.8 - POST - Create Holiday Group"
+    },
+    "access_policyCreateScheduleRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/access_policyCreateScheduleRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/access_policyCreateScheduleRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/access_policyCreateScheduleRequestBody"
+        }
+      }
+    },
+    "access_policyCreateScheduleRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "weekSchedule": {
+          "$ref": "#/definitions/access_policyWeekSchedule"
+        },
+        "holidayGroupId": {
+          "type": "string"
+        },
+        "holidaySchedule": {
+          "$ref": "#/definitions/access_policyHolidaySchedule"
+        }
+      }
+    },
+    "access_policyCreateScheduleRequestParams": {
+      "type": "object"
+    },
+    "access_policyCreateScheduleRequestPath": {
+      "type": "object",
+      "title": "5.14 - POST - Create Schedule"
+    },
+    "access_policyDaySchedule": {
+      "type": "object",
+      "properties": {
+        "startTime": {
+          "type": "string",
+          "title": "Start time of the access period"
+        },
+        "endTime": {
+          "type": "string",
+          "title": "End time of the access period"
+        }
+      }
+    },
+    "access_policyDeleteAccessPolicyRequestBody": {
+      "type": "object"
+    },
+    "access_policyDeleteAccessPolicyRequestParams": {
+      "type": "object"
+    },
+    "access_policyDeleteAccessPolicyRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the access policy."
+        }
+      },
+      "title": "5.4 - DELETE - Delete Access Policy"
+    },
+    "access_policyDeleteHolidayGroupRequestBody": {
+      "type": "object"
+    },
+    "access_policyDeleteHolidayGroupRequestParams": {
+      "type": "object"
+    },
+    "access_policyDeleteHolidayGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the holiday group."
+        }
+      },
+      "title": "5.10 - DELETE - Delete Holiday Group"
+    },
+    "access_policyDeleteScheduleRequestBody": {
+      "type": "object"
+    },
+    "access_policyDeleteScheduleRequestParams": {
+      "type": "object"
+    },
+    "access_policyDeleteScheduleRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the schedule."
+        }
+      },
+      "title": "5.18 - DELETE - Delete Schedule"
+    },
+    "access_policyFetchAccessPolicyRequestBody": {
+      "type": "object"
+    },
+    "access_policyFetchAccessPolicyRequestParams": {
+      "type": "object"
+    },
+    "access_policyFetchAccessPolicyRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the access policy."
+        }
+      },
+      "title": "5.5 - GET - Fetch Access Policy"
+    },
+    "access_policyFetchAllAccessPoliciesRequestBody": {
+      "type": "object"
+    },
+    "access_policyFetchAllAccessPoliciesRequestParams": {
+      "type": "object"
+    },
+    "access_policyFetchAllAccessPoliciesRequestPath": {
+      "type": "object",
+      "title": "5.6 - GET - Fetch All Access Policies"
+    },
+    "access_policyFetchAllHolidayGroupsRequestBody": {
+      "type": "object"
+    },
+    "access_policyFetchAllHolidayGroupsRequestParams": {
+      "type": "object"
+    },
+    "access_policyFetchAllHolidayGroupsRequestPath": {
+      "type": "object",
+      "title": "5.12 - GET - Fetch All Holiday Groups"
+    },
+    "access_policyFetchAllSchedulesRequestBody": {
+      "type": "object"
+    },
+    "access_policyFetchAllSchedulesRequestParams": {
+      "type": "object"
+    },
+    "access_policyFetchAllSchedulesRequestPath": {
+      "type": "object",
+      "title": "5.17 - GET - Fetch All Schedules"
+    },
+    "access_policyFetchHolidayGroupRequestBody": {
+      "type": "object"
+    },
+    "access_policyFetchHolidayGroupRequestParams": {
+      "type": "object"
+    },
+    "access_policyFetchHolidayGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the holiday group."
+        }
+      },
+      "title": "5.11 - GET - Fetch Holiday Group"
+    },
+    "access_policyFetchScheduleRequestBody": {
+      "type": "object"
+    },
+    "access_policyFetchScheduleRequestParams": {
+      "type": "object"
+    },
+    "access_policyFetchScheduleRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the schedule."
+        }
+      },
+      "title": "5.16 - GET - Fetch Schedule"
+    },
+    "access_policyHoliday": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the holiday."
+        },
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the holiday."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the holiday."
+        },
+        "repeat": {
+          "type": "boolean",
+          "description": "Indicate whether the holiday repeats annually."
+        },
+        "startTime": {
+          "type": "string",
+          "title": "Start time of the holiday, provided in UTC format"
+        },
+        "endTime": {
+          "type": "string",
+          "description": "according to RFC3339.\n\nEnd time of the holiday, provided in UTC format"
+        }
+      }
+    },
+    "access_policyHolidayGroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identity ID of the holiday group"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the holiday group."
+        },
+        "isDefault": {
+          "type": "boolean",
+          "description": "Indicate whether the holiday group is the system default."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the holiday group."
+        },
+        "holidays": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyHoliday"
+          },
+          "description": "Show a list of the holidays within the holiday group."
+        }
+      }
+    },
+    "access_policyHolidayGroupResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/access_policyHolidayGroup"
+        }
+      }
+    },
+    "access_policyHolidayGroupSummary": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identity ID of the holiday group"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the holiday group."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the holiday group."
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total number of holidays."
+        }
+      }
+    },
+    "access_policyHolidayGroupSummaryResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyHolidayGroupSummary"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "access_policyHolidaySchedule": {
+      "type": "object",
+      "properties": {
+        "startTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "access_policySchedule": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Schedule ID"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name of the schedule"
+        },
+        "isDefault": {
+          "type": "boolean",
+          "title": "Whether system default"
+        },
+        "type": {
+          "type": "string",
+          "title": "Type of the schedule (e.g., access)"
+        },
+        "weekly": {
+          "$ref": "#/definitions/access_policyWeekSchedule",
+          "description": "Customizable daily scheduling, or every day if empty."
+        },
+        "holidaySchedule": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyHolidaySchedule"
+          },
+          "description": "Specify the accessible period during holidays."
+        },
+        "holidayGroupId": {
+          "type": "string",
+          "title": "Identity ID of the holiday group"
+        }
+      }
+    },
+    "access_policyScheduleResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/access_policySchedule"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "access_policySchedulesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policySchedule"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "access_policyUpdateAccessPolicyRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the access policy. Omit if it doesn't need to be updated."
+        },
+        "resource": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sharedResource"
+          },
+          "title": "Used to assign accessible locations to the access policy. Omit if it"
+        },
+        "scheduleId": {
+          "type": "string",
+          "description": "doesn't need to be updated.\n\nIdentify ID of the schedule. Assign additional schedules. Omit this"
+        }
+      }
+    },
+    "access_policyUpdateAccessPolicyRequestParams": {
+      "type": "object"
+    },
+    "access_policyUpdateAccessPolicyRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the access policy."
+        }
+      },
+      "title": "5.3 - PUT - Update Access Policy"
+    },
+    "access_policyUpdateHolidayGroupRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the holiday group."
+        },
+        "description": {
+          "type": "string",
+          "title": "Description of the holiday group"
+        },
+        "holidays": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyHoliday"
+          },
+          "description": "show a list of the holidays within the holiday group."
+        }
+      }
+    },
+    "access_policyUpdateHolidayGroupRequestParams": {
+      "type": "object"
+    },
+    "access_policyUpdateHolidayGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the holiday group."
+        }
+      },
+      "title": "5.9 - PUT - Update Holiday Group"
+    },
+    "access_policyUpdateScheduleRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "weekSchedule": {
+          "$ref": "#/definitions/access_policyWeekSchedule"
+        },
+        "holidayGroupId": {
+          "type": "string"
+        },
+        "holidaySchedule": {
+          "$ref": "#/definitions/access_policyHolidaySchedule"
+        }
+      }
+    },
+    "access_policyUpdateScheduleRequestParams": {
+      "type": "object"
+    },
+    "access_policyUpdateScheduleRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the schedule."
+        }
+      },
+      "title": "5.15 - PUT - Update Schedule"
+    },
+    "access_policyWeekSchedule": {
+      "type": "object",
+      "properties": {
+        "sunday": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyDaySchedule"
+          },
+          "title": "Schedule for Sunday"
+        },
+        "monday": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyDaySchedule"
+          },
+          "title": "Schedule for Monday"
+        },
+        "tuesday": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyDaySchedule"
+          },
+          "title": "Schedule for Tuesday"
+        },
+        "wednesday": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyDaySchedule"
+          },
+          "title": "Schedule for Wednesday"
+        },
+        "thursday": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyDaySchedule"
+          },
+          "title": "Schedule for Thursday"
+        },
+        "friday": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyDaySchedule"
+          },
+          "title": "Schedule for Friday"
+        },
+        "saturday": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyDaySchedule"
+          },
+          "title": "Schedule for Saturday"
+        }
+      }
+    },
+    "googlerpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+        }
+      },
+      "additionalProperties": {},
+      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(\u0026foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\nExample 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\nExample 4: Pack and unpack a message in Go\n\n     foo := \u0026pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := \u0026pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\n\nJSON\n\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": \u003cstring\u003e,\n      \"lastName\": \u003cstring\u003e\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    },
+    "sharedResource": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID of the door group"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name of the door group"
+        },
+        "type": {
+          "type": "string",
+          "title": "Type of the door group"
+        }
+      }
+    }
+  }
+}

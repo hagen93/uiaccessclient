@@ -1,0 +1,6331 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "UniFi Access API",
+    "version": "1.0"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/developer/access_policies": {
+      "get": {
+        "summary": "5.6 Fetch All Access Policies",
+        "operationId": "AccessPolicyService_FetchAllAccessPolicies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyAccessPoliciesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "post": {
+        "summary": "5.2 Create Access Policy",
+        "operationId": "AccessPolicyService_CreateAccessPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyAccessPolicyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/access_policyCreateAccessPolicyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      }
+    },
+    "/api/v1/developer/access_policies/holiday_groups": {
+      "get": {
+        "summary": "5.12 Fetch All Holiday Groups",
+        "operationId": "AccessPolicyService_FetchAllHolidayGroups",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyHolidayGroupSummaryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "post": {
+        "summary": "5.8 Create Holiday Group",
+        "operationId": "AccessPolicyService_CreateHolidayGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyHolidayGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/access_policyCreateHolidayGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      }
+    },
+    "/api/v1/developer/access_policies/holiday_groups/{id}": {
+      "get": {
+        "summary": "5.11 Fetch Holiday Group",
+        "operationId": "AccessPolicyService_FetchHolidayGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyHolidayGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identity ID of the holiday group.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "delete": {
+        "summary": "5.10 Delete Holiday Group",
+        "operationId": "AccessPolicyService_DeleteHolidayGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyHolidayGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identity ID of the holiday group.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "put": {
+        "summary": "5.9 Update Holiday Group",
+        "operationId": "AccessPolicyService_UpdateHolidayGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyHolidayGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AccessPolicyServiceUpdateHolidayGroupBody"
+            }
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      }
+    },
+    "/api/v1/developer/access_policies/schedules": {
+      "get": {
+        "summary": "5.17 Fetch All Schedules",
+        "operationId": "AccessPolicyService_FetchAllSchedules",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policySchedulesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "post": {
+        "summary": "5.14 Create Schedule",
+        "operationId": "AccessPolicyService_CreateSchedule",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyScheduleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/access_policyCreateScheduleRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      }
+    },
+    "/api/v1/developer/access_policies/schedules/{id}": {
+      "get": {
+        "summary": "5.16 Fetch Schedule",
+        "operationId": "AccessPolicyService_FetchSchedule",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyScheduleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identity ID of the schedule.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "delete": {
+        "summary": "5.18 Delete Schedule",
+        "operationId": "AccessPolicyService_DeleteSchedule",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyScheduleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identity ID of the schedule.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "put": {
+        "summary": "5.15 Update Schedule",
+        "operationId": "AccessPolicyService_UpdateSchedule",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyScheduleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AccessPolicyServiceUpdateScheduleBody"
+            }
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      }
+    },
+    "/api/v1/developer/access_policies/{id}": {
+      "get": {
+        "summary": "5.5 Fetch Access Policy",
+        "operationId": "AccessPolicyService_FetchAccessPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyAccessPolicyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identity ID of the access policy.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "delete": {
+        "summary": "5.4 Delete Access Policy",
+        "operationId": "AccessPolicyService_DeleteAccessPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyAccessPolicyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identity ID of the access policy.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      },
+      "put": {
+        "summary": "5.3 Update Access Policy",
+        "operationId": "AccessPolicyService_UpdateAccessPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyAccessPolicyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AccessPolicyServiceUpdateAccessPolicyBody"
+            }
+          }
+        ],
+        "tags": [
+          "Access Policy"
+        ]
+      }
+    },
+    "/api/v1/developer/api_server/certificates": {
+      "delete": {
+        "summary": "12.2 Delete HTTPS Certificate",
+        "operationId": "APIServerService_DeleteCertificate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiserverAPIServerResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "APIServerService"
+        ]
+      },
+      "post": {
+        "summary": "12.1 Upload HTTPS Certificate",
+        "operationId": "APIServerService_UploadCertificate",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiserverAPIServerResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiserverUploadCertificateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "APIServerService"
+        ]
+      }
+    },
+    "/api/v1/developer/credentials/nfc_cards/sessions": {
+      "post": {
+        "summary": "6.2 Enroll NFC Card",
+        "operationId": "CredentialService_EnrollNfcCard",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/credentialNfcCardSessionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/credentialEnrollNfcCardRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CredentialService"
+        ]
+      }
+    },
+    "/api/v1/developer/credentials/nfc_cards/sessions/{id}": {
+      "get": {
+        "summary": "6.3 Fetch NFC Card Enrollment Status",
+        "operationId": "CredentialService_FetchNfcCardSessionStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/credentialNfcCardTokenResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "The id of the session",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "CredentialService"
+        ]
+      },
+      "delete": {
+        "summary": "6.4 Remove a Session Created for NFC Card Enrollment",
+        "operationId": "CredentialService_RemoveNfcCardSession",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/credentialNfcCardSessionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "The id of the session.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "CredentialService"
+        ]
+      }
+    },
+    "/api/v1/developer/credentials/nfc_cards/tokens": {
+      "get": {
+        "summary": "6.8 Fetch All NFC Cards",
+        "operationId": "CredentialService_FetchAllNfcCards",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/credentialNfcCardsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "CredentialService"
+        ]
+      }
+    },
+    "/api/v1/developer/credentials/nfc_cards/tokens/{token}": {
+      "get": {
+        "summary": "6.7 Fetch NFC Card",
+        "operationId": "CredentialService_FetchNfcCard",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/credentialNfcCardResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.token",
+            "description": "Token of the NFC card.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "CredentialService"
+        ]
+      },
+      "delete": {
+        "summary": "6.9 Delete NFC Card",
+        "operationId": "CredentialService_DeleteNfcCard",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/credentialNfcCardResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.token",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "CredentialService"
+        ]
+      }
+    },
+    "/api/v1/developer/credentials/pin_codes": {
+      "post": {
+        "summary": "6.1 Generate a PIN Code",
+        "operationId": "CredentialService_GeneratePinCode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/credentialPINCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/credentialGeneratePinCodeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CredentialService"
+        ]
+      }
+    },
+    "/api/v1/developer/devices": {
+      "get": {
+        "summary": "8.1 Fetch Devices",
+        "operationId": "DeviceService_FetchDevices",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/deviceDevicesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "DeviceService"
+        ]
+      }
+    },
+    "/api/v1/developer/door_groups": {
+      "get": {
+        "summary": "7.5 Fetch All Door Groups",
+        "operationId": "SpaceService_FetchAllDoorGroups",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/spaceResourcesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "SpaceService"
+        ]
+      },
+      "post": {
+        "summary": "7.2 Create Door Group",
+        "operationId": "SpaceService_CreateDoorGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/spaceResourceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/spaceCreateDoorGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SpaceService"
+        ]
+      }
+    },
+    "/api/v1/developer/door_groups/topology": {
+      "get": {
+        "summary": "7.1 Fetch Door Group Topology",
+        "operationId": "SpaceService_FetchDoorGroupTopology",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/spaceResourcesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body.type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SpaceService"
+        ]
+      }
+    },
+    "/api/v1/developer/door_groups/{id}": {
+      "get": {
+        "summary": "7.3 Fetch Door Group",
+        "operationId": "SpaceService_FetchDoorGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/spaceResourceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SpaceService"
+        ]
+      },
+      "delete": {
+        "summary": "7.6 Delete Door Group",
+        "operationId": "SpaceService_DeleteDoorGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/spaceResourceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SpaceService"
+        ]
+      },
+      "put": {
+        "summary": "7.4 Update Door Group",
+        "operationId": "SpaceService_UpdateDoorGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/spaceResourceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SpaceServiceUpdateDoorGroupBody"
+            }
+          }
+        ],
+        "tags": [
+          "SpaceService"
+        ]
+      }
+    },
+    "/api/v1/developer/doors": {
+      "get": {
+        "summary": "7.8 Fetch All Doors",
+        "operationId": "SpaceService_FetchAllDoors",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/spaceDoorsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "SpaceService"
+        ]
+      }
+    },
+    "/api/v1/developer/doors/settings/emergency": {
+      "get": {
+        "summary": "7.13 Fetch Door Emergency Status",
+        "operationId": "SpaceService_FetchDoorEmergencyStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/spaceDoorEmergencyStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body.lockdown",
+            "description": "True will keep the door locked",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "body.evacuation",
+            "description": "True will keep the door unlocked.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "SpaceService"
+        ]
+      },
+      "put": {
+        "summary": "7.12 Set Door Emergency Status",
+        "operationId": "SpaceService_SetDoorEmergencyStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/spaceDoorStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/spaceSetDoorEmergencyStatusRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SpaceService"
+        ]
+      }
+    },
+    "/api/v1/developer/doors/{id}": {
+      "get": {
+        "summary": "7.7 Fetch Door",
+        "operationId": "SpaceService_FetchDoor",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/spaceDoorResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SpaceService"
+        ]
+      }
+    },
+    "/api/v1/developer/doors/{id}/lock_rule": {
+      "get": {
+        "summary": "7.11 Fetch Door Locking Rule",
+        "operationId": "SpaceService_FetchDoorLockingRule",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/spaceDoorLockingRuleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body.type",
+            "description": "enum type {schedule,keep_lock,keep_unlock,custom,lock_early} keep_lock is\nused to set the \"keep locked\" state, while keep_unlock is used to set the\n\"keep unlocked\" state. custom is used to customize the unlock time\nduration. schedule indicates that the door is currently in the unlock\nschedule state. The lock_early is used to terminate doors in an unlock\nschedule early.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body.endedTime",
+            "description": "End time of the set rule, ex: 1708672257",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "SpaceService"
+        ]
+      },
+      "put": {
+        "summary": "7.10 Set Temporary Door Locking Rule",
+        "operationId": "SpaceService_SetTemporaryDoorLockingRule",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/spaceDoorStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SpaceServiceSetTemporaryDoorLockingRuleBody"
+            }
+          }
+        ],
+        "tags": [
+          "SpaceService"
+        ]
+      }
+    },
+    "/api/v1/developer/doors/{id}/unlock": {
+      "put": {
+        "summary": "7.9 Remote Door Unlocking",
+        "operationId": "SpaceService_RemoteDoorUnlocking",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/spaceDoorStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SpaceServiceRemoteDoorUnlockingBody"
+            }
+          }
+        ],
+        "tags": [
+          "SpaceService"
+        ]
+      }
+    },
+    "/api/v1/developer/system/logs": {
+      "get": {
+        "summary": "9.2 Fetch System Logs",
+        "operationId": "SystemLogService_FetchSystemLogs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/systemlogFetchSystemLogsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "params.pageNum",
+            "description": "Current page number in the pagination.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "params.pageSize",
+            "description": "Number of logs per page.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body.topic",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body.since",
+            "description": "Fetch different system logs by topic. enum topic\n{critical,door_openings,updates,device_events,admin_activity,visitor}",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "body.until",
+            "description": "Start time for log fetching, ex: 1689304925",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "body.actorId",
+            "description": "End time for log fetching, ex: 1689804925\n\nIdentity ID of the actor (user, visitor, and device), ex:\n 3e1f196e-c97b-4748-aecb-eab5e9c251b2",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SystemLogService"
+        ]
+      }
+    },
+    "/api/v1/developer/system/logs/export": {
+      "post": {
+        "summary": "9.3 Export System Logs",
+        "operationId": "SystemLogService_ExportSystemLogs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/systemlogExportSystemLogsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/systemlogExportSystemLogsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SystemLogService"
+        ]
+      }
+    },
+    "/api/v1/developer/system/logs/resource/{id}": {
+      "get": {
+        "summary": "9.4 Fetch Resources in System Logs",
+        "operationId": "SystemLogService_FetchResourcesInSystemLogs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/systemlogFetchResourcesInSystemLogsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Resource ID is obtained from targets categorized as the\n 'activities_resource' type in system logs. \"target\": [{\"type\":\n \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-\n 2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":\n \"\",\"alternate_name\": \"\"}]",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SystemLogService"
+        ]
+      }
+    },
+    "/api/v1/developer/system/static/{path.path}": {
+      "get": {
+        "summary": "9.5 Fetch Static Resources in System Logs",
+        "operationId": "SystemLogService_FetchStaticResourcesInSystemLogs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/systemlogFetchStaticResourcesInSystemLogsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "path.path",
+            "description": "Resource paths, currently supporting /avatar, /capture, and\n activities_resource.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SystemLogService"
+        ]
+      }
+    },
+    "/api/v1/developer/user_groups/{id}/identity/assignments": {
+      "get": {
+        "summary": "10.6 Fetch the Resources Assigned to User Groups",
+        "operationId": "UnifyIdentityService_FetchUserGroupResources",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/unifyidentityResourcesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UnifyIdentityService"
+        ]
+      },
+      "post": {
+        "summary": "10.5 Assign Resources to User Groups",
+        "operationId": "UnifyIdentityService_AssignUserGroupResources",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/unifyidentityResourcesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UnifyIdentityServiceAssignUserGroupResourcesBody"
+            }
+          }
+        ],
+        "tags": [
+          "UnifyIdentityService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/identity/assignments": {
+      "get": {
+        "summary": "10.2 Fetch Available Resources",
+        "operationId": "UnifyIdentityService_FetchAvailableResources",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/unifyidentityResourcesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "params.resourceType",
+            "description": "Display the type of resources; show all when left blank. enum\nresource_type {ev_station,vpn,wifi} ex: resource_type=ev_station,wifi,vpn",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UnifyIdentityService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/identity/invitations": {
+      "post": {
+        "summary": "10.1 Send Unifi Identity Invitations",
+        "operationId": "UnifyIdentityService_SendUnifiIdentityInvitations",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/unifyidentityInvitationStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/unifyidentitySendUnifiIdentityInvitationsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "UnifyIdentityService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/{id}/identity/assignments": {
+      "get": {
+        "summary": "10.4 Fetch Resources Assigned to Users",
+        "operationId": "UnifyIdentityService_FetchUserResources",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/unifyidentityResourcesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UnifyIdentityService"
+        ]
+      },
+      "post": {
+        "summary": "10.3 Assign Resources to Users",
+        "operationId": "UnifyIdentityService_AssignUserResources",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/unifyidentityResourcesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UnifyIdentityServiceAssignUserResourcesBody"
+            }
+          }
+        ],
+        "tags": [
+          "UnifyIdentityService"
+        ]
+      }
+    },
+    "/api/v1/developer/user_groups": {
+      "get": {
+        "summary": "3.12 Fetch All User Groups",
+        "operationId": "UserService_FetchAllUserGroups",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUserGroupsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "UserService"
+        ]
+      },
+      "post": {
+        "summary": "3.11 Create User Group",
+        "operationId": "UserService_CreateUserGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userCreateUserGroupRequest"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/user_groups/{id}": {
+      "get": {
+        "summary": "3.13 Fetch User Group",
+        "operationId": "UserService_FetchUserGroups",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUserGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      },
+      "delete": {
+        "summary": "3.15 Delete User Group",
+        "operationId": "UserService_DeleteUserGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      },
+      "put": {
+        "summary": "3.14 Update User Group",
+        "operationId": "UserService_UpdateUserGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceUpdateUserGroupBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/user_groups/{id}/access_policies": {
+      "get": {
+        "summary": "3.22 Fetch the Access Policies Assigned to a User Group",
+        "operationId": "UserService_FetchUserGroupAccessPolicies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyAccessPoliciesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identity ID of the user group. Get it from the API,\n /api/v1/developer/user_groups",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      },
+      "put": {
+        "summary": "3.21 Assign Access Policy to User Group",
+        "operationId": "UserService_AssignUserGroupAccessPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUserGroupResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceAssignUserGroupAccessPolicyBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/user_groups/{id}/user/delete": {
+      "post": {
+        "summary": "3.17 Uniassigh User from User Group",
+        "operationId": "UserService_UnassignUserFromUserGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceUnassignUserFromUserGroupBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/user_groups/{id}/users": {
+      "get": {
+        "summary": "3.18 Fetch Users in a User Group",
+        "operationId": "UserService_FetchUsersInUserGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUsersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identify ID of the user group",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      },
+      "post": {
+        "summary": "3.16 Assign User to User Group",
+        "operationId": "UserService_AssignUserToUserGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceAssignUserToUserGroupBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/user_groups/{id}/users/all": {
+      "get": {
+        "summary": "3.19 Fetch All Users in a User Group",
+        "operationId": "UserService_FetchAllUsersInUserGroup",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUsersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identify ID of the user group",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users": {
+      "post": {
+        "summary": "3.2 Create User",
+        "operationId": "UserService_CreateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userCreateUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/users": {
+      "get": {
+        "summary": "3.5 Fetch All Users",
+        "operationId": "UserService_FetchAllUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUsersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "params.expand",
+            "description": "Whether to expand the access_policy field. If true, your app must",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "params.pageNum",
+            "description": "include \"expand[]=access_policy\" in the request URL paramters\n\nCurrent page number in the pagination",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "params.pageSize",
+            "description": "Number of users per page.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/{id}": {
+      "get": {
+        "summary": "3.4 Fetch User",
+        "operationId": "UserService_FetchUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "params.expand",
+            "description": "Whether to expand the access_policy field. If true, your app must include\n \"expand[]=access_policy\" in the request URL paramters",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      },
+      "put": {
+        "summary": "3.3 Update User",
+        "operationId": "UserService_UpdateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceUpdateUserBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/{id}/access_policies": {
+      "get": {
+        "summary": "3.20 Fetch the Access Policies Assigned to a User",
+        "operationId": "UserService_FetchUserAccessPolicies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/access_policyAccessPoliciesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identify ID of the user",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "params.onlyUserPolicies",
+            "description": "False: all policies of the group the user belongs to are shown.\n True: only the policies assigned directly to the user are shown.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      },
+      "put": {
+        "summary": "3.6 Assign Access Policy to User",
+        "operationId": "UserService_AssignUserAccessPolicy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceAssignUserAccessPolicyBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/{id}/nfc_cards": {
+      "put": {
+        "summary": "3.7 Assign NFC Card from User",
+        "operationId": "UserService_AssignUserNfcCard",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceAssignUserNfcCardBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/{id}/nfc_cards/delete": {
+      "delete": {
+        "summary": "3.8 Unassign NFC Card from User",
+        "operationId": "UserService_UnassignUserNfcCard",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body.token",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/{id}/pin_codes": {
+      "put": {
+        "summary": "3.9 Assign PIN Code to User",
+        "operationId": "UserService_AssignUserPinCode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserServiceAssignUserPinCodeBody"
+            }
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/users/{id}/unassign-nfc-card": {
+      "delete": {
+        "summary": "3.10 Unassign PIN Code from user",
+        "operationId": "UserService_UnassignUserPinCode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "UserService"
+        ]
+      }
+    },
+    "/api/v1/developer/visitors": {
+      "get": {
+        "summary": "4.4 Fetch all visitors",
+        "operationId": "VisitorService_FetchAllVisitors",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/visitorVisitorsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "params.status",
+            "description": " - UNKNOWN: Note: This is a placeholder, does not exist on API.\n - UPCOMING: Upcoming visit\n - VISITED: Completed visit\n - VISITING: Currently visiting\n - CANCELLED: Cancelled visit\n - NO_VISIT: No visit occurred\n - ACTIVE: Active visit",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN",
+              "UPCOMING",
+              "VISITED",
+              "VISITING",
+              "CANCELLED",
+              "NO_VISIT",
+              "ACTIVE"
+            ],
+            "default": "UNKNOWN"
+          },
+          {
+            "name": "params.keyword",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "params.pageNum",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "params.pageSize",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "params.expand",
+            "description": "Determine whether to return associated objects,",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "VisitorService"
+        ]
+      },
+      "post": {
+        "summary": "4.2 Create a new visitor",
+        "operationId": "VisitorService_CreateVisitor",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/visitorVisitorResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/visitorCreateVisitorRequest"
+            }
+          }
+        ],
+        "tags": [
+          "VisitorService"
+        ]
+      }
+    },
+    "/api/v1/developer/visitors/{id}": {
+      "get": {
+        "summary": "4.3 Fetch visitor details by ID",
+        "operationId": "VisitorService_FetchVisitor",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/visitorVisitorResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identify ID of the visitor",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VisitorService"
+        ]
+      },
+      "delete": {
+        "summary": "4.6 Delete a visitor by ID",
+        "operationId": "VisitorService_DeleteVisitor",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/visitorVisitorResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VisitorServiceDeleteVisitorBody"
+            }
+          }
+        ],
+        "tags": [
+          "VisitorService"
+        ]
+      },
+      "put": {
+        "summary": "4.5 Update a visitor by ID",
+        "operationId": "VisitorService_UpdateVisitor",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/visitorVisitorResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VisitorServiceUpdateVisitorBody"
+            }
+          }
+        ],
+        "tags": [
+          "VisitorService"
+        ]
+      }
+    },
+    "/api/v1/developer/visitors/{id}/nfc_cards": {
+      "put": {
+        "summary": "4.7 Assign Visitor NFC Card",
+        "operationId": "VisitorService_AssignVisitorNfcCard",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VisitorServiceAssignVisitorNfcCardBody"
+            }
+          }
+        ],
+        "tags": [
+          "VisitorService"
+        ]
+      }
+    },
+    "/api/v1/developer/visitors/{id}/nfc_cards/delete": {
+      "put": {
+        "summary": "4.8 Unassign Visitor NFC Card",
+        "operationId": "VisitorService_UnassignVisitorNfcCard",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VisitorServiceUnassignVisitorNfcCardBody"
+            }
+          }
+        ],
+        "tags": [
+          "VisitorService"
+        ]
+      }
+    },
+    "/api/v1/developer/visitors/{id}/pin_codes": {
+      "delete": {
+        "summary": "4.10 Unassisgn Visitor Pin Code",
+        "operationId": "VisitorService_UnassignVisitorPinCode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path.id",
+            "description": "Identity ID of the visitor.\n Get it from the API, /api/v1/developer/visitors",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VisitorService"
+        ]
+      },
+      "put": {
+        "summary": "4.9 Assign Visitor Pin Code",
+        "operationId": "VisitorService_AssignVisitorPinCode",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/sharedStatusCodeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/VisitorServiceAssignVisitorPinCodeBody"
+            }
+          }
+        ],
+        "tags": [
+          "VisitorService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "AccessPolicyServiceUpdateAccessPolicyBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/access_policyUpdateAccessPolicyRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/access_policyUpdateAccessPolicyRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/access_policyUpdateAccessPolicyRequestBody"
+        }
+      }
+    },
+    "AccessPolicyServiceUpdateHolidayGroupBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/access_policyUpdateHolidayGroupRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/access_policyUpdateHolidayGroupRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/access_policyUpdateHolidayGroupRequestBody"
+        }
+      }
+    },
+    "AccessPolicyServiceUpdateScheduleBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/access_policyUpdateScheduleRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/access_policyUpdateScheduleRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/access_policyUpdateScheduleRequestBody"
+        }
+      }
+    },
+    "access_policyAccessPoliciesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyAccessPolicy"
+          }
+        }
+      }
+    },
+    "access_policyAccessPolicy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sharedResource"
+          }
+        },
+        "scheduleId": {
+          "type": "string"
+        }
+      }
+    },
+    "access_policyAccessPolicyResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/access_policyAccessPolicy"
+        }
+      }
+    },
+    "access_policyCreateAccessPolicyRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/access_policyCreateAccessPolicyRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/access_policyCreateAccessPolicyRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/access_policyCreateAccessPolicyRequestBody"
+        }
+      }
+    },
+    "access_policyCreateAccessPolicyRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the access policy."
+        },
+        "resource": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sharedResource"
+          },
+          "description": "Used to assign accessible locations to the access policy."
+        },
+        "scheduleId": {
+          "type": "string",
+          "description": "Identity ID of the schedule. Assign additional schedules."
+        }
+      }
+    },
+    "access_policyCreateAccessPolicyRequestParams": {
+      "type": "object"
+    },
+    "access_policyCreateAccessPolicyRequestPath": {
+      "type": "object",
+      "title": "5.2 - POST - Create Access Policy"
+    },
+    "access_policyCreateHolidayGroupRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/access_policyCreateHolidayGroupRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/access_policyCreateHolidayGroupRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/access_policyCreateHolidayGroupRequestBody"
+        }
+      }
+    },
+    "access_policyCreateHolidayGroupRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the holiday group."
+        },
+        "description": {
+          "type": "string",
+          "title": "Description of the holiday group"
+        },
+        "holidays": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyHoliday"
+          },
+          "description": "show a list of the holidays within the holiday group."
+        }
+      }
+    },
+    "access_policyCreateHolidayGroupRequestParams": {
+      "type": "object"
+    },
+    "access_policyCreateHolidayGroupRequestPath": {
+      "type": "object",
+      "title": "5.8 - POST - Create Holiday Group"
+    },
+    "access_policyCreateScheduleRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/access_policyCreateScheduleRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/access_policyCreateScheduleRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/access_policyCreateScheduleRequestBody"
+        }
+      }
+    },
+    "access_policyCreateScheduleRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "weekSchedule": {
+          "$ref": "#/definitions/access_policyWeekSchedule"
+        },
+        "holidayGroupId": {
+          "type": "string"
+        },
+        "holidaySchedule": {
+          "$ref": "#/definitions/access_policyHolidaySchedule"
+        }
+      }
+    },
+    "access_policyCreateScheduleRequestParams": {
+      "type": "object"
+    },
+    "access_policyCreateScheduleRequestPath": {
+      "type": "object",
+      "title": "5.14 - POST - Create Schedule"
+    },
+    "access_policyDaySchedule": {
+      "type": "object",
+      "properties": {
+        "startTime": {
+          "type": "string",
+          "title": "Start time of the access period"
+        },
+        "endTime": {
+          "type": "string",
+          "title": "End time of the access period"
+        }
+      }
+    },
+    "access_policyDeleteAccessPolicyRequestBody": {
+      "type": "object"
+    },
+    "access_policyDeleteAccessPolicyRequestParams": {
+      "type": "object"
+    },
+    "access_policyDeleteAccessPolicyRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the access policy."
+        }
+      },
+      "title": "5.4 - DELETE - Delete Access Policy"
+    },
+    "access_policyDeleteHolidayGroupRequestBody": {
+      "type": "object"
+    },
+    "access_policyDeleteHolidayGroupRequestParams": {
+      "type": "object"
+    },
+    "access_policyDeleteHolidayGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the holiday group."
+        }
+      },
+      "title": "5.10 - DELETE - Delete Holiday Group"
+    },
+    "access_policyDeleteScheduleRequestBody": {
+      "type": "object"
+    },
+    "access_policyDeleteScheduleRequestParams": {
+      "type": "object"
+    },
+    "access_policyDeleteScheduleRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the schedule."
+        }
+      },
+      "title": "5.18 - DELETE - Delete Schedule"
+    },
+    "access_policyFetchAccessPolicyRequestBody": {
+      "type": "object"
+    },
+    "access_policyFetchAccessPolicyRequestParams": {
+      "type": "object"
+    },
+    "access_policyFetchAccessPolicyRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the access policy."
+        }
+      },
+      "title": "5.5 - GET - Fetch Access Policy"
+    },
+    "access_policyFetchAllAccessPoliciesRequestBody": {
+      "type": "object"
+    },
+    "access_policyFetchAllAccessPoliciesRequestParams": {
+      "type": "object"
+    },
+    "access_policyFetchAllAccessPoliciesRequestPath": {
+      "type": "object",
+      "title": "5.6 - GET - Fetch All Access Policies"
+    },
+    "access_policyFetchAllHolidayGroupsRequestBody": {
+      "type": "object"
+    },
+    "access_policyFetchAllHolidayGroupsRequestParams": {
+      "type": "object"
+    },
+    "access_policyFetchAllHolidayGroupsRequestPath": {
+      "type": "object",
+      "title": "5.12 - GET - Fetch All Holiday Groups"
+    },
+    "access_policyFetchAllSchedulesRequestBody": {
+      "type": "object"
+    },
+    "access_policyFetchAllSchedulesRequestParams": {
+      "type": "object"
+    },
+    "access_policyFetchAllSchedulesRequestPath": {
+      "type": "object",
+      "title": "5.17 - GET - Fetch All Schedules"
+    },
+    "access_policyFetchHolidayGroupRequestBody": {
+      "type": "object"
+    },
+    "access_policyFetchHolidayGroupRequestParams": {
+      "type": "object"
+    },
+    "access_policyFetchHolidayGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the holiday group."
+        }
+      },
+      "title": "5.11 - GET - Fetch Holiday Group"
+    },
+    "access_policyFetchScheduleRequestBody": {
+      "type": "object"
+    },
+    "access_policyFetchScheduleRequestParams": {
+      "type": "object"
+    },
+    "access_policyFetchScheduleRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the schedule."
+        }
+      },
+      "title": "5.16 - GET - Fetch Schedule"
+    },
+    "access_policyHoliday": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Description of the holiday."
+        },
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the holiday."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the holiday."
+        },
+        "repeat": {
+          "type": "boolean",
+          "description": "Indicate whether the holiday repeats annually."
+        },
+        "startTime": {
+          "type": "string",
+          "title": "Start time of the holiday, provided in UTC format"
+        },
+        "endTime": {
+          "type": "string",
+          "description": "according to RFC3339.\n\nEnd time of the holiday, provided in UTC format"
+        }
+      }
+    },
+    "access_policyHolidayGroup": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identity ID of the holiday group"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the holiday group."
+        },
+        "isDefault": {
+          "type": "boolean",
+          "description": "Indicate whether the holiday group is the system default."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the holiday group."
+        },
+        "holidays": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyHoliday"
+          },
+          "description": "Show a list of the holidays within the holiday group."
+        }
+      }
+    },
+    "access_policyHolidayGroupResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/access_policyHolidayGroup"
+        }
+      }
+    },
+    "access_policyHolidayGroupSummary": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identity ID of the holiday group"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the holiday group."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the holiday group."
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total number of holidays."
+        }
+      }
+    },
+    "access_policyHolidayGroupSummaryResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyHolidayGroupSummary"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "access_policyHolidaySchedule": {
+      "type": "object",
+      "properties": {
+        "startTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "access_policySchedule": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Schedule ID"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name of the schedule"
+        },
+        "isDefault": {
+          "type": "boolean",
+          "title": "Whether system default"
+        },
+        "type": {
+          "type": "string",
+          "title": "Type of the schedule (e.g., access)"
+        },
+        "weekly": {
+          "$ref": "#/definitions/access_policyWeekSchedule",
+          "description": "Customizable daily scheduling, or every day if empty."
+        },
+        "holidaySchedule": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyHolidaySchedule"
+          },
+          "description": "Specify the accessible period during holidays."
+        },
+        "holidayGroupId": {
+          "type": "string",
+          "title": "Identity ID of the holiday group"
+        }
+      }
+    },
+    "access_policyScheduleResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/access_policySchedule"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "access_policySchedulesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policySchedule"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "access_policyUpdateAccessPolicyRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the access policy. Omit if it doesn't need to be updated."
+        },
+        "resource": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sharedResource"
+          },
+          "title": "Used to assign accessible locations to the access policy. Omit if it"
+        },
+        "scheduleId": {
+          "type": "string",
+          "description": "doesn't need to be updated.\n\nIdentify ID of the schedule. Assign additional schedules. Omit this"
+        }
+      }
+    },
+    "access_policyUpdateAccessPolicyRequestParams": {
+      "type": "object"
+    },
+    "access_policyUpdateAccessPolicyRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the access policy."
+        }
+      },
+      "title": "5.3 - PUT - Update Access Policy"
+    },
+    "access_policyUpdateHolidayGroupRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the holiday group."
+        },
+        "description": {
+          "type": "string",
+          "title": "Description of the holiday group"
+        },
+        "holidays": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyHoliday"
+          },
+          "description": "show a list of the holidays within the holiday group."
+        }
+      }
+    },
+    "access_policyUpdateHolidayGroupRequestParams": {
+      "type": "object"
+    },
+    "access_policyUpdateHolidayGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the holiday group."
+        }
+      },
+      "title": "5.9 - PUT - Update Holiday Group"
+    },
+    "access_policyUpdateScheduleRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "weekSchedule": {
+          "$ref": "#/definitions/access_policyWeekSchedule"
+        },
+        "holidayGroupId": {
+          "type": "string"
+        },
+        "holidaySchedule": {
+          "$ref": "#/definitions/access_policyHolidaySchedule"
+        }
+      }
+    },
+    "access_policyUpdateScheduleRequestParams": {
+      "type": "object"
+    },
+    "access_policyUpdateScheduleRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the schedule."
+        }
+      },
+      "title": "5.15 - PUT - Update Schedule"
+    },
+    "access_policyWeekSchedule": {
+      "type": "object",
+      "properties": {
+        "sunday": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyDaySchedule"
+          },
+          "title": "Schedule for Sunday"
+        },
+        "monday": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyDaySchedule"
+          },
+          "title": "Schedule for Monday"
+        },
+        "tuesday": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyDaySchedule"
+          },
+          "title": "Schedule for Tuesday"
+        },
+        "wednesday": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyDaySchedule"
+          },
+          "title": "Schedule for Wednesday"
+        },
+        "thursday": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyDaySchedule"
+          },
+          "title": "Schedule for Thursday"
+        },
+        "friday": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyDaySchedule"
+          },
+          "title": "Schedule for Friday"
+        },
+        "saturday": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyDaySchedule"
+          },
+          "title": "Schedule for Saturday"
+        }
+      }
+    },
+    "googlerpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "description": "A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none \"/\" character. The last segment of the URL's path must represent\nthe fully qualified name of the type (as in\n`path/google.protobuf.Duration`). The name should be in a canonical form\n(e.g., leading \".\" is not accepted).\n\nIn practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme `http`, `https`, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:\n\n* If no scheme is provided, `https` is assumed.\n* An HTTP GET on the URL must yield a [google.protobuf.Type][]\n  value in binary format, or produce an error.\n* Applications are allowed to cache lookup results based on the\n  URL, or have them precompiled into a binary to avoid any\n  lookup. Therefore, binary compatibility needs to be preserved\n  on changes to types. (Use versioned type names to manage\n  breaking changes.)\n\nNote: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.\n\nSchemes other than `http`, `https` (or the empty scheme) might be\nused with implementation specific semantics."
+        }
+      },
+      "additionalProperties": {},
+      "description": "`Any` contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.\n\nProtobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.\n\nExample 1: Pack and unpack a message in C++.\n\n    Foo foo = ...;\n    Any any;\n    any.PackFrom(foo);\n    ...\n    if (any.UnpackTo(&foo)) {\n      ...\n    }\n\nExample 2: Pack and unpack a message in Java.\n\n    Foo foo = ...;\n    Any any = Any.pack(foo);\n    ...\n    if (any.is(Foo.class)) {\n      foo = any.unpack(Foo.class);\n    }\n\nExample 3: Pack and unpack a message in Python.\n\n    foo = Foo(...)\n    any = Any()\n    any.Pack(foo)\n    ...\n    if any.Is(Foo.DESCRIPTOR):\n      any.Unpack(foo)\n      ...\n\nExample 4: Pack and unpack a message in Go\n\n     foo := &pb.Foo{...}\n     any, err := anypb.New(foo)\n     if err != nil {\n       ...\n     }\n     ...\n     foo := &pb.Foo{}\n     if err := any.UnmarshalTo(foo); err != nil {\n       ...\n     }\n\nThe pack methods provided by protobuf library will by default use\n'type.googleapis.com/full.type.name' as the type URL and the unpack\nmethods only use the fully qualified type name after the last '/'\nin the type URL, for example \"foo.bar.com/x/y.z\" will yield type\nname \"y.z\".\n\n\nJSON\n\nThe JSON representation of an `Any` value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field `@type` which contains the type URL. Example:\n\n    package google.profile;\n    message Person {\n      string first_name = 1;\n      string last_name = 2;\n    }\n\n    {\n      \"@type\": \"type.googleapis.com/google.profile.Person\",\n      \"firstName\": <string>,\n      \"lastName\": <string>\n    }\n\nIf the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n`value` which holds the custom JSON in addition to the `@type`\nfield. Example (for message [google.protobuf.Duration][]):\n\n    {\n      \"@type\": \"type.googleapis.com/google.protobuf.Duration\",\n      \"value\": \"1.212s\"\n    }"
+    },
+    "sharedResource": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ID of the door group"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name of the door group"
+        },
+        "type": {
+          "type": "string",
+          "title": "Type of the door group"
+        }
+      }
+    },
+    "apiserverAPIServerResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "title": "Response code, e.g., \"SUCCESS\""
+        },
+        "msg": {
+          "type": "string",
+          "title": "Response message, e.g., \"success\""
+        },
+        "data": {
+          "type": "string",
+          "title": "Additional data, if any"
+        }
+      }
+    },
+    "apiserverDeleteCertificateRequestBody": {
+      "type": "object"
+    },
+    "apiserverDeleteCertificateRequestParams": {
+      "type": "object"
+    },
+    "apiserverDeleteCertificateRequestPath": {
+      "type": "object",
+      "title": "12.2 - DELETE - Delete HTTPS Certificate"
+    },
+    "apiserverUploadCertificateRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/apiserverUploadCertificateRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/apiserverUploadCertificateRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/apiserverUploadCertificateRequestBody"
+        }
+      }
+    },
+    "apiserverUploadCertificateRequestBody": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "format": "byte",
+          "title": "Private Key, ex: server.key"
+        },
+        "cert": {
+          "type": "string",
+          "format": "byte",
+          "title": "Certificate, ex: server.crt"
+        }
+      }
+    },
+    "apiserverUploadCertificateRequestParams": {
+      "type": "object"
+    },
+    "apiserverUploadCertificateRequestPath": {
+      "type": "object",
+      "title": "12.1 - POST - Upload HTTPS Certificate"
+    },
+    "credentialDeleteNfcCardRequestBody": {
+      "type": "object"
+    },
+    "credentialDeleteNfcCardRequestParams": {
+      "type": "object"
+    },
+    "credentialDeleteNfcCardRequestPath": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "credentialEnrollNfcCardRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/credentialEnrollNfcCardRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/credentialEnrollNfcCardRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/credentialEnrollNfcCardRequestBody"
+        }
+      }
+    },
+    "credentialEnrollNfcCardRequestBody": {
+      "type": "object",
+      "properties": {
+        "deviceId": {
+          "type": "string",
+          "title": "Identity ID of the device. Get it from the API,"
+        },
+        "resetUaCard": {
+          "type": "boolean",
+          "description": "Option to reset an NFC card already enrolled at another site.",
+          "title": "/api/v1/developer/devices"
+        }
+      }
+    },
+    "credentialEnrollNfcCardRequestParams": {
+      "type": "object"
+    },
+    "credentialEnrollNfcCardRequestPath": {
+      "type": "object",
+      "title": "6.2 - POST - Enroll NFC Card"
+    },
+    "credentialFetchAllNfcCardsRequestBody": {
+      "type": "object"
+    },
+    "credentialFetchAllNfcCardsRequestParams": {
+      "type": "object"
+    },
+    "credentialFetchAllNfcCardsRequestPath": {
+      "type": "object"
+    },
+    "credentialFetchNfcCardRequestBody": {
+      "type": "object"
+    },
+    "credentialFetchNfcCardRequestParams": {
+      "type": "object"
+    },
+    "credentialFetchNfcCardRequestPath": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "Token of the NFC card."
+        }
+      }
+    },
+    "credentialFetchNfcCardSessionStatusRequestBody": {
+      "type": "object"
+    },
+    "credentialFetchNfcCardSessionStatusRequestParams": {
+      "type": "object"
+    },
+    "credentialFetchNfcCardSessionStatusRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "The id of the session"
+        }
+      },
+      "title": "6.3 - GET - Fetch NFC Card Enrollment Status"
+    },
+    "credentialGeneratePinCodeRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/credentialGeneratePinCodeRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/credentialGeneratePinCodeRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/credentialGeneratePinCodeRequestBody"
+        }
+      }
+    },
+    "credentialGeneratePinCodeRequestBody": {
+      "type": "object"
+    },
+    "credentialGeneratePinCodeRequestParams": {
+      "type": "object"
+    },
+    "credentialGeneratePinCodeRequestPath": {
+      "type": "object",
+      "title": "6.1 - POST - Generate a PIN Code"
+    },
+    "credentialNfcCard": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "displayId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "title": "\"assigned\", \"pending\", \"disabled\", \"deleted\", \"lost\""
+        },
+        "alias": {
+          "type": "string"
+        },
+        "cardType": {
+          "type": "string",
+          "title": "e.g., \"ua_card\""
+        },
+        "userType": {
+          "type": "string",
+          "title": "\"USER\" or \"VISITOR\""
+        },
+        "user": {
+          "$ref": "#/definitions/credentialUser"
+        }
+      }
+    },
+    "credentialNfcCardResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/credentialNfcCard"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "credentialNfcCardSession": {
+      "type": "object",
+      "properties": {
+        "sessionId": {
+          "type": "string"
+        }
+      }
+    },
+    "credentialNfcCardSessionResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/credentialNfcCardSession"
+        }
+      }
+    },
+    "credentialNfcCardToken": {
+      "type": "object",
+      "properties": {
+        "cardId": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "credentialNfcCardTokenResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/credentialNfcCardToken"
+        }
+      }
+    },
+    "credentialNfcCardsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/credentialNfcCard"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "credentialPINCode": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      }
+    },
+    "credentialPINCodeResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/credentialPINCode"
+        }
+      }
+    },
+    "credentialRemoveNfcCardSessionRequestBody": {
+      "type": "object"
+    },
+    "credentialRemoveNfcCardSessionRequestParams": {
+      "type": "object"
+    },
+    "credentialRemoveNfcCardSessionRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The id of the session."
+        }
+      },
+      "title": "6.4 - DELETE - Remove a Session Created for NFC Card Enrollment"
+    },
+    "credentialUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "deviceDevice": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        }
+      }
+    },
+    "deviceDevicesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/deviceDevice"
+          }
+        }
+      }
+    },
+    "deviceFetchDevicesRequestBody": {
+      "type": "object"
+    },
+    "deviceFetchDevicesRequestParams": {
+      "type": "object"
+    },
+    "deviceFetchDevicesRequestPath": {
+      "type": "object",
+      "title": "8.1 - GET - Fetch Devices"
+    },
+    "SpaceServiceRemoteDoorUnlockingBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/spaceRemoteDoorUnlockingRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/spaceRemoteDoorUnlockingRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/spaceRemoteDoorUnlockingRequestBody"
+        }
+      }
+    },
+    "SpaceServiceSetTemporaryDoorLockingRuleBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/spaceSetTemporaryDoorLockingRuleRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/spaceSetTemporaryDoorLockingRuleRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/spaceSetTemporaryDoorLockingRuleRequestBody"
+        }
+      }
+    },
+    "SpaceServiceUpdateDoorGroupBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/spaceUpdateDoorGroupRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/spaceUpdateDoorGroupRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/spaceUpdateDoorGroupRequestBody"
+        }
+      }
+    },
+    "spaceCreateDoorGroupRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/spaceCreateDoorGroupRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/spaceCreateDoorGroupRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/spaceCreateDoorGroupRequestBody"
+        }
+      }
+    },
+    "spaceCreateDoorGroupRequestBody": {
+      "type": "object",
+      "properties": {
+        "groupName": {
+          "type": "string",
+          "title": "Name of the door group. This needs to be globally unique"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/spaceResource"
+          },
+          "title": "Collection of door ID"
+        }
+      }
+    },
+    "spaceCreateDoorGroupRequestParams": {
+      "type": "object"
+    },
+    "spaceCreateDoorGroupRequestPath": {
+      "type": "object",
+      "title": "7.2 - POST - Create Door Group"
+    },
+    "spaceDeleteDoorGroupRequestBody": {
+      "type": "object"
+    },
+    "spaceDeleteDoorGroupRequestParams": {
+      "type": "object"
+    },
+    "spaceDeleteDoorGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "7.6 - DELETE - Delete Door Group"
+    },
+    "spaceDoor": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identity ID of the door group"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name of the door"
+        },
+        "fullName": {
+          "type": "string",
+          "title": "Full name of the door"
+        },
+        "floorId": {
+          "type": "string",
+          "title": "Identity ID of the floor"
+        },
+        "type": {
+          "type": "string",
+          "title": "Type of the door"
+        },
+        "isBindHub": {
+          "type": "string",
+          "title": "Indicate whether the door has bound to a hub device. It can only be"
+        },
+        "doorLockRelayStatus": {
+          "type": "string",
+          "description": "used for remote opening if it's bound.\n\nDoor lock status. enum door_lock_relay_status {lock,unlock}"
+        },
+        "doorPositionStatus": {
+          "type": "string",
+          "title": "DPS: Door position status, including both open and close . A null"
+        }
+      }
+    },
+    "spaceDoorEmergencyStatus": {
+      "type": "object",
+      "properties": {
+        "evacuation": {
+          "type": "boolean"
+        },
+        "lockdown": {
+          "type": "boolean"
+        }
+      }
+    },
+    "spaceDoorEmergencyStatusResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/spaceDoorEmergencyStatus"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "spaceDoorLockingRule": {
+      "type": "object",
+      "properties": {
+        "endedTime": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "spaceDoorLockingRuleResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/spaceDoorLockingRule"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "spaceDoorResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/spaceDoor"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "spaceDoorStatusResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "spaceDoorsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/spaceDoor"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "spaceFetchAllDoorGroupsRequestBody": {
+      "type": "object"
+    },
+    "spaceFetchAllDoorGroupsRequestParams": {
+      "type": "object"
+    },
+    "spaceFetchAllDoorGroupsRequestPath": {
+      "type": "object",
+      "title": "7.5 - GET - Fetch All Door Groups"
+    },
+    "spaceFetchAllDoorsRequestBody": {
+      "type": "object"
+    },
+    "spaceFetchAllDoorsRequestParams": {
+      "type": "object"
+    },
+    "spaceFetchAllDoorsRequestPath": {
+      "type": "object",
+      "title": "7.8 - GET - Fetch All Doors"
+    },
+    "spaceFetchDoorEmergencyStatusRequestBody": {
+      "type": "object",
+      "properties": {
+        "lockdown": {
+          "type": "boolean",
+          "title": "True will keep the door locked"
+        },
+        "evacuation": {
+          "type": "boolean",
+          "description": "True will keep the door unlocked."
+        }
+      }
+    },
+    "spaceFetchDoorEmergencyStatusRequestParams": {
+      "type": "object"
+    },
+    "spaceFetchDoorEmergencyStatusRequestPath": {
+      "type": "object",
+      "title": "7.13 - GET - Fetch Door Emergency Status"
+    },
+    "spaceFetchDoorGroupRequestBody": {
+      "type": "object"
+    },
+    "spaceFetchDoorGroupRequestParams": {
+      "type": "object"
+    },
+    "spaceFetchDoorGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "7.3 - GET - Fetch Door Group"
+    },
+    "spaceFetchDoorGroupTopologyRequestBody": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "resourceTopologies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/spaceResourceTopology"
+          }
+        }
+      }
+    },
+    "spaceFetchDoorGroupTopologyRequestParams": {
+      "type": "object"
+    },
+    "spaceFetchDoorGroupTopologyRequestPath": {
+      "type": "object",
+      "title": "7.1 - GET - Fetch Door Group Topology"
+    },
+    "spaceFetchDoorLockingRuleRequestBody": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "enum type {schedule,keep_lock,keep_unlock,custom,lock_early} keep_lock is\nused to set the \"keep locked\" state, while keep_unlock is used to set the\n\"keep unlocked\" state. custom is used to customize the unlock time\nduration. schedule indicates that the door is currently in the unlock\nschedule state. The lock_early is used to terminate doors in an unlock\nschedule early."
+        },
+        "endedTime": {
+          "type": "integer",
+          "format": "int32",
+          "title": "End time of the set rule, ex: 1708672257"
+        }
+      }
+    },
+    "spaceFetchDoorLockingRuleRequestParams": {
+      "type": "object"
+    },
+    "spaceFetchDoorLockingRuleRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "7.11 - GET - Fetch Door Locking Rule"
+    },
+    "spaceFetchDoorRequestBody": {
+      "type": "object"
+    },
+    "spaceFetchDoorRequestParams": {
+      "type": "object"
+    },
+    "spaceFetchDoorRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "7.7 GET - Fetch Door"
+    },
+    "spaceRemoteDoorUnlockingRequestBody": {
+      "type": "object"
+    },
+    "spaceRemoteDoorUnlockingRequestParams": {
+      "type": "object"
+    },
+    "spaceRemoteDoorUnlockingRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "7.9 - PUT - Remote Door Unlocking"
+    },
+    "spaceResource": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identity ID of the door"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name of the door"
+        },
+        "type": {
+          "type": "string",
+          "title": "Type of the door"
+        },
+        "isBindHub": {
+          "type": "boolean",
+          "description": "Indicate whether the door has bound to a hub device."
+        }
+      }
+    },
+    "spaceResourceResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/spaceResourceTopology"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "spaceResourceTopology": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identity ID of the floor"
+        },
+        "type": {
+          "type": "string",
+          "title": "Type of the floor"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name of the floor"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/spaceResource"
+          },
+          "description": "Contain all the doors on the floor."
+        }
+      }
+    },
+    "spaceResourcesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/spaceResourceTopology"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "spaceSetDoorEmergencyStatusRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/spaceSetDoorEmergencyStatusRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/spaceSetDoorEmergencyStatusRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/spaceSetDoorEmergencyStatusRequestBody"
+        }
+      }
+    },
+    "spaceSetDoorEmergencyStatusRequestBody": {
+      "type": "object",
+      "properties": {
+        "lockdown": {
+          "type": "boolean",
+          "title": "True will keep the door locked"
+        },
+        "evacuation": {
+          "type": "boolean",
+          "description": "True will keep the door unlocked."
+        }
+      }
+    },
+    "spaceSetDoorEmergencyStatusRequestParams": {
+      "type": "object"
+    },
+    "spaceSetDoorEmergencyStatusRequestPath": {
+      "type": "object",
+      "title": "7.12 - PUT - Set Door Emergency Status"
+    },
+    "spaceSetTemporaryDoorLockingRuleRequestBody": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "enum type {keep_lock,keep_unlock,custom,reset,lock_early} keep_lock is used\nto set the door to the \"keep locked\" state, while keep_unlock is used to\nset it to the \"keep unlocked\" state. custom allows customization of the\nunlock time duration, and reset is used to restore the door to its initial\nstate (not applicable to the \"lock_early\" state). NOTE: If the door is\ncurrently on an unlock schedule ( schedule ), you can use lock_early to\nlock the door early."
+        },
+        "interval": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Set the lock time duration (minutes) when type is custom, ex: 10"
+        }
+      }
+    },
+    "spaceSetTemporaryDoorLockingRuleRequestParams": {
+      "type": "object"
+    },
+    "spaceSetTemporaryDoorLockingRuleRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "7.10 - PUT - Set Temporary Door Locking Rule"
+    },
+    "spaceUpdateDoorGroupRequestBody": {
+      "type": "object",
+      "properties": {
+        "groupName": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/spaceResource"
+          }
+        }
+      }
+    },
+    "spaceUpdateDoorGroupRequestParams": {
+      "type": "object"
+    },
+    "spaceUpdateDoorGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "7.4 - PUT - Update Door Group"
+    },
+    "systemlogActor": {
+      "type": "object",
+      "properties": {
+        "alternativeId": {
+          "type": "string"
+        },
+        "alternativeName": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "systemlogAuthentication": {
+      "type": "object",
+      "properties": {
+        "credentialProvider": {
+          "type": "string"
+        },
+        "issuer": {
+          "type": "string"
+        }
+      }
+    },
+    "systemlogEvent": {
+      "type": "object",
+      "properties": {
+        "displayMessage": {
+          "type": "string"
+        },
+        "published": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "result": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "systemlogExportSystemLogsRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/systemlogExportSystemLogsRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/systemlogExportSystemLogsRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/systemlogExportSystemLogsRequestBody"
+        }
+      }
+    },
+    "systemlogExportSystemLogsRequestBody": {
+      "type": "object",
+      "properties": {
+        "topic": {
+          "type": "string"
+        },
+        "since": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Fetch different system logs by topic. enum topic\n{critical,door_openings,updates,device_events,admin_activity,visitor}"
+        },
+        "until": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Start time for log fetching, ex: 1689304925"
+        },
+        "timezone": {
+          "type": "string",
+          "title": "End time for log fetching, ex: 1689804925"
+        },
+        "actorId": {
+          "type": "string",
+          "description": "Identity ID of the actor (user, visitor, and device), ex:\n 3e1f196e-c97b-4748-aecb-eab5e9c251b2",
+          "title": "Timezone for formatting time, ex: America/New_York"
+        }
+      }
+    },
+    "systemlogExportSystemLogsRequestParams": {
+      "type": "object"
+    },
+    "systemlogExportSystemLogsRequestPath": {
+      "type": "object",
+      "title": "9.3 - POST - Export System Logs"
+    },
+    "systemlogExportSystemLogsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "file": {
+          "type": "string",
+          "format": "byte",
+          "title": "Exported csv file"
+        }
+      }
+    },
+    "systemlogFetchResourcesInSystemLogsRequestBody": {
+      "type": "object"
+    },
+    "systemlogFetchResourcesInSystemLogsRequestParams": {
+      "type": "object"
+    },
+    "systemlogFetchResourcesInSystemLogsRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Resource ID is obtained from targets categorized as the\n 'activities_resource' type in system logs. \"target\": [{\"type\":\n \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-\n 2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":\n \"\",\"alternate_name\": \"\"}]"
+        }
+      },
+      "title": "9.4 - GET - Fetch Resources in System Logs"
+    },
+    "systemlogFetchResourcesInSystemLogsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/systemlogResourcesInSystemLog"
+        }
+      }
+    },
+    "systemlogFetchStaticResourcesInSystemLogsRequestBody": {
+      "type": "object"
+    },
+    "systemlogFetchStaticResourcesInSystemLogsRequestParams": {
+      "type": "object"
+    },
+    "systemlogFetchStaticResourcesInSystemLogsRequestPath": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Resource paths, currently supporting /avatar, /capture, and\n activities_resource."
+        }
+      },
+      "title": "9.5 - GET - Fetch Static Resources in System Logs"
+    },
+    "systemlogFetchStaticResourcesInSystemLogsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "type": "string",
+          "title": "I assume this is an object, but not documented in API"
+        }
+      }
+    },
+    "systemlogFetchSystemLogsRequestBody": {
+      "type": "object",
+      "properties": {
+        "topic": {
+          "type": "string"
+        },
+        "since": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Fetch different system logs by topic. enum topic\n{critical,door_openings,updates,device_events,admin_activity,visitor}"
+        },
+        "until": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Start time for log fetching, ex: 1689304925"
+        },
+        "actorId": {
+          "type": "string",
+          "description": "Identity ID of the actor (user, visitor, and device), ex:\n 3e1f196e-c97b-4748-aecb-eab5e9c251b2",
+          "title": "End time for log fetching, ex: 1689804925"
+        }
+      }
+    },
+    "systemlogFetchSystemLogsRequestParams": {
+      "type": "object",
+      "properties": {
+        "pageNum": {
+          "type": "string",
+          "description": "Current page number in the pagination."
+        },
+        "pageSize": {
+          "type": "string",
+          "description": "Number of logs per page."
+        }
+      }
+    },
+    "systemlogFetchSystemLogsRequestPath": {
+      "type": "object",
+      "title": "9.2 - GET - Fetch System Logs"
+    },
+    "systemlogFetchSystemLogsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/systemlogSystemLogs"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "systemlogResourcesInSystemLog": {
+      "type": "object",
+      "properties": {
+        "videoRecord": {
+          "type": "string"
+        },
+        "videoRecordThumbnail": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "systemlogSystemLog": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "string"
+        },
+        "Id": {
+          "type": "string"
+        },
+        "Source": {
+          "$ref": "#/definitions/systemlogSystemLogSource"
+        },
+        "tag": {
+          "type": "string"
+        }
+      }
+    },
+    "systemlogSystemLogSource": {
+      "type": "object",
+      "properties": {
+        "actor": {
+          "$ref": "#/definitions/systemlogActor"
+        },
+        "event": {
+          "$ref": "#/definitions/systemlogEvent"
+        },
+        "authentication": {
+          "$ref": "#/definitions/systemlogAuthentication"
+        },
+        "target": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/systemlogTarget"
+          }
+        }
+      }
+    },
+    "systemlogSystemLogs": {
+      "type": "object",
+      "properties": {
+        "hits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/systemlogSystemLog"
+          }
+        }
+      }
+    },
+    "systemlogTarget": {
+      "type": "object",
+      "properties": {
+        "alternativeId": {
+          "type": "string"
+        },
+        "alternativeName": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "UnifyIdentityServiceAssignUserGroupResourcesBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/unifyidentityAssignUserGroupResourcesRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/unifyidentityAssignUserGroupResourcesRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/unifyidentityAssignUserGroupResourcesRequestBody"
+        }
+      }
+    },
+    "UnifyIdentityServiceAssignUserResourcesBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/unifyidentityAssignUserResourcesRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/unifyidentityAssignUserResourcesRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/unifyidentityAssignUserResourcesRequestBody"
+        }
+      }
+    },
+    "unifyidentityAssignUserGroupResourcesRequestBody": {
+      "type": "object",
+      "properties": {
+        "resourceType": {
+          "type": "string"
+        },
+        "resourceIds": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/unifyidentityResourceId"
+          }
+        }
+      }
+    },
+    "unifyidentityAssignUserGroupResourcesRequestParams": {
+      "type": "object"
+    },
+    "unifyidentityAssignUserGroupResourcesRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "10.5 - POST - Assign Resources to User Groups"
+    },
+    "unifyidentityAssignUserResourcesRequestBody": {
+      "type": "object",
+      "properties": {
+        "resourceType": {
+          "type": "string",
+          "title": "enum resource_type {ev_station,vpn,wifi}"
+        },
+        "resourceIds": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/unifyidentityResourceId"
+          },
+          "description": "Identity ID of the resources."
+        }
+      }
+    },
+    "unifyidentityAssignUserResourcesRequestParams": {
+      "type": "object"
+    },
+    "unifyidentityAssignUserResourcesRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identity ID of the user."
+        }
+      },
+      "title": "10.3 - POST - Assign Resources to Users"
+    },
+    "unifyidentityData": {
+      "type": "object",
+      "properties": {
+        "resources": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/unifyidentityResourceList"
+          }
+        }
+      }
+    },
+    "unifyidentityFetchAvailableResourcesRequestBody": {
+      "type": "object"
+    },
+    "unifyidentityFetchAvailableResourcesRequestParams": {
+      "type": "object",
+      "properties": {
+        "resourceType": {
+          "type": "string",
+          "title": "Display the type of resources; show all when left blank. enum\nresource_type {ev_station,vpn,wifi} ex: resource_type=ev_station,wifi,vpn"
+        }
+      }
+    },
+    "unifyidentityFetchAvailableResourcesRequestPath": {
+      "type": "object",
+      "title": "10.2 - GET - Fetch Available Resources"
+    },
+    "unifyidentityFetchUserGroupResourcesRequestBody": {
+      "type": "object"
+    },
+    "unifyidentityFetchUserGroupResourcesRequestParams": {
+      "type": "object"
+    },
+    "unifyidentityFetchUserGroupResourcesRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "unifyidentityFetchUserResourcesRequestBody": {
+      "type": "object"
+    },
+    "unifyidentityFetchUserResourcesRequestParams": {
+      "type": "object"
+    },
+    "unifyidentityFetchUserResourcesRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "10.4 - GET - Fetch Resources Assigned to Users"
+    },
+    "unifyidentityInvitation": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "unifyidentityInvitationStatus": {
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "string"
+        },
+        "errorMsg": {
+          "type": "string"
+        },
+        "userEmail": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "unifyidentityInvitationStatusResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/unifyidentityInvitationStatus"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "unifyidentityResource": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "deleted": {
+          "type": "boolean"
+        },
+        "metadata": {
+          "type": "string"
+        }
+      }
+    },
+    "unifyidentityResourceId": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "unifyidentityResourceList": {
+      "type": "object",
+      "properties": {
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/unifyidentityResource"
+          }
+        }
+      }
+    },
+    "unifyidentityResourcesResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/unifyidentityData"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "unifyidentitySendUnifiIdentityInvitationsRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/unifyidentitySendUnifiIdentityInvitationsRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/unifyidentitySendUnifiIdentityInvitationsRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/unifyidentitySendUnifiIdentityInvitationsRequestBody"
+        }
+      }
+    },
+    "unifyidentitySendUnifiIdentityInvitationsRequestBody": {
+      "type": "object",
+      "properties": {
+        "invitations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/unifyidentityInvitation"
+          }
+        }
+      }
+    },
+    "unifyidentitySendUnifiIdentityInvitationsRequestParams": {
+      "type": "object"
+    },
+    "unifyidentitySendUnifiIdentityInvitationsRequestPath": {
+      "type": "object",
+      "title": "10.1 - POST - Send Unifi Identity Invitations"
+    },
+    "UserServiceAssignUserAccessPolicyBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userAssignUserAccessPolicyRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userAssignUserAccessPolicyRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userAssignUserAccessPolicyRequestBody"
+        }
+      }
+    },
+    "UserServiceAssignUserGroupAccessPolicyBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userAssignUserGroupAccessPolicyRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userAssignUserGroupAccessPolicyRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userAssignUserGroupAccessPolicyRequestBody"
+        }
+      }
+    },
+    "UserServiceAssignUserNfcCardBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userAssignUserNfcCardRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userAssignUserNfcCardRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userAssignUserNfcCardRequestBody"
+        }
+      }
+    },
+    "UserServiceAssignUserPinCodeBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userAssignUserPinCodeRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userAssignUserPinCodeRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userAssignUserPinCodeRequestBody"
+        }
+      }
+    },
+    "UserServiceAssignUserToUserGroupBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userAssignUserToUserGroupRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userAssignUserToUserGroupRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userAssignUserToUserGroupRequestBody"
+        }
+      }
+    },
+    "UserServiceUnassignUserFromUserGroupBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userUnassignUserFromUserGroupRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userUnassignUserFromUserGroupRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userUnassignUserFromUserGroupRequestBody"
+        }
+      }
+    },
+    "UserServiceUpdateUserBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userUpdateUserRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userUpdateUserRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userUpdateUserRequestBody"
+        }
+      }
+    },
+    "UserServiceUpdateUserGroupBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userUpdateUserGroupRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userUpdateUserGroupRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userUpdateUserGroupRequestBody"
+        }
+      }
+    },
+    "sharedNFC_Card": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "sharedPIN_Code": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "sharedStatusCodeResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        }
+      },
+      "title": "2.3 Success Code, 2.4 Error Code"
+    },
+    "userAssignUserAccessPolicyRequestBody": {
+      "type": "object",
+      "properties": {
+        "accessPolicyIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "userAssignUserAccessPolicyRequestParams": {
+      "type": "object"
+    },
+    "userAssignUserAccessPolicyRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.6 - PUT - Assign Access Policies to User"
+    },
+    "userAssignUserGroupAccessPolicyRequestBody": {
+      "type": "object",
+      "properties": {
+        "accessPolicyIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Identity ID of the access policy. Get it from the API,\n /api/v1/developer/access_policies"
+        }
+      }
+    },
+    "userAssignUserGroupAccessPolicyRequestParams": {
+      "type": "object"
+    },
+    "userAssignUserGroupAccessPolicyRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identity ID of the user group. Get it from the API,\n /api/v1/developer/user_groups"
+        }
+      },
+      "title": "3.21 - PUT - Assign Access Policy to User Group"
+    },
+    "userAssignUserNfcCardRequestBody": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "title": "token of the nfc card"
+        },
+        "forceAdd": {
+          "type": "boolean",
+          "title": "determine whether to overwrite an NFC card that has"
+        }
+      }
+    },
+    "userAssignUserNfcCardRequestParams": {
+      "type": "object"
+    },
+    "userAssignUserNfcCardRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.7 - PUT - Assign NFC Card to User"
+    },
+    "userAssignUserPinCodeRequestBody": {
+      "type": "object",
+      "properties": {
+        "pinCode": {
+          "type": "string"
+        }
+      }
+    },
+    "userAssignUserPinCodeRequestParams": {
+      "type": "object"
+    },
+    "userAssignUserPinCodeRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.9 - PUT - Assign PIN Code to User"
+    },
+    "userAssignUserToUserGroupRequestBody": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Get it from the API, /api/v1/developer/users\n The api documentation reads as a method for one user ID, but the repeated\n string implies that it may support multiple user IDs at once."
+        }
+      }
+    },
+    "userAssignUserToUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userAssignUserToUserGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Get it from the API, /api/v1/developer/user_groups"
+        }
+      },
+      "title": "3.16 - POST - Assign User to User Group"
+    },
+    "userCreateUserGroupRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userCreateUserGroupRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userCreateUserGroupRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userCreateUserGroupRequestBody"
+        }
+      }
+    },
+    "userCreateUserGroupRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "name of the group"
+        },
+        "upId": {
+          "type": "string",
+          "title": "parent group ID, get from /api/v1/developer/user_groups"
+        }
+      }
+    },
+    "userCreateUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userCreateUserGroupRequestPath": {
+      "type": "object",
+      "title": "3.11 - POST - Create User Group"
+    },
+    "userCreateUserRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/userCreateUserRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/userCreateUserRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/userCreateUserRequestBody"
+        }
+      }
+    },
+    "userCreateUserRequestBody": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "userEmail": {
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "onboardTime": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "userCreateUserRequestParams": {
+      "type": "object"
+    },
+    "userCreateUserRequestPath": {
+      "type": "object",
+      "title": "3.2 - POST - User Registration"
+    },
+    "userDeleteUserGroupRequestBody": {
+      "type": "object"
+    },
+    "userDeleteUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userDeleteUserGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.15 - DELETE - Delete User Group"
+    },
+    "userFetchAllUserGroupsRequestBody": {
+      "type": "object"
+    },
+    "userFetchAllUserGroupsRequestParams": {
+      "type": "object"
+    },
+    "userFetchAllUserGroupsRequestPath": {
+      "type": "object",
+      "title": "3.12 - GET - Fetch All User Groups"
+    },
+    "userFetchAllUsersInUserGroupRequestBody": {
+      "type": "object"
+    },
+    "userFetchAllUsersInUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userFetchAllUsersInUserGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identify ID of the user group"
+        }
+      },
+      "title": "3.19 - GET - Fetch All Users in a User Group, including subgroups"
+    },
+    "userFetchAllUsersRequestBody": {
+      "type": "object"
+    },
+    "userFetchAllUsersRequestParams": {
+      "type": "object",
+      "properties": {
+        "expand": {
+          "type": "boolean",
+          "title": "Whether to expand the access_policy field. If true, your app must"
+        },
+        "pageNum": {
+          "type": "string",
+          "description": "Current page number in the pagination",
+          "title": "include \"expand[]=access_policy\" in the request URL paramters"
+        },
+        "pageSize": {
+          "type": "string",
+          "description": "Number of users per page."
+        }
+      }
+    },
+    "userFetchAllUsersRequestPath": {
+      "type": "object",
+      "title": "3.5 - GET - Fetch All Users"
+    },
+    "userFetchUserAccessPoliciesRequestBody": {
+      "type": "object"
+    },
+    "userFetchUserAccessPoliciesRequestParams": {
+      "type": "object",
+      "properties": {
+        "onlyUserPolicies": {
+          "type": "boolean",
+          "description": "False: all policies of the group the user belongs to are shown.\n True: only the policies assigned directly to the user are shown."
+        }
+      }
+    },
+    "userFetchUserAccessPoliciesRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identify ID of the user"
+        }
+      },
+      "title": "3.20 - GET - Fetch the Access Policies Assigned to a User"
+    },
+    "userFetchUserGroupAccessPoliciesRequestBody": {
+      "type": "object"
+    },
+    "userFetchUserGroupAccessPoliciesRequestParams": {
+      "type": "object"
+    },
+    "userFetchUserGroupAccessPoliciesRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identity ID of the user group. Get it from the API,\n /api/v1/developer/user_groups"
+        }
+      },
+      "title": "3.22 - GET - Fetch the Access Policies Assigned to a User Group"
+    },
+    "userFetchUserGroupRequestBody": {
+      "type": "object"
+    },
+    "userFetchUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userFetchUserGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.13 - GET - Fetch User Group"
+    },
+    "userFetchUserRequestBody": {
+      "type": "object"
+    },
+    "userFetchUserRequestParams": {
+      "type": "object",
+      "properties": {
+        "expand": {
+          "type": "boolean",
+          "title": "Whether to expand the access_policy field. If true, your app must include\n \"expand[]=access_policy\" in the request URL paramters"
+        }
+      }
+    },
+    "userFetchUserRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.4 - GET - Fetch User"
+    },
+    "userFetchUsersInUserGroupRequestBody": {
+      "type": "object"
+    },
+    "userFetchUsersInUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userFetchUsersInUserGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identify ID of the user group"
+        }
+      },
+      "title": "3.18 - GET - Fetch Users in a User Group"
+    },
+    "userStatus": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "PENDING",
+        "DEACTIVATED"
+      ],
+      "default": "ACTIVE"
+    },
+    "userUnassignUserFromUserGroupRequestBody": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Get it from the API, /api/v1/developer/users\n The api documentation reads as a method for one user ID, but the repeated\n string implies that it may support multiple user IDs at once."
+        }
+      }
+    },
+    "userUnassignUserFromUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userUnassignUserFromUserGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identify ID of the user group"
+        }
+      },
+      "title": "3.17 - POST - Unassign User from User Group"
+    },
+    "userUnassignUserNfcCardRequestBody": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "userUnassignUserNfcCardRequestParams": {
+      "type": "object"
+    },
+    "userUnassignUserNfcCardRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.8 - PUT - Unassign NFC Card from User"
+    },
+    "userUnassignUserPinCodeRequestBody": {
+      "type": "object"
+    },
+    "userUpdateUserGroupRequestBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "name of the group"
+        },
+        "upId": {
+          "type": "string",
+          "title": "parent group ID, get from /api/v1/developer/user_groups"
+        }
+      }
+    },
+    "userUpdateUserGroupRequestParams": {
+      "type": "object"
+    },
+    "userUpdateUserGroupRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.14 - PUT - Update User Group"
+    },
+    "userUpdateUserRequestBody": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "userEmail": {
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "onboardTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/userStatus"
+        }
+      }
+    },
+    "userUpdateUserRequestParams": {
+      "type": "object"
+    },
+    "userUpdateUserRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "3.3 - PUT - Update User"
+    },
+    "userUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "string"
+        },
+        "userEmail": {
+          "type": "string"
+        },
+        "emailStatus": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "employeeNumber": {
+          "type": "string"
+        },
+        "onboardTime": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nfcCards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sharedNFC_Card"
+          }
+        },
+        "pinCode": {
+          "$ref": "#/definitions/sharedPIN_Code"
+        },
+        "accessPolicyIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "accessPolicies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/access_policyAccessPolicy"
+          }
+        },
+        "status": {
+          "$ref": "#/definitions/userStatus"
+        }
+      }
+    },
+    "userUserGroup": {
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "upId": {
+          "type": "string"
+        },
+        "upIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "userUserGroupResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/userUserGroup"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "userUserGroupsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/userUserGroup"
+          }
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "userUserResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/userUser"
+        }
+      }
+    },
+    "userUsersResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/userUser"
+          }
+        }
+      }
+    },
+    "VisitorServiceAssignVisitorNfcCardBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/visitorAssignVisitorNfcCardRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/visitorAssignVisitorNfcCardRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/visitorAssignVisitorNfcCardRequestBody"
+        }
+      }
+    },
+    "VisitorServiceAssignVisitorPinCodeBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/visitorAssignVisitorPinCodeRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/visitorAssignVisitorPinCodeRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/visitorAssignVisitorPinCodeRequestBody"
+        }
+      }
+    },
+    "VisitorServiceDeleteVisitorBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/visitorDeleteVisitorRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/visitorDeleteVisitorRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/visitorDeleteVisitorRequestBody"
+        }
+      }
+    },
+    "VisitorServiceUnassignVisitorNfcCardBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/visitorUnassignVisitorNfcCardRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/visitorUnassignVisitorNfcCardRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/visitorUnassignVisitorNfcCardRequestBody"
+        }
+      }
+    },
+    "VisitorServiceUpdateVisitorBody": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/visitorUpdateVisitorRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/visitorUpdateVisitorRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/visitorUpdateVisitorRequestBody"
+        }
+      }
+    },
+    "visitorAssignVisitorNfcCardRequestBody": {
+      "type": "object"
+    },
+    "visitorAssignVisitorNfcCardRequestParams": {
+      "type": "object"
+    },
+    "visitorAssignVisitorNfcCardRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identity ID of the visitor.\n Get it from the API, /api/v1/developer/visitors"
+        }
+      },
+      "title": "4.7 - PUT - Assign NFC Card to Visitor"
+    },
+    "visitorAssignVisitorPinCodeRequestBody": {
+      "type": "object",
+      "properties": {
+        "pinCode": {
+          "type": "string",
+          "title": "Generate a PIN code for the visitor to unlock doors.\n Get it from the API, /api/v1/developer/pin_codes"
+        }
+      }
+    },
+    "visitorAssignVisitorPinCodeRequestParams": {
+      "type": "object"
+    },
+    "visitorAssignVisitorPinCodeRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identity ID of the visitor.\n Get it from the API, /api/v1/developer/visitors"
+        }
+      },
+      "title": "4.9 - PUT - Assign PIN Code to Visitor"
+    },
+    "visitorCreateVisitorRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "$ref": "#/definitions/visitorCreateVisitorRequestPath"
+        },
+        "params": {
+          "$ref": "#/definitions/visitorCreateVisitorRequestParams"
+        },
+        "body": {
+          "$ref": "#/definitions/visitorCreateVisitorRequestBody"
+        }
+      }
+    },
+    "visitorCreateVisitorRequestBody": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "title": "First name of the visitors"
+        },
+        "lastName": {
+          "type": "string",
+          "title": "Last name of the visitor"
+        },
+        "remarks": {
+          "type": "string",
+          "title": "Remarks about the visitor"
+        },
+        "mobilePhone": {
+          "type": "string",
+          "title": "Mobile phone number of the visitor"
+        },
+        "email": {
+          "type": "string",
+          "title": "Email address of the visitor"
+        },
+        "visitorCompany": {
+          "type": "string",
+          "title": "Company name of the visitor"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "int64",
+          "title": "Start time of the visit, ex: 1688546460"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "int64",
+          "title": "End time of the visit, ex: 1688572799"
+        },
+        "visitReason": {
+          "type": "string",
+          "description": "Visit reason, see VisitReason enum."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sharedResource"
+          }
+        },
+        "weekSchedule": {
+          "$ref": "#/definitions/access_policyWeekSchedule",
+          "description": "Assign available locations to the visitor.\n\nThe customizable scheduling strategy for each day from Sunday to Saturday.\n If not specified, it means access is allowed every day"
+        }
+      }
+    },
+    "visitorCreateVisitorRequestParams": {
+      "type": "object"
+    },
+    "visitorCreateVisitorRequestPath": {
+      "type": "object",
+      "title": "4.2 - POST - Create Visitor"
+    },
+    "visitorDeleteVisitorRequestBody": {
+      "type": "object"
+    },
+    "visitorDeleteVisitorRequestParams": {
+      "type": "object",
+      "properties": {
+        "isForce": {
+          "type": "boolean",
+          "description": "If is_force is passed, physicall delete this visitor; otherwise, update to\n canceled status."
+        }
+      }
+    },
+    "visitorDeleteVisitorRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "4.6 - DELETE - Delete Visitor"
+    },
+    "visitorFetchAllVisitorsRequestBody": {
+      "type": "object"
+    },
+    "visitorFetchAllVisitorsRequestParams": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/visitorStatus"
+        },
+        "keyword": {
+          "type": "string"
+        },
+        "pageNum": {
+          "type": "string"
+        },
+        "pageSize": {
+          "type": "string"
+        },
+        "expand": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Determine whether to return associated objects,"
+        }
+      }
+    },
+    "visitorFetchAllVisitorsRequestPath": {
+      "type": "object",
+      "title": "4.4 - GET - Fetch All Visitors"
+    },
+    "visitorFetchVisitorRequestBody": {
+      "type": "object"
+    },
+    "visitorFetchVisitorRequestParams": {
+      "type": "object"
+    },
+    "visitorFetchVisitorRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identify ID of the visitor"
+        }
+      },
+      "title": "4.3 - GET - Fetch Visitor"
+    },
+    "visitorStatus": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "UPCOMING",
+        "VISITED",
+        "VISITING",
+        "CANCELLED",
+        "NO_VISIT",
+        "ACTIVE"
+      ],
+      "default": "UNKNOWN",
+      "title": "- UNKNOWN: Note: This is a placeholder, does not exist on API.\n - UPCOMING: Upcoming visit\n - VISITED: Completed visit\n - VISITING: Currently visiting\n - CANCELLED: Cancelled visit\n - NO_VISIT: No visit occurred\n - ACTIVE: Active visit"
+    },
+    "visitorUnassignVisitorNfcCardRequestBody": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "Token of the NFC Card."
+        }
+      }
+    },
+    "visitorUnassignVisitorNfcCardRequestParams": {
+      "type": "object"
+    },
+    "visitorUnassignVisitorNfcCardRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identity ID of the visitor.\n Get it from the API, /api/v1/developer/visitors"
+        }
+      },
+      "title": "4.8 - PUT - Unassign NFC Card from Visitor"
+    },
+    "visitorUnassignVisitorPinCodeRequestBody": {
+      "type": "object"
+    },
+    "visitorUnassignVisitorPinCodeRequestParams": {
+      "type": "object"
+    },
+    "visitorUnassignVisitorPinCodeRequestPath": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Identity ID of the visitor.\n Get it from the API, /api/v1/developer/visitors"
+        }
+      },
+      "title": "4.10 - DELETE - Unassign PIN Code from Visitor"
+    },
+    "visitorUpdateVisitorRequestBody": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "First name of the visitor."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Last name of the visitor."
+        },
+        "remarks": {
+          "type": "string",
+          "description": "Remarks about the visitor."
+        },
+        "mobilePhone": {
+          "type": "string",
+          "description": "Mobile phone number of the visitor."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the visitor."
+        },
+        "visitorCompany": {
+          "type": "string",
+          "description": "Company name of the visitor."
+        },
+        "startTime": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Start time of the visit."
+        },
+        "endTime": {
+          "type": "integer",
+          "format": "int32",
+          "title": "End time of the visit,"
+        },
+        "visitReason": {
+          "type": "string",
+          "description": "Visit reason, see VisitReason enum."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sharedResource"
+          }
+        },
+        "weekSchedule": {
+          "$ref": "#/definitions/access_policyWeekSchedule"
+        }
+      }
+    },
+    "visitorUpdateVisitorRequestParams": {
+      "type": "object"
+    },
+    "visitorUpdateVisitorRequestPath": {
+      "type": "object",
+      "title": "4.5 - PUT - Update Visitor"
+    },
+    "visitorVisitor": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Unique ID of the visitor"
+        },
+        "firstName": {
+          "type": "string",
+          "title": "First name of the visitor"
+        },
+        "lastName": {
+          "type": "string",
+          "title": "Last name of the visitor"
+        },
+        "status": {
+          "$ref": "#/definitions/visitorStatus",
+          "title": "Status of the visit"
+        },
+        "inviterId": {
+          "type": "string",
+          "title": "ID of the inviter"
+        },
+        "inviterName": {
+          "type": "string",
+          "title": "Name of the inviter"
+        },
+        "mobilePhone": {
+          "type": "string",
+          "title": "Contact phone number of the visitor"
+        },
+        "remarks": {
+          "type": "string",
+          "title": "Remarks about the visitor"
+        },
+        "email": {
+          "type": "string",
+          "title": "Email address of the visitor"
+        },
+        "visitorCompany": {
+          "type": "string",
+          "title": "Company of the visitor"
+        },
+        "visitReason": {
+          "type": "string",
+          "title": "Visit reason (e.g., Interview, Business)"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "int64",
+          "title": "Start time of the visit"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "int64",
+          "title": "End time of the visit"
+        },
+        "nfcCards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sharedNFC_Card"
+          },
+          "title": "NFC cards associated with the visitor"
+        },
+        "pinCode": {
+          "$ref": "#/definitions/sharedPIN_Code",
+          "title": "PIN code associated with the visitor"
+        },
+        "scheduleId": {
+          "type": "string",
+          "title": "Schedule ID associated with the visit"
+        },
+        "schedule": {
+          "$ref": "#/definitions/access_policySchedule",
+          "description": "Schedule details. One-time visit if missing."
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/sharedResource"
+          },
+          "title": "Locations that the visitor can access"
+        }
+      }
+    },
+    "visitorVisitorResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/visitorVisitor"
+        }
+      }
+    },
+    "visitorVisitorsResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/visitorVisitor"
+          }
+        }
+      }
+    }
+  }
+}
