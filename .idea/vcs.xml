@@ -2,7 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/api-common-protos" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/unifi-access-api" vcs="Git" />
   </component>
 </project>
