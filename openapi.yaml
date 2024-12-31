@@ -1,0 +1,3062 @@
+openapi: 3.0.1
+info:
+  title: UniFi Access API
+  version: "1.0"
+servers:
+  - url: https://unifi.localdomain:12445/api/v1/developer
+security:
+  - token: []
+paths:
+  /access_policies:
+    get:
+      tags:
+        - Access Policy
+      summary: 5.6 Fetch All Access Policies
+      operationId: AccessPolicyService_FetchAllAccessPolicies
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyAccessPoliciesResponse'
+    post:
+      tags:
+        - Access Policy
+      summary: 5.2 Create Access Policy
+      operationId: AccessPolicyService_CreateAccessPolicy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessPolicyCreateAccessPolicyRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyAccessPolicyResponse'
+      x-codegen-request-body-name: body
+  /access_policies/holiday_groups:
+    get:
+      tags:
+        - Access Policy
+      summary: 5.12 Fetch All Holiday Groups
+      operationId: AccessPolicyService_FetchAllHolidayGroups
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyHolidayGroupSummaryResponse'
+    post:
+      tags:
+        - Access Policy
+      summary: 5.8 Create Holiday Group
+      operationId: AccessPolicyService_CreateHolidayGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessPolicyCreateHolidayGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyHolidayGroupResponse'
+      x-codegen-request-body-name: body
+  /access_policies/holiday_groups/{id}:
+    get:
+      tags:
+        - Access Policy
+      summary: 5.11 Fetch Holiday Group
+      operationId: AccessPolicyService_FetchHolidayGroup
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          description: Identity ID of the holiday group.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyHolidayGroupResponse'
+    put:
+      tags:
+        - Access Policy
+      summary: 5.9 Update Holiday Group
+      operationId: AccessPolicyService_UpdateHolidayGroup
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessPolicyUpdateHolidayGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyHolidayGroupResponse'
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Access Policy
+      summary: 5.10 Delete Holiday Group
+      operationId: AccessPolicyService_DeleteHolidayGroup
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          description: Identity ID of the holiday group.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyHolidayGroupResponse'
+  /access_policies/schedules:
+    get:
+      tags:
+        - Access Policy
+      summary: 5.17 Fetch All Schedules
+      operationId: AccessPolicyService_FetchAllSchedules
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicySchedulesResponse'
+    post:
+      tags:
+        - Access Policy
+      summary: 5.14 Create Schedule
+      operationId: AccessPolicyService_CreateSchedule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessPolicyCreateScheduleRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyScheduleResponse'
+      x-codegen-request-body-name: body
+  /access_policies/schedules/{id}:
+    get:
+      tags:
+        - Access Policy
+      summary: 5.16 Fetch Schedule
+      operationId: AccessPolicyService_FetchSchedule
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          description: Identity ID of the schedule.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyScheduleResponse'
+    put:
+      tags:
+        - Access Policy
+      summary: 5.15 Update Schedule
+      operationId: AccessPolicyService_UpdateSchedule
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessPolicyUpdateScheduleRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyScheduleResponse'
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Access Policy
+      summary: 5.18 Delete Schedule
+      operationId: AccessPolicyService_DeleteSchedule
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          description: Identity ID of the schedule.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyScheduleResponse'
+  /access_policies/{id}:
+    get:
+      tags:
+        - Access Policy
+      summary: 5.5 Fetch Access Policy
+      operationId: AccessPolicyService_FetchAccessPolicy
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          description: Identity ID of the access policy.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyAccessPolicyResponse'
+    put:
+      tags:
+        - Access Policy
+      summary: 5.3 Update Access Policy
+      operationId: AccessPolicyService_UpdateAccessPolicy
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccessPolicyUpdateAccessPolicyRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyAccessPolicyResponse'
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Access Policy
+      summary: 5.4 Delete Access Policy
+      operationId: AccessPolicyService_DeleteAccessPolicy
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          description: Identity ID of the access policy.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyAccessPolicyResponse'
+  /credentials/nfc_cards/sessions:
+    post:
+      tags:
+        - Credential
+      summary: 6.2 Enroll NFC Card
+      operationId: CredentialService_EnrollNfcCard
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CredentialEnrollNfcCardRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialNfcCardSessionResponse'
+      x-codegen-request-body-name: body
+  /credentials/nfc_cards/sessions/{id}:
+    get:
+      tags:
+        - Credential
+      summary: 6.3 Fetch NFC Card Enrollment Status
+      operationId: CredentialService_FetchNfcCardSessionStatus
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          description: The id of the session
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialNfcCardTokenResponse'
+    delete:
+      tags:
+        - Credential
+      summary: 6.4 Remove a Session Created for NFC Card Enrollment
+      operationId: CredentialService_RemoveNfcCardSession
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          description: The id of the session.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialNfcCardSessionResponse'
+  /credentials/nfc_cards/tokens:
+    get:
+      tags:
+        - Credential
+      summary: 6.8 Fetch All NFC Cards
+      operationId: CredentialService_FetchAllNfcCards
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialNfcCardsResponse'
+  /credentials/nfc_cards/tokens/{token}:
+    get:
+      tags:
+        - Credential
+      summary: 6.7 Fetch NFC Card
+      operationId: CredentialService_FetchNfcCard
+      parameters:
+        - name: token
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.token
+          in: query
+          description: Token of the NFC card.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialNfcCardResponse'
+    delete:
+      tags:
+        - Credential
+      summary: 6.9 Delete NFC Card
+      operationId: CredentialService_DeleteNfcCard
+      parameters:
+        - name: token
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.token
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialNfcCardResponse'
+  /credentials/pin_codes:
+    post:
+      tags:
+        - Credential
+      summary: 6.1 Generate a PIN Code
+      operationId: CredentialService_GeneratePinCode
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialPINCodeResponse'
+  /devices:
+    get:
+      tags:
+        - Device
+      summary: 8.1 Fetch Devices
+      operationId: DeviceService_FetchDevices
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceDevicesResponse'
+  /door_groups:
+    get:
+      tags:
+        - Space
+      summary: 7.5 Fetch All Door Groups
+      operationId: SpaceService_FetchAllDoorGroups
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpaceResourcesResponse'
+    post:
+      tags:
+        - Space
+      summary: 7.2 Create Door Group
+      operationId: SpaceService_CreateDoorGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpaceCreateDoorGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpaceResourceResponse'
+      x-codegen-request-body-name: body
+  /door_groups/topology:
+    get:
+      tags:
+        - Space
+      summary: 7.1 Fetch Door Group Topology
+      operationId: SpaceService_FetchDoorGroupTopology
+      parameters:
+        - name: body.id
+          in: query
+          schema:
+            type: string
+        - name: body.type
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpaceResourcesResponse'
+  /door_groups/{id}:
+    get:
+      tags:
+        - Space
+      summary: 7.3 Fetch Door Group
+      operationId: SpaceService_FetchDoorGroup
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpaceResourceResponse'
+    put:
+      tags:
+        - Space
+      summary: 7.4 Update Door Group
+      operationId: SpaceService_UpdateDoorGroup
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpaceUpdateDoorGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpaceResourceResponse'
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Space
+      summary: 7.6 Delete Door Group
+      operationId: SpaceService_DeleteDoorGroup
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpaceResourceResponse'
+  /doors:
+    get:
+      tags:
+        - Space
+      summary: 7.8 Fetch All Doors
+      operationId: SpaceService_FetchAllDoors
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpaceDoorsResponse'
+  /doors/settings/emergency:
+    get:
+      tags:
+        - Space
+      summary: 7.13 Fetch Door Emergency Status
+      operationId: SpaceService_FetchDoorEmergencyStatus
+      parameters:
+        - name: body.lockdown
+          in: query
+          description: True will keep the door locked
+          schema:
+            type: boolean
+        - name: body.evacuation
+          in: query
+          description: True will keep the door unlocked.
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpaceDoorEmergencyStatusResponse'
+    put:
+      tags:
+        - Space
+      summary: 7.12 Set Door Emergency Status
+      operationId: SpaceService_SetDoorEmergencyStatus
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpaceSetDoorEmergencyStatusRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpaceDoorStatusResponse'
+      x-codegen-request-body-name: body
+  /doors/{id}:
+    get:
+      tags:
+        - Space
+      summary: 7.7 Fetch Door
+      operationId: SpaceService_FetchDoor
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpaceDoorResponse'
+  /doors/{id}/lock_rule:
+    get:
+      tags:
+        - Space
+      summary: 7.11 Fetch Door Locking Rule
+      operationId: SpaceService_FetchDoorLockingRule
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          schema:
+            type: string
+        - name: body.type
+          in: query
+          description: |-
+            enum type {schedule,keep_lock,keep_unlock,custom,lock_early} keep_lock is
+            used to set the "keep locked" state, while keep_unlock is used to set the
+            "keep unlocked" state. custom is used to customize the unlock time
+            duration. schedule indicates that the door is currently in the unlock
+            schedule state. The lock_early is used to terminate doors in an unlock
+            schedule early.
+          schema:
+            type: string
+        - name: body.endedTime
+          in: query
+          description: "End time of the set rule, ex: 1708672257"
+          schema:
+            type: integer
+            format: int32
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpaceDoorLockingRuleResponse'
+    put:
+      tags:
+        - Space
+      summary: 7.10 Set Temporary Door Locking Rule
+      operationId: SpaceService_SetTemporaryDoorLockingRule
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpaceSetTemporaryDoorLockingRuleRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpaceDoorStatusResponse'
+      x-codegen-request-body-name: body
+  /doors/{id}/unlock:
+    put:
+      tags:
+        - Space
+      summary: 7.9 Remote Door Unlocking
+      operationId: SpaceService_RemoteDoorUnlocking
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpaceDoorStatusResponse'
+  /system/logs:
+    get:
+      tags:
+        - System Log
+      summary: 9.2 Fetch System Logs
+      operationId: SystemLogService_FetchSystemLogs
+      parameters:
+        - name: params.pageNum
+          in: query
+          description: Current page number in the pagination.
+          schema:
+            type: string
+        - name: params.pageSize
+          in: query
+          description: Number of logs per page.
+          schema:
+            type: string
+        - name: body.topic
+          in: query
+          schema:
+            type: string
+        - name: body.since
+          in: query
+          description: |-
+            Fetch different system logs by topic. enum topic
+            {critical,door_openings,updates,device_events,admin_activity,visitor}
+          schema:
+            type: integer
+            format: int32
+        - name: body.until
+          in: query
+          description: "Start time for log fetching, ex: 1689304925"
+          schema:
+            type: integer
+            format: int32
+        - name: body.actorId
+          in: query
+          description: |-
+            End time for log fetching, ex: 1689804925
+            
+            Identity ID of the actor (user, visitor, and device), ex:
+             3e1f196e-c97b-4748-aecb-eab5e9c251b2
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemLogFetchSystemLogsResponse'
+  /system/logs/export:
+    post:
+      tags:
+        - System Log
+      summary: 9.3 Export System Logs
+      operationId: SystemLogService_ExportSystemLogs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SystemLogExportSystemLogsRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemLogExportSystemLogsResponse'
+      x-codegen-request-body-name: body
+  /system/logs/resource/{id}:
+    get:
+      tags:
+        - System Log
+      summary: 9.4 Fetch Resources in System Logs
+      operationId: SystemLogService_FetchResourcesInSystemLogs
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          description: |-
+            Resource ID is obtained from targets categorized as the
+             'activities_resource' type in system logs. "target": [{"type":
+             "activities_resource","id": "0418d6a38f00-b6906057-
+             2a90-4426-835c-b5b172381fec","display_name": "Resource","alternate_id":
+             "","alternate_name": ""}]
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemLogFetchResourcesInSystemLogsResponse'
+  /system/static/{path}:
+    get:
+      tags:
+        - System Log
+      summary: 9.5 Fetch Static Resources in System Logs
+      operationId: SystemLogService_FetchStaticResourcesInSystemLogs
+      parameters:
+        - name: path
+          in: path
+          description: |-
+            Resource paths, currently supporting /avatar, /capture, and
+             activities_resource.
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemLogFetchStaticResourcesInSystemLogsResponse'
+  /user_groups/{id}/identity/assignments:
+    get:
+      tags:
+        - UniFi Identity
+      summary: 10.6 Fetch the Resources Assigned to User Groups
+      operationId: UniFiIdentityService_FetchUserGroupResources
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UniFiIdentityResourcesResponse'
+    post:
+      tags:
+        - UniFi Identity
+      summary: 10.5 Assign Resources to User Groups
+      operationId: UniFiIdentityService_AssignUserGroupResources
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UniFiIdentityAssignUserGroupResourcesRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UniFiIdentityResourcesResponse'
+      x-codegen-request-body-name: body
+  /users/identity/assignments:
+    get:
+      tags:
+        - UniFi Identity
+      summary: 10.2 Fetch Available Resources
+      operationId: UniFiIdentityService_FetchAvailableResources
+      parameters:
+        - name: params.resourceType
+          in: query
+          description: |-
+            Display the type of resources; show all when left blank. enum
+            resource_type {ev_station,vpn,wifi} ex: resource_type=ev_station,wifi,vpn
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UniFiIdentityResourcesResponse'
+  /users/identity/invitations:
+    post:
+      tags:
+        - UniFi Identity
+      summary: 10.1 Send Unifi Identity Invitations
+      operationId: UniFiIdentityService_SendUnifiIdentityInvitations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UniFiIdentitySendUnifiIdentityInvitationsRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UniFiIdentityInvitationStatusResponse'
+      x-codegen-request-body-name: body
+  /users/{id}/identity/assignments:
+    get:
+      tags:
+        - UniFi Identity
+      summary: 10.4 Fetch Resources Assigned to Users
+      operationId: UniFiIdentityService_FetchUserResources
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UniFiIdentityResourcesResponse'
+    post:
+      tags:
+        - UniFi Identity
+      summary: 10.3 Assign Resources to Users
+      operationId: UniFiIdentityService_AssignUserResources
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UniFiIdentityAssignUserResourcesRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UniFiIdentityResourcesResponse'
+      x-codegen-request-body-name: body
+  /user_groups:
+    get:
+      tags:
+        - User
+      summary: 3.12 Fetch All User Groups
+      operationId: UserService_FetchAllUserGroups
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserUserGroupsResponse'
+    post:
+      tags:
+        - User
+      summary: 3.11 Create User Group
+      operationId: UserService_CreateUserGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreateUserGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStatusCodeResponse'
+      x-codegen-request-body-name: body
+  /user_groups/{id}:
+    get:
+      tags:
+        - User
+      summary: 3.13 Fetch User Group
+      operationId: UserService_FetchUserGroups
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserUserGroupResponse'
+    put:
+      tags:
+        - User
+      summary: 3.14 Update User Group
+      operationId: UserService_UpdateUserGroup
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdateUserGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStatusCodeResponse'
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - User
+      summary: 3.15 Delete User Group
+      operationId: UserService_DeleteUserGroup
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStatusCodeResponse'
+  /user_groups/{id}/access_policies:
+    get:
+      tags:
+        - User
+      summary: 3.22 Fetch the Access Policies Assigned to a User Group
+      operationId: UserService_FetchUserGroupAccessPolicies
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          description: |-
+            Identity ID of the user group. Get it from the API,
+             /api/v1/developer/user_groups
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyAccessPoliciesResponse'
+    put:
+      tags:
+        - User
+      summary: 3.21 Assign Access Policy to User Group
+      operationId: UserService_AssignUserGroupAccessPolicy
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAssignUserGroupAccessPolicyRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserUserGroupResponse'
+      x-codegen-request-body-name: body
+  /user_groups/{id}/user/delete:
+    post:
+      tags:
+        - User
+      summary: 3.17 Uniassigh User from User Group
+      operationId: UserService_UnassignUserFromUserGroup
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUnassignUserFromUserGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStatusCodeResponse'
+      x-codegen-request-body-name: body
+  /user_groups/{id}/users:
+    get:
+      tags:
+        - User
+      summary: 3.18 Fetch Users in a User Group
+      operationId: UserService_FetchUsersInUserGroup
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          description: Identify ID of the user group
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserUsersResponse'
+    post:
+      tags:
+        - User
+      summary: 3.16 Assign User to User Group
+      operationId: UserService_AssignUserToUserGroup
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAssignUserToUserGroupRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStatusCodeResponse'
+      x-codegen-request-body-name: body
+  /user_groups/{id}/users/all:
+    get:
+      tags:
+        - User
+      summary: 3.19 Fetch All Users in a User Group
+      operationId: UserService_FetchAllUsersInUserGroup
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          description: Identify ID of the user group
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserUsersResponse'
+  /users:
+    post:
+      tags:
+        - User
+      summary: 3.2 Create User
+      operationId: UserService_CreateUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreateUserRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserUserResponse'
+      x-codegen-request-body-name: body
+  /users/users:
+    get:
+      tags:
+        - User
+      summary: 3.5 Fetch All Users
+      operationId: UserService_FetchAllUsers
+      parameters:
+        - name: params.expand
+          in: query
+          description: "Whether to expand the access_policy field. If true, your app\
+          \ must"
+          schema:
+            type: boolean
+        - name: params.pageNum
+          in: query
+          description: |-
+            include "expand[]=access_policy" in the request URL paramters
+            
+            Current page number in the pagination
+          schema:
+            type: string
+        - name: params.pageSize
+          in: query
+          description: Number of users per page.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserUsersResponse'
+  /users/{id}:
+    get:
+      tags:
+        - User
+      summary: 3.4 Fetch User
+      operationId: UserService_FetchUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          schema:
+            type: string
+        - name: params.expand
+          in: query
+          description: |-
+            Whether to expand the access_policy field. If true, your app must include
+             "expand[]=access_policy" in the request URL paramters
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserUserResponse'
+    put:
+      tags:
+        - User
+      summary: 3.3 Update User
+      operationId: UserService_UpdateUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdateUserRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserUserResponse'
+      x-codegen-request-body-name: body
+  /users/{id}/access_policies:
+    get:
+      tags:
+        - User
+      summary: 3.20 Fetch the Access Policies Assigned to a User
+      operationId: UserService_FetchUserAccessPolicies
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          description: Identify ID of the user
+          schema:
+            type: string
+        - name: params.onlyUserPolicies
+          in: query
+          description: |-
+            False: all policies of the group the user belongs to are shown.
+             True: only the policies assigned directly to the user are shown.
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessPolicyAccessPoliciesResponse'
+    put:
+      tags:
+        - User
+      summary: 3.6 Assign Access Policy to User
+      operationId: UserService_AssignUserAccessPolicy
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAssignUserAccessPolicyRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStatusCodeResponse'
+      x-codegen-request-body-name: body
+  /users/{id}/nfc_cards:
+    put:
+      tags:
+        - User
+      summary: 3.7 Assign NFC Card from User
+      operationId: UserService_AssignUserNfcCard
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAssignUserNfcCardRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStatusCodeResponse'
+      x-codegen-request-body-name: body
+  /users/{id}/nfc_cards/delete:
+    delete:
+      tags:
+        - User
+      summary: 3.8 Unassign NFC Card from User
+      operationId: UserService_UnassignUserNfcCard
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          schema:
+            type: string
+        - name: body.token
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStatusCodeResponse'
+  /users/{id}/pin_codes:
+    put:
+      tags:
+        - User
+      summary: 3.9 Assign PIN Code to User
+      operationId: UserService_AssignUserPinCode
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAssignUserPinCodeRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStatusCodeResponse'
+      x-codegen-request-body-name: body
+  /users/{id}/unassign-nfc-card:
+    delete:
+      tags:
+        - User
+      summary: 3.10 Unassign PIN Code from user
+      operationId: UserService_UnassignUserPinCode
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStatusCodeResponse'
+  /visitors:
+    get:
+      tags:
+        - Visitor
+      summary: 4.4 Fetch all visitors
+      operationId: VisitorService_FetchAllVisitors
+      parameters:
+        - name: params.status
+          in: query
+          description: |2-
+             - UNKNOWN: Note: This is a placeholder, does not exist on API.
+             - UPCOMING: Upcoming visit
+             - VISITED: Completed visit
+             - VISITING: Currently visiting
+             - CANCELLED: Cancelled visit
+             - NO_VISIT: No visit occurred
+             - ACTIVE: Active visit
+          schema:
+            type: string
+            default: UNKNOWN
+            enum:
+              - UNKNOWN
+              - UPCOMING
+              - VISITED
+              - VISITING
+              - CANCELLED
+              - NO_VISIT
+              - ACTIVE
+        - name: params.keyword
+          in: query
+          schema:
+            type: string
+        - name: params.pageNum
+          in: query
+          schema:
+            type: string
+        - name: params.pageSize
+          in: query
+          schema:
+            type: string
+        - name: params.expand
+          in: query
+          description: "Determine whether to return associated objects,"
+          style: form
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisitorVisitorsResponse'
+    post:
+      tags:
+        - Visitor
+      summary: 4.2 Create a new visitor
+      operationId: VisitorService_CreateVisitor
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VisitorCreateVisitorRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisitorVisitorResponse'
+      x-codegen-request-body-name: body
+  /visitors/{id}:
+    get:
+      tags:
+        - Visitor
+      summary: 4.3 Fetch visitor details by ID
+      operationId: VisitorService_FetchVisitor
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          description: Identify ID of the visitor
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisitorVisitorResponse'
+    put:
+      tags:
+        - Visitor
+      summary: 4.5 Update a visitor by ID
+      operationId: VisitorService_UpdateVisitor
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VisitorUpdateVisitorRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisitorVisitorResponse'
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Visitor
+      summary: 4.6 Delete a visitor by ID
+      operationId: VisitorService_DeleteVisitor
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VisitorVisitorResponse'
+  /visitors/{id}/nfc_cards:
+    put:
+      tags:
+        - Visitor
+      summary: 4.7 Assign Visitor NFC Card
+      operationId: VisitorService_AssignVisitorNfcCard
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStatusCodeResponse'
+  /visitors/{id}/nfc_cards/delete:
+    put:
+      tags:
+        - Visitor
+      summary: 4.8 Unassign Visitor NFC Card
+      operationId: VisitorService_UnassignVisitorNfcCard
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VisitorUnassignVisitorNfcCardRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStatusCodeResponse'
+      x-codegen-request-body-name: body
+  /visitors/{id}/pin_codes:
+    put:
+      tags:
+        - Visitor
+      summary: 4.9 Assign Visitor Pin Code
+      operationId: VisitorService_AssignVisitorPinCode
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VisitorAssignVisitorPinCodeRequest'
+        required: true
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStatusCodeResponse'
+      x-codegen-request-body-name: body
+    delete:
+      tags:
+        - Visitor
+      summary: 4.10 Unassisgn Visitor Pin Code
+      operationId: VisitorService_UnassignVisitorPinCode
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: path.id
+          in: query
+          description: |-
+            Identity ID of the visitor.
+             Get it from the API, /api/v1/developer/visitors
+          schema:
+            type: string
+      responses:
+        "200":
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharedStatusCodeResponse'
+components:
+  securitySchemes:
+    token:
+      type: http
+      scheme: bearer
+  schemas:
+    AccessPolicyAccessPoliciesResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessPolicyAccessPolicy'
+    AccessPolicyAccessPolicy:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SharedResource'
+        scheduleId:
+          type: string
+    AccessPolicyAccessPolicyResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+        data:
+          $ref: '#/components/schemas/AccessPolicyAccessPolicy'
+    AccessPolicyCreateAccessPolicyRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the access policy.
+        resource:
+          type: array
+          description: Used to assign accessible locations to the access policy.
+          items:
+            $ref: '#/components/schemas/SharedResource'
+        scheduleId:
+          type: string
+          description: Identity ID of the schedule. Assign additional schedules.
+    AccessPolicyCreateHolidayGroupRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the holiday group.
+        description:
+          title: Description of the holiday group
+          type: string
+        holidays:
+          type: array
+          description: show a list of the holidays within the holiday group.
+          items:
+            $ref: '#/components/schemas/AccessPolicyHoliday'
+    AccessPolicyCreateScheduleRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        weekSchedule:
+          $ref: '#/components/schemas/AccessPolicyWeekSchedule'
+        holidayGroupId:
+          type: string
+        holidaySchedule:
+          $ref: '#/components/schemas/AccessPolicyHolidaySchedule'
+    AccessPolicyDaySchedule:
+      type: object
+      properties:
+        startTime:
+          title: Start time of the access period
+          type: string
+        endTime:
+          title: End time of the access period
+          type: string
+    AccessPolicyHoliday:
+      type: object
+      properties:
+        description:
+          type: string
+          description: Description of the holiday.
+        id:
+          type: string
+          description: Identity ID of the holiday.
+        name:
+          type: string
+          description: Name of the holiday.
+        repeat:
+          type: boolean
+          description: Indicate whether the holiday repeats annually.
+        startTime:
+          title: "Start time of the holiday, provided in UTC format"
+          type: string
+        endTime:
+          type: string
+          description: |-
+            according to RFC3339.
+
+            End time of the holiday, provided in UTC format
+    AccessPolicyHolidayGroup:
+      type: object
+      properties:
+        id:
+          title: Identity ID of the holiday group
+          type: string
+        name:
+          type: string
+          description: Name of the holiday group.
+        isDefault:
+          type: boolean
+          description: Indicate whether the holiday group is the system default.
+        description:
+          type: string
+          description: Description of the holiday group.
+        holidays:
+          type: array
+          description: Show a list of the holidays within the holiday group.
+          items:
+            $ref: '#/components/schemas/AccessPolicyHoliday'
+    AccessPolicyHolidayGroupResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+        data:
+          $ref: '#/components/schemas/AccessPolicyHolidayGroup'
+    AccessPolicyHolidayGroupSummary:
+      type: object
+      properties:
+        id:
+          title: Identity ID of the holiday group
+          type: string
+        name:
+          type: string
+          description: Name of the holiday group.
+        description:
+          type: string
+          description: Description of the holiday group.
+        count:
+          type: integer
+          description: Total number of holidays.
+          format: int32
+    AccessPolicyHolidayGroupSummaryResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessPolicyHolidayGroupSummary'
+        msg:
+          type: string
+    AccessPolicyHolidaySchedule:
+      type: object
+      properties:
+        startTime:
+          type: string
+          format: int64
+        endTime:
+          type: string
+          format: int64
+    AccessPolicySchedule:
+      type: object
+      properties:
+        id:
+          title: Schedule ID
+          type: string
+        name:
+          title: Name of the schedule
+          type: string
+        isDefault:
+          title: Whether system default
+          type: boolean
+        type:
+          title: "Type of the schedule (e.g., access)"
+          type: string
+        weekly:
+          $ref: '#/components/schemas/AccessPolicyWeekSchedule'
+        holidaySchedule:
+          type: array
+          description: Specify the accessible period during holidays.
+          items:
+            $ref: '#/components/schemas/AccessPolicyHolidaySchedule'
+        holidayGroupId:
+          title: Identity ID of the holiday group
+          type: string
+    AccessPolicyScheduleResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          $ref: '#/components/schemas/AccessPolicySchedule'
+        msg:
+          type: string
+    AccessPolicySchedulesResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessPolicySchedule'
+        msg:
+          type: string
+    AccessPolicyUpdateAccessPolicyRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the access policy. Omit if it doesn't need to be updated.
+        resource:
+          title: Used to assign accessible locations to the access policy. Omit if
+            it
+          type: array
+          items:
+            $ref: '#/components/schemas/SharedResource'
+        scheduleId:
+          type: string
+          description: |-
+            doesn't need to be updated.
+
+            Identify ID of the schedule. Assign additional schedules. Omit this
+    AccessPolicyUpdateHolidayGroupRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the holiday group.
+        description:
+          title: Description of the holiday group
+          type: string
+        holidays:
+          type: array
+          description: show a list of the holidays within the holiday group.
+          items:
+            $ref: '#/components/schemas/AccessPolicyHoliday'
+    AccessPolicyUpdateScheduleRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        weekSchedule:
+          $ref: '#/components/schemas/AccessPolicyWeekSchedule'
+        holidayGroupId:
+          type: string
+        holidaySchedule:
+          $ref: '#/components/schemas/AccessPolicyHolidaySchedule'
+    AccessPolicyWeekSchedule:
+      type: object
+      properties:
+        sunday:
+          title: Schedule for Sunday
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessPolicyDaySchedule'
+        monday:
+          title: Schedule for Monday
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessPolicyDaySchedule'
+        tuesday:
+          title: Schedule for Tuesday
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessPolicyDaySchedule'
+        wednesday:
+          title: Schedule for Wednesday
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessPolicyDaySchedule'
+        thursday:
+          title: Schedule for Thursday
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessPolicyDaySchedule'
+        friday:
+          title: Schedule for Friday
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessPolicyDaySchedule'
+        saturday:
+          title: Schedule for Saturday
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessPolicyDaySchedule'
+    SharedResource:
+      type: object
+      properties:
+        id:
+          title: ID of the door group
+          type: string
+        name:
+          title: Name of the door group
+          type: string
+        type:
+          title: Type of the door group
+          type: string
+    CredentialEnrollNfcCardRequest:
+      type: object
+      properties:
+        deviceId:
+          title: "Identity ID of the device. Get it from the API,"
+          type: string
+        resetUaCard:
+          title: /api/v1/developer/devices
+          type: boolean
+          description: Option to reset an NFC card already enrolled at another site.
+    CredentialNfcCard:
+      type: object
+      properties:
+        token:
+          type: string
+        displayId:
+          type: string
+        status:
+          title: "\"assigned\", \"pending\", \"disabled\", \"deleted\", \"lost\""
+          type: string
+        alias:
+          type: string
+        cardType:
+          title: "e.g., \"ua_card\""
+          type: string
+        userType:
+          title: '"USER" or "VISITOR"'
+          type: string
+        user:
+          $ref: '#/components/schemas/CredentialUser'
+    CredentialNfcCardResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          $ref: '#/components/schemas/CredentialNfcCard'
+        msg:
+          type: string
+    CredentialNfcCardSession:
+      type: object
+      properties:
+        sessionId:
+          type: string
+    CredentialNfcCardSessionResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+        data:
+          $ref: '#/components/schemas/CredentialNfcCardSession'
+    CredentialNfcCardToken:
+      type: object
+      properties:
+        cardId:
+          type: string
+        token:
+          type: string
+    CredentialNfcCardTokenResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+        data:
+          $ref: '#/components/schemas/CredentialNfcCardToken'
+    CredentialNfcCardsResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CredentialNfcCard'
+        msg:
+          type: string
+    CredentialPINCode:
+      type: object
+      properties:
+        token:
+          type: string
+        createdAt:
+          type: string
+    CredentialPINCodeResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+        data:
+          $ref: '#/components/schemas/CredentialPINCode'
+    CredentialUser:
+      type: object
+      properties:
+        id:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        name:
+          type: string
+    DeviceDevice:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        fullName:
+          type: string
+    DeviceDevicesResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceDevice'
+    SpaceCreateDoorGroupRequest:
+      type: object
+      properties:
+        groupName:
+          title: Name of the door group. This needs to be globally unique
+          type: string
+        resources:
+          title: Collection of door ID
+          type: array
+          items:
+            $ref: '#/components/schemas/SpaceResource'
+    SpaceDoor:
+      type: object
+      properties:
+        id:
+          title: Identity ID of the door group
+          type: string
+        name:
+          title: Name of the door
+          type: string
+        fullName:
+          title: Full name of the door
+          type: string
+        floorId:
+          title: Identity ID of the floor
+          type: string
+        type:
+          title: Type of the door
+          type: string
+        isBindHub:
+          title: Indicate whether the door has bound to a hub device. It can only
+            be
+          type: string
+        doorLockRelayStatus:
+          type: string
+          description: |-
+            used for remote opening if it's bound.
+
+            Door lock status. enum door_lock_relay_status {lock,unlock}
+        doorPositionStatus:
+          title: "DPS: Door position status, including both open and close . A null"
+          type: string
+    SpaceDoorEmergencyStatus:
+      type: object
+      properties:
+        evacuation:
+          type: boolean
+        lockdown:
+          type: boolean
+    SpaceDoorEmergencyStatusResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          $ref: '#/components/schemas/SpaceDoorEmergencyStatus'
+        msg:
+          type: string
+    SpaceDoorLockingRule:
+      type: object
+      properties:
+        endedTime:
+          type: integer
+          format: int32
+        type:
+          type: string
+    SpaceDoorLockingRuleResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          $ref: '#/components/schemas/SpaceDoorLockingRule'
+        msg:
+          type: string
+    SpaceDoorResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          $ref: '#/components/schemas/SpaceDoor'
+        msg:
+          type: string
+    SpaceDoorStatusResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          type: string
+        msg:
+          type: string
+    SpaceDoorsResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpaceDoor'
+        msg:
+          type: string
+    SpaceResource:
+      type: object
+      properties:
+        id:
+          title: Identity ID of the door
+          type: string
+        name:
+          title: Name of the door
+          type: string
+        type:
+          title: Type of the door
+          type: string
+        isBindHub:
+          type: boolean
+          description: Indicate whether the door has bound to a hub device.
+    SpaceResourceResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          $ref: '#/components/schemas/SpaceResourceTopology'
+        msg:
+          type: string
+    SpaceResourceTopology:
+      type: object
+      properties:
+        id:
+          title: Identity ID of the floor
+          type: string
+        type:
+          title: Type of the floor
+          type: string
+        name:
+          title: Name of the floor
+          type: string
+        resources:
+          type: array
+          description: Contain all the doors on the floor.
+          items:
+            $ref: '#/components/schemas/SpaceResource'
+    SpaceResourcesResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpaceResourceTopology'
+        msg:
+          type: string
+    SpaceSetDoorEmergencyStatusRequest:
+      type: object
+      properties:
+        lockdown:
+          title: True will keep the door locked
+          type: boolean
+        evacuation:
+          type: boolean
+          description: True will keep the door unlocked.
+    SpaceSetTemporaryDoorLockingRuleRequest:
+      type: object
+      properties:
+        type:
+          type: string
+          description: |-
+            enum type {keep_lock,keep_unlock,custom,reset,lock_early} keep_lock is used
+            to set the door to the "keep locked" state, while keep_unlock is used to
+            set it to the "keep unlocked" state. custom allows customization of the
+            unlock time duration, and reset is used to restore the door to its initial
+            state (not applicable to the "lock_early" state). NOTE: If the door is
+            currently on an unlock schedule ( schedule ), you can use lock_early to
+            lock the door early.
+        interval:
+          title: "Set the lock time duration (minutes) when type is custom, ex: 10"
+          type: integer
+          format: int32
+    SpaceUpdateDoorGroupRequest:
+      type: object
+      properties:
+        groupName:
+          type: string
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpaceResource'
+    SystemLogActor:
+      type: object
+      properties:
+        alternativeId:
+          type: string
+        alternativeName:
+          type: string
+        displayName:
+          type: string
+        id:
+          type: string
+        type:
+          type: string
+    SystemLogAuthentication:
+      type: object
+      properties:
+        credentialProvider:
+          type: string
+        issuer:
+          type: string
+    SystemLogEvent:
+      type: object
+      properties:
+        displayMessage:
+          type: string
+        published:
+          type: integer
+          format: int32
+        reason:
+          type: string
+        result:
+          type: string
+        type:
+          type: string
+    SystemLogExportSystemLogsRequest:
+      type: object
+      properties:
+        topic:
+          type: string
+        since:
+          title: |-
+            Fetch different system logs by topic. enum topic
+            {critical,door_openings,updates,device_events,admin_activity,visitor}
+          type: integer
+          format: int32
+        until:
+          title: "Start time for log fetching, ex: 1689304925"
+          type: integer
+          format: int32
+        timezone:
+          title: "End time for log fetching, ex: 1689804925"
+          type: string
+        actorId:
+          title: "Timezone for formatting time, ex: America/New_York"
+          type: string
+          description: |-
+            Identity ID of the actor (user, visitor, and device), ex:
+             3e1f196e-c97b-4748-aecb-eab5e9c251b2
+    SystemLogExportSystemLogsResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+        file:
+          title: Exported csv file
+          pattern: "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+          type: string
+          format: byte
+    SystemLogFetchResourcesInSystemLogsResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+        data:
+          $ref: '#/components/schemas/SystemLogResourcesInSystemLog'
+    SystemLogFetchStaticResourcesInSystemLogsResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+        data:
+          title: "I assume this is an object, but not documented in API"
+          type: string
+    SystemLogFetchSystemLogsResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          $ref: '#/components/schemas/SystemLogSystemLogs'
+        msg:
+          type: string
+    SystemLogResourcesInSystemLog:
+      type: object
+      properties:
+        videoRecord:
+          type: string
+        videoRecordThumbnail:
+          type: string
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+    SystemLogSystemLog:
+      type: object
+      properties:
+        timestamp:
+          type: string
+        Id:
+          type: string
+        Source:
+          $ref: '#/components/schemas/SystemLogSystemLogSource'
+        tag:
+          type: string
+    SystemLogSystemLogSource:
+      type: object
+      properties:
+        actor:
+          $ref: '#/components/schemas/SystemLogActor'
+        event:
+          $ref: '#/components/schemas/SystemLogEvent'
+        authentication:
+          $ref: '#/components/schemas/SystemLogAuthentication'
+        target:
+          type: array
+          items:
+            $ref: '#/components/schemas/SystemLogTarget'
+    SystemLogSystemLogs:
+      type: object
+      properties:
+        hits:
+          type: array
+          items:
+            $ref: '#/components/schemas/SystemLogSystemLog'
+    SystemLogTarget:
+      type: object
+      properties:
+        alternativeId:
+          type: string
+        alternativeName:
+          type: string
+        displayName:
+          type: string
+        id:
+          type: string
+        type:
+          type: string
+    UniFiIdentityAssignUserGroupResourcesRequest:
+      type: object
+      properties:
+        resourceType:
+          type: string
+        resourceIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/UniFiIdentityResourceId'
+    UniFiIdentityAssignUserResourcesRequest:
+      type: object
+      properties:
+        resourceType:
+          title: "enum resource_type {ev_station,vpn,wifi}"
+          type: string
+        resourceIds:
+          type: array
+          description: Identity ID of the resources.
+          items:
+            $ref: '#/components/schemas/UniFiIdentityResourceId'
+    UniFiIdentityData:
+      type: object
+      properties:
+        resources:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/UniFiIdentityResourceList'
+    UniFiIdentityInvitation:
+      type: object
+      properties:
+        userId:
+          type: string
+        email:
+          type: string
+    UniFiIdentityInvitationStatus:
+      type: object
+      properties:
+        errorCode:
+          type: string
+        errorMsg:
+          type: string
+        userEmail:
+          type: string
+        userId:
+          type: string
+    UniFiIdentityInvitationStatusResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UniFiIdentityInvitationStatus'
+        msg:
+          type: string
+    UniFiIdentityResource:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        shortName:
+          type: string
+        deleted:
+          type: boolean
+        metadata:
+          type: string
+    UniFiIdentityResourceId:
+      type: object
+      properties:
+        id:
+          type: string
+    UniFiIdentityResourceList:
+      type: object
+      properties:
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/UniFiIdentityResource'
+    UniFiIdentityResourcesResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          $ref: '#/components/schemas/UniFiIdentityData'
+        msg:
+          type: string
+    UniFiIdentitySendUnifiIdentityInvitationsRequest:
+      type: object
+      properties:
+        invitations:
+          type: array
+          items:
+            $ref: '#/components/schemas/UniFiIdentityInvitation'
+    SharedNFC_Card:
+      type: object
+      properties:
+        id:
+          type: string
+        token:
+          type: string
+    SharedPIN_Code:
+      type: object
+      properties:
+        token:
+          type: string
+    SharedStatusCodeResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+    UserAssignUserAccessPolicyRequest:
+      type: object
+      properties:
+        accessPolicyIds:
+          type: array
+          items:
+            type: string
+    UserAssignUserGroupAccessPolicyRequest:
+      type: object
+      properties:
+        accessPolicyIds:
+          title: |-
+            Identity ID of the access policy. Get it from the API,
+             /api/v1/developer/access_policies
+          type: array
+          items:
+            type: string
+    UserAssignUserNfcCardRequest:
+      type: object
+      properties:
+        token:
+          title: token of the nfc card
+          type: string
+        forceAdd:
+          title: determine whether to overwrite an NFC card that has
+          type: boolean
+    UserAssignUserPinCodeRequest:
+      type: object
+      properties:
+        pinCode:
+          type: string
+    UserAssignUserToUserGroupRequest:
+      type: object
+      properties:
+        userId:
+          type: array
+          description: |-
+            Get it from the API, /api/v1/developer/users
+             The api documentation reads as a method for one user ID, but the repeated
+             string implies that it may support multiple user IDs at once.
+          items:
+            type: string
+    UserCreateUserGroupRequest:
+      type: object
+      properties:
+        name:
+          title: name of the group
+          type: string
+        upId:
+          title: "parent group ID, get from /api/v1/developer/user_groups"
+          type: string
+    UserCreateUserRequest:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        userEmail:
+          type: string
+        employeeNumber:
+          type: string
+        onboardTime:
+          type: string
+          format: int64
+    UserStatus:
+      type: string
+      default: ACTIVE
+      enum:
+        - ACTIVE
+        - PENDING
+        - DEACTIVATED
+    UserUnassignUserFromUserGroupRequest:
+      type: object
+      properties:
+        userId:
+          type: array
+          description: |-
+            Get it from the API, /api/v1/developer/users
+             The api documentation reads as a method for one user ID, but the repeated
+             string implies that it may support multiple user IDs at once.
+          items:
+            type: string
+    UserUpdateUserGroupRequest:
+      type: object
+      properties:
+        name:
+          title: name of the group
+          type: string
+        upId:
+          title: "parent group ID, get from /api/v1/developer/user_groups"
+          type: string
+    UserUpdateUserRequest:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        userEmail:
+          type: string
+        employeeNumber:
+          type: string
+        onboardTime:
+          type: string
+          format: int64
+        status:
+          $ref: '#/components/schemas/UserStatus'
+    UserUser:
+      type: object
+      properties:
+        id:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        fullName:
+          type: string
+        alias:
+          type: string
+        userEmail:
+          type: string
+        emailStatus:
+          type: string
+        phone:
+          type: string
+        employeeNumber:
+          type: string
+        onboardTime:
+          type: string
+          format: int64
+        nfcCards:
+          type: array
+          items:
+            $ref: '#/components/schemas/SharedNFC_Card'
+        pinCode:
+          $ref: '#/components/schemas/SharedPIN_Code'
+        accessPolicyIds:
+          type: array
+          items:
+            type: string
+        accessPolicies:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessPolicyAccessPolicy'
+        status:
+          $ref: '#/components/schemas/UserStatus'
+    UserUserGroup:
+      type: object
+      properties:
+        fullName:
+          type: string
+        id:
+          type: string
+        name:
+          type: string
+        upId:
+          type: string
+        upIds:
+          type: array
+          items:
+            type: string
+    UserUserGroupResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          $ref: '#/components/schemas/UserUserGroup'
+        msg:
+          type: string
+    UserUserGroupsResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserUserGroup'
+        msg:
+          type: string
+    UserUserResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+        data:
+          $ref: '#/components/schemas/UserUser'
+    UserUsersResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserUser'
+    VisitorAssignVisitorPinCodeRequest:
+      type: object
+      properties:
+        pinCode:
+          title: |-
+            Generate a PIN code for the visitor to unlock doors.
+             Get it from the API, /api/v1/developer/pin_codes
+          type: string
+    VisitorCreateVisitorRequest:
+      type: object
+      properties:
+        firstName:
+          title: First name of the visitors
+          type: string
+        lastName:
+          title: Last name of the visitor
+          type: string
+        remarks:
+          title: Remarks about the visitor
+          type: string
+        mobilePhone:
+          title: Mobile phone number of the visitor
+          type: string
+        email:
+          title: Email address of the visitor
+          type: string
+        VisitorCompany:
+          title: Company name of the visitor
+          type: string
+        startTime:
+          title: "Start time of the visit, ex: 1688546460"
+          type: string
+          format: int64
+        endTime:
+          title: "End time of the visit, ex: 1688572799"
+          type: string
+          format: int64
+        visitReason:
+          type: string
+          description: "Visit reason, see VisitReason enum."
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SharedResource'
+        weekSchedule:
+          $ref: '#/components/schemas/AccessPolicyWeekSchedule'
+    VisitorStatus:
+      type: string
+      default: UNKNOWN
+      enum:
+        - UNKNOWN
+        - UPCOMING
+        - VISITED
+        - VISITING
+        - CANCELLED
+        - NO_VISIT
+        - ACTIVE
+    VisitorUnassignVisitorNfcCardRequest:
+      type: object
+      properties:
+        token:
+          type: string
+          description: Token of the NFC Card.
+    VisitorUpdateVisitorRequest:
+      type: object
+      properties:
+        firstName:
+          type: string
+          description: First name of the visitor.
+        lastName:
+          type: string
+          description: Last name of the visitor.
+        remarks:
+          type: string
+          description: Remarks about the visitor.
+        mobilePhone:
+          type: string
+          description: Mobile phone number of the visitor.
+        email:
+          type: string
+          description: Email address of the visitor.
+        visitorCompany:
+          type: string
+          description: Company name of the visitor.
+        startTime:
+          type: integer
+          description: Start time of the visit.
+          format: int32
+        endTime:
+          title: "End time of the visit,"
+          type: integer
+          format: int32
+        visitReason:
+          type: string
+          description: "Visit reason, see VisitReason enum."
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SharedResource'
+        weekSchedule:
+          $ref: '#/components/schemas/AccessPolicyWeekSchedule'
+    VisitorVisitor:
+      type: object
+      properties:
+        id:
+          title: Unique ID of the visitor
+          type: string
+        firstName:
+          title: First name of the visitor
+          type: string
+        lastName:
+          title: Last name of the visitor
+          type: string
+        status:
+          $ref: '#/components/schemas/VisitorStatus'
+        inviterId:
+          title: ID of the inviter
+          type: string
+        inviterName:
+          title: Name of the inviter
+          type: string
+        mobilePhone:
+          title: Contact phone number of the visitor
+          type: string
+        remarks:
+          title: Remarks about the visitor
+          type: string
+        email:
+          title: Email address of the visitor
+          type: string
+        visitorCompany:
+          title: Company of the visitor
+          type: string
+        visitReason:
+          title: "Visit reason (e.g., Interview, Business)"
+          type: string
+        startTime:
+          title: Start time of the visit
+          type: string
+          format: int64
+        endTime:
+          title: End time of the visit
+          type: string
+          format: int64
+        nfcCards:
+          title: NFC cards associated with the visitor
+          type: array
+          items:
+            $ref: '#/components/schemas/SharedNFC_Card'
+        pinCode:
+          $ref: '#/components/schemas/SharedPIN_Code'
+        scheduleId:
+          title: Schedule ID associated with the visit
+          type: string
+        schedule:
+          $ref: '#/components/schemas/AccessPolicySchedule'
+        resources:
+          title: Locations that the visitor can access
+          type: array
+          items:
+            $ref: '#/components/schemas/SharedResource'
+    VisitorVisitorResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+        data:
+          $ref: '#/components/schemas/VisitorVisitor'
+    VisitorVisitorsResponse:
+      type: object
+      properties:
+        code:
+          type: string
+        msg:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/VisitorVisitor'
