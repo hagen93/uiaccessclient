@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,9 +26,9 @@ class UniFiIdentityInvitation(BaseModel):
     """
     UniFiIdentityInvitation
     """ # noqa: E501
-    user_id: Optional[StrictStr] = Field(default=None, alias="userId")
+    user_id: Optional[StrictStr] = None
     email: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["userId", "email"]
+    __properties: ClassVar[List[str]] = ["user_id", "email"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,7 +81,7 @@ class UniFiIdentityInvitation(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "userId": obj.get("userId"),
+            "user_id": obj.get("user_id"),
             "email": obj.get("email")
         })
         return _obj

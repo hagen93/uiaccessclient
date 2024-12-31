@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,12 +26,12 @@ class SystemLogEvent(BaseModel):
     """
     SystemLogEvent
     """ # noqa: E501
-    display_message: Optional[StrictStr] = Field(default=None, alias="displayMessage")
+    display_message: Optional[StrictStr] = None
     published: Optional[StrictInt] = None
     reason: Optional[StrictStr] = None
     result: Optional[StrictStr] = None
     type: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["displayMessage", "published", "reason", "result", "type"]
+    __properties: ClassVar[List[str]] = ["display_message", "published", "reason", "result", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,7 +84,7 @@ class SystemLogEvent(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "displayMessage": obj.get("displayMessage"),
+            "display_message": obj.get("display_message"),
             "published": obj.get("published"),
             "reason": obj.get("reason"),
             "result": obj.get("result"),

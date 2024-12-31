@@ -28,18 +28,18 @@ class VisitorUpdateVisitorRequest(BaseModel):
     """
     VisitorUpdateVisitorRequest
     """ # noqa: E501
-    first_name: Optional[StrictStr] = Field(default=None, description="First name of the visitor.", alias="firstName")
-    last_name: Optional[StrictStr] = Field(default=None, description="Last name of the visitor.", alias="lastName")
+    first_name: Optional[StrictStr] = Field(default=None, description="First name of the visitor.")
+    last_name: Optional[StrictStr] = Field(default=None, description="Last name of the visitor.")
     remarks: Optional[StrictStr] = Field(default=None, description="Remarks about the visitor.")
-    mobile_phone: Optional[StrictStr] = Field(default=None, description="Mobile phone number of the visitor.", alias="mobilePhone")
+    mobile_phone: Optional[StrictStr] = Field(default=None, description="Mobile phone number of the visitor.")
     email: Optional[StrictStr] = Field(default=None, description="Email address of the visitor.")
-    visitor_company: Optional[StrictStr] = Field(default=None, description="Company name of the visitor.", alias="visitorCompany")
-    start_time: Optional[StrictInt] = Field(default=None, description="Start time of the visit.", alias="startTime")
-    end_time: Optional[StrictInt] = Field(default=None, alias="endTime")
-    visit_reason: Optional[StrictStr] = Field(default=None, description="Visit reason, see VisitReason enum.", alias="visitReason")
+    visitor_company: Optional[StrictStr] = Field(default=None, description="Company name of the visitor.")
+    start_time: Optional[StrictInt] = Field(default=None, description="Start time of the visit.")
+    end_time: Optional[StrictInt] = None
+    visit_reason: Optional[StrictStr] = Field(default=None, description="Visit reason, see VisitReason enum.")
     resources: Optional[List[SharedResource]] = None
-    week_schedule: Optional[AccessPolicyWeekSchedule] = Field(default=None, alias="weekSchedule")
-    __properties: ClassVar[List[str]] = ["firstName", "lastName", "remarks", "mobilePhone", "email", "visitorCompany", "startTime", "endTime", "visitReason", "resources", "weekSchedule"]
+    week_schedule: Optional[AccessPolicyWeekSchedule] = None
+    __properties: ClassVar[List[str]] = ["first_name", "last_name", "remarks", "mobile_phone", "email", "visitor_company", "start_time", "end_time", "visit_reason", "resources", "week_schedule"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,7 +89,7 @@ class VisitorUpdateVisitorRequest(BaseModel):
             _dict['resources'] = _items
         # override the default output from pydantic by calling `to_dict()` of week_schedule
         if self.week_schedule:
-            _dict['weekSchedule'] = self.week_schedule.to_dict()
+            _dict['week_schedule'] = self.week_schedule.to_dict()
         return _dict
 
     @classmethod
@@ -102,17 +102,17 @@ class VisitorUpdateVisitorRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "firstName": obj.get("firstName"),
-            "lastName": obj.get("lastName"),
+            "first_name": obj.get("first_name"),
+            "last_name": obj.get("last_name"),
             "remarks": obj.get("remarks"),
-            "mobilePhone": obj.get("mobilePhone"),
+            "mobile_phone": obj.get("mobile_phone"),
             "email": obj.get("email"),
-            "visitorCompany": obj.get("visitorCompany"),
-            "startTime": obj.get("startTime"),
-            "endTime": obj.get("endTime"),
-            "visitReason": obj.get("visitReason"),
+            "visitor_company": obj.get("visitor_company"),
+            "start_time": obj.get("start_time"),
+            "end_time": obj.get("end_time"),
+            "visit_reason": obj.get("visit_reason"),
             "resources": [SharedResource.from_dict(_item) for _item in obj["resources"]] if obj.get("resources") is not None else None,
-            "weekSchedule": AccessPolicyWeekSchedule.from_dict(obj["weekSchedule"]) if obj.get("weekSchedule") is not None else None
+            "week_schedule": AccessPolicyWeekSchedule.from_dict(obj["week_schedule"]) if obj.get("week_schedule") is not None else None
         })
         return _obj
 

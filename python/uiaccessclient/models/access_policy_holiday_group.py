@@ -29,10 +29,10 @@ class AccessPolicyHolidayGroup(BaseModel):
     """ # noqa: E501
     id: Optional[StrictStr] = None
     name: Optional[StrictStr] = Field(default=None, description="Name of the holiday group.")
-    is_default: Optional[StrictBool] = Field(default=None, description="Indicate whether the holiday group is the system default.", alias="isDefault")
+    is_default: Optional[StrictBool] = Field(default=None, description="Indicate whether the holiday group is the system default.")
     description: Optional[StrictStr] = Field(default=None, description="Description of the holiday group.")
     holidays: Optional[List[AccessPolicyHoliday]] = Field(default=None, description="Show a list of the holidays within the holiday group.")
-    __properties: ClassVar[List[str]] = ["id", "name", "isDefault", "description", "holidays"]
+    __properties: ClassVar[List[str]] = ["id", "name", "is_default", "description", "holidays"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,7 +94,7 @@ class AccessPolicyHolidayGroup(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "name": obj.get("name"),
-            "isDefault": obj.get("isDefault"),
+            "is_default": obj.get("is_default"),
             "description": obj.get("description"),
             "holidays": [AccessPolicyHoliday.from_dict(_item) for _item in obj["holidays"]] if obj.get("holidays") is not None else None
         })

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from uiaccessclient.models.shared_resource import SharedResource
 from typing import Optional, Set
@@ -30,8 +30,8 @@ class AccessPolicyAccessPolicy(BaseModel):
     id: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     resources: Optional[List[SharedResource]] = None
-    schedule_id: Optional[StrictStr] = Field(default=None, alias="scheduleId")
-    __properties: ClassVar[List[str]] = ["id", "name", "resources", "scheduleId"]
+    schedule_id: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["id", "name", "resources", "schedule_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,7 +94,7 @@ class AccessPolicyAccessPolicy(BaseModel):
             "id": obj.get("id"),
             "name": obj.get("name"),
             "resources": [SharedResource.from_dict(_item) for _item in obj["resources"]] if obj.get("resources") is not None else None,
-            "scheduleId": obj.get("scheduleId")
+            "schedule_id": obj.get("schedule_id")
         })
         return _obj
 

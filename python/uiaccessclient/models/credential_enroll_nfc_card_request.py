@@ -26,9 +26,9 @@ class CredentialEnrollNfcCardRequest(BaseModel):
     """
     CredentialEnrollNfcCardRequest
     """ # noqa: E501
-    device_id: Optional[StrictStr] = Field(default=None, alias="deviceId")
-    reset_ua_card: Optional[StrictBool] = Field(default=None, description="Option to reset an NFC card already enrolled at another site.", alias="resetUaCard")
-    __properties: ClassVar[List[str]] = ["deviceId", "resetUaCard"]
+    device_id: Optional[StrictStr] = None
+    reset_ua_card: Optional[StrictBool] = Field(default=None, description="Option to reset an NFC card already enrolled at another site.")
+    __properties: ClassVar[List[str]] = ["device_id", "reset_ua_card"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,8 +81,8 @@ class CredentialEnrollNfcCardRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "deviceId": obj.get("deviceId"),
-            "resetUaCard": obj.get("resetUaCard")
+            "device_id": obj.get("device_id"),
+            "reset_ua_card": obj.get("reset_ua_card")
         })
         return _obj
 

@@ -28,10 +28,10 @@ class SystemLogSystemLog(BaseModel):
     SystemLogSystemLog
     """ # noqa: E501
     timestamp: Optional[StrictStr] = None
-    id: Optional[StrictStr] = Field(default=None, alias="Id")
-    source: Optional[SystemLogSystemLogSource] = Field(default=None, alias="Source")
+    id: Optional[StrictStr] = Field(default=None, alias="_id")
+    source: Optional[SystemLogSystemLogSource] = Field(default=None, alias="_source")
     tag: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["timestamp", "Id", "Source", "tag"]
+    __properties: ClassVar[List[str]] = ["timestamp", "_id", "_source", "tag"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,7 +74,7 @@ class SystemLogSystemLog(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of source
         if self.source:
-            _dict['Source'] = self.source.to_dict()
+            _dict['_source'] = self.source.to_dict()
         return _dict
 
     @classmethod
@@ -88,8 +88,8 @@ class SystemLogSystemLog(BaseModel):
 
         _obj = cls.model_validate({
             "timestamp": obj.get("timestamp"),
-            "Id": obj.get("Id"),
-            "Source": SystemLogSystemLogSource.from_dict(obj["Source"]) if obj.get("Source") is not None else None,
+            "_id": obj.get("_id"),
+            "_source": SystemLogSystemLogSource.from_dict(obj["_source"]) if obj.get("_source") is not None else None,
             "tag": obj.get("tag")
         })
         return _obj

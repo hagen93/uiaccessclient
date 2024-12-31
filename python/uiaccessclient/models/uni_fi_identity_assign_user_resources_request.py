@@ -27,9 +27,9 @@ class UniFiIdentityAssignUserResourcesRequest(BaseModel):
     """
     UniFiIdentityAssignUserResourcesRequest
     """ # noqa: E501
-    resource_type: Optional[StrictStr] = Field(default=None, alias="resourceType")
-    resource_ids: Optional[List[UniFiIdentityResourceId]] = Field(default=None, description="Identity ID of the resources.", alias="resourceIds")
-    __properties: ClassVar[List[str]] = ["resourceType", "resourceIds"]
+    resource_type: Optional[StrictStr] = None
+    resource_ids: Optional[List[UniFiIdentityResourceId]] = Field(default=None, description="Identity ID of the resources.")
+    __properties: ClassVar[List[str]] = ["resource_type", "resource_ids"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,7 +76,7 @@ class UniFiIdentityAssignUserResourcesRequest(BaseModel):
             for _item_resource_ids in self.resource_ids:
                 if _item_resource_ids:
                     _items.append(_item_resource_ids.to_dict())
-            _dict['resourceIds'] = _items
+            _dict['resource_ids'] = _items
         return _dict
 
     @classmethod
@@ -89,8 +89,8 @@ class UniFiIdentityAssignUserResourcesRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "resourceType": obj.get("resourceType"),
-            "resourceIds": [UniFiIdentityResourceId.from_dict(_item) for _item in obj["resourceIds"]] if obj.get("resourceIds") is not None else None
+            "resource_type": obj.get("resource_type"),
+            "resource_ids": [UniFiIdentityResourceId.from_dict(_item) for _item in obj["resource_ids"]] if obj.get("resource_ids") is not None else None
         })
         return _obj
 

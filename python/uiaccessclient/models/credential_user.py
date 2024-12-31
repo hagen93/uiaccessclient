@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,10 +27,10 @@ class CredentialUser(BaseModel):
     CredentialUser
     """ # noqa: E501
     id: Optional[StrictStr] = None
-    first_name: Optional[StrictStr] = Field(default=None, alias="firstName")
-    last_name: Optional[StrictStr] = Field(default=None, alias="lastName")
+    first_name: Optional[StrictStr] = None
+    last_name: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "firstName", "lastName", "name"]
+    __properties: ClassVar[List[str]] = ["id", "first_name", "last_name", "name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,8 +84,8 @@ class CredentialUser(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
-            "firstName": obj.get("firstName"),
-            "lastName": obj.get("lastName"),
+            "first_name": obj.get("first_name"),
+            "last_name": obj.get("last_name"),
             "name": obj.get("name")
         })
         return _obj

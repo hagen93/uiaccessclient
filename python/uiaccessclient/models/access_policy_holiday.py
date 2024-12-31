@@ -30,9 +30,9 @@ class AccessPolicyHoliday(BaseModel):
     id: Optional[StrictStr] = Field(default=None, description="Identity ID of the holiday.")
     name: Optional[StrictStr] = Field(default=None, description="Name of the holiday.")
     repeat: Optional[StrictBool] = Field(default=None, description="Indicate whether the holiday repeats annually.")
-    start_time: Optional[StrictStr] = Field(default=None, alias="startTime")
-    end_time: Optional[StrictStr] = Field(default=None, description="according to RFC3339.  End time of the holiday, provided in UTC format", alias="endTime")
-    __properties: ClassVar[List[str]] = ["description", "id", "name", "repeat", "startTime", "endTime"]
+    start_time: Optional[StrictStr] = None
+    end_time: Optional[StrictStr] = Field(default=None, description="according to RFC3339.  End time of the holiday, provided in UTC format")
+    __properties: ClassVar[List[str]] = ["description", "id", "name", "repeat", "start_time", "end_time"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,8 +89,8 @@ class AccessPolicyHoliday(BaseModel):
             "id": obj.get("id"),
             "name": obj.get("name"),
             "repeat": obj.get("repeat"),
-            "startTime": obj.get("startTime"),
-            "endTime": obj.get("endTime")
+            "start_time": obj.get("start_time"),
+            "end_time": obj.get("end_time")
         })
         return _obj
 

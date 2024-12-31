@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from uiaccessclient.models.space_resource import SpaceResource
 from typing import Optional, Set
@@ -27,9 +27,9 @@ class SpaceUpdateDoorGroupRequest(BaseModel):
     """
     SpaceUpdateDoorGroupRequest
     """ # noqa: E501
-    group_name: Optional[StrictStr] = Field(default=None, alias="groupName")
+    group_name: Optional[StrictStr] = None
     resources: Optional[List[SpaceResource]] = None
-    __properties: ClassVar[List[str]] = ["groupName", "resources"]
+    __properties: ClassVar[List[str]] = ["group_name", "resources"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,7 +89,7 @@ class SpaceUpdateDoorGroupRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "groupName": obj.get("groupName"),
+            "group_name": obj.get("group_name"),
             "resources": [SpaceResource.from_dict(_item) for _item in obj["resources"]] if obj.get("resources") is not None else None
         })
         return _obj

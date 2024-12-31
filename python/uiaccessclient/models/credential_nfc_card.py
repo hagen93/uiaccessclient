@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from uiaccessclient.models.credential_user import CredentialUser
 from typing import Optional, Set
@@ -28,13 +28,13 @@ class CredentialNfcCard(BaseModel):
     CredentialNfcCard
     """ # noqa: E501
     token: Optional[StrictStr] = None
-    display_id: Optional[StrictStr] = Field(default=None, alias="displayId")
+    display_id: Optional[StrictStr] = None
     status: Optional[StrictStr] = None
     alias: Optional[StrictStr] = None
-    card_type: Optional[StrictStr] = Field(default=None, alias="cardType")
-    user_type: Optional[StrictStr] = Field(default=None, alias="userType")
+    card_type: Optional[StrictStr] = None
+    user_type: Optional[StrictStr] = None
     user: Optional[CredentialUser] = None
-    __properties: ClassVar[List[str]] = ["token", "displayId", "status", "alias", "cardType", "userType", "user"]
+    __properties: ClassVar[List[str]] = ["token", "display_id", "status", "alias", "card_type", "user_type", "user"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,11 +91,11 @@ class CredentialNfcCard(BaseModel):
 
         _obj = cls.model_validate({
             "token": obj.get("token"),
-            "displayId": obj.get("displayId"),
+            "display_id": obj.get("display_id"),
             "status": obj.get("status"),
             "alias": obj.get("alias"),
-            "cardType": obj.get("cardType"),
-            "userType": obj.get("userType"),
+            "card_type": obj.get("card_type"),
+            "user_type": obj.get("user_type"),
             "user": CredentialUser.from_dict(obj["user"]) if obj.get("user") is not None else None
         })
         return _obj

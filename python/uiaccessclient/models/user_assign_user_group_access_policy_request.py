@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,8 +26,8 @@ class UserAssignUserGroupAccessPolicyRequest(BaseModel):
     """
     UserAssignUserGroupAccessPolicyRequest
     """ # noqa: E501
-    access_policy_ids: Optional[List[StrictStr]] = Field(default=None, alias="accessPolicyIds")
-    __properties: ClassVar[List[str]] = ["accessPolicyIds"]
+    access_policy_ids: Optional[List[StrictStr]] = None
+    __properties: ClassVar[List[str]] = ["access_policy_ids"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,7 +80,7 @@ class UserAssignUserGroupAccessPolicyRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "accessPolicyIds": obj.get("accessPolicyIds")
+            "access_policy_ids": obj.get("access_policy_ids")
         })
         return _obj
 

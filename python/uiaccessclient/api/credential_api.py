@@ -17,14 +17,13 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
-from typing import Optional
 from typing_extensions import Annotated
 from uiaccessclient.models.credential_enroll_nfc_card_request import CredentialEnrollNfcCardRequest
 from uiaccessclient.models.credential_nfc_card_response import CredentialNfcCardResponse
 from uiaccessclient.models.credential_nfc_card_session_response import CredentialNfcCardSessionResponse
 from uiaccessclient.models.credential_nfc_card_token_response import CredentialNfcCardTokenResponse
 from uiaccessclient.models.credential_nfc_cards_response import CredentialNfcCardsResponse
-from uiaccessclient.models.credential_pin_code_response import CredentialPINCodeResponse
+from uiaccessclient.models.credential_pin_code_response import CredentialPinCodeResponse
 
 from uiaccessclient.api_client import ApiClient, RequestSerialized
 from uiaccessclient.api_response import ApiResponse
@@ -45,10 +44,9 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_delete_nfc_card(
+    def delete_nfc_card(
         self,
         token: StrictStr,
-        path_token: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -67,8 +65,6 @@ class CredentialApi:
 
         :param token: (required)
         :type token: str
-        :param path_token:
-        :type path_token: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -91,9 +87,8 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_delete_nfc_card_serialize(
+        _param = self._delete_nfc_card_serialize(
             token=token,
-            path_token=path_token,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -115,10 +110,9 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_delete_nfc_card_with_http_info(
+    def delete_nfc_card_with_http_info(
         self,
         token: StrictStr,
-        path_token: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -137,8 +131,6 @@ class CredentialApi:
 
         :param token: (required)
         :type token: str
-        :param path_token:
-        :type path_token: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -161,9 +153,8 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_delete_nfc_card_serialize(
+        _param = self._delete_nfc_card_serialize(
             token=token,
-            path_token=path_token,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -185,10 +176,9 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_delete_nfc_card_without_preload_content(
+    def delete_nfc_card_without_preload_content(
         self,
         token: StrictStr,
-        path_token: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -207,8 +197,6 @@ class CredentialApi:
 
         :param token: (required)
         :type token: str
-        :param path_token:
-        :type path_token: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -231,9 +219,8 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_delete_nfc_card_serialize(
+        _param = self._delete_nfc_card_serialize(
             token=token,
-            path_token=path_token,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -250,10 +237,9 @@ class CredentialApi:
         return response_data.response
 
 
-    def _credential_service_delete_nfc_card_serialize(
+    def _delete_nfc_card_serialize(
         self,
         token,
-        path_token,
         _request_auth,
         _content_type,
         _headers,
@@ -278,10 +264,6 @@ class CredentialApi:
         if token is not None:
             _path_params['token'] = token
         # process the query parameters
-        if path_token is not None:
-            
-            _query_params.append(('path.token', path_token))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -320,9 +302,9 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_enroll_nfc_card(
+    def enroll_nfc_card(
         self,
-        body: CredentialEnrollNfcCardRequest,
+        credential_enroll_nfc_card_request: CredentialEnrollNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -339,8 +321,8 @@ class CredentialApi:
         """6.2 Enroll NFC Card
 
 
-        :param body: (required)
-        :type body: CredentialEnrollNfcCardRequest
+        :param credential_enroll_nfc_card_request: (required)
+        :type credential_enroll_nfc_card_request: CredentialEnrollNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -363,8 +345,8 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_enroll_nfc_card_serialize(
-            body=body,
+        _param = self._enroll_nfc_card_serialize(
+            credential_enroll_nfc_card_request=credential_enroll_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -386,9 +368,9 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_enroll_nfc_card_with_http_info(
+    def enroll_nfc_card_with_http_info(
         self,
-        body: CredentialEnrollNfcCardRequest,
+        credential_enroll_nfc_card_request: CredentialEnrollNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -405,8 +387,8 @@ class CredentialApi:
         """6.2 Enroll NFC Card
 
 
-        :param body: (required)
-        :type body: CredentialEnrollNfcCardRequest
+        :param credential_enroll_nfc_card_request: (required)
+        :type credential_enroll_nfc_card_request: CredentialEnrollNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -429,8 +411,8 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_enroll_nfc_card_serialize(
-            body=body,
+        _param = self._enroll_nfc_card_serialize(
+            credential_enroll_nfc_card_request=credential_enroll_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -452,9 +434,9 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_enroll_nfc_card_without_preload_content(
+    def enroll_nfc_card_without_preload_content(
         self,
-        body: CredentialEnrollNfcCardRequest,
+        credential_enroll_nfc_card_request: CredentialEnrollNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -471,8 +453,8 @@ class CredentialApi:
         """6.2 Enroll NFC Card
 
 
-        :param body: (required)
-        :type body: CredentialEnrollNfcCardRequest
+        :param credential_enroll_nfc_card_request: (required)
+        :type credential_enroll_nfc_card_request: CredentialEnrollNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -495,8 +477,8 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_enroll_nfc_card_serialize(
-            body=body,
+        _param = self._enroll_nfc_card_serialize(
+            credential_enroll_nfc_card_request=credential_enroll_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -513,9 +495,9 @@ class CredentialApi:
         return response_data.response
 
 
-    def _credential_service_enroll_nfc_card_serialize(
+    def _enroll_nfc_card_serialize(
         self,
-        body,
+        credential_enroll_nfc_card_request,
         _request_auth,
         _content_type,
         _headers,
@@ -541,8 +523,8 @@ class CredentialApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if credential_enroll_nfc_card_request is not None:
+            _body_params = credential_enroll_nfc_card_request
 
 
         # set the HTTP header `Accept`
@@ -591,7 +573,7 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_fetch_all_nfc_cards(
+    def fetch_all_nfc_cards(
         self,
         _request_timeout: Union[
             None,
@@ -631,7 +613,7 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_fetch_all_nfc_cards_serialize(
+        _param = self._fetch_all_nfc_cards_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -653,7 +635,7 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_fetch_all_nfc_cards_with_http_info(
+    def fetch_all_nfc_cards_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -693,7 +675,7 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_fetch_all_nfc_cards_serialize(
+        _param = self._fetch_all_nfc_cards_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -715,7 +697,7 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_fetch_all_nfc_cards_without_preload_content(
+    def fetch_all_nfc_cards_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -755,7 +737,7 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_fetch_all_nfc_cards_serialize(
+        _param = self._fetch_all_nfc_cards_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -772,7 +754,7 @@ class CredentialApi:
         return response_data.response
 
 
-    def _credential_service_fetch_all_nfc_cards_serialize(
+    def _fetch_all_nfc_cards_serialize(
         self,
         _request_auth,
         _content_type,
@@ -834,10 +816,9 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_fetch_nfc_card(
+    def fetch_nfc_card(
         self,
-        token: StrictStr,
-        path_token: Annotated[Optional[StrictStr], Field(description="Token of the NFC card.")] = None,
+        token: Annotated[StrictStr, Field(description="Token of the NFC card.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -854,10 +835,8 @@ class CredentialApi:
         """6.7 Fetch NFC Card
 
 
-        :param token: (required)
+        :param token: Token of the NFC card. (required)
         :type token: str
-        :param path_token: Token of the NFC card.
-        :type path_token: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -880,9 +859,8 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_fetch_nfc_card_serialize(
+        _param = self._fetch_nfc_card_serialize(
             token=token,
-            path_token=path_token,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -904,10 +882,9 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_fetch_nfc_card_with_http_info(
+    def fetch_nfc_card_with_http_info(
         self,
-        token: StrictStr,
-        path_token: Annotated[Optional[StrictStr], Field(description="Token of the NFC card.")] = None,
+        token: Annotated[StrictStr, Field(description="Token of the NFC card.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -924,10 +901,8 @@ class CredentialApi:
         """6.7 Fetch NFC Card
 
 
-        :param token: (required)
+        :param token: Token of the NFC card. (required)
         :type token: str
-        :param path_token: Token of the NFC card.
-        :type path_token: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -950,9 +925,8 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_fetch_nfc_card_serialize(
+        _param = self._fetch_nfc_card_serialize(
             token=token,
-            path_token=path_token,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -974,10 +948,9 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_fetch_nfc_card_without_preload_content(
+    def fetch_nfc_card_without_preload_content(
         self,
-        token: StrictStr,
-        path_token: Annotated[Optional[StrictStr], Field(description="Token of the NFC card.")] = None,
+        token: Annotated[StrictStr, Field(description="Token of the NFC card.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -994,10 +967,8 @@ class CredentialApi:
         """6.7 Fetch NFC Card
 
 
-        :param token: (required)
+        :param token: Token of the NFC card. (required)
         :type token: str
-        :param path_token: Token of the NFC card.
-        :type path_token: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1020,9 +991,8 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_fetch_nfc_card_serialize(
+        _param = self._fetch_nfc_card_serialize(
             token=token,
-            path_token=path_token,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1039,10 +1009,9 @@ class CredentialApi:
         return response_data.response
 
 
-    def _credential_service_fetch_nfc_card_serialize(
+    def _fetch_nfc_card_serialize(
         self,
         token,
-        path_token,
         _request_auth,
         _content_type,
         _headers,
@@ -1067,10 +1036,6 @@ class CredentialApi:
         if token is not None:
             _path_params['token'] = token
         # process the query parameters
-        if path_token is not None:
-            
-            _query_params.append(('path.token', path_token))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1109,10 +1074,9 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_fetch_nfc_card_session_status(
+    def fetch_nfc_card_session_status(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="The id of the session")] = None,
+        id: Annotated[StrictStr, Field(description="The id of the session")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1129,10 +1093,8 @@ class CredentialApi:
         """6.3 Fetch NFC Card Enrollment Status
 
 
-        :param id: (required)
+        :param id: The id of the session (required)
         :type id: str
-        :param path_id: The id of the session
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1155,9 +1117,8 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_fetch_nfc_card_session_status_serialize(
+        _param = self._fetch_nfc_card_session_status_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1179,10 +1140,9 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_fetch_nfc_card_session_status_with_http_info(
+    def fetch_nfc_card_session_status_with_http_info(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="The id of the session")] = None,
+        id: Annotated[StrictStr, Field(description="The id of the session")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1199,10 +1159,8 @@ class CredentialApi:
         """6.3 Fetch NFC Card Enrollment Status
 
 
-        :param id: (required)
+        :param id: The id of the session (required)
         :type id: str
-        :param path_id: The id of the session
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1225,9 +1183,8 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_fetch_nfc_card_session_status_serialize(
+        _param = self._fetch_nfc_card_session_status_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1249,10 +1206,9 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_fetch_nfc_card_session_status_without_preload_content(
+    def fetch_nfc_card_session_status_without_preload_content(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="The id of the session")] = None,
+        id: Annotated[StrictStr, Field(description="The id of the session")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1269,10 +1225,8 @@ class CredentialApi:
         """6.3 Fetch NFC Card Enrollment Status
 
 
-        :param id: (required)
+        :param id: The id of the session (required)
         :type id: str
-        :param path_id: The id of the session
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1295,9 +1249,8 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_fetch_nfc_card_session_status_serialize(
+        _param = self._fetch_nfc_card_session_status_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1314,10 +1267,9 @@ class CredentialApi:
         return response_data.response
 
 
-    def _credential_service_fetch_nfc_card_session_status_serialize(
+    def _fetch_nfc_card_session_status_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1342,10 +1294,6 @@ class CredentialApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1384,7 +1332,7 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_generate_pin_code(
+    def generate_pin_code(
         self,
         _request_timeout: Union[
             None,
@@ -1398,7 +1346,7 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CredentialPINCodeResponse:
+    ) -> CredentialPinCodeResponse:
         """6.1 Generate a PIN Code
 
 
@@ -1424,7 +1372,7 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_generate_pin_code_serialize(
+        _param = self._generate_pin_code_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1432,7 +1380,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialPINCodeResponse",
+            '200': "CredentialPinCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1446,7 +1394,7 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_generate_pin_code_with_http_info(
+    def generate_pin_code_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1460,7 +1408,7 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CredentialPINCodeResponse]:
+    ) -> ApiResponse[CredentialPinCodeResponse]:
         """6.1 Generate a PIN Code
 
 
@@ -1486,7 +1434,7 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_generate_pin_code_serialize(
+        _param = self._generate_pin_code_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1494,7 +1442,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialPINCodeResponse",
+            '200': "CredentialPinCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1508,7 +1456,7 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_generate_pin_code_without_preload_content(
+    def generate_pin_code_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1548,7 +1496,7 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_generate_pin_code_serialize(
+        _param = self._generate_pin_code_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1556,7 +1504,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialPINCodeResponse",
+            '200': "CredentialPinCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1565,7 +1513,7 @@ class CredentialApi:
         return response_data.response
 
 
-    def _credential_service_generate_pin_code_serialize(
+    def _generate_pin_code_serialize(
         self,
         _request_auth,
         _content_type,
@@ -1627,10 +1575,9 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_remove_nfc_card_session(
+    def remove_nfc_card_session(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="The id of the session.")] = None,
+        id: Annotated[StrictStr, Field(description="The id of the session.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1647,10 +1594,8 @@ class CredentialApi:
         """6.4 Remove a Session Created for NFC Card Enrollment
 
 
-        :param id: (required)
+        :param id: The id of the session. (required)
         :type id: str
-        :param path_id: The id of the session.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1673,9 +1618,8 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_remove_nfc_card_session_serialize(
+        _param = self._remove_nfc_card_session_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1697,10 +1641,9 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_remove_nfc_card_session_with_http_info(
+    def remove_nfc_card_session_with_http_info(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="The id of the session.")] = None,
+        id: Annotated[StrictStr, Field(description="The id of the session.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1717,10 +1660,8 @@ class CredentialApi:
         """6.4 Remove a Session Created for NFC Card Enrollment
 
 
-        :param id: (required)
+        :param id: The id of the session. (required)
         :type id: str
-        :param path_id: The id of the session.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1743,9 +1684,8 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_remove_nfc_card_session_serialize(
+        _param = self._remove_nfc_card_session_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1767,10 +1707,9 @@ class CredentialApi:
 
 
     @validate_call
-    def credential_service_remove_nfc_card_session_without_preload_content(
+    def remove_nfc_card_session_without_preload_content(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="The id of the session.")] = None,
+        id: Annotated[StrictStr, Field(description="The id of the session.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1787,10 +1726,8 @@ class CredentialApi:
         """6.4 Remove a Session Created for NFC Card Enrollment
 
 
-        :param id: (required)
+        :param id: The id of the session. (required)
         :type id: str
-        :param path_id: The id of the session.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1813,9 +1750,8 @@ class CredentialApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._credential_service_remove_nfc_card_session_serialize(
+        _param = self._remove_nfc_card_session_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1832,10 +1768,9 @@ class CredentialApi:
         return response_data.response
 
 
-    def _credential_service_remove_nfc_card_session_serialize(
+    def _remove_nfc_card_session_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1860,10 +1795,6 @@ class CredentialApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter

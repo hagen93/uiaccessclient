@@ -17,11 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from uiaccessclient.models.access_policy_schedule import AccessPolicySchedule
-from uiaccessclient.models.shared_nfc_card import SharedNFCCard
-from uiaccessclient.models.shared_pin_code import SharedPINCode
+from uiaccessclient.models.shared_nfc_card import SharedNfcCard
+from uiaccessclient.models.shared_pin_code import SharedPinCode
 from uiaccessclient.models.shared_resource import SharedResource
 from uiaccessclient.models.visitor_status import VisitorStatus
 from typing import Optional, Set
@@ -32,24 +32,24 @@ class VisitorVisitor(BaseModel):
     VisitorVisitor
     """ # noqa: E501
     id: Optional[StrictStr] = None
-    first_name: Optional[StrictStr] = Field(default=None, alias="firstName")
-    last_name: Optional[StrictStr] = Field(default=None, alias="lastName")
+    first_name: Optional[StrictStr] = None
+    last_name: Optional[StrictStr] = None
     status: Optional[VisitorStatus] = VisitorStatus.UNKNOWN
-    inviter_id: Optional[StrictStr] = Field(default=None, alias="inviterId")
-    inviter_name: Optional[StrictStr] = Field(default=None, alias="inviterName")
-    mobile_phone: Optional[StrictStr] = Field(default=None, alias="mobilePhone")
+    inviter_id: Optional[StrictStr] = None
+    inviter_name: Optional[StrictStr] = None
+    mobile_phone: Optional[StrictStr] = None
     remarks: Optional[StrictStr] = None
     email: Optional[StrictStr] = None
-    visitor_company: Optional[StrictStr] = Field(default=None, alias="visitorCompany")
-    visit_reason: Optional[StrictStr] = Field(default=None, alias="visitReason")
-    start_time: Optional[StrictStr] = Field(default=None, alias="startTime")
-    end_time: Optional[StrictStr] = Field(default=None, alias="endTime")
-    nfc_cards: Optional[List[SharedNFCCard]] = Field(default=None, alias="nfcCards")
-    pin_code: Optional[SharedPINCode] = Field(default=None, alias="pinCode")
-    schedule_id: Optional[StrictStr] = Field(default=None, alias="scheduleId")
+    visitor_company: Optional[StrictStr] = None
+    visit_reason: Optional[StrictStr] = None
+    start_time: Optional[StrictStr] = None
+    end_time: Optional[StrictStr] = None
+    nfc_cards: Optional[List[SharedNfcCard]] = None
+    pin_code: Optional[SharedPinCode] = None
+    schedule_id: Optional[StrictStr] = None
     schedule: Optional[AccessPolicySchedule] = None
     resources: Optional[List[SharedResource]] = None
-    __properties: ClassVar[List[str]] = ["id", "firstName", "lastName", "status", "inviterId", "inviterName", "mobilePhone", "remarks", "email", "visitorCompany", "visitReason", "startTime", "endTime", "nfcCards", "pinCode", "scheduleId", "schedule", "resources"]
+    __properties: ClassVar[List[str]] = ["id", "first_name", "last_name", "status", "inviter_id", "inviter_name", "mobile_phone", "remarks", "email", "visitor_company", "visit_reason", "start_time", "end_time", "nfc_cards", "pin_code", "schedule_id", "schedule", "resources"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -96,10 +96,10 @@ class VisitorVisitor(BaseModel):
             for _item_nfc_cards in self.nfc_cards:
                 if _item_nfc_cards:
                     _items.append(_item_nfc_cards.to_dict())
-            _dict['nfcCards'] = _items
+            _dict['nfc_cards'] = _items
         # override the default output from pydantic by calling `to_dict()` of pin_code
         if self.pin_code:
-            _dict['pinCode'] = self.pin_code.to_dict()
+            _dict['pin_code'] = self.pin_code.to_dict()
         # override the default output from pydantic by calling `to_dict()` of schedule
         if self.schedule:
             _dict['schedule'] = self.schedule.to_dict()
@@ -123,21 +123,21 @@ class VisitorVisitor(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
-            "firstName": obj.get("firstName"),
-            "lastName": obj.get("lastName"),
+            "first_name": obj.get("first_name"),
+            "last_name": obj.get("last_name"),
             "status": obj.get("status") if obj.get("status") is not None else VisitorStatus.UNKNOWN,
-            "inviterId": obj.get("inviterId"),
-            "inviterName": obj.get("inviterName"),
-            "mobilePhone": obj.get("mobilePhone"),
+            "inviter_id": obj.get("inviter_id"),
+            "inviter_name": obj.get("inviter_name"),
+            "mobile_phone": obj.get("mobile_phone"),
             "remarks": obj.get("remarks"),
             "email": obj.get("email"),
-            "visitorCompany": obj.get("visitorCompany"),
-            "visitReason": obj.get("visitReason"),
-            "startTime": obj.get("startTime"),
-            "endTime": obj.get("endTime"),
-            "nfcCards": [SharedNFCCard.from_dict(_item) for _item in obj["nfcCards"]] if obj.get("nfcCards") is not None else None,
-            "pinCode": SharedPINCode.from_dict(obj["pinCode"]) if obj.get("pinCode") is not None else None,
-            "scheduleId": obj.get("scheduleId"),
+            "visitor_company": obj.get("visitor_company"),
+            "visit_reason": obj.get("visit_reason"),
+            "start_time": obj.get("start_time"),
+            "end_time": obj.get("end_time"),
+            "nfc_cards": [SharedNfcCard.from_dict(_item) for _item in obj["nfc_cards"]] if obj.get("nfc_cards") is not None else None,
+            "pin_code": SharedPinCode.from_dict(obj["pin_code"]) if obj.get("pin_code") is not None else None,
+            "schedule_id": obj.get("schedule_id"),
             "schedule": AccessPolicySchedule.from_dict(obj["schedule"]) if obj.get("schedule") is not None else None,
             "resources": [SharedResource.from_dict(_item) for _item in obj["resources"]] if obj.get("resources") is not None else None
         })

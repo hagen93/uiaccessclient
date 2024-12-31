@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictStr, field_validator
+from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
 from uiaccessclient.models.shared_status_code_response import SharedStatusCodeResponse
@@ -46,7 +46,7 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_assign_visitor_nfc_card(
+    def assign_visitor_nfc_card(
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -89,7 +89,7 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_assign_visitor_nfc_card_serialize(
+        _param = self._assign_visitor_nfc_card_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -112,7 +112,7 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_assign_visitor_nfc_card_with_http_info(
+    def assign_visitor_nfc_card_with_http_info(
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -155,7 +155,7 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_assign_visitor_nfc_card_serialize(
+        _param = self._assign_visitor_nfc_card_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -178,7 +178,7 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_assign_visitor_nfc_card_without_preload_content(
+    def assign_visitor_nfc_card_without_preload_content(
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -221,7 +221,7 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_assign_visitor_nfc_card_serialize(
+        _param = self._assign_visitor_nfc_card_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -239,7 +239,7 @@ class VisitorApi:
         return response_data.response
 
 
-    def _visitor_service_assign_visitor_nfc_card_serialize(
+    def _assign_visitor_nfc_card_serialize(
         self,
         id,
         _request_auth,
@@ -304,10 +304,10 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_assign_visitor_pin_code(
+    def assign_visitor_pin_code(
         self,
         id: StrictStr,
-        body: VisitorAssignVisitorPinCodeRequest,
+        visitor_assign_visitor_pin_code_request: VisitorAssignVisitorPinCodeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -326,8 +326,8 @@ class VisitorApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: VisitorAssignVisitorPinCodeRequest
+        :param visitor_assign_visitor_pin_code_request: (required)
+        :type visitor_assign_visitor_pin_code_request: VisitorAssignVisitorPinCodeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -350,9 +350,9 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_assign_visitor_pin_code_serialize(
+        _param = self._assign_visitor_pin_code_serialize(
             id=id,
-            body=body,
+            visitor_assign_visitor_pin_code_request=visitor_assign_visitor_pin_code_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -374,10 +374,10 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_assign_visitor_pin_code_with_http_info(
+    def assign_visitor_pin_code_with_http_info(
         self,
         id: StrictStr,
-        body: VisitorAssignVisitorPinCodeRequest,
+        visitor_assign_visitor_pin_code_request: VisitorAssignVisitorPinCodeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -396,8 +396,8 @@ class VisitorApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: VisitorAssignVisitorPinCodeRequest
+        :param visitor_assign_visitor_pin_code_request: (required)
+        :type visitor_assign_visitor_pin_code_request: VisitorAssignVisitorPinCodeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -420,9 +420,9 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_assign_visitor_pin_code_serialize(
+        _param = self._assign_visitor_pin_code_serialize(
             id=id,
-            body=body,
+            visitor_assign_visitor_pin_code_request=visitor_assign_visitor_pin_code_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -444,10 +444,10 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_assign_visitor_pin_code_without_preload_content(
+    def assign_visitor_pin_code_without_preload_content(
         self,
         id: StrictStr,
-        body: VisitorAssignVisitorPinCodeRequest,
+        visitor_assign_visitor_pin_code_request: VisitorAssignVisitorPinCodeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -466,8 +466,8 @@ class VisitorApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: VisitorAssignVisitorPinCodeRequest
+        :param visitor_assign_visitor_pin_code_request: (required)
+        :type visitor_assign_visitor_pin_code_request: VisitorAssignVisitorPinCodeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -490,9 +490,9 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_assign_visitor_pin_code_serialize(
+        _param = self._assign_visitor_pin_code_serialize(
             id=id,
-            body=body,
+            visitor_assign_visitor_pin_code_request=visitor_assign_visitor_pin_code_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -509,10 +509,10 @@ class VisitorApi:
         return response_data.response
 
 
-    def _visitor_service_assign_visitor_pin_code_serialize(
+    def _assign_visitor_pin_code_serialize(
         self,
         id,
-        body,
+        visitor_assign_visitor_pin_code_request,
         _request_auth,
         _content_type,
         _headers,
@@ -540,8 +540,8 @@ class VisitorApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if visitor_assign_visitor_pin_code_request is not None:
+            _body_params = visitor_assign_visitor_pin_code_request
 
 
         # set the HTTP header `Accept`
@@ -590,9 +590,9 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_create_visitor(
+    def create_visitor(
         self,
-        body: VisitorCreateVisitorRequest,
+        visitor_create_visitor_request: VisitorCreateVisitorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -609,8 +609,8 @@ class VisitorApi:
         """4.2 Create a new visitor
 
 
-        :param body: (required)
-        :type body: VisitorCreateVisitorRequest
+        :param visitor_create_visitor_request: (required)
+        :type visitor_create_visitor_request: VisitorCreateVisitorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -633,8 +633,8 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_create_visitor_serialize(
-            body=body,
+        _param = self._create_visitor_serialize(
+            visitor_create_visitor_request=visitor_create_visitor_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -656,9 +656,9 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_create_visitor_with_http_info(
+    def create_visitor_with_http_info(
         self,
-        body: VisitorCreateVisitorRequest,
+        visitor_create_visitor_request: VisitorCreateVisitorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -675,8 +675,8 @@ class VisitorApi:
         """4.2 Create a new visitor
 
 
-        :param body: (required)
-        :type body: VisitorCreateVisitorRequest
+        :param visitor_create_visitor_request: (required)
+        :type visitor_create_visitor_request: VisitorCreateVisitorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -699,8 +699,8 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_create_visitor_serialize(
-            body=body,
+        _param = self._create_visitor_serialize(
+            visitor_create_visitor_request=visitor_create_visitor_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -722,9 +722,9 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_create_visitor_without_preload_content(
+    def create_visitor_without_preload_content(
         self,
-        body: VisitorCreateVisitorRequest,
+        visitor_create_visitor_request: VisitorCreateVisitorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -741,8 +741,8 @@ class VisitorApi:
         """4.2 Create a new visitor
 
 
-        :param body: (required)
-        :type body: VisitorCreateVisitorRequest
+        :param visitor_create_visitor_request: (required)
+        :type visitor_create_visitor_request: VisitorCreateVisitorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -765,8 +765,8 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_create_visitor_serialize(
-            body=body,
+        _param = self._create_visitor_serialize(
+            visitor_create_visitor_request=visitor_create_visitor_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -783,9 +783,9 @@ class VisitorApi:
         return response_data.response
 
 
-    def _visitor_service_create_visitor_serialize(
+    def _create_visitor_serialize(
         self,
-        body,
+        visitor_create_visitor_request,
         _request_auth,
         _content_type,
         _headers,
@@ -811,8 +811,8 @@ class VisitorApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if visitor_create_visitor_request is not None:
+            _body_params = visitor_create_visitor_request
 
 
         # set the HTTP header `Accept`
@@ -861,7 +861,7 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_delete_visitor(
+    def delete_visitor(
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -904,7 +904,7 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_delete_visitor_serialize(
+        _param = self._delete_visitor_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -927,7 +927,7 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_delete_visitor_with_http_info(
+    def delete_visitor_with_http_info(
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -970,7 +970,7 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_delete_visitor_serialize(
+        _param = self._delete_visitor_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -993,7 +993,7 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_delete_visitor_without_preload_content(
+    def delete_visitor_without_preload_content(
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -1036,7 +1036,7 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_delete_visitor_serialize(
+        _param = self._delete_visitor_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1054,7 +1054,7 @@ class VisitorApi:
         return response_data.response
 
 
-    def _visitor_service_delete_visitor_serialize(
+    def _delete_visitor_serialize(
         self,
         id,
         _request_auth,
@@ -1119,13 +1119,13 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_fetch_all_visitors(
+    def fetch_all_visitors(
         self,
-        params_status: Annotated[Optional[StrictStr], Field(description=" - UNKNOWN: Note: This is a placeholder, does not exist on API.  - UPCOMING: Upcoming visit  - VISITED: Completed visit  - VISITING: Currently visiting  - CANCELLED: Cancelled visit  - NO_VISIT: No visit occurred  - ACTIVE: Active visit")] = None,
-        params_keyword: Optional[StrictStr] = None,
-        params_page_num: Optional[StrictStr] = None,
-        params_page_size: Optional[StrictStr] = None,
-        params_expand: Annotated[Optional[List[StrictStr]], Field(description="Determine whether to return associated objects,")] = None,
+        status: Annotated[Optional[StrictStr], Field(description=" - UNKNOWN: Note: This is a placeholder, does not exist on API.  - UPCOMING: Upcoming visit  - VISITED: Completed visit  - VISITING: Currently visiting  - CANCELLED: Cancelled visit  - NO_VISIT: No visit occurred  - ACTIVE: Active visit")] = None,
+        keyword: Optional[StrictStr] = None,
+        page_num: Optional[StrictInt] = None,
+        page_size: Optional[StrictInt] = None,
+        expand: Annotated[Optional[List[StrictStr]], Field(description="Determine whether to return associated objects,")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1142,16 +1142,16 @@ class VisitorApi:
         """4.4 Fetch all visitors
 
 
-        :param params_status:  - UNKNOWN: Note: This is a placeholder, does not exist on API.  - UPCOMING: Upcoming visit  - VISITED: Completed visit  - VISITING: Currently visiting  - CANCELLED: Cancelled visit  - NO_VISIT: No visit occurred  - ACTIVE: Active visit
-        :type params_status: str
-        :param params_keyword:
-        :type params_keyword: str
-        :param params_page_num:
-        :type params_page_num: str
-        :param params_page_size:
-        :type params_page_size: str
-        :param params_expand: Determine whether to return associated objects,
-        :type params_expand: List[str]
+        :param status:  - UNKNOWN: Note: This is a placeholder, does not exist on API.  - UPCOMING: Upcoming visit  - VISITED: Completed visit  - VISITING: Currently visiting  - CANCELLED: Cancelled visit  - NO_VISIT: No visit occurred  - ACTIVE: Active visit
+        :type status: str
+        :param keyword:
+        :type keyword: str
+        :param page_num:
+        :type page_num: int
+        :param page_size:
+        :type page_size: int
+        :param expand: Determine whether to return associated objects,
+        :type expand: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1174,12 +1174,12 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_fetch_all_visitors_serialize(
-            params_status=params_status,
-            params_keyword=params_keyword,
-            params_page_num=params_page_num,
-            params_page_size=params_page_size,
-            params_expand=params_expand,
+        _param = self._fetch_all_visitors_serialize(
+            status=status,
+            keyword=keyword,
+            page_num=page_num,
+            page_size=page_size,
+            expand=expand,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1201,13 +1201,13 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_fetch_all_visitors_with_http_info(
+    def fetch_all_visitors_with_http_info(
         self,
-        params_status: Annotated[Optional[StrictStr], Field(description=" - UNKNOWN: Note: This is a placeholder, does not exist on API.  - UPCOMING: Upcoming visit  - VISITED: Completed visit  - VISITING: Currently visiting  - CANCELLED: Cancelled visit  - NO_VISIT: No visit occurred  - ACTIVE: Active visit")] = None,
-        params_keyword: Optional[StrictStr] = None,
-        params_page_num: Optional[StrictStr] = None,
-        params_page_size: Optional[StrictStr] = None,
-        params_expand: Annotated[Optional[List[StrictStr]], Field(description="Determine whether to return associated objects,")] = None,
+        status: Annotated[Optional[StrictStr], Field(description=" - UNKNOWN: Note: This is a placeholder, does not exist on API.  - UPCOMING: Upcoming visit  - VISITED: Completed visit  - VISITING: Currently visiting  - CANCELLED: Cancelled visit  - NO_VISIT: No visit occurred  - ACTIVE: Active visit")] = None,
+        keyword: Optional[StrictStr] = None,
+        page_num: Optional[StrictInt] = None,
+        page_size: Optional[StrictInt] = None,
+        expand: Annotated[Optional[List[StrictStr]], Field(description="Determine whether to return associated objects,")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1224,16 +1224,16 @@ class VisitorApi:
         """4.4 Fetch all visitors
 
 
-        :param params_status:  - UNKNOWN: Note: This is a placeholder, does not exist on API.  - UPCOMING: Upcoming visit  - VISITED: Completed visit  - VISITING: Currently visiting  - CANCELLED: Cancelled visit  - NO_VISIT: No visit occurred  - ACTIVE: Active visit
-        :type params_status: str
-        :param params_keyword:
-        :type params_keyword: str
-        :param params_page_num:
-        :type params_page_num: str
-        :param params_page_size:
-        :type params_page_size: str
-        :param params_expand: Determine whether to return associated objects,
-        :type params_expand: List[str]
+        :param status:  - UNKNOWN: Note: This is a placeholder, does not exist on API.  - UPCOMING: Upcoming visit  - VISITED: Completed visit  - VISITING: Currently visiting  - CANCELLED: Cancelled visit  - NO_VISIT: No visit occurred  - ACTIVE: Active visit
+        :type status: str
+        :param keyword:
+        :type keyword: str
+        :param page_num:
+        :type page_num: int
+        :param page_size:
+        :type page_size: int
+        :param expand: Determine whether to return associated objects,
+        :type expand: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1256,12 +1256,12 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_fetch_all_visitors_serialize(
-            params_status=params_status,
-            params_keyword=params_keyword,
-            params_page_num=params_page_num,
-            params_page_size=params_page_size,
-            params_expand=params_expand,
+        _param = self._fetch_all_visitors_serialize(
+            status=status,
+            keyword=keyword,
+            page_num=page_num,
+            page_size=page_size,
+            expand=expand,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1283,13 +1283,13 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_fetch_all_visitors_without_preload_content(
+    def fetch_all_visitors_without_preload_content(
         self,
-        params_status: Annotated[Optional[StrictStr], Field(description=" - UNKNOWN: Note: This is a placeholder, does not exist on API.  - UPCOMING: Upcoming visit  - VISITED: Completed visit  - VISITING: Currently visiting  - CANCELLED: Cancelled visit  - NO_VISIT: No visit occurred  - ACTIVE: Active visit")] = None,
-        params_keyword: Optional[StrictStr] = None,
-        params_page_num: Optional[StrictStr] = None,
-        params_page_size: Optional[StrictStr] = None,
-        params_expand: Annotated[Optional[List[StrictStr]], Field(description="Determine whether to return associated objects,")] = None,
+        status: Annotated[Optional[StrictStr], Field(description=" - UNKNOWN: Note: This is a placeholder, does not exist on API.  - UPCOMING: Upcoming visit  - VISITED: Completed visit  - VISITING: Currently visiting  - CANCELLED: Cancelled visit  - NO_VISIT: No visit occurred  - ACTIVE: Active visit")] = None,
+        keyword: Optional[StrictStr] = None,
+        page_num: Optional[StrictInt] = None,
+        page_size: Optional[StrictInt] = None,
+        expand: Annotated[Optional[List[StrictStr]], Field(description="Determine whether to return associated objects,")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1306,16 +1306,16 @@ class VisitorApi:
         """4.4 Fetch all visitors
 
 
-        :param params_status:  - UNKNOWN: Note: This is a placeholder, does not exist on API.  - UPCOMING: Upcoming visit  - VISITED: Completed visit  - VISITING: Currently visiting  - CANCELLED: Cancelled visit  - NO_VISIT: No visit occurred  - ACTIVE: Active visit
-        :type params_status: str
-        :param params_keyword:
-        :type params_keyword: str
-        :param params_page_num:
-        :type params_page_num: str
-        :param params_page_size:
-        :type params_page_size: str
-        :param params_expand: Determine whether to return associated objects,
-        :type params_expand: List[str]
+        :param status:  - UNKNOWN: Note: This is a placeholder, does not exist on API.  - UPCOMING: Upcoming visit  - VISITED: Completed visit  - VISITING: Currently visiting  - CANCELLED: Cancelled visit  - NO_VISIT: No visit occurred  - ACTIVE: Active visit
+        :type status: str
+        :param keyword:
+        :type keyword: str
+        :param page_num:
+        :type page_num: int
+        :param page_size:
+        :type page_size: int
+        :param expand: Determine whether to return associated objects,
+        :type expand: List[str]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1338,12 +1338,12 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_fetch_all_visitors_serialize(
-            params_status=params_status,
-            params_keyword=params_keyword,
-            params_page_num=params_page_num,
-            params_page_size=params_page_size,
-            params_expand=params_expand,
+        _param = self._fetch_all_visitors_serialize(
+            status=status,
+            keyword=keyword,
+            page_num=page_num,
+            page_size=page_size,
+            expand=expand,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1360,13 +1360,13 @@ class VisitorApi:
         return response_data.response
 
 
-    def _visitor_service_fetch_all_visitors_serialize(
+    def _fetch_all_visitors_serialize(
         self,
-        params_status,
-        params_keyword,
-        params_page_num,
-        params_page_size,
-        params_expand,
+        status,
+        keyword,
+        page_num,
+        page_size,
+        expand,
         _request_auth,
         _content_type,
         _headers,
@@ -1376,7 +1376,7 @@ class VisitorApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            'params.expand': 'multi',
+            'expand': 'multi',
         }
 
         _path_params: Dict[str, str] = {}
@@ -1390,25 +1390,25 @@ class VisitorApi:
 
         # process the path parameters
         # process the query parameters
-        if params_status is not None:
+        if status is not None:
             
-            _query_params.append(('params.status', params_status))
+            _query_params.append(('status', status))
             
-        if params_keyword is not None:
+        if keyword is not None:
             
-            _query_params.append(('params.keyword', params_keyword))
+            _query_params.append(('keyword', keyword))
             
-        if params_page_num is not None:
+        if page_num is not None:
             
-            _query_params.append(('params.pageNum', params_page_num))
+            _query_params.append(('pageNum', page_num))
             
-        if params_page_size is not None:
+        if page_size is not None:
             
-            _query_params.append(('params.pageSize', params_page_size))
+            _query_params.append(('pageSize', page_size))
             
-        if params_expand is not None:
+        if expand is not None:
             
-            _query_params.append(('params.expand', params_expand))
+            _query_params.append(('expand', expand))
             
         # process the header parameters
         # process the form parameters
@@ -1448,10 +1448,9 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_fetch_visitor(
+    def fetch_visitor(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identify ID of the visitor")] = None,
+        id: Annotated[StrictStr, Field(description="Identify ID of the visitor")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1468,10 +1467,8 @@ class VisitorApi:
         """4.3 Fetch visitor details by ID
 
 
-        :param id: (required)
+        :param id: Identify ID of the visitor (required)
         :type id: str
-        :param path_id: Identify ID of the visitor
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1494,9 +1491,8 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_fetch_visitor_serialize(
+        _param = self._fetch_visitor_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1518,10 +1514,9 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_fetch_visitor_with_http_info(
+    def fetch_visitor_with_http_info(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identify ID of the visitor")] = None,
+        id: Annotated[StrictStr, Field(description="Identify ID of the visitor")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1538,10 +1533,8 @@ class VisitorApi:
         """4.3 Fetch visitor details by ID
 
 
-        :param id: (required)
+        :param id: Identify ID of the visitor (required)
         :type id: str
-        :param path_id: Identify ID of the visitor
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1564,9 +1557,8 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_fetch_visitor_serialize(
+        _param = self._fetch_visitor_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1588,10 +1580,9 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_fetch_visitor_without_preload_content(
+    def fetch_visitor_without_preload_content(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identify ID of the visitor")] = None,
+        id: Annotated[StrictStr, Field(description="Identify ID of the visitor")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1608,10 +1599,8 @@ class VisitorApi:
         """4.3 Fetch visitor details by ID
 
 
-        :param id: (required)
+        :param id: Identify ID of the visitor (required)
         :type id: str
-        :param path_id: Identify ID of the visitor
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1634,9 +1623,8 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_fetch_visitor_serialize(
+        _param = self._fetch_visitor_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1653,10 +1641,9 @@ class VisitorApi:
         return response_data.response
 
 
-    def _visitor_service_fetch_visitor_serialize(
+    def _fetch_visitor_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1681,10 +1668,6 @@ class VisitorApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1723,10 +1706,10 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_unassign_visitor_nfc_card(
+    def unassign_visitor_nfc_card(
         self,
         id: StrictStr,
-        body: VisitorUnassignVisitorNfcCardRequest,
+        visitor_unassign_visitor_nfc_card_request: VisitorUnassignVisitorNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1745,8 +1728,8 @@ class VisitorApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: VisitorUnassignVisitorNfcCardRequest
+        :param visitor_unassign_visitor_nfc_card_request: (required)
+        :type visitor_unassign_visitor_nfc_card_request: VisitorUnassignVisitorNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1769,9 +1752,9 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_unassign_visitor_nfc_card_serialize(
+        _param = self._unassign_visitor_nfc_card_serialize(
             id=id,
-            body=body,
+            visitor_unassign_visitor_nfc_card_request=visitor_unassign_visitor_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1793,10 +1776,10 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_unassign_visitor_nfc_card_with_http_info(
+    def unassign_visitor_nfc_card_with_http_info(
         self,
         id: StrictStr,
-        body: VisitorUnassignVisitorNfcCardRequest,
+        visitor_unassign_visitor_nfc_card_request: VisitorUnassignVisitorNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1815,8 +1798,8 @@ class VisitorApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: VisitorUnassignVisitorNfcCardRequest
+        :param visitor_unassign_visitor_nfc_card_request: (required)
+        :type visitor_unassign_visitor_nfc_card_request: VisitorUnassignVisitorNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1839,9 +1822,9 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_unassign_visitor_nfc_card_serialize(
+        _param = self._unassign_visitor_nfc_card_serialize(
             id=id,
-            body=body,
+            visitor_unassign_visitor_nfc_card_request=visitor_unassign_visitor_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1863,10 +1846,10 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_unassign_visitor_nfc_card_without_preload_content(
+    def unassign_visitor_nfc_card_without_preload_content(
         self,
         id: StrictStr,
-        body: VisitorUnassignVisitorNfcCardRequest,
+        visitor_unassign_visitor_nfc_card_request: VisitorUnassignVisitorNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1885,8 +1868,8 @@ class VisitorApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: VisitorUnassignVisitorNfcCardRequest
+        :param visitor_unassign_visitor_nfc_card_request: (required)
+        :type visitor_unassign_visitor_nfc_card_request: VisitorUnassignVisitorNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1909,9 +1892,9 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_unassign_visitor_nfc_card_serialize(
+        _param = self._unassign_visitor_nfc_card_serialize(
             id=id,
-            body=body,
+            visitor_unassign_visitor_nfc_card_request=visitor_unassign_visitor_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1928,10 +1911,10 @@ class VisitorApi:
         return response_data.response
 
 
-    def _visitor_service_unassign_visitor_nfc_card_serialize(
+    def _unassign_visitor_nfc_card_serialize(
         self,
         id,
-        body,
+        visitor_unassign_visitor_nfc_card_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1959,8 +1942,8 @@ class VisitorApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if visitor_unassign_visitor_nfc_card_request is not None:
+            _body_params = visitor_unassign_visitor_nfc_card_request
 
 
         # set the HTTP header `Accept`
@@ -2009,10 +1992,9 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_unassign_visitor_pin_code(
+    def unassign_visitor_pin_code(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the visitor.  Get it from the API, /api/v1/developer/visitors")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the visitor.  Get it from the API, /api/v1/developer/visitors")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2029,10 +2011,8 @@ class VisitorApi:
         """4.10 Unassisgn Visitor Pin Code
 
 
-        :param id: (required)
+        :param id: Identity ID of the visitor.  Get it from the API, /api/v1/developer/visitors (required)
         :type id: str
-        :param path_id: Identity ID of the visitor.  Get it from the API, /api/v1/developer/visitors
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2055,9 +2035,8 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_unassign_visitor_pin_code_serialize(
+        _param = self._unassign_visitor_pin_code_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2079,10 +2058,9 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_unassign_visitor_pin_code_with_http_info(
+    def unassign_visitor_pin_code_with_http_info(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the visitor.  Get it from the API, /api/v1/developer/visitors")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the visitor.  Get it from the API, /api/v1/developer/visitors")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2099,10 +2077,8 @@ class VisitorApi:
         """4.10 Unassisgn Visitor Pin Code
 
 
-        :param id: (required)
+        :param id: Identity ID of the visitor.  Get it from the API, /api/v1/developer/visitors (required)
         :type id: str
-        :param path_id: Identity ID of the visitor.  Get it from the API, /api/v1/developer/visitors
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2125,9 +2101,8 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_unassign_visitor_pin_code_serialize(
+        _param = self._unassign_visitor_pin_code_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2149,10 +2124,9 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_unassign_visitor_pin_code_without_preload_content(
+    def unassign_visitor_pin_code_without_preload_content(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the visitor.  Get it from the API, /api/v1/developer/visitors")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the visitor.  Get it from the API, /api/v1/developer/visitors")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2169,10 +2143,8 @@ class VisitorApi:
         """4.10 Unassisgn Visitor Pin Code
 
 
-        :param id: (required)
+        :param id: Identity ID of the visitor.  Get it from the API, /api/v1/developer/visitors (required)
         :type id: str
-        :param path_id: Identity ID of the visitor.  Get it from the API, /api/v1/developer/visitors
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2195,9 +2167,8 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_unassign_visitor_pin_code_serialize(
+        _param = self._unassign_visitor_pin_code_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2214,10 +2185,9 @@ class VisitorApi:
         return response_data.response
 
 
-    def _visitor_service_unassign_visitor_pin_code_serialize(
+    def _unassign_visitor_pin_code_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -2242,10 +2212,6 @@ class VisitorApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -2284,10 +2250,10 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_update_visitor(
+    def update_visitor(
         self,
         id: StrictStr,
-        body: VisitorUpdateVisitorRequest,
+        visitor_update_visitor_request: VisitorUpdateVisitorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2306,8 +2272,8 @@ class VisitorApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: VisitorUpdateVisitorRequest
+        :param visitor_update_visitor_request: (required)
+        :type visitor_update_visitor_request: VisitorUpdateVisitorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2330,9 +2296,9 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_update_visitor_serialize(
+        _param = self._update_visitor_serialize(
             id=id,
-            body=body,
+            visitor_update_visitor_request=visitor_update_visitor_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2354,10 +2320,10 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_update_visitor_with_http_info(
+    def update_visitor_with_http_info(
         self,
         id: StrictStr,
-        body: VisitorUpdateVisitorRequest,
+        visitor_update_visitor_request: VisitorUpdateVisitorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2376,8 +2342,8 @@ class VisitorApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: VisitorUpdateVisitorRequest
+        :param visitor_update_visitor_request: (required)
+        :type visitor_update_visitor_request: VisitorUpdateVisitorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2400,9 +2366,9 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_update_visitor_serialize(
+        _param = self._update_visitor_serialize(
             id=id,
-            body=body,
+            visitor_update_visitor_request=visitor_update_visitor_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2424,10 +2390,10 @@ class VisitorApi:
 
 
     @validate_call
-    def visitor_service_update_visitor_without_preload_content(
+    def update_visitor_without_preload_content(
         self,
         id: StrictStr,
-        body: VisitorUpdateVisitorRequest,
+        visitor_update_visitor_request: VisitorUpdateVisitorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2446,8 +2412,8 @@ class VisitorApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: VisitorUpdateVisitorRequest
+        :param visitor_update_visitor_request: (required)
+        :type visitor_update_visitor_request: VisitorUpdateVisitorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2470,9 +2436,9 @@ class VisitorApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._visitor_service_update_visitor_serialize(
+        _param = self._update_visitor_serialize(
             id=id,
-            body=body,
+            visitor_update_visitor_request=visitor_update_visitor_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2489,10 +2455,10 @@ class VisitorApi:
         return response_data.response
 
 
-    def _visitor_service_update_visitor_serialize(
+    def _update_visitor_serialize(
         self,
         id,
-        body,
+        visitor_update_visitor_request,
         _request_auth,
         _content_type,
         _headers,
@@ -2520,8 +2486,8 @@ class VisitorApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if visitor_update_visitor_request is not None:
+            _body_params = visitor_update_visitor_request
 
 
         # set the HTTP header `Accept`

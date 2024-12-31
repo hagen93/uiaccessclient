@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,9 +26,9 @@ class SpaceDoorLockingRule(BaseModel):
     """
     SpaceDoorLockingRule
     """ # noqa: E501
-    ended_time: Optional[StrictInt] = Field(default=None, alias="endedTime")
+    ended_time: Optional[StrictInt] = None
     type: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["endedTime", "type"]
+    __properties: ClassVar[List[str]] = ["ended_time", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,7 +81,7 @@ class SpaceDoorLockingRule(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "endedTime": obj.get("endedTime"),
+            "ended_time": obj.get("ended_time"),
             "type": obj.get("type")
         })
         return _obj

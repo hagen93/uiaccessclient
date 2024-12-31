@@ -30,8 +30,8 @@ class SystemLogExportSystemLogsRequest(BaseModel):
     since: Optional[StrictInt] = None
     until: Optional[StrictInt] = None
     timezone: Optional[StrictStr] = None
-    actor_id: Optional[StrictStr] = Field(default=None, description="Identity ID of the actor (user, visitor, and device), ex:  3e1f196e-c97b-4748-aecb-eab5e9c251b2", alias="actorId")
-    __properties: ClassVar[List[str]] = ["topic", "since", "until", "timezone", "actorId"]
+    actor_id: Optional[StrictStr] = Field(default=None, description="Identity ID of the actor (user, visitor, and device), ex:  3e1f196e-c97b-4748-aecb-eab5e9c251b2")
+    __properties: ClassVar[List[str]] = ["topic", "since", "until", "timezone", "actor_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,7 +88,7 @@ class SystemLogExportSystemLogsRequest(BaseModel):
             "since": obj.get("since"),
             "until": obj.get("until"),
             "timezone": obj.get("timezone"),
-            "actorId": obj.get("actorId")
+            "actor_id": obj.get("actor_id")
         })
         return _obj
 

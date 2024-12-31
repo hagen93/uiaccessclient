@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,11 +26,11 @@ class UniFiIdentityInvitationStatus(BaseModel):
     """
     UniFiIdentityInvitationStatus
     """ # noqa: E501
-    error_code: Optional[StrictStr] = Field(default=None, alias="errorCode")
-    error_msg: Optional[StrictStr] = Field(default=None, alias="errorMsg")
-    user_email: Optional[StrictStr] = Field(default=None, alias="userEmail")
-    user_id: Optional[StrictStr] = Field(default=None, alias="userId")
-    __properties: ClassVar[List[str]] = ["errorCode", "errorMsg", "userEmail", "userId"]
+    error_code: Optional[StrictStr] = None
+    error_msg: Optional[StrictStr] = None
+    user_email: Optional[StrictStr] = None
+    user_id: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["error_code", "error_msg", "user_email", "user_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,10 +83,10 @@ class UniFiIdentityInvitationStatus(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "errorCode": obj.get("errorCode"),
-            "errorMsg": obj.get("errorMsg"),
-            "userEmail": obj.get("userEmail"),
-            "userId": obj.get("userId")
+            "error_code": obj.get("error_code"),
+            "error_msg": obj.get("error_msg"),
+            "user_email": obj.get("user_email"),
+            "user_id": obj.get("user_id")
         })
         return _obj
 

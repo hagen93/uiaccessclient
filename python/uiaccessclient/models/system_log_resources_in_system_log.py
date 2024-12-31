@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,11 +26,11 @@ class SystemLogResourcesInSystemLog(BaseModel):
     """
     SystemLogResourcesInSystemLog
     """ # noqa: E501
-    video_record: Optional[StrictStr] = Field(default=None, alias="videoRecord")
-    video_record_thumbnail: Optional[StrictStr] = Field(default=None, alias="videoRecordThumbnail")
-    created_at: Optional[StrictStr] = Field(default=None, alias="createdAt")
-    updated_at: Optional[StrictStr] = Field(default=None, alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["videoRecord", "videoRecordThumbnail", "createdAt", "updatedAt"]
+    video_record: Optional[StrictStr] = None
+    video_record_thumbnail: Optional[StrictStr] = None
+    created_at: Optional[StrictStr] = None
+    updated_at: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["video_record", "video_record_thumbnail", "created_at", "updated_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,10 +83,10 @@ class SystemLogResourcesInSystemLog(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "videoRecord": obj.get("videoRecord"),
-            "videoRecordThumbnail": obj.get("videoRecordThumbnail"),
-            "createdAt": obj.get("createdAt"),
-            "updatedAt": obj.get("updatedAt")
+            "video_record": obj.get("video_record"),
+            "video_record_thumbnail": obj.get("video_record_thumbnail"),
+            "created_at": obj.get("created_at"),
+            "updated_at": obj.get("updated_at")
         })
         return _obj
 

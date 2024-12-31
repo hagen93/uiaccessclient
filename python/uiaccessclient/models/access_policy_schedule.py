@@ -30,12 +30,12 @@ class AccessPolicySchedule(BaseModel):
     """ # noqa: E501
     id: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
-    is_default: Optional[StrictBool] = Field(default=None, alias="isDefault")
+    is_default: Optional[StrictBool] = None
     type: Optional[StrictStr] = None
     weekly: Optional[AccessPolicyWeekSchedule] = None
-    holiday_schedule: Optional[List[AccessPolicyHolidaySchedule]] = Field(default=None, description="Specify the accessible period during holidays.", alias="holidaySchedule")
-    holiday_group_id: Optional[StrictStr] = Field(default=None, alias="holidayGroupId")
-    __properties: ClassVar[List[str]] = ["id", "name", "isDefault", "type", "weekly", "holidaySchedule", "holidayGroupId"]
+    holiday_schedule: Optional[List[AccessPolicyHolidaySchedule]] = Field(default=None, description="Specify the accessible period during holidays.")
+    holiday_group_id: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["id", "name", "is_default", "type", "weekly", "holiday_schedule", "holiday_group_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,7 +85,7 @@ class AccessPolicySchedule(BaseModel):
             for _item_holiday_schedule in self.holiday_schedule:
                 if _item_holiday_schedule:
                     _items.append(_item_holiday_schedule.to_dict())
-            _dict['holidaySchedule'] = _items
+            _dict['holiday_schedule'] = _items
         return _dict
 
     @classmethod
@@ -100,11 +100,11 @@ class AccessPolicySchedule(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "name": obj.get("name"),
-            "isDefault": obj.get("isDefault"),
+            "is_default": obj.get("is_default"),
             "type": obj.get("type"),
             "weekly": AccessPolicyWeekSchedule.from_dict(obj["weekly"]) if obj.get("weekly") is not None else None,
-            "holidaySchedule": [AccessPolicyHolidaySchedule.from_dict(_item) for _item in obj["holidaySchedule"]] if obj.get("holidaySchedule") is not None else None,
-            "holidayGroupId": obj.get("holidayGroupId")
+            "holiday_schedule": [AccessPolicyHolidaySchedule.from_dict(_item) for _item in obj["holiday_schedule"]] if obj.get("holiday_schedule") is not None else None,
+            "holiday_group_id": obj.get("holiday_group_id")
         })
         return _obj
 

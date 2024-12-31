@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,8 +26,8 @@ class CredentialNfcCardSession(BaseModel):
     """
     CredentialNfcCardSession
     """ # noqa: E501
-    session_id: Optional[StrictStr] = Field(default=None, alias="sessionId")
-    __properties: ClassVar[List[str]] = ["sessionId"]
+    session_id: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["session_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,7 +80,7 @@ class CredentialNfcCardSession(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "sessionId": obj.get("sessionId")
+            "session_id": obj.get("session_id")
         })
         return _obj
 

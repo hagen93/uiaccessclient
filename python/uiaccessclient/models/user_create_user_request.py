@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,12 +26,12 @@ class UserCreateUserRequest(BaseModel):
     """
     UserCreateUserRequest
     """ # noqa: E501
-    first_name: Optional[StrictStr] = Field(default=None, alias="firstName")
-    last_name: Optional[StrictStr] = Field(default=None, alias="lastName")
-    user_email: Optional[StrictStr] = Field(default=None, alias="userEmail")
-    employee_number: Optional[StrictStr] = Field(default=None, alias="employeeNumber")
-    onboard_time: Optional[StrictStr] = Field(default=None, alias="onboardTime")
-    __properties: ClassVar[List[str]] = ["firstName", "lastName", "userEmail", "employeeNumber", "onboardTime"]
+    first_name: Optional[StrictStr] = None
+    last_name: Optional[StrictStr] = None
+    user_email: Optional[StrictStr] = None
+    employee_number: Optional[StrictStr] = None
+    onboard_time: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["first_name", "last_name", "user_email", "employee_number", "onboard_time"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,11 +84,11 @@ class UserCreateUserRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "firstName": obj.get("firstName"),
-            "lastName": obj.get("lastName"),
-            "userEmail": obj.get("userEmail"),
-            "employeeNumber": obj.get("employeeNumber"),
-            "onboardTime": obj.get("onboardTime")
+            "first_name": obj.get("first_name"),
+            "last_name": obj.get("last_name"),
+            "user_email": obj.get("user_email"),
+            "employee_number": obj.get("employee_number"),
+            "onboard_time": obj.get("onboard_time")
         })
         return _obj
 

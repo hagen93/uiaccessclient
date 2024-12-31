@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from uiaccessclient.models.uni_fi_identity_resource_id import UniFiIdentityResourceId
 from typing import Optional, Set
@@ -27,9 +27,9 @@ class UniFiIdentityAssignUserGroupResourcesRequest(BaseModel):
     """
     UniFiIdentityAssignUserGroupResourcesRequest
     """ # noqa: E501
-    resource_type: Optional[StrictStr] = Field(default=None, alias="resourceType")
-    resource_ids: Optional[List[UniFiIdentityResourceId]] = Field(default=None, alias="resourceIds")
-    __properties: ClassVar[List[str]] = ["resourceType", "resourceIds"]
+    resource_type: Optional[StrictStr] = None
+    resource_ids: Optional[List[UniFiIdentityResourceId]] = None
+    __properties: ClassVar[List[str]] = ["resource_type", "resource_ids"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,7 +76,7 @@ class UniFiIdentityAssignUserGroupResourcesRequest(BaseModel):
             for _item_resource_ids in self.resource_ids:
                 if _item_resource_ids:
                     _items.append(_item_resource_ids.to_dict())
-            _dict['resourceIds'] = _items
+            _dict['resource_ids'] = _items
         return _dict
 
     @classmethod
@@ -89,8 +89,8 @@ class UniFiIdentityAssignUserGroupResourcesRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "resourceType": obj.get("resourceType"),
-            "resourceIds": [UniFiIdentityResourceId.from_dict(_item) for _item in obj["resourceIds"]] if obj.get("resourceIds") is not None else None
+            "resource_type": obj.get("resource_type"),
+            "resource_ids": [UniFiIdentityResourceId.from_dict(_item) for _item in obj["resource_ids"]] if obj.get("resource_ids") is not None else None
         })
         return _obj
 

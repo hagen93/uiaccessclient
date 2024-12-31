@@ -50,9 +50,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_create_door_group(
+    def create_door_group(
         self,
-        body: SpaceCreateDoorGroupRequest,
+        space_create_door_group_request: SpaceCreateDoorGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -69,8 +69,8 @@ class SpaceApi:
         """7.2 Create Door Group
 
 
-        :param body: (required)
-        :type body: SpaceCreateDoorGroupRequest
+        :param space_create_door_group_request: (required)
+        :type space_create_door_group_request: SpaceCreateDoorGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -93,8 +93,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_create_door_group_serialize(
-            body=body,
+        _param = self._create_door_group_serialize(
+            space_create_door_group_request=space_create_door_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -116,9 +116,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_create_door_group_with_http_info(
+    def create_door_group_with_http_info(
         self,
-        body: SpaceCreateDoorGroupRequest,
+        space_create_door_group_request: SpaceCreateDoorGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -135,8 +135,8 @@ class SpaceApi:
         """7.2 Create Door Group
 
 
-        :param body: (required)
-        :type body: SpaceCreateDoorGroupRequest
+        :param space_create_door_group_request: (required)
+        :type space_create_door_group_request: SpaceCreateDoorGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -159,8 +159,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_create_door_group_serialize(
-            body=body,
+        _param = self._create_door_group_serialize(
+            space_create_door_group_request=space_create_door_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -182,9 +182,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_create_door_group_without_preload_content(
+    def create_door_group_without_preload_content(
         self,
-        body: SpaceCreateDoorGroupRequest,
+        space_create_door_group_request: SpaceCreateDoorGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -201,8 +201,8 @@ class SpaceApi:
         """7.2 Create Door Group
 
 
-        :param body: (required)
-        :type body: SpaceCreateDoorGroupRequest
+        :param space_create_door_group_request: (required)
+        :type space_create_door_group_request: SpaceCreateDoorGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -225,8 +225,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_create_door_group_serialize(
-            body=body,
+        _param = self._create_door_group_serialize(
+            space_create_door_group_request=space_create_door_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -243,9 +243,9 @@ class SpaceApi:
         return response_data.response
 
 
-    def _space_service_create_door_group_serialize(
+    def _create_door_group_serialize(
         self,
-        body,
+        space_create_door_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -271,8 +271,8 @@ class SpaceApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if space_create_door_group_request is not None:
+            _body_params = space_create_door_group_request
 
 
         # set the HTTP header `Accept`
@@ -321,10 +321,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_delete_door_group(
+    def delete_door_group(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -343,8 +342,6 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -367,9 +364,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_delete_door_group_serialize(
+        _param = self._delete_door_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -391,10 +387,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_delete_door_group_with_http_info(
+    def delete_door_group_with_http_info(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -413,8 +408,6 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -437,9 +430,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_delete_door_group_serialize(
+        _param = self._delete_door_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -461,10 +453,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_delete_door_group_without_preload_content(
+    def delete_door_group_without_preload_content(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -483,8 +474,6 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -507,9 +496,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_delete_door_group_serialize(
+        _param = self._delete_door_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -526,10 +514,9 @@ class SpaceApi:
         return response_data.response
 
 
-    def _space_service_delete_door_group_serialize(
+    def _delete_door_group_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -554,10 +541,6 @@ class SpaceApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -596,7 +579,7 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_all_door_groups(
+    def fetch_all_door_groups(
         self,
         _request_timeout: Union[
             None,
@@ -636,7 +619,7 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_all_door_groups_serialize(
+        _param = self._fetch_all_door_groups_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -658,7 +641,7 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_all_door_groups_with_http_info(
+    def fetch_all_door_groups_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -698,7 +681,7 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_all_door_groups_serialize(
+        _param = self._fetch_all_door_groups_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -720,7 +703,7 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_all_door_groups_without_preload_content(
+    def fetch_all_door_groups_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -760,7 +743,7 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_all_door_groups_serialize(
+        _param = self._fetch_all_door_groups_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -777,7 +760,7 @@ class SpaceApi:
         return response_data.response
 
 
-    def _space_service_fetch_all_door_groups_serialize(
+    def _fetch_all_door_groups_serialize(
         self,
         _request_auth,
         _content_type,
@@ -839,7 +822,7 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_all_doors(
+    def fetch_all_doors(
         self,
         _request_timeout: Union[
             None,
@@ -879,7 +862,7 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_all_doors_serialize(
+        _param = self._fetch_all_doors_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -901,7 +884,7 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_all_doors_with_http_info(
+    def fetch_all_doors_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -941,7 +924,7 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_all_doors_serialize(
+        _param = self._fetch_all_doors_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -963,7 +946,7 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_all_doors_without_preload_content(
+    def fetch_all_doors_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1003,7 +986,7 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_all_doors_serialize(
+        _param = self._fetch_all_doors_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1020,7 +1003,7 @@ class SpaceApi:
         return response_data.response
 
 
-    def _space_service_fetch_all_doors_serialize(
+    def _fetch_all_doors_serialize(
         self,
         _request_auth,
         _content_type,
@@ -1082,10 +1065,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_door(
+    def fetch_door(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1104,8 +1086,6 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1128,9 +1108,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_door_serialize(
+        _param = self._fetch_door_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1152,10 +1131,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_door_with_http_info(
+    def fetch_door_with_http_info(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1174,8 +1152,6 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1198,9 +1174,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_door_serialize(
+        _param = self._fetch_door_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1222,10 +1197,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_door_without_preload_content(
+    def fetch_door_without_preload_content(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1244,8 +1218,6 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1268,9 +1240,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_door_serialize(
+        _param = self._fetch_door_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1287,10 +1258,9 @@ class SpaceApi:
         return response_data.response
 
 
-    def _space_service_fetch_door_serialize(
+    def _fetch_door_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1315,10 +1285,6 @@ class SpaceApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1357,7 +1323,7 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_door_emergency_status(
+    def fetch_door_emergency_status(
         self,
         body_lockdown: Annotated[Optional[StrictBool], Field(description="True will keep the door locked")] = None,
         body_evacuation: Annotated[Optional[StrictBool], Field(description="True will keep the door unlocked.")] = None,
@@ -1403,7 +1369,7 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_door_emergency_status_serialize(
+        _param = self._fetch_door_emergency_status_serialize(
             body_lockdown=body_lockdown,
             body_evacuation=body_evacuation,
             _request_auth=_request_auth,
@@ -1427,7 +1393,7 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_door_emergency_status_with_http_info(
+    def fetch_door_emergency_status_with_http_info(
         self,
         body_lockdown: Annotated[Optional[StrictBool], Field(description="True will keep the door locked")] = None,
         body_evacuation: Annotated[Optional[StrictBool], Field(description="True will keep the door unlocked.")] = None,
@@ -1473,7 +1439,7 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_door_emergency_status_serialize(
+        _param = self._fetch_door_emergency_status_serialize(
             body_lockdown=body_lockdown,
             body_evacuation=body_evacuation,
             _request_auth=_request_auth,
@@ -1497,7 +1463,7 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_door_emergency_status_without_preload_content(
+    def fetch_door_emergency_status_without_preload_content(
         self,
         body_lockdown: Annotated[Optional[StrictBool], Field(description="True will keep the door locked")] = None,
         body_evacuation: Annotated[Optional[StrictBool], Field(description="True will keep the door unlocked.")] = None,
@@ -1543,7 +1509,7 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_door_emergency_status_serialize(
+        _param = self._fetch_door_emergency_status_serialize(
             body_lockdown=body_lockdown,
             body_evacuation=body_evacuation,
             _request_auth=_request_auth,
@@ -1562,7 +1528,7 @@ class SpaceApi:
         return response_data.response
 
 
-    def _space_service_fetch_door_emergency_status_serialize(
+    def _fetch_door_emergency_status_serialize(
         self,
         body_lockdown,
         body_evacuation,
@@ -1634,10 +1600,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_door_group(
+    def fetch_door_group(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1656,8 +1621,6 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1680,9 +1643,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_door_group_serialize(
+        _param = self._fetch_door_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1704,10 +1666,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_door_group_with_http_info(
+    def fetch_door_group_with_http_info(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1726,8 +1687,6 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1750,9 +1709,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_door_group_serialize(
+        _param = self._fetch_door_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1774,10 +1732,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_door_group_without_preload_content(
+    def fetch_door_group_without_preload_content(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1796,8 +1753,6 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1820,9 +1775,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_door_group_serialize(
+        _param = self._fetch_door_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1839,10 +1793,9 @@ class SpaceApi:
         return response_data.response
 
 
-    def _space_service_fetch_door_group_serialize(
+    def _fetch_door_group_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1867,10 +1820,6 @@ class SpaceApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1909,7 +1858,7 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_door_group_topology(
+    def fetch_door_group_topology(
         self,
         body_id: Optional[StrictStr] = None,
         body_type: Optional[StrictStr] = None,
@@ -1955,7 +1904,7 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_door_group_topology_serialize(
+        _param = self._fetch_door_group_topology_serialize(
             body_id=body_id,
             body_type=body_type,
             _request_auth=_request_auth,
@@ -1979,7 +1928,7 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_door_group_topology_with_http_info(
+    def fetch_door_group_topology_with_http_info(
         self,
         body_id: Optional[StrictStr] = None,
         body_type: Optional[StrictStr] = None,
@@ -2025,7 +1974,7 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_door_group_topology_serialize(
+        _param = self._fetch_door_group_topology_serialize(
             body_id=body_id,
             body_type=body_type,
             _request_auth=_request_auth,
@@ -2049,7 +1998,7 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_door_group_topology_without_preload_content(
+    def fetch_door_group_topology_without_preload_content(
         self,
         body_id: Optional[StrictStr] = None,
         body_type: Optional[StrictStr] = None,
@@ -2095,7 +2044,7 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_door_group_topology_serialize(
+        _param = self._fetch_door_group_topology_serialize(
             body_id=body_id,
             body_type=body_type,
             _request_auth=_request_auth,
@@ -2114,7 +2063,7 @@ class SpaceApi:
         return response_data.response
 
 
-    def _space_service_fetch_door_group_topology_serialize(
+    def _fetch_door_group_topology_serialize(
         self,
         body_id,
         body_type,
@@ -2186,10 +2135,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_door_locking_rule(
+    def fetch_door_locking_rule(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         body_type: Annotated[Optional[StrictStr], Field(description="enum type {schedule,keep_lock,keep_unlock,custom,lock_early} keep_lock is used to set the \"keep locked\" state, while keep_unlock is used to set the \"keep unlocked\" state. custom is used to customize the unlock time duration. schedule indicates that the door is currently in the unlock schedule state. The lock_early is used to terminate doors in an unlock schedule early.")] = None,
         body_ended_time: Annotated[Optional[StrictInt], Field(description="End time of the set rule, ex: 1708672257")] = None,
         _request_timeout: Union[
@@ -2210,8 +2158,6 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param body_type: enum type {schedule,keep_lock,keep_unlock,custom,lock_early} keep_lock is used to set the \"keep locked\" state, while keep_unlock is used to set the \"keep unlocked\" state. custom is used to customize the unlock time duration. schedule indicates that the door is currently in the unlock schedule state. The lock_early is used to terminate doors in an unlock schedule early.
         :type body_type: str
         :param body_ended_time: End time of the set rule, ex: 1708672257
@@ -2238,9 +2184,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_door_locking_rule_serialize(
+        _param = self._fetch_door_locking_rule_serialize(
             id=id,
-            path_id=path_id,
             body_type=body_type,
             body_ended_time=body_ended_time,
             _request_auth=_request_auth,
@@ -2264,10 +2209,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_door_locking_rule_with_http_info(
+    def fetch_door_locking_rule_with_http_info(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         body_type: Annotated[Optional[StrictStr], Field(description="enum type {schedule,keep_lock,keep_unlock,custom,lock_early} keep_lock is used to set the \"keep locked\" state, while keep_unlock is used to set the \"keep unlocked\" state. custom is used to customize the unlock time duration. schedule indicates that the door is currently in the unlock schedule state. The lock_early is used to terminate doors in an unlock schedule early.")] = None,
         body_ended_time: Annotated[Optional[StrictInt], Field(description="End time of the set rule, ex: 1708672257")] = None,
         _request_timeout: Union[
@@ -2288,8 +2232,6 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param body_type: enum type {schedule,keep_lock,keep_unlock,custom,lock_early} keep_lock is used to set the \"keep locked\" state, while keep_unlock is used to set the \"keep unlocked\" state. custom is used to customize the unlock time duration. schedule indicates that the door is currently in the unlock schedule state. The lock_early is used to terminate doors in an unlock schedule early.
         :type body_type: str
         :param body_ended_time: End time of the set rule, ex: 1708672257
@@ -2316,9 +2258,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_door_locking_rule_serialize(
+        _param = self._fetch_door_locking_rule_serialize(
             id=id,
-            path_id=path_id,
             body_type=body_type,
             body_ended_time=body_ended_time,
             _request_auth=_request_auth,
@@ -2342,10 +2283,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_fetch_door_locking_rule_without_preload_content(
+    def fetch_door_locking_rule_without_preload_content(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         body_type: Annotated[Optional[StrictStr], Field(description="enum type {schedule,keep_lock,keep_unlock,custom,lock_early} keep_lock is used to set the \"keep locked\" state, while keep_unlock is used to set the \"keep unlocked\" state. custom is used to customize the unlock time duration. schedule indicates that the door is currently in the unlock schedule state. The lock_early is used to terminate doors in an unlock schedule early.")] = None,
         body_ended_time: Annotated[Optional[StrictInt], Field(description="End time of the set rule, ex: 1708672257")] = None,
         _request_timeout: Union[
@@ -2366,8 +2306,6 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param body_type: enum type {schedule,keep_lock,keep_unlock,custom,lock_early} keep_lock is used to set the \"keep locked\" state, while keep_unlock is used to set the \"keep unlocked\" state. custom is used to customize the unlock time duration. schedule indicates that the door is currently in the unlock schedule state. The lock_early is used to terminate doors in an unlock schedule early.
         :type body_type: str
         :param body_ended_time: End time of the set rule, ex: 1708672257
@@ -2394,9 +2332,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_fetch_door_locking_rule_serialize(
+        _param = self._fetch_door_locking_rule_serialize(
             id=id,
-            path_id=path_id,
             body_type=body_type,
             body_ended_time=body_ended_time,
             _request_auth=_request_auth,
@@ -2415,10 +2352,9 @@ class SpaceApi:
         return response_data.response
 
 
-    def _space_service_fetch_door_locking_rule_serialize(
+    def _fetch_door_locking_rule_serialize(
         self,
         id,
-        path_id,
         body_type,
         body_ended_time,
         _request_auth,
@@ -2445,10 +2381,6 @@ class SpaceApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         if body_type is not None:
             
             _query_params.append(('body.type', body_type))
@@ -2495,7 +2427,7 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_remote_door_unlocking(
+    def remote_door_unlocking(
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -2538,7 +2470,7 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_remote_door_unlocking_serialize(
+        _param = self._remote_door_unlocking_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2561,7 +2493,7 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_remote_door_unlocking_with_http_info(
+    def remote_door_unlocking_with_http_info(
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -2604,7 +2536,7 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_remote_door_unlocking_serialize(
+        _param = self._remote_door_unlocking_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2627,7 +2559,7 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_remote_door_unlocking_without_preload_content(
+    def remote_door_unlocking_without_preload_content(
         self,
         id: StrictStr,
         _request_timeout: Union[
@@ -2670,7 +2602,7 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_remote_door_unlocking_serialize(
+        _param = self._remote_door_unlocking_serialize(
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2688,7 +2620,7 @@ class SpaceApi:
         return response_data.response
 
 
-    def _space_service_remote_door_unlocking_serialize(
+    def _remote_door_unlocking_serialize(
         self,
         id,
         _request_auth,
@@ -2753,9 +2685,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_set_door_emergency_status(
+    def set_door_emergency_status(
         self,
-        body: SpaceSetDoorEmergencyStatusRequest,
+        space_set_door_emergency_status_request: SpaceSetDoorEmergencyStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2772,8 +2704,8 @@ class SpaceApi:
         """7.12 Set Door Emergency Status
 
 
-        :param body: (required)
-        :type body: SpaceSetDoorEmergencyStatusRequest
+        :param space_set_door_emergency_status_request: (required)
+        :type space_set_door_emergency_status_request: SpaceSetDoorEmergencyStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2796,8 +2728,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_set_door_emergency_status_serialize(
-            body=body,
+        _param = self._set_door_emergency_status_serialize(
+            space_set_door_emergency_status_request=space_set_door_emergency_status_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2819,9 +2751,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_set_door_emergency_status_with_http_info(
+    def set_door_emergency_status_with_http_info(
         self,
-        body: SpaceSetDoorEmergencyStatusRequest,
+        space_set_door_emergency_status_request: SpaceSetDoorEmergencyStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2838,8 +2770,8 @@ class SpaceApi:
         """7.12 Set Door Emergency Status
 
 
-        :param body: (required)
-        :type body: SpaceSetDoorEmergencyStatusRequest
+        :param space_set_door_emergency_status_request: (required)
+        :type space_set_door_emergency_status_request: SpaceSetDoorEmergencyStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2862,8 +2794,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_set_door_emergency_status_serialize(
-            body=body,
+        _param = self._set_door_emergency_status_serialize(
+            space_set_door_emergency_status_request=space_set_door_emergency_status_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2885,9 +2817,9 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_set_door_emergency_status_without_preload_content(
+    def set_door_emergency_status_without_preload_content(
         self,
-        body: SpaceSetDoorEmergencyStatusRequest,
+        space_set_door_emergency_status_request: SpaceSetDoorEmergencyStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2904,8 +2836,8 @@ class SpaceApi:
         """7.12 Set Door Emergency Status
 
 
-        :param body: (required)
-        :type body: SpaceSetDoorEmergencyStatusRequest
+        :param space_set_door_emergency_status_request: (required)
+        :type space_set_door_emergency_status_request: SpaceSetDoorEmergencyStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2928,8 +2860,8 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_set_door_emergency_status_serialize(
-            body=body,
+        _param = self._set_door_emergency_status_serialize(
+            space_set_door_emergency_status_request=space_set_door_emergency_status_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2946,9 +2878,9 @@ class SpaceApi:
         return response_data.response
 
 
-    def _space_service_set_door_emergency_status_serialize(
+    def _set_door_emergency_status_serialize(
         self,
-        body,
+        space_set_door_emergency_status_request,
         _request_auth,
         _content_type,
         _headers,
@@ -2974,8 +2906,8 @@ class SpaceApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if space_set_door_emergency_status_request is not None:
+            _body_params = space_set_door_emergency_status_request
 
 
         # set the HTTP header `Accept`
@@ -3024,10 +2956,10 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_set_temporary_door_locking_rule(
+    def set_temporary_door_locking_rule(
         self,
         id: StrictStr,
-        body: SpaceSetTemporaryDoorLockingRuleRequest,
+        space_set_temporary_door_locking_rule_request: SpaceSetTemporaryDoorLockingRuleRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3046,8 +2978,8 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: SpaceSetTemporaryDoorLockingRuleRequest
+        :param space_set_temporary_door_locking_rule_request: (required)
+        :type space_set_temporary_door_locking_rule_request: SpaceSetTemporaryDoorLockingRuleRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3070,9 +3002,9 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_set_temporary_door_locking_rule_serialize(
+        _param = self._set_temporary_door_locking_rule_serialize(
             id=id,
-            body=body,
+            space_set_temporary_door_locking_rule_request=space_set_temporary_door_locking_rule_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3094,10 +3026,10 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_set_temporary_door_locking_rule_with_http_info(
+    def set_temporary_door_locking_rule_with_http_info(
         self,
         id: StrictStr,
-        body: SpaceSetTemporaryDoorLockingRuleRequest,
+        space_set_temporary_door_locking_rule_request: SpaceSetTemporaryDoorLockingRuleRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3116,8 +3048,8 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: SpaceSetTemporaryDoorLockingRuleRequest
+        :param space_set_temporary_door_locking_rule_request: (required)
+        :type space_set_temporary_door_locking_rule_request: SpaceSetTemporaryDoorLockingRuleRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3140,9 +3072,9 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_set_temporary_door_locking_rule_serialize(
+        _param = self._set_temporary_door_locking_rule_serialize(
             id=id,
-            body=body,
+            space_set_temporary_door_locking_rule_request=space_set_temporary_door_locking_rule_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3164,10 +3096,10 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_set_temporary_door_locking_rule_without_preload_content(
+    def set_temporary_door_locking_rule_without_preload_content(
         self,
         id: StrictStr,
-        body: SpaceSetTemporaryDoorLockingRuleRequest,
+        space_set_temporary_door_locking_rule_request: SpaceSetTemporaryDoorLockingRuleRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3186,8 +3118,8 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: SpaceSetTemporaryDoorLockingRuleRequest
+        :param space_set_temporary_door_locking_rule_request: (required)
+        :type space_set_temporary_door_locking_rule_request: SpaceSetTemporaryDoorLockingRuleRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3210,9 +3142,9 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_set_temporary_door_locking_rule_serialize(
+        _param = self._set_temporary_door_locking_rule_serialize(
             id=id,
-            body=body,
+            space_set_temporary_door_locking_rule_request=space_set_temporary_door_locking_rule_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3229,10 +3161,10 @@ class SpaceApi:
         return response_data.response
 
 
-    def _space_service_set_temporary_door_locking_rule_serialize(
+    def _set_temporary_door_locking_rule_serialize(
         self,
         id,
-        body,
+        space_set_temporary_door_locking_rule_request,
         _request_auth,
         _content_type,
         _headers,
@@ -3260,8 +3192,8 @@ class SpaceApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if space_set_temporary_door_locking_rule_request is not None:
+            _body_params = space_set_temporary_door_locking_rule_request
 
 
         # set the HTTP header `Accept`
@@ -3310,10 +3242,10 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_update_door_group(
+    def update_door_group(
         self,
         id: StrictStr,
-        body: SpaceUpdateDoorGroupRequest,
+        space_update_door_group_request: SpaceUpdateDoorGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3332,8 +3264,8 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: SpaceUpdateDoorGroupRequest
+        :param space_update_door_group_request: (required)
+        :type space_update_door_group_request: SpaceUpdateDoorGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3356,9 +3288,9 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_update_door_group_serialize(
+        _param = self._update_door_group_serialize(
             id=id,
-            body=body,
+            space_update_door_group_request=space_update_door_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3380,10 +3312,10 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_update_door_group_with_http_info(
+    def update_door_group_with_http_info(
         self,
         id: StrictStr,
-        body: SpaceUpdateDoorGroupRequest,
+        space_update_door_group_request: SpaceUpdateDoorGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3402,8 +3334,8 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: SpaceUpdateDoorGroupRequest
+        :param space_update_door_group_request: (required)
+        :type space_update_door_group_request: SpaceUpdateDoorGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3426,9 +3358,9 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_update_door_group_serialize(
+        _param = self._update_door_group_serialize(
             id=id,
-            body=body,
+            space_update_door_group_request=space_update_door_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3450,10 +3382,10 @@ class SpaceApi:
 
 
     @validate_call
-    def space_service_update_door_group_without_preload_content(
+    def update_door_group_without_preload_content(
         self,
         id: StrictStr,
-        body: SpaceUpdateDoorGroupRequest,
+        space_update_door_group_request: SpaceUpdateDoorGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3472,8 +3404,8 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: SpaceUpdateDoorGroupRequest
+        :param space_update_door_group_request: (required)
+        :type space_update_door_group_request: SpaceUpdateDoorGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3496,9 +3428,9 @@ class SpaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._space_service_update_door_group_serialize(
+        _param = self._update_door_group_serialize(
             id=id,
-            body=body,
+            space_update_door_group_request=space_update_door_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3515,10 +3447,10 @@ class SpaceApi:
         return response_data.response
 
 
-    def _space_service_update_door_group_serialize(
+    def _update_door_group_serialize(
         self,
         id,
-        body,
+        space_update_door_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -3546,8 +3478,8 @@ class SpaceApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if space_update_door_group_request is not None:
+            _body_params = space_update_door_group_request
 
 
         # set the HTTP header `Accept`

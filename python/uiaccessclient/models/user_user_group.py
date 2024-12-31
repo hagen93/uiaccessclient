@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,12 +26,12 @@ class UserUserGroup(BaseModel):
     """
     UserUserGroup
     """ # noqa: E501
-    full_name: Optional[StrictStr] = Field(default=None, alias="fullName")
+    full_name: Optional[StrictStr] = None
     id: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
-    up_id: Optional[StrictStr] = Field(default=None, alias="upId")
-    up_ids: Optional[List[StrictStr]] = Field(default=None, alias="upIds")
-    __properties: ClassVar[List[str]] = ["fullName", "id", "name", "upId", "upIds"]
+    up_id: Optional[StrictStr] = None
+    up_ids: Optional[List[StrictStr]] = None
+    __properties: ClassVar[List[str]] = ["full_name", "id", "name", "up_id", "up_ids"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,11 +84,11 @@ class UserUserGroup(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "fullName": obj.get("fullName"),
+            "full_name": obj.get("full_name"),
             "id": obj.get("id"),
             "name": obj.get("name"),
-            "upId": obj.get("upId"),
-            "upIds": obj.get("upIds")
+            "up_id": obj.get("up_id"),
+            "up_ids": obj.get("up_ids")
         })
         return _obj
 

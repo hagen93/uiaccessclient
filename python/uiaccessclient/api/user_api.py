@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictStr
+from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
 from uiaccessclient.models.access_policy_access_policies_response import AccessPolicyAccessPoliciesResponse
@@ -55,10 +55,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_assign_user_access_policy(
+    def assign_user_access_policy(
         self,
         id: StrictStr,
-        body: UserAssignUserAccessPolicyRequest,
+        user_assign_user_access_policy_request: UserAssignUserAccessPolicyRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -77,8 +77,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserAssignUserAccessPolicyRequest
+        :param user_assign_user_access_policy_request: (required)
+        :type user_assign_user_access_policy_request: UserAssignUserAccessPolicyRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -101,9 +101,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_assign_user_access_policy_serialize(
+        _param = self._assign_user_access_policy_serialize(
             id=id,
-            body=body,
+            user_assign_user_access_policy_request=user_assign_user_access_policy_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -125,10 +125,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_assign_user_access_policy_with_http_info(
+    def assign_user_access_policy_with_http_info(
         self,
         id: StrictStr,
-        body: UserAssignUserAccessPolicyRequest,
+        user_assign_user_access_policy_request: UserAssignUserAccessPolicyRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -147,8 +147,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserAssignUserAccessPolicyRequest
+        :param user_assign_user_access_policy_request: (required)
+        :type user_assign_user_access_policy_request: UserAssignUserAccessPolicyRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -171,9 +171,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_assign_user_access_policy_serialize(
+        _param = self._assign_user_access_policy_serialize(
             id=id,
-            body=body,
+            user_assign_user_access_policy_request=user_assign_user_access_policy_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -195,10 +195,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_assign_user_access_policy_without_preload_content(
+    def assign_user_access_policy_without_preload_content(
         self,
         id: StrictStr,
-        body: UserAssignUserAccessPolicyRequest,
+        user_assign_user_access_policy_request: UserAssignUserAccessPolicyRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -217,8 +217,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserAssignUserAccessPolicyRequest
+        :param user_assign_user_access_policy_request: (required)
+        :type user_assign_user_access_policy_request: UserAssignUserAccessPolicyRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -241,9 +241,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_assign_user_access_policy_serialize(
+        _param = self._assign_user_access_policy_serialize(
             id=id,
-            body=body,
+            user_assign_user_access_policy_request=user_assign_user_access_policy_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -260,10 +260,10 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_assign_user_access_policy_serialize(
+    def _assign_user_access_policy_serialize(
         self,
         id,
-        body,
+        user_assign_user_access_policy_request,
         _request_auth,
         _content_type,
         _headers,
@@ -291,8 +291,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if user_assign_user_access_policy_request is not None:
+            _body_params = user_assign_user_access_policy_request
 
 
         # set the HTTP header `Accept`
@@ -341,10 +341,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_assign_user_group_access_policy(
+    def assign_user_group_access_policy(
         self,
         id: StrictStr,
-        body: UserAssignUserGroupAccessPolicyRequest,
+        user_assign_user_group_access_policy_request: UserAssignUserGroupAccessPolicyRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -363,8 +363,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserAssignUserGroupAccessPolicyRequest
+        :param user_assign_user_group_access_policy_request: (required)
+        :type user_assign_user_group_access_policy_request: UserAssignUserGroupAccessPolicyRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -387,9 +387,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_assign_user_group_access_policy_serialize(
+        _param = self._assign_user_group_access_policy_serialize(
             id=id,
-            body=body,
+            user_assign_user_group_access_policy_request=user_assign_user_group_access_policy_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -411,10 +411,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_assign_user_group_access_policy_with_http_info(
+    def assign_user_group_access_policy_with_http_info(
         self,
         id: StrictStr,
-        body: UserAssignUserGroupAccessPolicyRequest,
+        user_assign_user_group_access_policy_request: UserAssignUserGroupAccessPolicyRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -433,8 +433,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserAssignUserGroupAccessPolicyRequest
+        :param user_assign_user_group_access_policy_request: (required)
+        :type user_assign_user_group_access_policy_request: UserAssignUserGroupAccessPolicyRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -457,9 +457,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_assign_user_group_access_policy_serialize(
+        _param = self._assign_user_group_access_policy_serialize(
             id=id,
-            body=body,
+            user_assign_user_group_access_policy_request=user_assign_user_group_access_policy_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -481,10 +481,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_assign_user_group_access_policy_without_preload_content(
+    def assign_user_group_access_policy_without_preload_content(
         self,
         id: StrictStr,
-        body: UserAssignUserGroupAccessPolicyRequest,
+        user_assign_user_group_access_policy_request: UserAssignUserGroupAccessPolicyRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -503,8 +503,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserAssignUserGroupAccessPolicyRequest
+        :param user_assign_user_group_access_policy_request: (required)
+        :type user_assign_user_group_access_policy_request: UserAssignUserGroupAccessPolicyRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -527,9 +527,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_assign_user_group_access_policy_serialize(
+        _param = self._assign_user_group_access_policy_serialize(
             id=id,
-            body=body,
+            user_assign_user_group_access_policy_request=user_assign_user_group_access_policy_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -546,10 +546,10 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_assign_user_group_access_policy_serialize(
+    def _assign_user_group_access_policy_serialize(
         self,
         id,
-        body,
+        user_assign_user_group_access_policy_request,
         _request_auth,
         _content_type,
         _headers,
@@ -577,8 +577,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if user_assign_user_group_access_policy_request is not None:
+            _body_params = user_assign_user_group_access_policy_request
 
 
         # set the HTTP header `Accept`
@@ -627,10 +627,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_assign_user_nfc_card(
+    def assign_user_nfc_card(
         self,
         id: StrictStr,
-        body: UserAssignUserNfcCardRequest,
+        user_assign_user_nfc_card_request: UserAssignUserNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -649,8 +649,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserAssignUserNfcCardRequest
+        :param user_assign_user_nfc_card_request: (required)
+        :type user_assign_user_nfc_card_request: UserAssignUserNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -673,9 +673,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_assign_user_nfc_card_serialize(
+        _param = self._assign_user_nfc_card_serialize(
             id=id,
-            body=body,
+            user_assign_user_nfc_card_request=user_assign_user_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -697,10 +697,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_assign_user_nfc_card_with_http_info(
+    def assign_user_nfc_card_with_http_info(
         self,
         id: StrictStr,
-        body: UserAssignUserNfcCardRequest,
+        user_assign_user_nfc_card_request: UserAssignUserNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -719,8 +719,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserAssignUserNfcCardRequest
+        :param user_assign_user_nfc_card_request: (required)
+        :type user_assign_user_nfc_card_request: UserAssignUserNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -743,9 +743,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_assign_user_nfc_card_serialize(
+        _param = self._assign_user_nfc_card_serialize(
             id=id,
-            body=body,
+            user_assign_user_nfc_card_request=user_assign_user_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -767,10 +767,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_assign_user_nfc_card_without_preload_content(
+    def assign_user_nfc_card_without_preload_content(
         self,
         id: StrictStr,
-        body: UserAssignUserNfcCardRequest,
+        user_assign_user_nfc_card_request: UserAssignUserNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -789,8 +789,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserAssignUserNfcCardRequest
+        :param user_assign_user_nfc_card_request: (required)
+        :type user_assign_user_nfc_card_request: UserAssignUserNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -813,9 +813,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_assign_user_nfc_card_serialize(
+        _param = self._assign_user_nfc_card_serialize(
             id=id,
-            body=body,
+            user_assign_user_nfc_card_request=user_assign_user_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -832,10 +832,10 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_assign_user_nfc_card_serialize(
+    def _assign_user_nfc_card_serialize(
         self,
         id,
-        body,
+        user_assign_user_nfc_card_request,
         _request_auth,
         _content_type,
         _headers,
@@ -863,8 +863,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if user_assign_user_nfc_card_request is not None:
+            _body_params = user_assign_user_nfc_card_request
 
 
         # set the HTTP header `Accept`
@@ -913,10 +913,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_assign_user_pin_code(
+    def assign_user_pin_code(
         self,
         id: StrictStr,
-        body: UserAssignUserPinCodeRequest,
+        user_assign_user_pin_code_request: UserAssignUserPinCodeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -935,8 +935,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserAssignUserPinCodeRequest
+        :param user_assign_user_pin_code_request: (required)
+        :type user_assign_user_pin_code_request: UserAssignUserPinCodeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -959,9 +959,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_assign_user_pin_code_serialize(
+        _param = self._assign_user_pin_code_serialize(
             id=id,
-            body=body,
+            user_assign_user_pin_code_request=user_assign_user_pin_code_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -983,10 +983,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_assign_user_pin_code_with_http_info(
+    def assign_user_pin_code_with_http_info(
         self,
         id: StrictStr,
-        body: UserAssignUserPinCodeRequest,
+        user_assign_user_pin_code_request: UserAssignUserPinCodeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1005,8 +1005,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserAssignUserPinCodeRequest
+        :param user_assign_user_pin_code_request: (required)
+        :type user_assign_user_pin_code_request: UserAssignUserPinCodeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1029,9 +1029,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_assign_user_pin_code_serialize(
+        _param = self._assign_user_pin_code_serialize(
             id=id,
-            body=body,
+            user_assign_user_pin_code_request=user_assign_user_pin_code_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1053,10 +1053,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_assign_user_pin_code_without_preload_content(
+    def assign_user_pin_code_without_preload_content(
         self,
         id: StrictStr,
-        body: UserAssignUserPinCodeRequest,
+        user_assign_user_pin_code_request: UserAssignUserPinCodeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1075,8 +1075,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserAssignUserPinCodeRequest
+        :param user_assign_user_pin_code_request: (required)
+        :type user_assign_user_pin_code_request: UserAssignUserPinCodeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1099,9 +1099,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_assign_user_pin_code_serialize(
+        _param = self._assign_user_pin_code_serialize(
             id=id,
-            body=body,
+            user_assign_user_pin_code_request=user_assign_user_pin_code_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1118,10 +1118,10 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_assign_user_pin_code_serialize(
+    def _assign_user_pin_code_serialize(
         self,
         id,
-        body,
+        user_assign_user_pin_code_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1149,8 +1149,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if user_assign_user_pin_code_request is not None:
+            _body_params = user_assign_user_pin_code_request
 
 
         # set the HTTP header `Accept`
@@ -1199,10 +1199,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_assign_user_to_user_group(
+    def assign_user_to_user_group(
         self,
         id: StrictStr,
-        body: UserAssignUserToUserGroupRequest,
+        user_assign_user_to_user_group_request: UserAssignUserToUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1221,8 +1221,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserAssignUserToUserGroupRequest
+        :param user_assign_user_to_user_group_request: (required)
+        :type user_assign_user_to_user_group_request: UserAssignUserToUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1245,9 +1245,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_assign_user_to_user_group_serialize(
+        _param = self._assign_user_to_user_group_serialize(
             id=id,
-            body=body,
+            user_assign_user_to_user_group_request=user_assign_user_to_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1269,10 +1269,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_assign_user_to_user_group_with_http_info(
+    def assign_user_to_user_group_with_http_info(
         self,
         id: StrictStr,
-        body: UserAssignUserToUserGroupRequest,
+        user_assign_user_to_user_group_request: UserAssignUserToUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1291,8 +1291,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserAssignUserToUserGroupRequest
+        :param user_assign_user_to_user_group_request: (required)
+        :type user_assign_user_to_user_group_request: UserAssignUserToUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1315,9 +1315,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_assign_user_to_user_group_serialize(
+        _param = self._assign_user_to_user_group_serialize(
             id=id,
-            body=body,
+            user_assign_user_to_user_group_request=user_assign_user_to_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1339,10 +1339,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_assign_user_to_user_group_without_preload_content(
+    def assign_user_to_user_group_without_preload_content(
         self,
         id: StrictStr,
-        body: UserAssignUserToUserGroupRequest,
+        user_assign_user_to_user_group_request: UserAssignUserToUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1361,8 +1361,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserAssignUserToUserGroupRequest
+        :param user_assign_user_to_user_group_request: (required)
+        :type user_assign_user_to_user_group_request: UserAssignUserToUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1385,9 +1385,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_assign_user_to_user_group_serialize(
+        _param = self._assign_user_to_user_group_serialize(
             id=id,
-            body=body,
+            user_assign_user_to_user_group_request=user_assign_user_to_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1404,10 +1404,10 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_assign_user_to_user_group_serialize(
+    def _assign_user_to_user_group_serialize(
         self,
         id,
-        body,
+        user_assign_user_to_user_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1435,8 +1435,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if user_assign_user_to_user_group_request is not None:
+            _body_params = user_assign_user_to_user_group_request
 
 
         # set the HTTP header `Accept`
@@ -1485,9 +1485,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_create_user(
+    def create_user(
         self,
-        body: UserCreateUserRequest,
+        user_create_user_request: UserCreateUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1504,8 +1504,8 @@ class UserApi:
         """3.2 Create User
 
 
-        :param body: (required)
-        :type body: UserCreateUserRequest
+        :param user_create_user_request: (required)
+        :type user_create_user_request: UserCreateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1528,8 +1528,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_create_user_serialize(
-            body=body,
+        _param = self._create_user_serialize(
+            user_create_user_request=user_create_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1551,9 +1551,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_create_user_with_http_info(
+    def create_user_with_http_info(
         self,
-        body: UserCreateUserRequest,
+        user_create_user_request: UserCreateUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1570,8 +1570,8 @@ class UserApi:
         """3.2 Create User
 
 
-        :param body: (required)
-        :type body: UserCreateUserRequest
+        :param user_create_user_request: (required)
+        :type user_create_user_request: UserCreateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1594,8 +1594,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_create_user_serialize(
-            body=body,
+        _param = self._create_user_serialize(
+            user_create_user_request=user_create_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1617,9 +1617,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_create_user_without_preload_content(
+    def create_user_without_preload_content(
         self,
-        body: UserCreateUserRequest,
+        user_create_user_request: UserCreateUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1636,8 +1636,8 @@ class UserApi:
         """3.2 Create User
 
 
-        :param body: (required)
-        :type body: UserCreateUserRequest
+        :param user_create_user_request: (required)
+        :type user_create_user_request: UserCreateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1660,8 +1660,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_create_user_serialize(
-            body=body,
+        _param = self._create_user_serialize(
+            user_create_user_request=user_create_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1678,9 +1678,9 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_create_user_serialize(
+    def _create_user_serialize(
         self,
-        body,
+        user_create_user_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1706,8 +1706,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if user_create_user_request is not None:
+            _body_params = user_create_user_request
 
 
         # set the HTTP header `Accept`
@@ -1756,9 +1756,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_create_user_group(
+    def delete_user_group(
         self,
-        body: UserCreateUserGroupRequest,
+        id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1772,11 +1772,11 @@ class UserApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> SharedStatusCodeResponse:
-        """3.11 Create User Group
+        """3.15 Delete User Group
 
 
-        :param body: (required)
-        :type body: UserCreateUserGroupRequest
+        :param id: (required)
+        :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1799,8 +1799,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_create_user_group_serialize(
-            body=body,
+        _param = self._delete_user_group_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1822,285 +1822,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_create_user_group_with_http_info(
-        self,
-        body: UserCreateUserGroupRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SharedStatusCodeResponse]:
-        """3.11 Create User Group
-
-
-        :param body: (required)
-        :type body: UserCreateUserGroupRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._user_service_create_user_group_serialize(
-            body=body,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def user_service_create_user_group_without_preload_content(
-        self,
-        body: UserCreateUserGroupRequest,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """3.11 Create User Group
-
-
-        :param body: (required)
-        :type body: UserCreateUserGroupRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._user_service_create_user_group_serialize(
-            body=body,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _user_service_create_user_group_serialize(
-        self,
-        body,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if body is not None:
-            _body_params = body
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'token'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/user_groups',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def user_service_delete_user_group(
+    def delete_user_group_with_http_info(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SharedStatusCodeResponse:
-        """3.15 Delete User Group
-
-
-        :param id: (required)
-        :type id: str
-        :param path_id:
-        :type path_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._user_service_delete_user_group_serialize(
-            id=id,
-            path_id=path_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def user_service_delete_user_group_with_http_info(
-        self,
-        id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2119,8 +1843,6 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2143,9 +1865,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_delete_user_group_serialize(
+        _param = self._delete_user_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2167,10 +1888,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_delete_user_group_without_preload_content(
+    def delete_user_group_without_preload_content(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2189,8 +1909,6 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2213,9 +1931,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_delete_user_group_serialize(
+        _param = self._delete_user_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2232,10 +1949,9 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_delete_user_group_serialize(
+    def _delete_user_group_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -2260,10 +1976,6 @@ class UserApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -2302,7 +2014,7 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_all_user_groups(
+    def fetch_all_user_groups(
         self,
         _request_timeout: Union[
             None,
@@ -2342,7 +2054,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_all_user_groups_serialize(
+        _param = self._fetch_all_user_groups_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2364,7 +2076,7 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_all_user_groups_with_http_info(
+    def fetch_all_user_groups_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -2404,7 +2116,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_all_user_groups_serialize(
+        _param = self._fetch_all_user_groups_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2426,7 +2138,7 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_all_user_groups_without_preload_content(
+    def fetch_all_user_groups_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -2466,7 +2178,7 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_all_user_groups_serialize(
+        _param = self._fetch_all_user_groups_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2483,7 +2195,7 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_fetch_all_user_groups_serialize(
+    def _fetch_all_user_groups_serialize(
         self,
         _request_auth,
         _content_type,
@@ -2545,11 +2257,11 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_all_users(
+    def fetch_all_users(
         self,
-        params_expand: Annotated[Optional[StrictBool], Field(description="Whether to expand the access_policy field. If true, your app must")] = None,
-        params_page_num: Annotated[Optional[StrictStr], Field(description="include \"expand[]=access_policy\" in the request URL paramters  Current page number in the pagination")] = None,
-        params_page_size: Annotated[Optional[StrictStr], Field(description="Number of users per page.")] = None,
+        expand: Annotated[Optional[StrictStr], Field(description="Whether to expand the access_policy field. If true, your app must")] = None,
+        page_num: Annotated[Optional[StrictInt], Field(description="include \"expand[]=access_policy\" in the request URL paramters  Current page number in the pagination")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of users per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2566,12 +2278,12 @@ class UserApi:
         """3.5 Fetch All Users
 
 
-        :param params_expand: Whether to expand the access_policy field. If true, your app must
-        :type params_expand: bool
-        :param params_page_num: include \"expand[]=access_policy\" in the request URL paramters  Current page number in the pagination
-        :type params_page_num: str
-        :param params_page_size: Number of users per page.
-        :type params_page_size: str
+        :param expand: Whether to expand the access_policy field. If true, your app must
+        :type expand: str
+        :param page_num: include \"expand[]=access_policy\" in the request URL paramters  Current page number in the pagination
+        :type page_num: int
+        :param page_size: Number of users per page.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2594,10 +2306,10 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_all_users_serialize(
-            params_expand=params_expand,
-            params_page_num=params_page_num,
-            params_page_size=params_page_size,
+        _param = self._fetch_all_users_serialize(
+            expand=expand,
+            page_num=page_num,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2619,11 +2331,11 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_all_users_with_http_info(
+    def fetch_all_users_with_http_info(
         self,
-        params_expand: Annotated[Optional[StrictBool], Field(description="Whether to expand the access_policy field. If true, your app must")] = None,
-        params_page_num: Annotated[Optional[StrictStr], Field(description="include \"expand[]=access_policy\" in the request URL paramters  Current page number in the pagination")] = None,
-        params_page_size: Annotated[Optional[StrictStr], Field(description="Number of users per page.")] = None,
+        expand: Annotated[Optional[StrictStr], Field(description="Whether to expand the access_policy field. If true, your app must")] = None,
+        page_num: Annotated[Optional[StrictInt], Field(description="include \"expand[]=access_policy\" in the request URL paramters  Current page number in the pagination")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of users per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2640,12 +2352,12 @@ class UserApi:
         """3.5 Fetch All Users
 
 
-        :param params_expand: Whether to expand the access_policy field. If true, your app must
-        :type params_expand: bool
-        :param params_page_num: include \"expand[]=access_policy\" in the request URL paramters  Current page number in the pagination
-        :type params_page_num: str
-        :param params_page_size: Number of users per page.
-        :type params_page_size: str
+        :param expand: Whether to expand the access_policy field. If true, your app must
+        :type expand: str
+        :param page_num: include \"expand[]=access_policy\" in the request URL paramters  Current page number in the pagination
+        :type page_num: int
+        :param page_size: Number of users per page.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2668,10 +2380,10 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_all_users_serialize(
-            params_expand=params_expand,
-            params_page_num=params_page_num,
-            params_page_size=params_page_size,
+        _param = self._fetch_all_users_serialize(
+            expand=expand,
+            page_num=page_num,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2693,11 +2405,11 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_all_users_without_preload_content(
+    def fetch_all_users_without_preload_content(
         self,
-        params_expand: Annotated[Optional[StrictBool], Field(description="Whether to expand the access_policy field. If true, your app must")] = None,
-        params_page_num: Annotated[Optional[StrictStr], Field(description="include \"expand[]=access_policy\" in the request URL paramters  Current page number in the pagination")] = None,
-        params_page_size: Annotated[Optional[StrictStr], Field(description="Number of users per page.")] = None,
+        expand: Annotated[Optional[StrictStr], Field(description="Whether to expand the access_policy field. If true, your app must")] = None,
+        page_num: Annotated[Optional[StrictInt], Field(description="include \"expand[]=access_policy\" in the request URL paramters  Current page number in the pagination")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of users per page.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2714,12 +2426,12 @@ class UserApi:
         """3.5 Fetch All Users
 
 
-        :param params_expand: Whether to expand the access_policy field. If true, your app must
-        :type params_expand: bool
-        :param params_page_num: include \"expand[]=access_policy\" in the request URL paramters  Current page number in the pagination
-        :type params_page_num: str
-        :param params_page_size: Number of users per page.
-        :type params_page_size: str
+        :param expand: Whether to expand the access_policy field. If true, your app must
+        :type expand: str
+        :param page_num: include \"expand[]=access_policy\" in the request URL paramters  Current page number in the pagination
+        :type page_num: int
+        :param page_size: Number of users per page.
+        :type page_size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2742,10 +2454,10 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_all_users_serialize(
-            params_expand=params_expand,
-            params_page_num=params_page_num,
-            params_page_size=params_page_size,
+        _param = self._fetch_all_users_serialize(
+            expand=expand,
+            page_num=page_num,
+            page_size=page_size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2762,11 +2474,11 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_fetch_all_users_serialize(
+    def _fetch_all_users_serialize(
         self,
-        params_expand,
-        params_page_num,
-        params_page_size,
+        expand,
+        page_num,
+        page_size,
         _request_auth,
         _content_type,
         _headers,
@@ -2789,17 +2501,17 @@ class UserApi:
 
         # process the path parameters
         # process the query parameters
-        if params_expand is not None:
+        if expand is not None:
             
-            _query_params.append(('params.expand', params_expand))
+            _query_params.append(('expand', expand))
             
-        if params_page_num is not None:
+        if page_num is not None:
             
-            _query_params.append(('params.pageNum', params_page_num))
+            _query_params.append(('pageNum', page_num))
             
-        if params_page_size is not None:
+        if page_size is not None:
             
-            _query_params.append(('params.pageSize', params_page_size))
+            _query_params.append(('pageSize', page_size))
             
         # process the header parameters
         # process the form parameters
@@ -2839,10 +2551,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_all_users_in_user_group(
+    def fetch_all_users_in_user_group(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identify ID of the user group")] = None,
+        id: Annotated[StrictStr, Field(description="Identify ID of the user group")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2859,10 +2570,8 @@ class UserApi:
         """3.19 Fetch All Users in a User Group
 
 
-        :param id: (required)
+        :param id: Identify ID of the user group (required)
         :type id: str
-        :param path_id: Identify ID of the user group
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2885,9 +2594,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_all_users_in_user_group_serialize(
+        _param = self._fetch_all_users_in_user_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2909,10 +2617,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_all_users_in_user_group_with_http_info(
+    def fetch_all_users_in_user_group_with_http_info(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identify ID of the user group")] = None,
+        id: Annotated[StrictStr, Field(description="Identify ID of the user group")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2929,10 +2636,8 @@ class UserApi:
         """3.19 Fetch All Users in a User Group
 
 
-        :param id: (required)
+        :param id: Identify ID of the user group (required)
         :type id: str
-        :param path_id: Identify ID of the user group
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2955,9 +2660,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_all_users_in_user_group_serialize(
+        _param = self._fetch_all_users_in_user_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2979,10 +2683,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_all_users_in_user_group_without_preload_content(
+    def fetch_all_users_in_user_group_without_preload_content(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identify ID of the user group")] = None,
+        id: Annotated[StrictStr, Field(description="Identify ID of the user group")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2999,10 +2702,8 @@ class UserApi:
         """3.19 Fetch All Users in a User Group
 
 
-        :param id: (required)
+        :param id: Identify ID of the user group (required)
         :type id: str
-        :param path_id: Identify ID of the user group
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3025,9 +2726,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_all_users_in_user_group_serialize(
+        _param = self._fetch_all_users_in_user_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3044,10 +2744,9 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_fetch_all_users_in_user_group_serialize(
+    def _fetch_all_users_in_user_group_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -3072,10 +2771,6 @@ class UserApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -3114,11 +2809,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_user(
+    def fetch_user(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
-        params_expand: Annotated[Optional[StrictBool], Field(description="Whether to expand the access_policy field. If true, your app must include  \"expand[]=access_policy\" in the request URL paramters")] = None,
+        expand: Annotated[Optional[StrictStr], Field(description="Whether to expand the access_policy field. If true, your app must include  \"expand[]=access_policy\" in the request URL paramters")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3137,10 +2831,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
-        :param params_expand: Whether to expand the access_policy field. If true, your app must include  \"expand[]=access_policy\" in the request URL paramters
-        :type params_expand: bool
+        :param expand: Whether to expand the access_policy field. If true, your app must include  \"expand[]=access_policy\" in the request URL paramters
+        :type expand: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3163,10 +2855,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_user_serialize(
+        _param = self._fetch_user_serialize(
             id=id,
-            path_id=path_id,
-            params_expand=params_expand,
+            expand=expand,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3188,11 +2879,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_user_with_http_info(
+    def fetch_user_with_http_info(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
-        params_expand: Annotated[Optional[StrictBool], Field(description="Whether to expand the access_policy field. If true, your app must include  \"expand[]=access_policy\" in the request URL paramters")] = None,
+        expand: Annotated[Optional[StrictStr], Field(description="Whether to expand the access_policy field. If true, your app must include  \"expand[]=access_policy\" in the request URL paramters")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3211,10 +2901,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
-        :param params_expand: Whether to expand the access_policy field. If true, your app must include  \"expand[]=access_policy\" in the request URL paramters
-        :type params_expand: bool
+        :param expand: Whether to expand the access_policy field. If true, your app must include  \"expand[]=access_policy\" in the request URL paramters
+        :type expand: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3237,10 +2925,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_user_serialize(
+        _param = self._fetch_user_serialize(
             id=id,
-            path_id=path_id,
-            params_expand=params_expand,
+            expand=expand,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3262,11 +2949,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_user_without_preload_content(
+    def fetch_user_without_preload_content(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
-        params_expand: Annotated[Optional[StrictBool], Field(description="Whether to expand the access_policy field. If true, your app must include  \"expand[]=access_policy\" in the request URL paramters")] = None,
+        expand: Annotated[Optional[StrictStr], Field(description="Whether to expand the access_policy field. If true, your app must include  \"expand[]=access_policy\" in the request URL paramters")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3285,10 +2971,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
-        :param params_expand: Whether to expand the access_policy field. If true, your app must include  \"expand[]=access_policy\" in the request URL paramters
-        :type params_expand: bool
+        :param expand: Whether to expand the access_policy field. If true, your app must include  \"expand[]=access_policy\" in the request URL paramters
+        :type expand: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3311,10 +2995,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_user_serialize(
+        _param = self._fetch_user_serialize(
             id=id,
-            path_id=path_id,
-            params_expand=params_expand,
+            expand=expand,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3331,11 +3014,10 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_fetch_user_serialize(
+    def _fetch_user_serialize(
         self,
         id,
-        path_id,
-        params_expand,
+        expand,
         _request_auth,
         _content_type,
         _headers,
@@ -3360,13 +3042,9 @@ class UserApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
+        if expand is not None:
             
-            _query_params.append(('path.id', path_id))
-            
-        if params_expand is not None:
-            
-            _query_params.append(('params.expand', params_expand))
+            _query_params.append(('expand', expand))
             
         # process the header parameters
         # process the form parameters
@@ -3406,11 +3084,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_user_access_policies(
+    def fetch_user_access_policies(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identify ID of the user")] = None,
-        params_only_user_policies: Annotated[Optional[StrictBool], Field(description="False: all policies of the group the user belongs to are shown.  True: only the policies assigned directly to the user are shown.")] = None,
+        id: Annotated[StrictStr, Field(description="Identify ID of the user")],
+        only_user_policies: Annotated[Optional[StrictBool], Field(description="False: all policies of the group the user belongs to are shown.  True: only the policies assigned directly to the user are shown.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3427,12 +3104,10 @@ class UserApi:
         """3.20 Fetch the Access Policies Assigned to a User
 
 
-        :param id: (required)
+        :param id: Identify ID of the user (required)
         :type id: str
-        :param path_id: Identify ID of the user
-        :type path_id: str
-        :param params_only_user_policies: False: all policies of the group the user belongs to are shown.  True: only the policies assigned directly to the user are shown.
-        :type params_only_user_policies: bool
+        :param only_user_policies: False: all policies of the group the user belongs to are shown.  True: only the policies assigned directly to the user are shown.
+        :type only_user_policies: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3455,10 +3130,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_user_access_policies_serialize(
+        _param = self._fetch_user_access_policies_serialize(
             id=id,
-            path_id=path_id,
-            params_only_user_policies=params_only_user_policies,
+            only_user_policies=only_user_policies,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3480,11 +3154,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_user_access_policies_with_http_info(
+    def fetch_user_access_policies_with_http_info(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identify ID of the user")] = None,
-        params_only_user_policies: Annotated[Optional[StrictBool], Field(description="False: all policies of the group the user belongs to are shown.  True: only the policies assigned directly to the user are shown.")] = None,
+        id: Annotated[StrictStr, Field(description="Identify ID of the user")],
+        only_user_policies: Annotated[Optional[StrictBool], Field(description="False: all policies of the group the user belongs to are shown.  True: only the policies assigned directly to the user are shown.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3501,12 +3174,10 @@ class UserApi:
         """3.20 Fetch the Access Policies Assigned to a User
 
 
-        :param id: (required)
+        :param id: Identify ID of the user (required)
         :type id: str
-        :param path_id: Identify ID of the user
-        :type path_id: str
-        :param params_only_user_policies: False: all policies of the group the user belongs to are shown.  True: only the policies assigned directly to the user are shown.
-        :type params_only_user_policies: bool
+        :param only_user_policies: False: all policies of the group the user belongs to are shown.  True: only the policies assigned directly to the user are shown.
+        :type only_user_policies: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3529,10 +3200,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_user_access_policies_serialize(
+        _param = self._fetch_user_access_policies_serialize(
             id=id,
-            path_id=path_id,
-            params_only_user_policies=params_only_user_policies,
+            only_user_policies=only_user_policies,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3554,11 +3224,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_user_access_policies_without_preload_content(
+    def fetch_user_access_policies_without_preload_content(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identify ID of the user")] = None,
-        params_only_user_policies: Annotated[Optional[StrictBool], Field(description="False: all policies of the group the user belongs to are shown.  True: only the policies assigned directly to the user are shown.")] = None,
+        id: Annotated[StrictStr, Field(description="Identify ID of the user")],
+        only_user_policies: Annotated[Optional[StrictBool], Field(description="False: all policies of the group the user belongs to are shown.  True: only the policies assigned directly to the user are shown.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3575,12 +3244,10 @@ class UserApi:
         """3.20 Fetch the Access Policies Assigned to a User
 
 
-        :param id: (required)
+        :param id: Identify ID of the user (required)
         :type id: str
-        :param path_id: Identify ID of the user
-        :type path_id: str
-        :param params_only_user_policies: False: all policies of the group the user belongs to are shown.  True: only the policies assigned directly to the user are shown.
-        :type params_only_user_policies: bool
+        :param only_user_policies: False: all policies of the group the user belongs to are shown.  True: only the policies assigned directly to the user are shown.
+        :type only_user_policies: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3603,10 +3270,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_user_access_policies_serialize(
+        _param = self._fetch_user_access_policies_serialize(
             id=id,
-            path_id=path_id,
-            params_only_user_policies=params_only_user_policies,
+            only_user_policies=only_user_policies,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3623,11 +3289,10 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_fetch_user_access_policies_serialize(
+    def _fetch_user_access_policies_serialize(
         self,
         id,
-        path_id,
-        params_only_user_policies,
+        only_user_policies,
         _request_auth,
         _content_type,
         _headers,
@@ -3652,13 +3317,9 @@ class UserApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
+        if only_user_policies is not None:
             
-            _query_params.append(('path.id', path_id))
-            
-        if params_only_user_policies is not None:
-            
-            _query_params.append(('params.onlyUserPolicies', params_only_user_policies))
+            _query_params.append(('onlyUserPolicies', only_user_policies))
             
         # process the header parameters
         # process the form parameters
@@ -3698,10 +3359,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_user_group_access_policies(
+    def fetch_user_group_access_policies(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the user group. Get it from the API,  /api/v1/developer/user_groups")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the user group. Get it from the API,  /api/v1/developer/user_groups")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3718,10 +3378,8 @@ class UserApi:
         """3.22 Fetch the Access Policies Assigned to a User Group
 
 
-        :param id: (required)
+        :param id: Identity ID of the user group. Get it from the API,  /api/v1/developer/user_groups (required)
         :type id: str
-        :param path_id: Identity ID of the user group. Get it from the API,  /api/v1/developer/user_groups
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3744,9 +3402,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_user_group_access_policies_serialize(
+        _param = self._fetch_user_group_access_policies_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3768,10 +3425,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_user_group_access_policies_with_http_info(
+    def fetch_user_group_access_policies_with_http_info(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the user group. Get it from the API,  /api/v1/developer/user_groups")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the user group. Get it from the API,  /api/v1/developer/user_groups")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3788,10 +3444,8 @@ class UserApi:
         """3.22 Fetch the Access Policies Assigned to a User Group
 
 
-        :param id: (required)
+        :param id: Identity ID of the user group. Get it from the API,  /api/v1/developer/user_groups (required)
         :type id: str
-        :param path_id: Identity ID of the user group. Get it from the API,  /api/v1/developer/user_groups
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3814,9 +3468,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_user_group_access_policies_serialize(
+        _param = self._fetch_user_group_access_policies_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3838,10 +3491,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_user_group_access_policies_without_preload_content(
+    def fetch_user_group_access_policies_without_preload_content(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the user group. Get it from the API,  /api/v1/developer/user_groups")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the user group. Get it from the API,  /api/v1/developer/user_groups")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3858,10 +3510,8 @@ class UserApi:
         """3.22 Fetch the Access Policies Assigned to a User Group
 
 
-        :param id: (required)
+        :param id: Identity ID of the user group. Get it from the API,  /api/v1/developer/user_groups (required)
         :type id: str
-        :param path_id: Identity ID of the user group. Get it from the API,  /api/v1/developer/user_groups
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3884,9 +3534,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_user_group_access_policies_serialize(
+        _param = self._fetch_user_group_access_policies_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3903,10 +3552,9 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_fetch_user_group_access_policies_serialize(
+    def _fetch_user_group_access_policies_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -3931,10 +3579,6 @@ class UserApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -3973,10 +3617,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_user_groups(
+    def fetch_user_groups(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3995,8 +3638,6 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4019,9 +3660,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_user_groups_serialize(
+        _param = self._fetch_user_groups_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4043,10 +3683,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_user_groups_with_http_info(
+    def fetch_user_groups_with_http_info(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4065,8 +3704,6 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4089,9 +3726,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_user_groups_serialize(
+        _param = self._fetch_user_groups_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4113,10 +3749,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_user_groups_without_preload_content(
+    def fetch_user_groups_without_preload_content(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4135,8 +3770,6 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4159,9 +3792,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_user_groups_serialize(
+        _param = self._fetch_user_groups_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4178,10 +3810,9 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_fetch_user_groups_serialize(
+    def _fetch_user_groups_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -4206,10 +3837,6 @@ class UserApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -4248,10 +3875,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_users_in_user_group(
+    def fetch_users_in_user_group(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identify ID of the user group")] = None,
+        id: Annotated[StrictStr, Field(description="Identify ID of the user group")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4268,10 +3894,8 @@ class UserApi:
         """3.18 Fetch Users in a User Group
 
 
-        :param id: (required)
+        :param id: Identify ID of the user group (required)
         :type id: str
-        :param path_id: Identify ID of the user group
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4294,9 +3918,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_users_in_user_group_serialize(
+        _param = self._fetch_users_in_user_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4318,10 +3941,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_users_in_user_group_with_http_info(
+    def fetch_users_in_user_group_with_http_info(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identify ID of the user group")] = None,
+        id: Annotated[StrictStr, Field(description="Identify ID of the user group")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4338,10 +3960,8 @@ class UserApi:
         """3.18 Fetch Users in a User Group
 
 
-        :param id: (required)
+        :param id: Identify ID of the user group (required)
         :type id: str
-        :param path_id: Identify ID of the user group
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4364,9 +3984,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_users_in_user_group_serialize(
+        _param = self._fetch_users_in_user_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4388,10 +4007,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_fetch_users_in_user_group_without_preload_content(
+    def fetch_users_in_user_group_without_preload_content(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identify ID of the user group")] = None,
+        id: Annotated[StrictStr, Field(description="Identify ID of the user group")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4408,10 +4026,8 @@ class UserApi:
         """3.18 Fetch Users in a User Group
 
 
-        :param id: (required)
+        :param id: Identify ID of the user group (required)
         :type id: str
-        :param path_id: Identify ID of the user group
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4434,9 +4050,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_fetch_users_in_user_group_serialize(
+        _param = self._fetch_users_in_user_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4453,10 +4068,9 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_fetch_users_in_user_group_serialize(
+    def _fetch_users_in_user_group_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -4481,10 +4095,6 @@ class UserApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -4523,10 +4133,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_unassign_user_from_user_group(
+    def unassign_user_from_user_group(
         self,
         id: StrictStr,
-        body: UserUnassignUserFromUserGroupRequest,
+        user_unassign_user_from_user_group_request: UserUnassignUserFromUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4545,8 +4155,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserUnassignUserFromUserGroupRequest
+        :param user_unassign_user_from_user_group_request: (required)
+        :type user_unassign_user_from_user_group_request: UserUnassignUserFromUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4569,9 +4179,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_unassign_user_from_user_group_serialize(
+        _param = self._unassign_user_from_user_group_serialize(
             id=id,
-            body=body,
+            user_unassign_user_from_user_group_request=user_unassign_user_from_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4593,10 +4203,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_unassign_user_from_user_group_with_http_info(
+    def unassign_user_from_user_group_with_http_info(
         self,
         id: StrictStr,
-        body: UserUnassignUserFromUserGroupRequest,
+        user_unassign_user_from_user_group_request: UserUnassignUserFromUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4615,8 +4225,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserUnassignUserFromUserGroupRequest
+        :param user_unassign_user_from_user_group_request: (required)
+        :type user_unassign_user_from_user_group_request: UserUnassignUserFromUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4639,9 +4249,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_unassign_user_from_user_group_serialize(
+        _param = self._unassign_user_from_user_group_serialize(
             id=id,
-            body=body,
+            user_unassign_user_from_user_group_request=user_unassign_user_from_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4663,10 +4273,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_unassign_user_from_user_group_without_preload_content(
+    def unassign_user_from_user_group_without_preload_content(
         self,
         id: StrictStr,
-        body: UserUnassignUserFromUserGroupRequest,
+        user_unassign_user_from_user_group_request: UserUnassignUserFromUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4685,8 +4295,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserUnassignUserFromUserGroupRequest
+        :param user_unassign_user_from_user_group_request: (required)
+        :type user_unassign_user_from_user_group_request: UserUnassignUserFromUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4709,9 +4319,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_unassign_user_from_user_group_serialize(
+        _param = self._unassign_user_from_user_group_serialize(
             id=id,
-            body=body,
+            user_unassign_user_from_user_group_request=user_unassign_user_from_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4728,10 +4338,10 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_unassign_user_from_user_group_serialize(
+    def _unassign_user_from_user_group_serialize(
         self,
         id,
-        body,
+        user_unassign_user_from_user_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -4759,8 +4369,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if user_unassign_user_from_user_group_request is not None:
+            _body_params = user_unassign_user_from_user_group_request
 
 
         # set the HTTP header `Accept`
@@ -4809,10 +4419,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_unassign_user_nfc_card(
+    def unassign_user_nfc_card(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         body_token: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -4832,8 +4441,6 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param body_token:
         :type body_token: str
         :param _request_timeout: timeout setting for this request. If one
@@ -4858,9 +4465,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_unassign_user_nfc_card_serialize(
+        _param = self._unassign_user_nfc_card_serialize(
             id=id,
-            path_id=path_id,
             body_token=body_token,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4883,10 +4489,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_unassign_user_nfc_card_with_http_info(
+    def unassign_user_nfc_card_with_http_info(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         body_token: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -4906,8 +4511,6 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param body_token:
         :type body_token: str
         :param _request_timeout: timeout setting for this request. If one
@@ -4932,9 +4535,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_unassign_user_nfc_card_serialize(
+        _param = self._unassign_user_nfc_card_serialize(
             id=id,
-            path_id=path_id,
             body_token=body_token,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4957,10 +4559,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_unassign_user_nfc_card_without_preload_content(
+    def unassign_user_nfc_card_without_preload_content(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         body_token: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -4980,8 +4581,6 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param body_token:
         :type body_token: str
         :param _request_timeout: timeout setting for this request. If one
@@ -5006,9 +4605,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_unassign_user_nfc_card_serialize(
+        _param = self._unassign_user_nfc_card_serialize(
             id=id,
-            path_id=path_id,
             body_token=body_token,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5026,10 +4624,9 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_unassign_user_nfc_card_serialize(
+    def _unassign_user_nfc_card_serialize(
         self,
         id,
-        path_id,
         body_token,
         _request_auth,
         _content_type,
@@ -5055,10 +4652,6 @@ class UserApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         if body_token is not None:
             
             _query_params.append(('body.token', body_token))
@@ -5101,10 +4694,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_unassign_user_pin_code(
+    def unassign_user_pin_code(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5123,8 +4715,6 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5147,9 +4737,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_unassign_user_pin_code_serialize(
+        _param = self._unassign_user_pin_code_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5171,10 +4760,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_unassign_user_pin_code_with_http_info(
+    def unassign_user_pin_code_with_http_info(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5193,8 +4781,6 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5217,9 +4803,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_unassign_user_pin_code_serialize(
+        _param = self._unassign_user_pin_code_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5241,10 +4826,9 @@ class UserApi:
 
 
     @validate_call
-    def user_service_unassign_user_pin_code_without_preload_content(
+    def unassign_user_pin_code_without_preload_content(
         self,
         id: StrictStr,
-        path_id: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5263,8 +4847,6 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param path_id:
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5287,9 +4869,8 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_unassign_user_pin_code_serialize(
+        _param = self._unassign_user_pin_code_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5306,10 +4887,9 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_unassign_user_pin_code_serialize(
+    def _unassign_user_pin_code_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -5334,10 +4914,6 @@ class UserApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -5359,7 +4935,7 @@ class UserApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/users/{id}/unassign-nfc-card',
+            resource_path='/users/{id}/pin_codes',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5376,10 +4952,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_update_user(
+    def update_user(
         self,
         id: StrictStr,
-        body: UserUpdateUserRequest,
+        user_update_user_request: UserUpdateUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5398,8 +4974,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserUpdateUserRequest
+        :param user_update_user_request: (required)
+        :type user_update_user_request: UserUpdateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5422,9 +4998,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_update_user_serialize(
+        _param = self._update_user_serialize(
             id=id,
-            body=body,
+            user_update_user_request=user_update_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5446,10 +5022,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_update_user_with_http_info(
+    def update_user_with_http_info(
         self,
         id: StrictStr,
-        body: UserUpdateUserRequest,
+        user_update_user_request: UserUpdateUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5468,8 +5044,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserUpdateUserRequest
+        :param user_update_user_request: (required)
+        :type user_update_user_request: UserUpdateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5492,9 +5068,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_update_user_serialize(
+        _param = self._update_user_serialize(
             id=id,
-            body=body,
+            user_update_user_request=user_update_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5516,10 +5092,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_update_user_without_preload_content(
+    def update_user_without_preload_content(
         self,
         id: StrictStr,
-        body: UserUpdateUserRequest,
+        user_update_user_request: UserUpdateUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5538,8 +5114,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserUpdateUserRequest
+        :param user_update_user_request: (required)
+        :type user_update_user_request: UserUpdateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5562,9 +5138,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_update_user_serialize(
+        _param = self._update_user_serialize(
             id=id,
-            body=body,
+            user_update_user_request=user_update_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5581,10 +5157,10 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_update_user_serialize(
+    def _update_user_serialize(
         self,
         id,
-        body,
+        user_update_user_request,
         _request_auth,
         _content_type,
         _headers,
@@ -5612,8 +5188,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if user_update_user_request is not None:
+            _body_params = user_update_user_request
 
 
         # set the HTTP header `Accept`
@@ -5662,10 +5238,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_update_user_group(
+    def update_user_group(
         self,
         id: StrictStr,
-        body: UserUpdateUserGroupRequest,
+        user_update_user_group_request: UserUpdateUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5684,8 +5260,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserUpdateUserGroupRequest
+        :param user_update_user_group_request: (required)
+        :type user_update_user_group_request: UserUpdateUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5708,9 +5284,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_update_user_group_serialize(
+        _param = self._update_user_group_serialize(
             id=id,
-            body=body,
+            user_update_user_group_request=user_update_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5732,10 +5308,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_update_user_group_with_http_info(
+    def update_user_group_with_http_info(
         self,
         id: StrictStr,
-        body: UserUpdateUserGroupRequest,
+        user_update_user_group_request: UserUpdateUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5754,8 +5330,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserUpdateUserGroupRequest
+        :param user_update_user_group_request: (required)
+        :type user_update_user_group_request: UserUpdateUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5778,9 +5354,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_update_user_group_serialize(
+        _param = self._update_user_group_serialize(
             id=id,
-            body=body,
+            user_update_user_group_request=user_update_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5802,10 +5378,10 @@ class UserApi:
 
 
     @validate_call
-    def user_service_update_user_group_without_preload_content(
+    def update_user_group_without_preload_content(
         self,
         id: StrictStr,
-        body: UserUpdateUserGroupRequest,
+        user_update_user_group_request: UserUpdateUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5824,8 +5400,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: UserUpdateUserGroupRequest
+        :param user_update_user_group_request: (required)
+        :type user_update_user_group_request: UserUpdateUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5848,9 +5424,9 @@ class UserApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._user_service_update_user_group_serialize(
+        _param = self._update_user_group_serialize(
             id=id,
-            body=body,
+            user_update_user_group_request=user_update_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5867,10 +5443,10 @@ class UserApi:
         return response_data.response
 
 
-    def _user_service_update_user_group_serialize(
+    def _update_user_group_serialize(
         self,
         id,
-        body,
+        user_update_user_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -5898,8 +5474,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if user_update_user_group_request is not None:
+            _body_params = user_update_user_group_request
 
 
         # set the HTTP header `Accept`
@@ -5932,6 +5508,277 @@ class UserApi:
         return self.api_client.param_serialize(
             method='PUT',
             resource_path='/user_groups/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def user_groups_post(
+        self,
+        user_create_user_group_request: UserCreateUserGroupRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> SharedStatusCodeResponse:
+        """3.11 Create User Group
+
+
+        :param user_create_user_group_request: (required)
+        :type user_create_user_group_request: UserCreateUserGroupRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._user_groups_post_serialize(
+            user_create_user_group_request=user_create_user_group_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SharedStatusCodeResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def user_groups_post_with_http_info(
+        self,
+        user_create_user_group_request: UserCreateUserGroupRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[SharedStatusCodeResponse]:
+        """3.11 Create User Group
+
+
+        :param user_create_user_group_request: (required)
+        :type user_create_user_group_request: UserCreateUserGroupRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._user_groups_post_serialize(
+            user_create_user_group_request=user_create_user_group_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SharedStatusCodeResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def user_groups_post_without_preload_content(
+        self,
+        user_create_user_group_request: UserCreateUserGroupRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """3.11 Create User Group
+
+
+        :param user_create_user_group_request: (required)
+        :type user_create_user_group_request: UserCreateUserGroupRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._user_groups_post_serialize(
+            user_create_user_group_request=user_create_user_group_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SharedStatusCodeResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _user_groups_post_serialize(
+        self,
+        user_create_user_group_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if user_create_user_group_request is not None:
+            _body_params = user_create_user_group_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'token'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/user_groups',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

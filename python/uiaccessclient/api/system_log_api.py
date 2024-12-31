@@ -44,9 +44,9 @@ class SystemLogApi:
 
 
     @validate_call
-    def system_log_service_export_system_logs(
+    def export_system_logs(
         self,
-        body: SystemLogExportSystemLogsRequest,
+        system_log_export_system_logs_request: SystemLogExportSystemLogsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -63,8 +63,8 @@ class SystemLogApi:
         """9.3 Export System Logs
 
 
-        :param body: (required)
-        :type body: SystemLogExportSystemLogsRequest
+        :param system_log_export_system_logs_request: (required)
+        :type system_log_export_system_logs_request: SystemLogExportSystemLogsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -87,8 +87,8 @@ class SystemLogApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._system_log_service_export_system_logs_serialize(
-            body=body,
+        _param = self._export_system_logs_serialize(
+            system_log_export_system_logs_request=system_log_export_system_logs_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -110,9 +110,9 @@ class SystemLogApi:
 
 
     @validate_call
-    def system_log_service_export_system_logs_with_http_info(
+    def export_system_logs_with_http_info(
         self,
-        body: SystemLogExportSystemLogsRequest,
+        system_log_export_system_logs_request: SystemLogExportSystemLogsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -129,8 +129,8 @@ class SystemLogApi:
         """9.3 Export System Logs
 
 
-        :param body: (required)
-        :type body: SystemLogExportSystemLogsRequest
+        :param system_log_export_system_logs_request: (required)
+        :type system_log_export_system_logs_request: SystemLogExportSystemLogsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -153,8 +153,8 @@ class SystemLogApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._system_log_service_export_system_logs_serialize(
-            body=body,
+        _param = self._export_system_logs_serialize(
+            system_log_export_system_logs_request=system_log_export_system_logs_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -176,9 +176,9 @@ class SystemLogApi:
 
 
     @validate_call
-    def system_log_service_export_system_logs_without_preload_content(
+    def export_system_logs_without_preload_content(
         self,
-        body: SystemLogExportSystemLogsRequest,
+        system_log_export_system_logs_request: SystemLogExportSystemLogsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -195,8 +195,8 @@ class SystemLogApi:
         """9.3 Export System Logs
 
 
-        :param body: (required)
-        :type body: SystemLogExportSystemLogsRequest
+        :param system_log_export_system_logs_request: (required)
+        :type system_log_export_system_logs_request: SystemLogExportSystemLogsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -219,8 +219,8 @@ class SystemLogApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._system_log_service_export_system_logs_serialize(
-            body=body,
+        _param = self._export_system_logs_serialize(
+            system_log_export_system_logs_request=system_log_export_system_logs_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -237,9 +237,9 @@ class SystemLogApi:
         return response_data.response
 
 
-    def _system_log_service_export_system_logs_serialize(
+    def _export_system_logs_serialize(
         self,
-        body,
+        system_log_export_system_logs_request,
         _request_auth,
         _content_type,
         _headers,
@@ -265,8 +265,8 @@ class SystemLogApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if system_log_export_system_logs_request is not None:
+            _body_params = system_log_export_system_logs_request
 
 
         # set the HTTP header `Accept`
@@ -315,10 +315,9 @@ class SystemLogApi:
 
 
     @validate_call
-    def system_log_service_fetch_resources_in_system_logs(
+    def fetch_resources_in_system_logs(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}]")] = None,
+        id: Annotated[StrictStr, Field(description="Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}]")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -335,10 +334,8 @@ class SystemLogApi:
         """9.4 Fetch Resources in System Logs
 
 
-        :param id: (required)
+        :param id: Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}] (required)
         :type id: str
-        :param path_id: Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}]
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -361,9 +358,8 @@ class SystemLogApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._system_log_service_fetch_resources_in_system_logs_serialize(
+        _param = self._fetch_resources_in_system_logs_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -385,10 +381,9 @@ class SystemLogApi:
 
 
     @validate_call
-    def system_log_service_fetch_resources_in_system_logs_with_http_info(
+    def fetch_resources_in_system_logs_with_http_info(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}]")] = None,
+        id: Annotated[StrictStr, Field(description="Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}]")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -405,10 +400,8 @@ class SystemLogApi:
         """9.4 Fetch Resources in System Logs
 
 
-        :param id: (required)
+        :param id: Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}] (required)
         :type id: str
-        :param path_id: Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}]
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -431,9 +424,8 @@ class SystemLogApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._system_log_service_fetch_resources_in_system_logs_serialize(
+        _param = self._fetch_resources_in_system_logs_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -455,10 +447,9 @@ class SystemLogApi:
 
 
     @validate_call
-    def system_log_service_fetch_resources_in_system_logs_without_preload_content(
+    def fetch_resources_in_system_logs_without_preload_content(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}]")] = None,
+        id: Annotated[StrictStr, Field(description="Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}]")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -475,10 +466,8 @@ class SystemLogApi:
         """9.4 Fetch Resources in System Logs
 
 
-        :param id: (required)
+        :param id: Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}] (required)
         :type id: str
-        :param path_id: Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}]
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -501,9 +490,8 @@ class SystemLogApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._system_log_service_fetch_resources_in_system_logs_serialize(
+        _param = self._fetch_resources_in_system_logs_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -520,10 +508,9 @@ class SystemLogApi:
         return response_data.response
 
 
-    def _system_log_service_fetch_resources_in_system_logs_serialize(
+    def _fetch_resources_in_system_logs_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -548,10 +535,6 @@ class SystemLogApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -590,7 +573,7 @@ class SystemLogApi:
 
 
     @validate_call
-    def system_log_service_fetch_static_resources_in_system_logs(
+    def fetch_static_resources_in_system_logs(
         self,
         path: Annotated[StrictStr, Field(description="Resource paths, currently supporting /avatar, /capture, and  activities_resource.")],
         _request_timeout: Union[
@@ -633,7 +616,7 @@ class SystemLogApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._system_log_service_fetch_static_resources_in_system_logs_serialize(
+        _param = self._fetch_static_resources_in_system_logs_serialize(
             path=path,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -656,7 +639,7 @@ class SystemLogApi:
 
 
     @validate_call
-    def system_log_service_fetch_static_resources_in_system_logs_with_http_info(
+    def fetch_static_resources_in_system_logs_with_http_info(
         self,
         path: Annotated[StrictStr, Field(description="Resource paths, currently supporting /avatar, /capture, and  activities_resource.")],
         _request_timeout: Union[
@@ -699,7 +682,7 @@ class SystemLogApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._system_log_service_fetch_static_resources_in_system_logs_serialize(
+        _param = self._fetch_static_resources_in_system_logs_serialize(
             path=path,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -722,7 +705,7 @@ class SystemLogApi:
 
 
     @validate_call
-    def system_log_service_fetch_static_resources_in_system_logs_without_preload_content(
+    def fetch_static_resources_in_system_logs_without_preload_content(
         self,
         path: Annotated[StrictStr, Field(description="Resource paths, currently supporting /avatar, /capture, and  activities_resource.")],
         _request_timeout: Union[
@@ -765,7 +748,7 @@ class SystemLogApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._system_log_service_fetch_static_resources_in_system_logs_serialize(
+        _param = self._fetch_static_resources_in_system_logs_serialize(
             path=path,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -783,7 +766,7 @@ class SystemLogApi:
         return response_data.response
 
 
-    def _system_log_service_fetch_static_resources_in_system_logs_serialize(
+    def _fetch_static_resources_in_system_logs_serialize(
         self,
         path,
         _request_auth,
@@ -848,10 +831,10 @@ class SystemLogApi:
 
 
     @validate_call
-    def system_log_service_fetch_system_logs(
+    def fetch_system_logs(
         self,
-        params_page_num: Annotated[Optional[StrictStr], Field(description="Current page number in the pagination.")] = None,
-        params_page_size: Annotated[Optional[StrictStr], Field(description="Number of logs per page.")] = None,
+        page_num: Annotated[Optional[StrictInt], Field(description="Current page number in the pagination.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of logs per page.")] = None,
         body_topic: Optional[StrictStr] = None,
         body_since: Annotated[Optional[StrictInt], Field(description="Fetch different system logs by topic. enum topic {critical,door_openings,updates,device_events,admin_activity,visitor}")] = None,
         body_until: Annotated[Optional[StrictInt], Field(description="Start time for log fetching, ex: 1689304925")] = None,
@@ -872,10 +855,10 @@ class SystemLogApi:
         """9.2 Fetch System Logs
 
 
-        :param params_page_num: Current page number in the pagination.
-        :type params_page_num: str
-        :param params_page_size: Number of logs per page.
-        :type params_page_size: str
+        :param page_num: Current page number in the pagination.
+        :type page_num: int
+        :param page_size: Number of logs per page.
+        :type page_size: int
         :param body_topic:
         :type body_topic: str
         :param body_since: Fetch different system logs by topic. enum topic {critical,door_openings,updates,device_events,admin_activity,visitor}
@@ -906,9 +889,9 @@ class SystemLogApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._system_log_service_fetch_system_logs_serialize(
-            params_page_num=params_page_num,
-            params_page_size=params_page_size,
+        _param = self._fetch_system_logs_serialize(
+            page_num=page_num,
+            page_size=page_size,
             body_topic=body_topic,
             body_since=body_since,
             body_until=body_until,
@@ -934,10 +917,10 @@ class SystemLogApi:
 
 
     @validate_call
-    def system_log_service_fetch_system_logs_with_http_info(
+    def fetch_system_logs_with_http_info(
         self,
-        params_page_num: Annotated[Optional[StrictStr], Field(description="Current page number in the pagination.")] = None,
-        params_page_size: Annotated[Optional[StrictStr], Field(description="Number of logs per page.")] = None,
+        page_num: Annotated[Optional[StrictInt], Field(description="Current page number in the pagination.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of logs per page.")] = None,
         body_topic: Optional[StrictStr] = None,
         body_since: Annotated[Optional[StrictInt], Field(description="Fetch different system logs by topic. enum topic {critical,door_openings,updates,device_events,admin_activity,visitor}")] = None,
         body_until: Annotated[Optional[StrictInt], Field(description="Start time for log fetching, ex: 1689304925")] = None,
@@ -958,10 +941,10 @@ class SystemLogApi:
         """9.2 Fetch System Logs
 
 
-        :param params_page_num: Current page number in the pagination.
-        :type params_page_num: str
-        :param params_page_size: Number of logs per page.
-        :type params_page_size: str
+        :param page_num: Current page number in the pagination.
+        :type page_num: int
+        :param page_size: Number of logs per page.
+        :type page_size: int
         :param body_topic:
         :type body_topic: str
         :param body_since: Fetch different system logs by topic. enum topic {critical,door_openings,updates,device_events,admin_activity,visitor}
@@ -992,9 +975,9 @@ class SystemLogApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._system_log_service_fetch_system_logs_serialize(
-            params_page_num=params_page_num,
-            params_page_size=params_page_size,
+        _param = self._fetch_system_logs_serialize(
+            page_num=page_num,
+            page_size=page_size,
             body_topic=body_topic,
             body_since=body_since,
             body_until=body_until,
@@ -1020,10 +1003,10 @@ class SystemLogApi:
 
 
     @validate_call
-    def system_log_service_fetch_system_logs_without_preload_content(
+    def fetch_system_logs_without_preload_content(
         self,
-        params_page_num: Annotated[Optional[StrictStr], Field(description="Current page number in the pagination.")] = None,
-        params_page_size: Annotated[Optional[StrictStr], Field(description="Number of logs per page.")] = None,
+        page_num: Annotated[Optional[StrictInt], Field(description="Current page number in the pagination.")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Number of logs per page.")] = None,
         body_topic: Optional[StrictStr] = None,
         body_since: Annotated[Optional[StrictInt], Field(description="Fetch different system logs by topic. enum topic {critical,door_openings,updates,device_events,admin_activity,visitor}")] = None,
         body_until: Annotated[Optional[StrictInt], Field(description="Start time for log fetching, ex: 1689304925")] = None,
@@ -1044,10 +1027,10 @@ class SystemLogApi:
         """9.2 Fetch System Logs
 
 
-        :param params_page_num: Current page number in the pagination.
-        :type params_page_num: str
-        :param params_page_size: Number of logs per page.
-        :type params_page_size: str
+        :param page_num: Current page number in the pagination.
+        :type page_num: int
+        :param page_size: Number of logs per page.
+        :type page_size: int
         :param body_topic:
         :type body_topic: str
         :param body_since: Fetch different system logs by topic. enum topic {critical,door_openings,updates,device_events,admin_activity,visitor}
@@ -1078,9 +1061,9 @@ class SystemLogApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._system_log_service_fetch_system_logs_serialize(
-            params_page_num=params_page_num,
-            params_page_size=params_page_size,
+        _param = self._fetch_system_logs_serialize(
+            page_num=page_num,
+            page_size=page_size,
             body_topic=body_topic,
             body_since=body_since,
             body_until=body_until,
@@ -1101,10 +1084,10 @@ class SystemLogApi:
         return response_data.response
 
 
-    def _system_log_service_fetch_system_logs_serialize(
+    def _fetch_system_logs_serialize(
         self,
-        params_page_num,
-        params_page_size,
+        page_num,
+        page_size,
         body_topic,
         body_since,
         body_until,
@@ -1131,13 +1114,13 @@ class SystemLogApi:
 
         # process the path parameters
         # process the query parameters
-        if params_page_num is not None:
+        if page_num is not None:
             
-            _query_params.append(('params.pageNum', params_page_num))
+            _query_params.append(('pageNum', page_num))
             
-        if params_page_size is not None:
+        if page_size is not None:
             
-            _query_params.append(('params.pageSize', params_page_size))
+            _query_params.append(('pageSize', page_size))
             
         if body_topic is not None:
             

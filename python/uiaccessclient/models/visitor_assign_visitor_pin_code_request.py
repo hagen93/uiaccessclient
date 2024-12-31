@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,8 +26,8 @@ class VisitorAssignVisitorPinCodeRequest(BaseModel):
     """
     VisitorAssignVisitorPinCodeRequest
     """ # noqa: E501
-    pin_code: Optional[StrictStr] = Field(default=None, alias="pinCode")
-    __properties: ClassVar[List[str]] = ["pinCode"]
+    pin_code: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["pin_code"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,7 +80,7 @@ class VisitorAssignVisitorPinCodeRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "pinCode": obj.get("pinCode")
+            "pin_code": obj.get("pin_code")
         })
         return _obj
 

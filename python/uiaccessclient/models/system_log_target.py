@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,12 +26,12 @@ class SystemLogTarget(BaseModel):
     """
     SystemLogTarget
     """ # noqa: E501
-    alternative_id: Optional[StrictStr] = Field(default=None, alias="alternativeId")
-    alternative_name: Optional[StrictStr] = Field(default=None, alias="alternativeName")
-    display_name: Optional[StrictStr] = Field(default=None, alias="displayName")
+    alternative_id: Optional[StrictStr] = None
+    alternative_name: Optional[StrictStr] = None
+    display_name: Optional[StrictStr] = None
     id: Optional[StrictStr] = None
     type: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["alternativeId", "alternativeName", "displayName", "id", "type"]
+    __properties: ClassVar[List[str]] = ["alternative_id", "alternative_name", "display_name", "id", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,9 +84,9 @@ class SystemLogTarget(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "alternativeId": obj.get("alternativeId"),
-            "alternativeName": obj.get("alternativeName"),
-            "displayName": obj.get("displayName"),
+            "alternative_id": obj.get("alternative_id"),
+            "alternative_name": obj.get("alternative_name"),
+            "display_name": obj.get("display_name"),
             "id": obj.get("id"),
             "type": obj.get("type")
         })

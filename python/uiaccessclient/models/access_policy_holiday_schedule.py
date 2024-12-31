@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,9 +26,9 @@ class AccessPolicyHolidaySchedule(BaseModel):
     """
     AccessPolicyHolidaySchedule
     """ # noqa: E501
-    start_time: Optional[StrictStr] = Field(default=None, alias="startTime")
-    end_time: Optional[StrictStr] = Field(default=None, alias="endTime")
-    __properties: ClassVar[List[str]] = ["startTime", "endTime"]
+    start_time: Optional[StrictStr] = None
+    end_time: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["start_time", "end_time"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,8 +81,8 @@ class AccessPolicyHolidaySchedule(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "startTime": obj.get("startTime"),
-            "endTime": obj.get("endTime")
+            "start_time": obj.get("start_time"),
+            "end_time": obj.get("end_time")
         })
         return _obj
 

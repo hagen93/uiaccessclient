@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,13 +28,13 @@ class SpaceDoor(BaseModel):
     """ # noqa: E501
     id: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
-    full_name: Optional[StrictStr] = Field(default=None, alias="fullName")
-    floor_id: Optional[StrictStr] = Field(default=None, alias="floorId")
+    full_name: Optional[StrictStr] = None
+    floor_id: Optional[StrictStr] = None
     type: Optional[StrictStr] = None
-    is_bind_hub: Optional[StrictStr] = Field(default=None, alias="isBindHub")
-    door_lock_relay_status: Optional[StrictStr] = Field(default=None, description="used for remote opening if it's bound.  Door lock status. enum door_lock_relay_status {lock,unlock}", alias="doorLockRelayStatus")
-    door_position_status: Optional[StrictStr] = Field(default=None, alias="doorPositionStatus")
-    __properties: ClassVar[List[str]] = ["id", "name", "fullName", "floorId", "type", "isBindHub", "doorLockRelayStatus", "doorPositionStatus"]
+    is_bind_hub: Optional[StrictBool] = None
+    door_lock_relay_status: Optional[StrictStr] = Field(default=None, description="used for remote opening if it's bound.  Door lock status. enum door_lock_relay_status {lock,unlock}")
+    door_position_status: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["id", "name", "full_name", "floor_id", "type", "is_bind_hub", "door_lock_relay_status", "door_position_status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,12 +89,12 @@ class SpaceDoor(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "name": obj.get("name"),
-            "fullName": obj.get("fullName"),
-            "floorId": obj.get("floorId"),
+            "full_name": obj.get("full_name"),
+            "floor_id": obj.get("floor_id"),
             "type": obj.get("type"),
-            "isBindHub": obj.get("isBindHub"),
-            "doorLockRelayStatus": obj.get("doorLockRelayStatus"),
-            "doorPositionStatus": obj.get("doorPositionStatus")
+            "is_bind_hub": obj.get("is_bind_hub"),
+            "door_lock_relay_status": obj.get("door_lock_relay_status"),
+            "door_position_status": obj.get("door_position_status")
         })
         return _obj
 

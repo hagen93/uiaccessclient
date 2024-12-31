@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,10 +28,10 @@ class UniFiIdentityResource(BaseModel):
     """ # noqa: E501
     id: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
-    short_name: Optional[StrictStr] = Field(default=None, alias="shortName")
+    short_name: Optional[StrictStr] = None
     deleted: Optional[StrictBool] = None
     metadata: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "shortName", "deleted", "metadata"]
+    __properties: ClassVar[List[str]] = ["id", "name", "short_name", "deleted", "metadata"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,7 +86,7 @@ class UniFiIdentityResource(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "name": obj.get("name"),
-            "shortName": obj.get("shortName"),
+            "short_name": obj.get("short_name"),
             "deleted": obj.get("deleted"),
             "metadata": obj.get("metadata")
         })

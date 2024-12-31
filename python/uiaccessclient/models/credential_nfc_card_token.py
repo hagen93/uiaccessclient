@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,9 +26,9 @@ class CredentialNfcCardToken(BaseModel):
     """
     CredentialNfcCardToken
     """ # noqa: E501
-    card_id: Optional[StrictStr] = Field(default=None, alias="cardId")
+    card_id: Optional[StrictStr] = None
     token: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["cardId", "token"]
+    __properties: ClassVar[List[str]] = ["card_id", "token"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,7 +81,7 @@ class CredentialNfcCardToken(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "cardId": obj.get("cardId"),
+            "card_id": obj.get("card_id"),
             "token": obj.get("token")
         })
         return _obj

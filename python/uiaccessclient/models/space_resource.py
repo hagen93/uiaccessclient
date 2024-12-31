@@ -29,8 +29,8 @@ class SpaceResource(BaseModel):
     id: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     type: Optional[StrictStr] = None
-    is_bind_hub: Optional[StrictBool] = Field(default=None, description="Indicate whether the door has bound to a hub device.", alias="isBindHub")
-    __properties: ClassVar[List[str]] = ["id", "name", "type", "isBindHub"]
+    is_bind_hub: Optional[StrictBool] = Field(default=None, description="Indicate whether the door has bound to a hub device.")
+    __properties: ClassVar[List[str]] = ["id", "name", "type", "is_bind_hub"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,7 +86,7 @@ class SpaceResource(BaseModel):
             "id": obj.get("id"),
             "name": obj.get("name"),
             "type": obj.get("type"),
-            "isBindHub": obj.get("isBindHub")
+            "is_bind_hub": obj.get("is_bind_hub")
         })
         return _obj
 

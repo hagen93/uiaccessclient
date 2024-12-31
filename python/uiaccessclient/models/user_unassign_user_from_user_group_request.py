@@ -26,8 +26,8 @@ class UserUnassignUserFromUserGroupRequest(BaseModel):
     """
     UserUnassignUserFromUserGroupRequest
     """ # noqa: E501
-    user_id: Optional[List[StrictStr]] = Field(default=None, description="Get it from the API, /api/v1/developer/users  The api documentation reads as a method for one user ID, but the repeated  string implies that it may support multiple user IDs at once.", alias="userId")
-    __properties: ClassVar[List[str]] = ["userId"]
+    user_id: Optional[List[StrictStr]] = Field(default=None, description="Get it from the API, /api/v1/developer/users  The api documentation reads as a method for one user ID, but the repeated  string implies that it may support multiple user IDs at once.")
+    __properties: ClassVar[List[str]] = ["user_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,7 +80,7 @@ class UserUnassignUserFromUserGroupRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "userId": obj.get("userId")
+            "user_id": obj.get("user_id")
         })
         return _obj
 

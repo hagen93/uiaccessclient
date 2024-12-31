@@ -17,7 +17,6 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
-from typing import Optional
 from typing_extensions import Annotated
 from uiaccessclient.models.access_policy_access_policies_response import AccessPolicyAccessPoliciesResponse
 from uiaccessclient.models.access_policy_access_policy_response import AccessPolicyAccessPolicyResponse
@@ -51,9 +50,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_create_access_policy(
+    def access_policies_id_delete(
         self,
-        body: AccessPolicyCreateAccessPolicyRequest,
+        id: Annotated[StrictStr, Field(description="Identity ID of the access policy.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -67,11 +66,11 @@ class AccessPolicyApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AccessPolicyAccessPolicyResponse:
-        """5.2 Create Access Policy
+        """5.4 Delete Access Policy
 
 
-        :param body: (required)
-        :type body: AccessPolicyCreateAccessPolicyRequest
+        :param id: Identity ID of the access policy. (required)
+        :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -94,8 +93,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_create_access_policy_serialize(
-            body=body,
+        _param = self._access_policies_id_delete_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -117,9 +116,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_create_access_policy_with_http_info(
+    def access_policies_id_delete_with_http_info(
         self,
-        body: AccessPolicyCreateAccessPolicyRequest,
+        id: Annotated[StrictStr, Field(description="Identity ID of the access policy.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -133,11 +132,11 @@ class AccessPolicyApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AccessPolicyAccessPolicyResponse]:
-        """5.2 Create Access Policy
+        """5.4 Delete Access Policy
 
 
-        :param body: (required)
-        :type body: AccessPolicyCreateAccessPolicyRequest
+        :param id: Identity ID of the access policy. (required)
+        :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -160,8 +159,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_create_access_policy_serialize(
-            body=body,
+        _param = self._access_policies_id_delete_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -183,9 +182,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_create_access_policy_without_preload_content(
+    def access_policies_id_delete_without_preload_content(
         self,
-        body: AccessPolicyCreateAccessPolicyRequest,
+        id: Annotated[StrictStr, Field(description="Identity ID of the access policy.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -199,11 +198,11 @@ class AccessPolicyApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """5.2 Create Access Policy
+        """5.4 Delete Access Policy
 
 
-        :param body: (required)
-        :type body: AccessPolicyCreateAccessPolicyRequest
+        :param id: Identity ID of the access policy. (required)
+        :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -226,8 +225,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_create_access_policy_serialize(
-            body=body,
+        _param = self._access_policies_id_delete_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -244,9 +243,267 @@ class AccessPolicyApi:
         return response_data.response
 
 
-    def _access_policy_service_create_access_policy_serialize(
+    def _access_policies_id_delete_serialize(
         self,
-        body,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'token'
+        ]
+
+        return self.api_client.param_serialize(
+            method='DELETE',
+            resource_path='/access_policies/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def create_access_policy(
+        self,
+        access_policy_create_access_policy_request: AccessPolicyCreateAccessPolicyRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AccessPolicyAccessPolicyResponse:
+        """5.2 Create Access Policy
+
+
+        :param access_policy_create_access_policy_request: (required)
+        :type access_policy_create_access_policy_request: AccessPolicyCreateAccessPolicyRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_access_policy_serialize(
+            access_policy_create_access_policy_request=access_policy_create_access_policy_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AccessPolicyAccessPolicyResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def create_access_policy_with_http_info(
+        self,
+        access_policy_create_access_policy_request: AccessPolicyCreateAccessPolicyRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AccessPolicyAccessPolicyResponse]:
+        """5.2 Create Access Policy
+
+
+        :param access_policy_create_access_policy_request: (required)
+        :type access_policy_create_access_policy_request: AccessPolicyCreateAccessPolicyRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_access_policy_serialize(
+            access_policy_create_access_policy_request=access_policy_create_access_policy_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AccessPolicyAccessPolicyResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def create_access_policy_without_preload_content(
+        self,
+        access_policy_create_access_policy_request: AccessPolicyCreateAccessPolicyRequest,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """5.2 Create Access Policy
+
+
+        :param access_policy_create_access_policy_request: (required)
+        :type access_policy_create_access_policy_request: AccessPolicyCreateAccessPolicyRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_access_policy_serialize(
+            access_policy_create_access_policy_request=access_policy_create_access_policy_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AccessPolicyAccessPolicyResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _create_access_policy_serialize(
+        self,
+        access_policy_create_access_policy_request,
         _request_auth,
         _content_type,
         _headers,
@@ -272,8 +529,8 @@ class AccessPolicyApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if access_policy_create_access_policy_request is not None:
+            _body_params = access_policy_create_access_policy_request
 
 
         # set the HTTP header `Accept`
@@ -322,9 +579,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_create_holiday_group(
+    def create_holiday_group(
         self,
-        body: AccessPolicyCreateHolidayGroupRequest,
+        access_policy_create_holiday_group_request: AccessPolicyCreateHolidayGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -341,8 +598,8 @@ class AccessPolicyApi:
         """5.8 Create Holiday Group
 
 
-        :param body: (required)
-        :type body: AccessPolicyCreateHolidayGroupRequest
+        :param access_policy_create_holiday_group_request: (required)
+        :type access_policy_create_holiday_group_request: AccessPolicyCreateHolidayGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -365,8 +622,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_create_holiday_group_serialize(
-            body=body,
+        _param = self._create_holiday_group_serialize(
+            access_policy_create_holiday_group_request=access_policy_create_holiday_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -388,9 +645,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_create_holiday_group_with_http_info(
+    def create_holiday_group_with_http_info(
         self,
-        body: AccessPolicyCreateHolidayGroupRequest,
+        access_policy_create_holiday_group_request: AccessPolicyCreateHolidayGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -407,8 +664,8 @@ class AccessPolicyApi:
         """5.8 Create Holiday Group
 
 
-        :param body: (required)
-        :type body: AccessPolicyCreateHolidayGroupRequest
+        :param access_policy_create_holiday_group_request: (required)
+        :type access_policy_create_holiday_group_request: AccessPolicyCreateHolidayGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -431,8 +688,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_create_holiday_group_serialize(
-            body=body,
+        _param = self._create_holiday_group_serialize(
+            access_policy_create_holiday_group_request=access_policy_create_holiday_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -454,9 +711,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_create_holiday_group_without_preload_content(
+    def create_holiday_group_without_preload_content(
         self,
-        body: AccessPolicyCreateHolidayGroupRequest,
+        access_policy_create_holiday_group_request: AccessPolicyCreateHolidayGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -473,8 +730,8 @@ class AccessPolicyApi:
         """5.8 Create Holiday Group
 
 
-        :param body: (required)
-        :type body: AccessPolicyCreateHolidayGroupRequest
+        :param access_policy_create_holiday_group_request: (required)
+        :type access_policy_create_holiday_group_request: AccessPolicyCreateHolidayGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -497,8 +754,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_create_holiday_group_serialize(
-            body=body,
+        _param = self._create_holiday_group_serialize(
+            access_policy_create_holiday_group_request=access_policy_create_holiday_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -515,9 +772,9 @@ class AccessPolicyApi:
         return response_data.response
 
 
-    def _access_policy_service_create_holiday_group_serialize(
+    def _create_holiday_group_serialize(
         self,
-        body,
+        access_policy_create_holiday_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -543,8 +800,8 @@ class AccessPolicyApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if access_policy_create_holiday_group_request is not None:
+            _body_params = access_policy_create_holiday_group_request
 
 
         # set the HTTP header `Accept`
@@ -593,9 +850,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_create_schedule(
+    def create_schedule(
         self,
-        body: AccessPolicyCreateScheduleRequest,
+        access_policy_create_schedule_request: AccessPolicyCreateScheduleRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -612,8 +869,8 @@ class AccessPolicyApi:
         """5.14 Create Schedule
 
 
-        :param body: (required)
-        :type body: AccessPolicyCreateScheduleRequest
+        :param access_policy_create_schedule_request: (required)
+        :type access_policy_create_schedule_request: AccessPolicyCreateScheduleRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -636,8 +893,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_create_schedule_serialize(
-            body=body,
+        _param = self._create_schedule_serialize(
+            access_policy_create_schedule_request=access_policy_create_schedule_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -659,9 +916,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_create_schedule_with_http_info(
+    def create_schedule_with_http_info(
         self,
-        body: AccessPolicyCreateScheduleRequest,
+        access_policy_create_schedule_request: AccessPolicyCreateScheduleRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -678,8 +935,8 @@ class AccessPolicyApi:
         """5.14 Create Schedule
 
 
-        :param body: (required)
-        :type body: AccessPolicyCreateScheduleRequest
+        :param access_policy_create_schedule_request: (required)
+        :type access_policy_create_schedule_request: AccessPolicyCreateScheduleRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -702,8 +959,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_create_schedule_serialize(
-            body=body,
+        _param = self._create_schedule_serialize(
+            access_policy_create_schedule_request=access_policy_create_schedule_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -725,9 +982,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_create_schedule_without_preload_content(
+    def create_schedule_without_preload_content(
         self,
-        body: AccessPolicyCreateScheduleRequest,
+        access_policy_create_schedule_request: AccessPolicyCreateScheduleRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -744,8 +1001,8 @@ class AccessPolicyApi:
         """5.14 Create Schedule
 
 
-        :param body: (required)
-        :type body: AccessPolicyCreateScheduleRequest
+        :param access_policy_create_schedule_request: (required)
+        :type access_policy_create_schedule_request: AccessPolicyCreateScheduleRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -768,8 +1025,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_create_schedule_serialize(
-            body=body,
+        _param = self._create_schedule_serialize(
+            access_policy_create_schedule_request=access_policy_create_schedule_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -786,9 +1043,9 @@ class AccessPolicyApi:
         return response_data.response
 
 
-    def _access_policy_service_create_schedule_serialize(
+    def _create_schedule_serialize(
         self,
-        body,
+        access_policy_create_schedule_request,
         _request_auth,
         _content_type,
         _headers,
@@ -814,8 +1071,8 @@ class AccessPolicyApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if access_policy_create_schedule_request is not None:
+            _body_params = access_policy_create_schedule_request
 
 
         # set the HTTP header `Accept`
@@ -864,285 +1121,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_delete_access_policy(
+    def delete_holiday_group(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the access policy.")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AccessPolicyAccessPolicyResponse:
-        """5.4 Delete Access Policy
-
-
-        :param id: (required)
-        :type id: str
-        :param path_id: Identity ID of the access policy.
-        :type path_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._access_policy_service_delete_access_policy_serialize(
-            id=id,
-            path_id=path_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccessPolicyAccessPolicyResponse",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def access_policy_service_delete_access_policy_with_http_info(
-        self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the access policy.")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AccessPolicyAccessPolicyResponse]:
-        """5.4 Delete Access Policy
-
-
-        :param id: (required)
-        :type id: str
-        :param path_id: Identity ID of the access policy.
-        :type path_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._access_policy_service_delete_access_policy_serialize(
-            id=id,
-            path_id=path_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccessPolicyAccessPolicyResponse",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def access_policy_service_delete_access_policy_without_preload_content(
-        self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the access policy.")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """5.4 Delete Access Policy
-
-
-        :param id: (required)
-        :type id: str
-        :param path_id: Identity ID of the access policy.
-        :type path_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._access_policy_service_delete_access_policy_serialize(
-            id=id,
-            path_id=path_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccessPolicyAccessPolicyResponse",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _access_policy_service_delete_access_policy_serialize(
-        self,
-        id,
-        path_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'token'
-        ]
-
-        return self.api_client.param_serialize(
-            method='DELETE',
-            resource_path='/access_policies/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def access_policy_service_delete_holiday_group(
-        self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the holiday group.")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the holiday group.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1159,10 +1140,8 @@ class AccessPolicyApi:
         """5.10 Delete Holiday Group
 
 
-        :param id: (required)
+        :param id: Identity ID of the holiday group. (required)
         :type id: str
-        :param path_id: Identity ID of the holiday group.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1185,9 +1164,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_delete_holiday_group_serialize(
+        _param = self._delete_holiday_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1209,10 +1187,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_delete_holiday_group_with_http_info(
+    def delete_holiday_group_with_http_info(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the holiday group.")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the holiday group.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1229,10 +1206,8 @@ class AccessPolicyApi:
         """5.10 Delete Holiday Group
 
 
-        :param id: (required)
+        :param id: Identity ID of the holiday group. (required)
         :type id: str
-        :param path_id: Identity ID of the holiday group.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1255,9 +1230,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_delete_holiday_group_serialize(
+        _param = self._delete_holiday_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1279,10 +1253,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_delete_holiday_group_without_preload_content(
+    def delete_holiday_group_without_preload_content(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the holiday group.")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the holiday group.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1299,10 +1272,8 @@ class AccessPolicyApi:
         """5.10 Delete Holiday Group
 
 
-        :param id: (required)
+        :param id: Identity ID of the holiday group. (required)
         :type id: str
-        :param path_id: Identity ID of the holiday group.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1325,9 +1296,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_delete_holiday_group_serialize(
+        _param = self._delete_holiday_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1344,10 +1314,9 @@ class AccessPolicyApi:
         return response_data.response
 
 
-    def _access_policy_service_delete_holiday_group_serialize(
+    def _delete_holiday_group_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1372,10 +1341,6 @@ class AccessPolicyApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1414,10 +1379,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_delete_schedule(
+    def delete_schedule(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the schedule.")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the schedule.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1434,10 +1398,8 @@ class AccessPolicyApi:
         """5.18 Delete Schedule
 
 
-        :param id: (required)
+        :param id: Identity ID of the schedule. (required)
         :type id: str
-        :param path_id: Identity ID of the schedule.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1460,9 +1422,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_delete_schedule_serialize(
+        _param = self._delete_schedule_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1484,10 +1445,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_delete_schedule_with_http_info(
+    def delete_schedule_with_http_info(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the schedule.")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the schedule.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1504,10 +1464,8 @@ class AccessPolicyApi:
         """5.18 Delete Schedule
 
 
-        :param id: (required)
+        :param id: Identity ID of the schedule. (required)
         :type id: str
-        :param path_id: Identity ID of the schedule.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1530,9 +1488,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_delete_schedule_serialize(
+        _param = self._delete_schedule_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1554,10 +1511,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_delete_schedule_without_preload_content(
+    def delete_schedule_without_preload_content(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the schedule.")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the schedule.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1574,10 +1530,8 @@ class AccessPolicyApi:
         """5.18 Delete Schedule
 
 
-        :param id: (required)
+        :param id: Identity ID of the schedule. (required)
         :type id: str
-        :param path_id: Identity ID of the schedule.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1600,9 +1554,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_delete_schedule_serialize(
+        _param = self._delete_schedule_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1619,10 +1572,9 @@ class AccessPolicyApi:
         return response_data.response
 
 
-    def _access_policy_service_delete_schedule_serialize(
+    def _delete_schedule_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1647,10 +1599,6 @@ class AccessPolicyApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1689,10 +1637,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_access_policy(
+    def fetch_access_policy(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the access policy.")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the access policy.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1709,10 +1656,8 @@ class AccessPolicyApi:
         """5.5 Fetch Access Policy
 
 
-        :param id: (required)
+        :param id: Identity ID of the access policy. (required)
         :type id: str
-        :param path_id: Identity ID of the access policy.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1735,9 +1680,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_access_policy_serialize(
+        _param = self._fetch_access_policy_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1759,10 +1703,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_access_policy_with_http_info(
+    def fetch_access_policy_with_http_info(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the access policy.")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the access policy.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1779,10 +1722,8 @@ class AccessPolicyApi:
         """5.5 Fetch Access Policy
 
 
-        :param id: (required)
+        :param id: Identity ID of the access policy. (required)
         :type id: str
-        :param path_id: Identity ID of the access policy.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1805,9 +1746,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_access_policy_serialize(
+        _param = self._fetch_access_policy_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1829,10 +1769,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_access_policy_without_preload_content(
+    def fetch_access_policy_without_preload_content(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the access policy.")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the access policy.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1849,10 +1788,8 @@ class AccessPolicyApi:
         """5.5 Fetch Access Policy
 
 
-        :param id: (required)
+        :param id: Identity ID of the access policy. (required)
         :type id: str
-        :param path_id: Identity ID of the access policy.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1875,9 +1812,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_access_policy_serialize(
+        _param = self._fetch_access_policy_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1894,10 +1830,9 @@ class AccessPolicyApi:
         return response_data.response
 
 
-    def _access_policy_service_fetch_access_policy_serialize(
+    def _fetch_access_policy_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1922,10 +1857,6 @@ class AccessPolicyApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1964,7 +1895,7 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_all_access_policies(
+    def fetch_all_access_policies(
         self,
         _request_timeout: Union[
             None,
@@ -2004,7 +1935,7 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_all_access_policies_serialize(
+        _param = self._fetch_all_access_policies_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2026,7 +1957,7 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_all_access_policies_with_http_info(
+    def fetch_all_access_policies_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -2066,7 +1997,7 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_all_access_policies_serialize(
+        _param = self._fetch_all_access_policies_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2088,7 +2019,7 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_all_access_policies_without_preload_content(
+    def fetch_all_access_policies_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -2128,7 +2059,7 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_all_access_policies_serialize(
+        _param = self._fetch_all_access_policies_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2145,7 +2076,7 @@ class AccessPolicyApi:
         return response_data.response
 
 
-    def _access_policy_service_fetch_all_access_policies_serialize(
+    def _fetch_all_access_policies_serialize(
         self,
         _request_auth,
         _content_type,
@@ -2207,7 +2138,7 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_all_holiday_groups(
+    def fetch_all_holiday_groups(
         self,
         _request_timeout: Union[
             None,
@@ -2247,7 +2178,7 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_all_holiday_groups_serialize(
+        _param = self._fetch_all_holiday_groups_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2269,7 +2200,7 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_all_holiday_groups_with_http_info(
+    def fetch_all_holiday_groups_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -2309,7 +2240,7 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_all_holiday_groups_serialize(
+        _param = self._fetch_all_holiday_groups_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2331,7 +2262,7 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_all_holiday_groups_without_preload_content(
+    def fetch_all_holiday_groups_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -2371,7 +2302,7 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_all_holiday_groups_serialize(
+        _param = self._fetch_all_holiday_groups_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2388,7 +2319,7 @@ class AccessPolicyApi:
         return response_data.response
 
 
-    def _access_policy_service_fetch_all_holiday_groups_serialize(
+    def _fetch_all_holiday_groups_serialize(
         self,
         _request_auth,
         _content_type,
@@ -2450,7 +2381,7 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_all_schedules(
+    def fetch_all_schedules(
         self,
         _request_timeout: Union[
             None,
@@ -2490,7 +2421,7 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_all_schedules_serialize(
+        _param = self._fetch_all_schedules_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2512,7 +2443,7 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_all_schedules_with_http_info(
+    def fetch_all_schedules_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -2552,7 +2483,7 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_all_schedules_serialize(
+        _param = self._fetch_all_schedules_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2574,7 +2505,7 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_all_schedules_without_preload_content(
+    def fetch_all_schedules_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -2614,7 +2545,7 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_all_schedules_serialize(
+        _param = self._fetch_all_schedules_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2631,7 +2562,7 @@ class AccessPolicyApi:
         return response_data.response
 
 
-    def _access_policy_service_fetch_all_schedules_serialize(
+    def _fetch_all_schedules_serialize(
         self,
         _request_auth,
         _content_type,
@@ -2693,10 +2624,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_holiday_group(
+    def fetch_holiday_group(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the holiday group.")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the holiday group.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2713,10 +2643,8 @@ class AccessPolicyApi:
         """5.11 Fetch Holiday Group
 
 
-        :param id: (required)
+        :param id: Identity ID of the holiday group. (required)
         :type id: str
-        :param path_id: Identity ID of the holiday group.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2739,9 +2667,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_holiday_group_serialize(
+        _param = self._fetch_holiday_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2763,10 +2690,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_holiday_group_with_http_info(
+    def fetch_holiday_group_with_http_info(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the holiday group.")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the holiday group.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2783,10 +2709,8 @@ class AccessPolicyApi:
         """5.11 Fetch Holiday Group
 
 
-        :param id: (required)
+        :param id: Identity ID of the holiday group. (required)
         :type id: str
-        :param path_id: Identity ID of the holiday group.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2809,9 +2733,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_holiday_group_serialize(
+        _param = self._fetch_holiday_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2833,10 +2756,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_holiday_group_without_preload_content(
+    def fetch_holiday_group_without_preload_content(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the holiday group.")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the holiday group.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2853,10 +2775,8 @@ class AccessPolicyApi:
         """5.11 Fetch Holiday Group
 
 
-        :param id: (required)
+        :param id: Identity ID of the holiday group. (required)
         :type id: str
-        :param path_id: Identity ID of the holiday group.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2879,9 +2799,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_holiday_group_serialize(
+        _param = self._fetch_holiday_group_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2898,10 +2817,9 @@ class AccessPolicyApi:
         return response_data.response
 
 
-    def _access_policy_service_fetch_holiday_group_serialize(
+    def _fetch_holiday_group_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -2926,10 +2844,6 @@ class AccessPolicyApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -2968,10 +2882,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_schedule(
+    def fetch_schedule(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the schedule.")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the schedule.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2988,10 +2901,8 @@ class AccessPolicyApi:
         """5.16 Fetch Schedule
 
 
-        :param id: (required)
+        :param id: Identity ID of the schedule. (required)
         :type id: str
-        :param path_id: Identity ID of the schedule.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3014,9 +2925,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_schedule_serialize(
+        _param = self._fetch_schedule_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3038,10 +2948,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_schedule_with_http_info(
+    def fetch_schedule_with_http_info(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the schedule.")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the schedule.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3058,10 +2967,8 @@ class AccessPolicyApi:
         """5.16 Fetch Schedule
 
 
-        :param id: (required)
+        :param id: Identity ID of the schedule. (required)
         :type id: str
-        :param path_id: Identity ID of the schedule.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3084,9 +2991,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_schedule_serialize(
+        _param = self._fetch_schedule_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3108,10 +3014,9 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_fetch_schedule_without_preload_content(
+    def fetch_schedule_without_preload_content(
         self,
-        id: StrictStr,
-        path_id: Annotated[Optional[StrictStr], Field(description="Identity ID of the schedule.")] = None,
+        id: Annotated[StrictStr, Field(description="Identity ID of the schedule.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3128,10 +3033,8 @@ class AccessPolicyApi:
         """5.16 Fetch Schedule
 
 
-        :param id: (required)
+        :param id: Identity ID of the schedule. (required)
         :type id: str
-        :param path_id: Identity ID of the schedule.
-        :type path_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3154,9 +3057,8 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_fetch_schedule_serialize(
+        _param = self._fetch_schedule_serialize(
             id=id,
-            path_id=path_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3173,10 +3075,9 @@ class AccessPolicyApi:
         return response_data.response
 
 
-    def _access_policy_service_fetch_schedule_serialize(
+    def _fetch_schedule_serialize(
         self,
         id,
-        path_id,
         _request_auth,
         _content_type,
         _headers,
@@ -3201,10 +3102,6 @@ class AccessPolicyApi:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
-        if path_id is not None:
-            
-            _query_params.append(('path.id', path_id))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -3243,10 +3140,10 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_update_access_policy(
+    def update_access_policy(
         self,
         id: StrictStr,
-        body: AccessPolicyUpdateAccessPolicyRequest,
+        access_policy_update_access_policy_request: AccessPolicyUpdateAccessPolicyRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3265,8 +3162,8 @@ class AccessPolicyApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: AccessPolicyUpdateAccessPolicyRequest
+        :param access_policy_update_access_policy_request: (required)
+        :type access_policy_update_access_policy_request: AccessPolicyUpdateAccessPolicyRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3289,9 +3186,9 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_update_access_policy_serialize(
+        _param = self._update_access_policy_serialize(
             id=id,
-            body=body,
+            access_policy_update_access_policy_request=access_policy_update_access_policy_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3313,10 +3210,10 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_update_access_policy_with_http_info(
+    def update_access_policy_with_http_info(
         self,
         id: StrictStr,
-        body: AccessPolicyUpdateAccessPolicyRequest,
+        access_policy_update_access_policy_request: AccessPolicyUpdateAccessPolicyRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3335,8 +3232,8 @@ class AccessPolicyApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: AccessPolicyUpdateAccessPolicyRequest
+        :param access_policy_update_access_policy_request: (required)
+        :type access_policy_update_access_policy_request: AccessPolicyUpdateAccessPolicyRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3359,9 +3256,9 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_update_access_policy_serialize(
+        _param = self._update_access_policy_serialize(
             id=id,
-            body=body,
+            access_policy_update_access_policy_request=access_policy_update_access_policy_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3383,10 +3280,10 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_update_access_policy_without_preload_content(
+    def update_access_policy_without_preload_content(
         self,
         id: StrictStr,
-        body: AccessPolicyUpdateAccessPolicyRequest,
+        access_policy_update_access_policy_request: AccessPolicyUpdateAccessPolicyRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3405,8 +3302,8 @@ class AccessPolicyApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: AccessPolicyUpdateAccessPolicyRequest
+        :param access_policy_update_access_policy_request: (required)
+        :type access_policy_update_access_policy_request: AccessPolicyUpdateAccessPolicyRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3429,9 +3326,9 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_update_access_policy_serialize(
+        _param = self._update_access_policy_serialize(
             id=id,
-            body=body,
+            access_policy_update_access_policy_request=access_policy_update_access_policy_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3448,10 +3345,10 @@ class AccessPolicyApi:
         return response_data.response
 
 
-    def _access_policy_service_update_access_policy_serialize(
+    def _update_access_policy_serialize(
         self,
         id,
-        body,
+        access_policy_update_access_policy_request,
         _request_auth,
         _content_type,
         _headers,
@@ -3479,8 +3376,8 @@ class AccessPolicyApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if access_policy_update_access_policy_request is not None:
+            _body_params = access_policy_update_access_policy_request
 
 
         # set the HTTP header `Accept`
@@ -3529,10 +3426,10 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_update_holiday_group(
+    def update_holiday_group(
         self,
         id: StrictStr,
-        body: AccessPolicyUpdateHolidayGroupRequest,
+        access_policy_update_holiday_group_request: AccessPolicyUpdateHolidayGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3551,8 +3448,8 @@ class AccessPolicyApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: AccessPolicyUpdateHolidayGroupRequest
+        :param access_policy_update_holiday_group_request: (required)
+        :type access_policy_update_holiday_group_request: AccessPolicyUpdateHolidayGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3575,9 +3472,9 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_update_holiday_group_serialize(
+        _param = self._update_holiday_group_serialize(
             id=id,
-            body=body,
+            access_policy_update_holiday_group_request=access_policy_update_holiday_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3599,10 +3496,10 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_update_holiday_group_with_http_info(
+    def update_holiday_group_with_http_info(
         self,
         id: StrictStr,
-        body: AccessPolicyUpdateHolidayGroupRequest,
+        access_policy_update_holiday_group_request: AccessPolicyUpdateHolidayGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3621,8 +3518,8 @@ class AccessPolicyApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: AccessPolicyUpdateHolidayGroupRequest
+        :param access_policy_update_holiday_group_request: (required)
+        :type access_policy_update_holiday_group_request: AccessPolicyUpdateHolidayGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3645,9 +3542,9 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_update_holiday_group_serialize(
+        _param = self._update_holiday_group_serialize(
             id=id,
-            body=body,
+            access_policy_update_holiday_group_request=access_policy_update_holiday_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3669,10 +3566,10 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_update_holiday_group_without_preload_content(
+    def update_holiday_group_without_preload_content(
         self,
         id: StrictStr,
-        body: AccessPolicyUpdateHolidayGroupRequest,
+        access_policy_update_holiday_group_request: AccessPolicyUpdateHolidayGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3691,8 +3588,8 @@ class AccessPolicyApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: AccessPolicyUpdateHolidayGroupRequest
+        :param access_policy_update_holiday_group_request: (required)
+        :type access_policy_update_holiday_group_request: AccessPolicyUpdateHolidayGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3715,9 +3612,9 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_update_holiday_group_serialize(
+        _param = self._update_holiday_group_serialize(
             id=id,
-            body=body,
+            access_policy_update_holiday_group_request=access_policy_update_holiday_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3734,10 +3631,10 @@ class AccessPolicyApi:
         return response_data.response
 
 
-    def _access_policy_service_update_holiday_group_serialize(
+    def _update_holiday_group_serialize(
         self,
         id,
-        body,
+        access_policy_update_holiday_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -3765,8 +3662,8 @@ class AccessPolicyApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if access_policy_update_holiday_group_request is not None:
+            _body_params = access_policy_update_holiday_group_request
 
 
         # set the HTTP header `Accept`
@@ -3815,10 +3712,10 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_update_schedule(
+    def update_schedule(
         self,
         id: StrictStr,
-        body: AccessPolicyUpdateScheduleRequest,
+        access_policy_update_schedule_request: AccessPolicyUpdateScheduleRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3837,8 +3734,8 @@ class AccessPolicyApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: AccessPolicyUpdateScheduleRequest
+        :param access_policy_update_schedule_request: (required)
+        :type access_policy_update_schedule_request: AccessPolicyUpdateScheduleRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3861,9 +3758,9 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_update_schedule_serialize(
+        _param = self._update_schedule_serialize(
             id=id,
-            body=body,
+            access_policy_update_schedule_request=access_policy_update_schedule_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3885,10 +3782,10 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_update_schedule_with_http_info(
+    def update_schedule_with_http_info(
         self,
         id: StrictStr,
-        body: AccessPolicyUpdateScheduleRequest,
+        access_policy_update_schedule_request: AccessPolicyUpdateScheduleRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3907,8 +3804,8 @@ class AccessPolicyApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: AccessPolicyUpdateScheduleRequest
+        :param access_policy_update_schedule_request: (required)
+        :type access_policy_update_schedule_request: AccessPolicyUpdateScheduleRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3931,9 +3828,9 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_update_schedule_serialize(
+        _param = self._update_schedule_serialize(
             id=id,
-            body=body,
+            access_policy_update_schedule_request=access_policy_update_schedule_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3955,10 +3852,10 @@ class AccessPolicyApi:
 
 
     @validate_call
-    def access_policy_service_update_schedule_without_preload_content(
+    def update_schedule_without_preload_content(
         self,
         id: StrictStr,
-        body: AccessPolicyUpdateScheduleRequest,
+        access_policy_update_schedule_request: AccessPolicyUpdateScheduleRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3977,8 +3874,8 @@ class AccessPolicyApi:
 
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: AccessPolicyUpdateScheduleRequest
+        :param access_policy_update_schedule_request: (required)
+        :type access_policy_update_schedule_request: AccessPolicyUpdateScheduleRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4001,9 +3898,9 @@ class AccessPolicyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._access_policy_service_update_schedule_serialize(
+        _param = self._update_schedule_serialize(
             id=id,
-            body=body,
+            access_policy_update_schedule_request=access_policy_update_schedule_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4020,10 +3917,10 @@ class AccessPolicyApi:
         return response_data.response
 
 
-    def _access_policy_service_update_schedule_serialize(
+    def _update_schedule_serialize(
         self,
         id,
-        body,
+        access_policy_update_schedule_request,
         _request_auth,
         _content_type,
         _headers,
@@ -4051,8 +3948,8 @@ class AccessPolicyApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if access_policy_update_schedule_request is not None:
+            _body_params = access_policy_update_schedule_request
 
 
         # set the HTTP header `Accept`

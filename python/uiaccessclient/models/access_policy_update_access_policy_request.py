@@ -29,8 +29,8 @@ class AccessPolicyUpdateAccessPolicyRequest(BaseModel):
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, description="Name of the access policy. Omit if it doesn't need to be updated.")
     resource: Optional[List[SharedResource]] = None
-    schedule_id: Optional[StrictStr] = Field(default=None, description="doesn't need to be updated.  Identify ID of the schedule. Assign additional schedules. Omit this", alias="scheduleId")
-    __properties: ClassVar[List[str]] = ["name", "resource", "scheduleId"]
+    schedule_id: Optional[StrictStr] = Field(default=None, description="doesn't need to be updated.  Identify ID of the schedule. Assign additional schedules. Omit this")
+    __properties: ClassVar[List[str]] = ["name", "resource", "schedule_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,7 +92,7 @@ class AccessPolicyUpdateAccessPolicyRequest(BaseModel):
         _obj = cls.model_validate({
             "name": obj.get("name"),
             "resource": [SharedResource.from_dict(_item) for _item in obj["resource"]] if obj.get("resource") is not None else None,
-            "scheduleId": obj.get("scheduleId")
+            "schedule_id": obj.get("schedule_id")
         })
         return _obj
 

@@ -19,17 +19,17 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from uiaccessclient.models.credential_pin_code import CredentialPINCode
+from uiaccessclient.models.credential_pin_code import CredentialPinCode
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CredentialPINCodeResponse(BaseModel):
+class CredentialPinCodeResponse(BaseModel):
     """
-    CredentialPINCodeResponse
+    CredentialPinCodeResponse
     """ # noqa: E501
     code: Optional[StrictStr] = None
     msg: Optional[StrictStr] = None
-    data: Optional[CredentialPINCode] = None
+    data: Optional[CredentialPinCode] = None
     __properties: ClassVar[List[str]] = ["code", "msg", "data"]
 
     model_config = ConfigDict(
@@ -50,7 +50,7 @@ class CredentialPINCodeResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CredentialPINCodeResponse from a JSON string"""
+        """Create an instance of CredentialPinCodeResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -78,7 +78,7 @@ class CredentialPINCodeResponse(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CredentialPINCodeResponse from a dict"""
+        """Create an instance of CredentialPinCodeResponse from a dict"""
         if obj is None:
             return None
 
@@ -88,7 +88,7 @@ class CredentialPINCodeResponse(BaseModel):
         _obj = cls.model_validate({
             "code": obj.get("code"),
             "msg": obj.get("msg"),
-            "data": CredentialPINCode.from_dict(obj["data"]) if obj.get("data") is not None else None
+            "data": CredentialPinCode.from_dict(obj["data"]) if obj.get("data") is not None else None
         })
         return _obj
 

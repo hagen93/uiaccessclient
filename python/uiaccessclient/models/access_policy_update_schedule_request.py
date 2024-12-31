@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from uiaccessclient.models.access_policy_holiday_schedule import AccessPolicyHolidaySchedule
 from uiaccessclient.models.access_policy_week_schedule import AccessPolicyWeekSchedule
@@ -29,10 +29,10 @@ class AccessPolicyUpdateScheduleRequest(BaseModel):
     AccessPolicyUpdateScheduleRequest
     """ # noqa: E501
     name: Optional[StrictStr] = None
-    week_schedule: Optional[AccessPolicyWeekSchedule] = Field(default=None, alias="weekSchedule")
-    holiday_group_id: Optional[StrictStr] = Field(default=None, alias="holidayGroupId")
-    holiday_schedule: Optional[AccessPolicyHolidaySchedule] = Field(default=None, alias="holidaySchedule")
-    __properties: ClassVar[List[str]] = ["name", "weekSchedule", "holidayGroupId", "holidaySchedule"]
+    week_schedule: Optional[AccessPolicyWeekSchedule] = None
+    holiday_group_id: Optional[StrictStr] = None
+    holiday_schedule: Optional[AccessPolicyHolidaySchedule] = None
+    __properties: ClassVar[List[str]] = ["name", "week_schedule", "holiday_group_id", "holiday_schedule"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,10 +75,10 @@ class AccessPolicyUpdateScheduleRequest(BaseModel):
         )
         # override the default output from pydantic by calling `to_dict()` of week_schedule
         if self.week_schedule:
-            _dict['weekSchedule'] = self.week_schedule.to_dict()
+            _dict['week_schedule'] = self.week_schedule.to_dict()
         # override the default output from pydantic by calling `to_dict()` of holiday_schedule
         if self.holiday_schedule:
-            _dict['holidaySchedule'] = self.holiday_schedule.to_dict()
+            _dict['holiday_schedule'] = self.holiday_schedule.to_dict()
         return _dict
 
     @classmethod
@@ -92,9 +92,9 @@ class AccessPolicyUpdateScheduleRequest(BaseModel):
 
         _obj = cls.model_validate({
             "name": obj.get("name"),
-            "weekSchedule": AccessPolicyWeekSchedule.from_dict(obj["weekSchedule"]) if obj.get("weekSchedule") is not None else None,
-            "holidayGroupId": obj.get("holidayGroupId"),
-            "holidaySchedule": AccessPolicyHolidaySchedule.from_dict(obj["holidaySchedule"]) if obj.get("holidaySchedule") is not None else None
+            "week_schedule": AccessPolicyWeekSchedule.from_dict(obj["week_schedule"]) if obj.get("week_schedule") is not None else None,
+            "holiday_group_id": obj.get("holiday_group_id"),
+            "holiday_schedule": AccessPolicyHolidaySchedule.from_dict(obj["holiday_schedule"]) if obj.get("holiday_schedule") is not None else None
         })
         return _obj
 

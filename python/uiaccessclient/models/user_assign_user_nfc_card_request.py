@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,8 @@ class UserAssignUserNfcCardRequest(BaseModel):
     UserAssignUserNfcCardRequest
     """ # noqa: E501
     token: Optional[StrictStr] = None
-    force_add: Optional[StrictBool] = Field(default=None, alias="forceAdd")
-    __properties: ClassVar[List[str]] = ["token", "forceAdd"]
+    force_add: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["token", "force_add"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,7 +82,7 @@ class UserAssignUserNfcCardRequest(BaseModel):
 
         _obj = cls.model_validate({
             "token": obj.get("token"),
-            "forceAdd": obj.get("forceAdd")
+            "force_add": obj.get("force_add")
         })
         return _obj
 

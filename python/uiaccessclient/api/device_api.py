@@ -37,7 +37,7 @@ class DeviceApi:
 
 
     @validate_call
-    def device_service_fetch_devices(
+    def fetch_devices(
         self,
         _request_timeout: Union[
             None,
@@ -77,7 +77,7 @@ class DeviceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._device_service_fetch_devices_serialize(
+        _param = self._fetch_devices_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -99,7 +99,7 @@ class DeviceApi:
 
 
     @validate_call
-    def device_service_fetch_devices_with_http_info(
+    def fetch_devices_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -139,7 +139,7 @@ class DeviceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._device_service_fetch_devices_serialize(
+        _param = self._fetch_devices_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -161,7 +161,7 @@ class DeviceApi:
 
 
     @validate_call
-    def device_service_fetch_devices_without_preload_content(
+    def fetch_devices_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -201,7 +201,7 @@ class DeviceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._device_service_fetch_devices_serialize(
+        _param = self._fetch_devices_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -218,7 +218,7 @@ class DeviceApi:
         return response_data.response
 
 
-    def _device_service_fetch_devices_serialize(
+    def _fetch_devices_serialize(
         self,
         _request_auth,
         _content_type,

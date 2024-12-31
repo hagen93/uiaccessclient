@@ -17,11 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from uiaccessclient.models.access_policy_access_policy import AccessPolicyAccessPolicy
-from uiaccessclient.models.shared_nfc_card import SharedNFCCard
-from uiaccessclient.models.shared_pin_code import SharedPINCode
+from uiaccessclient.models.shared_nfc_card import SharedNfcCard
+from uiaccessclient.models.shared_pin_code import SharedPinCode
 from uiaccessclient.models.user_status import UserStatus
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,21 +31,21 @@ class UserUser(BaseModel):
     UserUser
     """ # noqa: E501
     id: Optional[StrictStr] = None
-    first_name: Optional[StrictStr] = Field(default=None, alias="firstName")
-    last_name: Optional[StrictStr] = Field(default=None, alias="lastName")
-    full_name: Optional[StrictStr] = Field(default=None, alias="fullName")
+    first_name: Optional[StrictStr] = None
+    last_name: Optional[StrictStr] = None
+    full_name: Optional[StrictStr] = None
     alias: Optional[StrictStr] = None
-    user_email: Optional[StrictStr] = Field(default=None, alias="userEmail")
-    email_status: Optional[StrictStr] = Field(default=None, alias="emailStatus")
+    user_email: Optional[StrictStr] = None
+    email_status: Optional[StrictStr] = None
     phone: Optional[StrictStr] = None
-    employee_number: Optional[StrictStr] = Field(default=None, alias="employeeNumber")
-    onboard_time: Optional[StrictStr] = Field(default=None, alias="onboardTime")
-    nfc_cards: Optional[List[SharedNFCCard]] = Field(default=None, alias="nfcCards")
-    pin_code: Optional[SharedPINCode] = Field(default=None, alias="pinCode")
-    access_policy_ids: Optional[List[StrictStr]] = Field(default=None, alias="accessPolicyIds")
-    access_policies: Optional[List[AccessPolicyAccessPolicy]] = Field(default=None, alias="accessPolicies")
+    employee_number: Optional[StrictStr] = None
+    onboard_time: Optional[StrictStr] = None
+    nfc_cards: Optional[List[SharedNfcCard]] = None
+    pin_code: Optional[SharedPinCode] = None
+    access_policy_ids: Optional[List[StrictStr]] = None
+    access_policies: Optional[List[AccessPolicyAccessPolicy]] = None
     status: Optional[UserStatus] = UserStatus.ACTIVE
-    __properties: ClassVar[List[str]] = ["id", "firstName", "lastName", "fullName", "alias", "userEmail", "emailStatus", "phone", "employeeNumber", "onboardTime", "nfcCards", "pinCode", "accessPolicyIds", "accessPolicies", "status"]
+    __properties: ClassVar[List[str]] = ["id", "first_name", "last_name", "full_name", "alias", "user_email", "email_status", "phone", "employee_number", "onboard_time", "nfc_cards", "pin_code", "access_policy_ids", "access_policies", "status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,17 +92,17 @@ class UserUser(BaseModel):
             for _item_nfc_cards in self.nfc_cards:
                 if _item_nfc_cards:
                     _items.append(_item_nfc_cards.to_dict())
-            _dict['nfcCards'] = _items
+            _dict['nfc_cards'] = _items
         # override the default output from pydantic by calling `to_dict()` of pin_code
         if self.pin_code:
-            _dict['pinCode'] = self.pin_code.to_dict()
+            _dict['pin_code'] = self.pin_code.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in access_policies (list)
         _items = []
         if self.access_policies:
             for _item_access_policies in self.access_policies:
                 if _item_access_policies:
                     _items.append(_item_access_policies.to_dict())
-            _dict['accessPolicies'] = _items
+            _dict['access_policies'] = _items
         return _dict
 
     @classmethod
@@ -116,19 +116,19 @@ class UserUser(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
-            "firstName": obj.get("firstName"),
-            "lastName": obj.get("lastName"),
-            "fullName": obj.get("fullName"),
+            "first_name": obj.get("first_name"),
+            "last_name": obj.get("last_name"),
+            "full_name": obj.get("full_name"),
             "alias": obj.get("alias"),
-            "userEmail": obj.get("userEmail"),
-            "emailStatus": obj.get("emailStatus"),
+            "user_email": obj.get("user_email"),
+            "email_status": obj.get("email_status"),
             "phone": obj.get("phone"),
-            "employeeNumber": obj.get("employeeNumber"),
-            "onboardTime": obj.get("onboardTime"),
-            "nfcCards": [SharedNFCCard.from_dict(_item) for _item in obj["nfcCards"]] if obj.get("nfcCards") is not None else None,
-            "pinCode": SharedPINCode.from_dict(obj["pinCode"]) if obj.get("pinCode") is not None else None,
-            "accessPolicyIds": obj.get("accessPolicyIds"),
-            "accessPolicies": [AccessPolicyAccessPolicy.from_dict(_item) for _item in obj["accessPolicies"]] if obj.get("accessPolicies") is not None else None,
+            "employee_number": obj.get("employee_number"),
+            "onboard_time": obj.get("onboard_time"),
+            "nfc_cards": [SharedNfcCard.from_dict(_item) for _item in obj["nfc_cards"]] if obj.get("nfc_cards") is not None else None,
+            "pin_code": SharedPinCode.from_dict(obj["pin_code"]) if obj.get("pin_code") is not None else None,
+            "access_policy_ids": obj.get("access_policy_ids"),
+            "access_policies": [AccessPolicyAccessPolicy.from_dict(_item) for _item in obj["access_policies"]] if obj.get("access_policies") is not None else None,
             "status": obj.get("status") if obj.get("status") is not None else UserStatus.ACTIVE
         })
         return _obj

@@ -17,18 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class CredentialPINCode(BaseModel):
+class CredentialPinCode(BaseModel):
     """
-    CredentialPINCode
+    CredentialPinCode
     """ # noqa: E501
     token: Optional[StrictStr] = None
-    created_at: Optional[StrictStr] = Field(default=None, alias="createdAt")
-    __properties: ClassVar[List[str]] = ["token", "createdAt"]
+    created_at: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["token", "created_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +48,7 @@ class CredentialPINCode(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of CredentialPINCode from a JSON string"""
+        """Create an instance of CredentialPinCode from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,7 +73,7 @@ class CredentialPINCode(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of CredentialPINCode from a dict"""
+        """Create an instance of CredentialPinCode from a dict"""
         if obj is None:
             return None
 
@@ -82,7 +82,7 @@ class CredentialPINCode(BaseModel):
 
         _obj = cls.model_validate({
             "token": obj.get("token"),
-            "createdAt": obj.get("createdAt")
+            "created_at": obj.get("created_at")
         })
         return _obj
 

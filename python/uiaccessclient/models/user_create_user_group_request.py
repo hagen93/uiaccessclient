@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,8 @@ class UserCreateUserGroupRequest(BaseModel):
     UserCreateUserGroupRequest
     """ # noqa: E501
     name: Optional[StrictStr] = None
-    up_id: Optional[StrictStr] = Field(default=None, alias="upId")
-    __properties: ClassVar[List[str]] = ["name", "upId"]
+    up_id: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["name", "up_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,7 +82,7 @@ class UserCreateUserGroupRequest(BaseModel):
 
         _obj = cls.model_validate({
             "name": obj.get("name"),
-            "upId": obj.get("upId")
+            "up_id": obj.get("up_id")
         })
         return _obj
 
