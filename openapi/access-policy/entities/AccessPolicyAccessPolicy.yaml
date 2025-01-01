@@ -1,0 +1,12 @@
+type: object
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  resources:
+    type: array
+    items:
+      $ref: ../../shared/SharedResource.yaml
+  schedule_id:
+    type: string

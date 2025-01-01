@@ -1,0 +1,10 @@
+type: object
+properties:
+  video_record:
+    type: string
+  video_record_thumbnail:
+    type: string
+  created_at:
+    type: string
+  updated_at:
+    type: string

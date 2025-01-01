@@ -1,0 +1,6 @@
+type: object
+properties:
+  credential_provider:
+    type: string
+  issuer:
+    type: string

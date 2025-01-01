@@ -1,0 +1,19 @@
+type: object
+properties:
+  id:
+    title: Identity ID of the holiday group
+    type: string
+  name:
+    type: string
+    description: Name of the holiday group.
+  is_default:
+    type: boolean
+    description: Indicate whether the holiday group is the system default.
+  description:
+    type: string
+    description: Description of the holiday group.
+  holidays:
+    type: array
+    description: Show a list of the holidays within the holiday group.
+    items:
+      $ref: AccessPolicyHoliday.yaml

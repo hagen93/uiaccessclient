@@ -1,0 +1,8 @@
+type: object
+properties:
+  name:
+    title: name of the group
+    type: string
+  up_id:
+    title: parent group ID, get from /api/v1/developer/user_groups
+    type: string

@@ -1,0 +1,8 @@
+type: object
+properties:
+  lockdown:
+    title: True will keep the door locked
+    type: boolean
+  evacuation:
+    type: boolean
+    description: True will keep the door unlocked.

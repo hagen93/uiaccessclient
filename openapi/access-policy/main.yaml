@@ -1,0 +1,295 @@
+/access_policies:
+  post:
+    tags:
+      - Access Policy
+    summary: 5.2 Create Access Policy
+    operationId: CreateAccessPolicy
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/AccessPolicyCreateAccessPolicyRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/AccessPolicyAccessPolicyResponse.yaml
+
+  get:
+    tags:
+      - Access Policy
+    summary: 5.6 Fetch All Access Policies
+    operationId: FetchAllAccessPolicies
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/AccessPolicyAccessPoliciesResponse.yaml
+
+/access_policies/{id}:
+  put:
+    tags:
+      - Access Policy
+    summary: 5.3 Update Access Policy
+    operationId: UpdateAccessPolicy
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/AccessPolicyUpdateAccessPolicyRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/AccessPolicyAccessPolicyResponse.yaml
+
+  delete:
+    tags:
+      - Access Policy
+    summary: 5.4 Delete Access Policy
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: Identity ID of the access policy.
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/AccessPolicyAccessPolicyResponse.yaml
+
+  get:
+    tags:
+      - Access Policy
+    summary: 5.5 Fetch Access Policy
+    operationId: FetchAccessPolicy
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: Identity ID of the access policy.
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/AccessPolicyAccessPolicyResponse.yaml
+
+/access_policies/holiday_groups:
+  post:
+    tags:
+      - Access Policy
+    summary: 5.8 Create Holiday Group
+    operationId: CreateHolidayGroup
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/AccessPolicyCreateHolidayGroupRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/AccessPolicyHolidayGroupResponse.yaml
+
+  get:
+    tags:
+      - Access Policy
+    summary: 5.12 Fetch All Holiday Groups
+    operationId: FetchAllHolidayGroups
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/AccessPolicyHolidayGroupSummaryResponse.yaml
+
+/access_policies/holiday_groups/{id}:
+  put:
+    tags:
+      - Access Policy
+    summary: 5.9 Update Holiday Group
+    operationId: UpdateHolidayGroup
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/AccessPolicyUpdateHolidayGroupRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/AccessPolicyHolidayGroupResponse.yaml
+
+  delete:
+    tags:
+      - Access Policy
+    summary: 5.10 Delete Holiday Group
+    operationId: DeleteHolidayGroup
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: Identity ID of the holiday group.
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/AccessPolicyHolidayGroupResponse.yaml
+
+  get:
+    tags:
+      - Access Policy
+    summary: 5.11 Fetch Holiday Group
+    operationId: FetchHolidayGroup
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: Identity ID of the holiday group.
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/AccessPolicyHolidayGroupResponse.yaml
+
+/access_policies/schedules:
+  post:
+    tags:
+      - Access Policy
+    summary: 5.14 Create Schedule
+    operationId: CreateSchedule
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/AccessPolicyCreateScheduleRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/AccessPolicyScheduleResponse.yaml
+
+  get:
+    tags:
+      - Access Policy
+    summary: 5.17 Fetch All Schedules
+    operationId: FetchAllSchedules
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/AccessPolicySchedulesResponse.yaml
+
+/access_policies/schedules/{id}:
+  put:
+    tags:
+      - Access Policy
+    summary: 5.15 Update Schedule
+    operationId: UpdateSchedule
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/AccessPolicyUpdateScheduleRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/AccessPolicyScheduleResponse.yaml
+
+  get:
+    tags:
+      - Access Policy
+    summary: 5.16 Fetch Schedule
+    operationId: FetchSchedule
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: Identity ID of the schedule.
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/AccessPolicyScheduleResponse.yaml
+
+  delete:
+    tags:
+      - Access Policy
+    summary: 5.18 Delete Schedule
+    operationId: DeleteSchedule
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: Identity ID of the schedule.
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/AccessPolicyScheduleResponse.yaml

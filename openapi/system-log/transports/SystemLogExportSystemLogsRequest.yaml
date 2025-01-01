@@ -1,0 +1,21 @@
+type: object
+properties:
+  topic:
+    type: string
+  since:
+    title: 'Fetch different system logs by topic. enum topic
+
+      {critical,door_openings,updates,device_events,admin_activity,visitor}'
+    type: integer
+    format: int32
+  until:
+    title: 'Start time for log fetching, ex: 1689304925'
+    type: integer
+    format: int32
+  timezone:
+    title: 'End time for log fetching, ex: 1689804925'
+    type: string
+  actor_id:
+    title: 'Timezone for formatting time, ex: America/New_York'
+    type: string
+    description: "Identity ID of the actor (user, visitor, and device), ex:\n 3e1f196e-c97b-4748-aecb-eab5e9c251b2"

@@ -1,0 +1,37 @@
+type: object
+properties:
+  first_name:
+    title: First name of the visitors
+    type: string
+  last_name:
+    title: Last name of the visitor
+    type: string
+  remarks:
+    title: Remarks about the visitor
+    type: string
+  mobile_phone:
+    title: Mobile phone number of the visitor
+    type: string
+  email:
+    title: Email address of the visitor
+    type: string
+  _visitor_company:
+    title: Company name of the visitor
+    type: string
+  start_time:
+    title: 'Start time of the visit, ex: 1688546460'
+    type: string
+    format: int64
+  end_time:
+    title: 'End time of the visit, ex: 1688572799'
+    type: string
+    format: int64
+  visit_reason:
+    type: string
+    description: Visit reason, see VisitReason enum.
+  resources:
+    type: array
+    items:
+      $ref: ../../shared/SharedResource.yaml
+  week_schedule:
+    $ref: ../../access-policy/entities/AccessPolicyWeekSchedule.yaml

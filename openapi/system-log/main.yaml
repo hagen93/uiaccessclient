@@ -1,0 +1,114 @@
+/system/logs:
+  get:
+    tags:
+      - System Log
+    summary: 9.2 Fetch System Logs
+    operationId: FetchSystemLogs
+    parameters:
+      - name: pageNum
+        in: query
+        description: Current page number in the pagination.
+        schema:
+          type: integer
+      - name: pageSize
+        in: query
+        description: Number of logs per page.
+        schema:
+          type: integer
+      - name: body.topic
+        in: query
+        schema:
+          type: string
+      - name: body.since
+        in: query
+        description: 'Fetch different system logs by topic. enum topic
+
+          {critical,door_openings,updates,device_events,admin_activity,visitor}'
+        schema:
+          type: integer
+          format: int32
+      - name: body.until
+        in: query
+        description: 'Start time for log fetching, ex: 1689304925'
+        schema:
+          type: integer
+          format: int32
+      - name: body.actorId
+        in: query
+        description: "End time for log fetching, ex: 1689804925\n\nIdentity ID of\
+          \ the actor (user, visitor, and device), ex:\n 3e1f196e-c97b-4748-aecb-eab5e9c251b2"
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SystemLogFetchSystemLogsResponse.yaml
+
+/system/logs/export:
+  post:
+    tags:
+      - System Log
+    summary: 9.3 Export System Logs
+    operationId: ExportSystemLogs
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/SystemLogExportSystemLogsRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SystemLogExportSystemLogsResponse.yaml
+
+/system/logs/resource/{id}:
+  get:
+    tags:
+      - System Log
+    summary: 9.4 Fetch Resources in System Logs
+    operationId: FetchResourcesInSystemLogs
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: "Resource ID is obtained from targets categorized as the\n 'activities_resource'\
+          \ type in system logs. \"target\": [{\"type\":\n \"activities_resource\"\
+          ,\"id\": \"0418d6a38f00-b6906057-\n 2a90-4426-835c-b5b172381fec\",\"display_name\"\
+          : \"Resource\",\"alternate_id\":\n \"\",\"alternate_name\": \"\"}]"
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SystemLogFetchResourcesInSystemLogsResponse.yaml
+
+/system/static/{path}:
+  get:
+    tags:
+      - System Log
+    summary: 9.5 Fetch Static Resources in System Logs
+    operationId: FetchStaticResourcesInSystemLogs
+    parameters:
+      - name: path
+        in: path
+        description: "Resource paths, currently supporting /avatar, /capture, and\n\
+          \ activities_resource."
+        required: true
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SystemLogFetchStaticResourcesInSystemLogsResponse.yaml

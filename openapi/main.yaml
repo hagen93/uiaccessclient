@@ -1,0 +1,113 @@
+openapi: 3.0.1
+info:
+  title: UniFi Access API
+  version: '1.0'
+components:
+  securitySchemes:
+    token:
+      type: http
+      scheme: bearer
+servers:
+  - url: https://unifi.localdomain:12445/api/v1/developer
+security:
+  - token: []
+paths:
+  /users:
+    $ref: user/main.yaml#/~1users
+  /users/{id}:
+    $ref: user/main.yaml#/~1users~1{id}
+  /users/users:
+    $ref: user/main.yaml#/~1users~1users
+  /users/{id}/access_policies:
+    $ref: user/main.yaml#/~1users~1{id}~1access_policies
+  /users/{id}/nfc_cards:
+    $ref: user/main.yaml#/~1users~1{id}~1nfc_cards
+  /users/{id}/nfc_cards/delete:
+    $ref: user/main.yaml#/~1users~1{id}~1nfc_cards~1delete
+  /users/{id}/pin_codes:
+    $ref: user/main.yaml#/~1users~1{id}~1pin_codes
+  /user_groups:
+    $ref: user/main.yaml#/~1user_groups
+  /user_groups/{id}:
+    $ref: user/main.yaml#/~1user_groups~1{id}
+  /user_groups/{id}/users:
+    $ref: user/main.yaml#/~1user_groups~1{id}~1users
+  /user_groups/{id}/user/delete:
+    $ref: user/main.yaml#/~1user_groups~1{id}~1user~1delete
+  /user_groups/{id}/users/all:
+    $ref: user/main.yaml#/~1user_groups~1{id}~1users~1all
+  /user_groups/{id}/access_policies:
+    $ref: user/main.yaml#/~1user_groups~1{id}~1access_policies
+
+  /visitors:
+    $ref: visitor/main.yaml#/~1visitors
+  /visitors/{id}:
+    $ref: visitor/main.yaml#/~1visitors~1{id}
+  /visitors/{id}/nfc_cards:
+    $ref: visitor/main.yaml#/~1visitors~1{id}~1nfc_cards
+  /visitors/{id}/nfc_cards/delete:
+    $ref: visitor/main.yaml#/~1visitors~1{id}~1nfc_cards~1delete
+  /visitors/{id}/pin_codes:
+    $ref: visitor/main.yaml#/~1visitors~1{id}~1pin_codes
+
+  /access_policies:
+    $ref: access-policy/main.yaml#/~1access_policies
+  /access_policies/{id}:
+    $ref: access-policy/main.yaml#/~1access_policies~1{id}
+  /access_policies/holiday_groups:
+    $ref: access-policy/main.yaml#/~1access_policies~1holiday_groups
+  /access_policies/holiday_groups/{id}:
+    $ref: access-policy/main.yaml#/~1access_policies~1holiday_groups~1{id}
+  /access_policies/schedules:
+    $ref: access-policy/main.yaml#/~1access_policies~1schedules
+  /access_policies/schedules/{id}:
+    $ref: access-policy/main.yaml#/~1access_policies~1schedules~1{id}
+
+  /credentials/pin_codes:
+    $ref: credential/main.yaml#/~1credentials~1pin_codes
+  /credentials/nfc_cards/sessions:
+    $ref: credential/main.yaml#/~1credentials~1nfc_cards~1sessions
+  /credentials/nfc_cards/sessions/{id}:
+    $ref: credential/main.yaml#/~1credentials~1nfc_cards~1sessions~1{id}
+  /credentials/nfc_cards/tokens/{token}:
+    $ref: credential/main.yaml#/~1credentials~1nfc_cards~1tokens~1{token}
+  /credentials/nfc_cards/tokens:
+    $ref: credential/main.yaml#/~1credentials~1nfc_cards~1tokens
+
+  /door_groups/topology:
+    $ref: space/main.yaml#/~1door_groups~1topology
+  /door_groups:
+    $ref: space/main.yaml#/~1door_groups
+  /door_groups/{id}:
+    $ref: space/main.yaml#/~1door_groups~1{id}
+  /doors/{id}:
+    $ref: space/main.yaml#/~1doors~1{id}
+  /doors:
+    $ref: space/main.yaml#/~1doors
+  /doors/{id}/unlock:
+    $ref: space/main.yaml#/~1doors~1{id}~1unlock
+  /doors/{id}/lock_rule:
+    $ref: space/main.yaml#/~1doors~1{id}~1lock_rule
+  /doors/settings/emergency:
+    $ref: space/main.yaml#/~1doors~1settings~1emergency
+
+  /devices:
+    $ref: device/main.yaml#/~1devices
+
+  /system/logs:
+    $ref: system-log/main.yaml#/~1system~1logs
+  /system/logs/export:
+    $ref: system-log/main.yaml#/~1system~1logs~1export
+  /system/logs/resource/{id}:
+    $ref: system-log/main.yaml#/~1system~1logs~1resource~1{id}
+  /system/static/{path}:
+    $ref: system-log/main.yaml#/~1system~1static~1{path}
+
+  /users/identity/invitations:
+    $ref: unifi-identity/main.yaml#/~1users~1identity~1invitations
+  /users/identity/assignments:
+    $ref: unifi-identity/main.yaml#/~1users~1identity~1assignments
+  /users/{id}/identity/assignments:
+    $ref: unifi-identity/main.yaml#/~1users~1{id}~1identity~1assignments
+  /user_groups/{id}/identity/assignments:
+    $ref: unifi-identity/main.yaml#/~1user_groups~1{id}~1identity~1assignments

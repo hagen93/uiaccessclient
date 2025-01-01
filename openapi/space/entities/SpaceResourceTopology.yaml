@@ -1,0 +1,16 @@
+type: object
+properties:
+  id:
+    title: Identity ID of the floor
+    type: string
+  type:
+    title: Type of the floor
+    type: string
+  name:
+    title: Name of the floor
+    type: string
+  resources:
+    type: array
+    description: Contain all the doors on the floor.
+    items:
+      $ref: SpaceResource.yaml

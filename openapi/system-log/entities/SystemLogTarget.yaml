@@ -1,0 +1,12 @@
+type: object
+properties:
+  alternative_id:
+    type: string
+  alternative_name:
+    type: string
+  display_name:
+    type: string
+  id:
+    type: string
+  type:
+    type: string

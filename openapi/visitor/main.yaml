@@ -1,0 +1,228 @@
+/visitors:
+  post:
+    tags:
+      - Visitor
+    summary: 4.2 Create a new visitor
+    operationId: CreateVisitor
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/VisitorCreateVisitorRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/VisitorVisitorResponse.yaml
+
+  get:
+    tags:
+      - Visitor
+    summary: 4.4 Fetch all visitors
+    operationId: FetchAllVisitors
+    parameters:
+      - name: status
+        in: query
+        description: " - UNKNOWN: Note: This is a placeholder, does not exist on API.\n\
+          \ - UPCOMING: Upcoming visit\n - VISITED: Completed visit\n - VISITING:\
+          \ Currently visiting\n - CANCELLED: Cancelled visit\n - NO_VISIT: No visit\
+          \ occurred\n - ACTIVE: Active visit"
+        schema:
+          type: string
+          default: UNKNOWN
+          enum:
+            - UNKNOWN
+            - UPCOMING
+            - VISITED
+            - VISITING
+            - CANCELLED
+            - NO_VISIT
+            - ACTIVE
+      - name: keyword
+        in: query
+        schema:
+          type: string
+      - name: pageNum
+        in: query
+        schema:
+          type: integer
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+      - name: expand
+        in: query
+        description: Determine whether to return associated objects,
+        style: form
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/VisitorVisitorsResponse.yaml
+
+/visitors/{id}:
+  get:
+    tags:
+      - Visitor
+    summary: 4.3 Fetch visitor details by ID
+    operationId: FetchVisitor
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: Identify ID of the visitor
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/VisitorVisitorResponse.yaml
+
+  put:
+    tags:
+      - Visitor
+    summary: 4.5 Update a visitor by ID
+    operationId: UpdateVisitor
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/VisitorUpdateVisitorRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/VisitorVisitorResponse.yaml
+
+  delete:
+    tags:
+      - Visitor
+    summary: 4.6 Delete a visitor by ID
+    operationId: DeleteVisitor
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/VisitorVisitorResponse.yaml
+
+/visitors/{id}/nfc_cards:
+  put:
+    tags:
+      - Visitor
+    summary: 4.7 Assign Visitor NFC Card
+    operationId: AssignVisitorNfcCard
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../shared/SharedStatusCodeResponse.yaml
+
+/visitors/{id}/nfc_cards/delete:
+  put:
+    tags:
+      - Visitor
+    summary: 4.8 Unassign Visitor NFC Card
+    operationId: UnassignVisitorNfcCard
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/VisitorUnassignVisitorNfcCardRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../shared/SharedStatusCodeResponse.yaml
+
+/visitors/{id}/pin_codes:
+  put:
+    tags:
+      - Visitor
+    summary: 4.9 Assign Visitor Pin Code
+    operationId: AssignVisitorPinCode
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/VisitorAssignVisitorPinCodeRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../shared/SharedStatusCodeResponse.yaml
+
+  delete:
+    tags:
+      - Visitor
+    summary: 4.10 Unassisgn Visitor Pin Code
+    operationId: UnassignVisitorPinCode
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: "Identity ID of the visitor.\n Get it from the API, /api/v1/developer/visitors"
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../shared/SharedStatusCodeResponse.yaml

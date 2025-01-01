@@ -1,0 +1,24 @@
+type: object
+properties:
+  id:
+    title: Schedule ID
+    type: string
+  name:
+    title: Name of the schedule
+    type: string
+  is_default:
+    title: Whether system default
+    type: boolean
+  type:
+    title: Type of the schedule (e.g., access)
+    type: string
+  weekly:
+    $ref: AccessPolicyWeekSchedule.yaml
+  holiday_schedule:
+    type: array
+    description: Specify the accessible period during holidays.
+    items:
+      $ref: AccessPolicyHolidaySchedule.yaml
+  holiday_group_id:
+    title: Identity ID of the holiday group
+    type: string

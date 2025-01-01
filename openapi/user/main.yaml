@@ -1,0 +1,486 @@
+/users:
+  post:
+    tags:
+      - User
+    summary: 3.2 Create User
+    operationId: CreateUser
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/UserCreateUserRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/UserUserResponse.yaml
+
+/users/{id}:
+  put:
+    tags:
+      - User
+    summary: 3.3 Update User
+    operationId: UpdateUser
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/UserUpdateUserRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/UserUserResponse.yaml
+
+  get:
+    tags:
+      - User
+    summary: 3.4 Fetch User
+    operationId: FetchUser
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        description: "Whether to expand the access_policy field. If true, your app\
+          \ must include\n \"expand[]=access_policy\" in the request URL paramters"
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/UserUserResponse.yaml
+
+/users/users:
+  get:
+    tags:
+      - User
+    summary: 3.5 Fetch All Users
+    operationId: FetchAllUsers
+    parameters:
+      - name: expand
+        in: query
+        description: Whether to expand the access_policy field. If true, your app
+          must
+        schema:
+          type: string
+      - name: pageNum
+        in: query
+        description: 'include "expand[]=access_policy" in the request URL paramters
+
+
+          Current page number in the pagination'
+        schema:
+          type: integer
+      - name: pageSize
+        in: query
+        description: Number of users per page.
+        schema:
+          type: integer
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/UserUsersResponse.yaml
+
+/users/{id}/access_policies:
+  put:
+    tags:
+      - User
+    summary: 3.6 Assign Access Policy to User
+    operationId: AssignUserAccessPolicy
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/UserAssignUserAccessPolicyRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../shared/SharedStatusCodeResponse.yaml
+
+  get:
+    tags:
+      - User
+    summary: 3.20 Fetch the Access Policies Assigned to a User
+    operationId: FetchUserAccessPolicies
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: Identify ID of the user
+        schema:
+          type: string
+      - name: onlyUserPolicies
+        in: query
+        description: "False: all policies of the group the user belongs to are shown.\n\
+          \ True: only the policies assigned directly to the user are shown."
+        schema:
+          type: boolean
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../access-policy/transports/AccessPolicyAccessPoliciesResponse.yaml
+
+/users/{id}/nfc_cards:
+  put:
+    tags:
+      - User
+    summary: 3.7 Assign NFC Card from User
+    operationId: AssignUserNfcCard
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/UserAssignUserNfcCardRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../shared/SharedStatusCodeResponse.yaml
+
+/users/{id}/nfc_cards/delete:
+  delete:
+    tags:
+      - User
+    summary: 3.8 Unassign NFC Card from User
+    operationId: UnassignUserNfcCard
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: body.token
+        in: query
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../shared/SharedStatusCodeResponse.yaml
+
+/users/{id}/pin_codes:
+  put:
+    tags:
+      - User
+    summary: 3.9 Assign PIN Code to User
+    operationId: AssignUserPinCode
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/UserAssignUserPinCodeRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../shared/SharedStatusCodeResponse.yaml
+
+  delete:
+    tags:
+      - User
+    summary: 3.10 Unassign PIN Code from user
+    operationId: UnassignUserPinCode
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../shared/SharedStatusCodeResponse.yaml
+
+/user_groups:
+  post:
+    tags:
+      - User
+    summary: 3.11 Create User Group
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/UserCreateUserGroupRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../shared/SharedStatusCodeResponse.yaml
+
+  get:
+    tags:
+      - User
+    summary: 3.12 Fetch All User Groups
+    operationId: FetchAllUserGroups
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/UserUserGroupsResponse.yaml
+
+/user_groups/{id}:
+  get:
+    tags:
+      - User
+    summary: 3.13 Fetch User Group
+    operationId: FetchUserGroups
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/UserUserGroupResponse.yaml
+
+  put:
+    tags:
+      - User
+    summary: 3.14 Update User Group
+    operationId: UpdateUserGroup
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/UserUpdateUserGroupRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../shared/SharedStatusCodeResponse.yaml
+
+  delete:
+    tags:
+      - User
+    summary: 3.15 Delete User Group
+    operationId: DeleteUserGroup
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../shared/SharedStatusCodeResponse.yaml
+
+/user_groups/{id}/users:
+  post:
+    tags:
+      - User
+    summary: 3.16 Assign User to User Group
+    operationId: AssignUserToUserGroup
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/UserAssignUserToUserGroupRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../shared/SharedStatusCodeResponse.yaml
+
+  get:
+    tags:
+      - User
+    summary: 3.18 Fetch Users in a User Group
+    operationId: FetchUsersInUserGroup
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: Identify ID of the user group
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/UserUsersResponse.yaml
+
+/user_groups/{id}/user/delete:
+  post:
+    tags:
+      - User
+    summary: 3.17 Uniassigh User from User Group
+    operationId: UnassignUserFromUserGroup
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/UserUnassignUserFromUserGroupRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../shared/SharedStatusCodeResponse.yaml
+
+/user_groups/{id}/users/all:
+  get:
+    tags:
+      - User
+    summary: 3.19 Fetch All Users in a User Group
+    operationId: FetchAllUsersInUserGroup
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: Identify ID of the user group
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/UserUsersResponse.yaml
+
+/user_groups/{id}/access_policies:
+  put:
+    tags:
+      - User
+    summary: 3.21 Assign Access Policy to User Group
+    operationId: AssignUserGroupAccessPolicy
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/UserAssignUserGroupAccessPolicyRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/UserUserGroupResponse.yaml
+
+  get:
+    tags:
+      - User
+    summary: 3.22 Fetch the Access Policies Assigned to a User Group
+    operationId: FetchUserGroupAccessPolicies
+    parameters:
+      - name: id
+        in: path
+        required: true
+        description: "Identity ID of the user group. Get it from the API,\n /api/v1/developer/user_groups"
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: ../access-policy/transports/AccessPolicyAccessPoliciesResponse.yaml

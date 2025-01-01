@@ -1,0 +1,7 @@
+type: object
+properties:
+  ended_time:
+    type: integer
+    format: int32
+  type:
+    type: string

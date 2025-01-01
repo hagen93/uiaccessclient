@@ -1,0 +1,7 @@
+type: object
+title: SharedNfcCard
+properties:
+  id:
+    type: string
+  token:
+    type: string

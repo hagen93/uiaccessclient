@@ -1,0 +1,12 @@
+type: object
+title: SharedResource
+properties:
+  id:
+    title: ID of the door group
+    type: string
+  name:
+    title: Name of the door group
+    type: string
+  type:
+    title: Type of the door group
+    type: string

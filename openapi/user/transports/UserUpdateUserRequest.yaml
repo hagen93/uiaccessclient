@@ -1,0 +1,15 @@
+type: object
+properties:
+  first_name:
+    type: string
+  last_name:
+    type: string
+  user_email:
+    type: string
+  employee_number:
+    type: string
+  onboard_time:
+    type: string
+    format: int64
+  status:
+    $ref: ../entities/UserStatus.yaml

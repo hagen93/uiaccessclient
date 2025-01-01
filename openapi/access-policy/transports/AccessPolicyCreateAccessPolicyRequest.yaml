@@ -1,0 +1,13 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Name of the access policy.
+  resource:
+    type: array
+    description: Used to assign accessible locations to the access policy.
+    items:
+      $ref: ../../shared/SharedResource.yaml
+  schedule_id:
+    type: string
+    description: Identity ID of the schedule. Assign additional schedules.

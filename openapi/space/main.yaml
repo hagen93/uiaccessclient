@@ -1,0 +1,284 @@
+/door_groups/topology:
+  get:
+    tags:
+      - Space
+    summary: 7.1 Fetch Door Group Topology
+    operationId: FetchDoorGroupTopology
+    parameters:
+      - name: body.id
+        in: query
+        schema:
+          type: string
+      - name: body.type
+        in: query
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SpaceResourcesResponse.yaml
+
+/door_groups:
+  post:
+    tags:
+      - Space
+    summary: 7.2 Create Door Group
+    operationId: CreateDoorGroup
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/SpaceCreateDoorGroupRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SpaceResourceResponse.yaml
+
+  get:
+    tags:
+      - Space
+    summary: 7.5 Fetch All Door Groups
+    operationId: FetchAllDoorGroups
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SpaceResourcesResponse.yaml
+
+/door_groups/{id}:
+  get:
+    tags:
+      - Space
+    summary: 7.3 Fetch Door Group
+    operationId: FetchDoorGroup
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SpaceResourceResponse.yaml
+
+  put:
+    tags:
+      - Space
+    summary: 7.4 Update Door Group
+    operationId: UpdateDoorGroup
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/SpaceUpdateDoorGroupRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SpaceResourceResponse.yaml
+
+  delete:
+    tags:
+      - Space
+    summary: 7.6 Delete Door Group
+    operationId: DeleteDoorGroup
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SpaceResourceResponse.yaml
+
+/doors/{id}:
+  get:
+    tags:
+      - Space
+    summary: 7.7 Fetch Door
+    operationId: FetchDoor
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SpaceDoorResponse.yaml
+
+/doors:
+  get:
+    tags:
+      - Space
+    summary: 7.8 Fetch All Doors
+    operationId: FetchAllDoors
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SpaceDoorsResponse.yaml
+
+/doors/{id}/unlock:
+  put:
+    tags:
+      - Space
+    summary: 7.9 Remote Door Unlocking
+    operationId: RemoteDoorUnlocking
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SpaceDoorStatusResponse.yaml
+
+/doors/{id}/lock_rule:
+  put:
+    tags:
+      - Space
+    summary: 7.10 Set Temporary Door Locking Rule
+    operationId: SetTemporaryDoorLockingRule
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/SpaceSetTemporaryDoorLockingRuleRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SpaceDoorStatusResponse.yaml
+
+  get:
+    tags:
+      - Space
+    summary: 7.11 Fetch Door Locking Rule
+    operationId: FetchDoorLockingRule
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: body.type
+        in: query
+        description: 'enum type {schedule,keep_lock,keep_unlock,custom,lock_early}
+          keep_lock is
+
+          used to set the "keep locked" state, while keep_unlock is used to set the
+
+          "keep unlocked" state. custom is used to customize the unlock time
+
+          duration. schedule indicates that the door is currently in the unlock
+
+          schedule state. The lock_early is used to terminate doors in an unlock
+
+          schedule early.'
+        schema:
+          type: string
+      - name: body.endedTime
+        in: query
+        description: 'End time of the set rule, ex: 1708672257'
+        schema:
+          type: integer
+          format: int32
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SpaceDoorLockingRuleResponse.yaml
+
+/doors/settings/emergency:
+  put:
+    tags:
+      - Space
+    summary: 7.12 Set Door Emergency Status
+    operationId: SetDoorEmergencyStatus
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/SpaceSetDoorEmergencyStatusRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SpaceDoorStatusResponse.yaml
+
+  get:
+    tags:
+      - Space
+    summary: 7.13 Fetch Door Emergency Status
+    operationId: FetchDoorEmergencyStatus
+    parameters:
+      - name: body.lockdown
+        in: query
+        description: True will keep the door locked
+        schema:
+          type: boolean
+      - name: body.evacuation
+        in: query
+        description: True will keep the door unlocked.
+        schema:
+          type: boolean
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/SpaceDoorEmergencyStatusResponse.yaml

@@ -1,0 +1,8 @@
+type: object
+x-codegen:
+  class-name: SharedStatusCodeResponse
+properties:
+  code:
+    type: string
+  msg:
+    type: string

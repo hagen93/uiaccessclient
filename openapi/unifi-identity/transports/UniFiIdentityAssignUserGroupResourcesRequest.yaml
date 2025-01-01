@@ -1,0 +1,8 @@
+type: object
+properties:
+  resource_type:
+    type: string
+  resource_ids:
+    type: array
+    items:
+      $ref: ../entities/UniFiIdentityResourceId.yaml

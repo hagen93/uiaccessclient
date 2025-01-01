@@ -1,0 +1,10 @@
+type: object
+properties:
+  group_name:
+    title: Name of the door group. This needs to be globally unique
+    type: string
+  resources:
+    title: Collection of door ID
+    type: array
+    items:
+      $ref: ../entities/SpaceResource.yaml

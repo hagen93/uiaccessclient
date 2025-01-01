@@ -1,0 +1,7 @@
+type: object
+properties:
+  access_policy_ids:
+    title: "Identity ID of the access policy. Get it from the API,\n /api/v1/developer/access_policies"
+    type: array
+    items:
+      type: string

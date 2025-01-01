@@ -1,0 +1,6 @@
+type: object
+properties:
+  pin_code:
+    title: "Generate a PIN code for the visitor to unlock doors.\n Get it from the\
+      \ API, /api/v1/developer/pin_codes"
+    type: string

@@ -1,0 +1,131 @@
+/users/identity/invitations:
+  post:
+    tags:
+      - UniFi Identity
+    summary: 10.1 Send Unifi Identity Invitations
+    operationId: SendUnifiIdentityInvitations
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/UniFiIdentitySendUnifiIdentityInvitationsRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/UniFiIdentityInvitationStatusResponse.yaml
+
+/users/identity/assignments:
+  get:
+    tags:
+      - UniFi Identity
+    summary: 10.2 Fetch Available Resources
+    operationId: FetchAvailableResources
+    parameters:
+      - name: resourceType
+        in: query
+        description: 'Display the type of resources; show all when left blank. enum
+
+          resource_type {ev_station,vpn,wifi} ex: resource_type=ev_station,wifi,vpn'
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/UniFiIdentityResourcesResponse.yaml
+
+/users/{id}/identity/assignments:
+  post:
+    tags:
+      - UniFi Identity
+    summary: 10.3 Assign Resources to Users
+    operationId: AssignUserResources
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/UniFiIdentityAssignUserResourcesRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/UniFiIdentityResourcesResponse.yaml
+
+  get:
+    tags:
+      - UniFi Identity
+    summary: 10.4 Fetch Resources Assigned to Users
+    operationId: FetchUserResources
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/UniFiIdentityResourcesResponse.yaml
+
+/user_groups/{id}/identity/assignments:
+  post:
+    tags:
+      - UniFi Identity
+    summary: 10.5 Assign Resources to User Groups
+    operationId: AssignUserGroupResources
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: transports/UniFiIdentityAssignUserGroupResourcesRequest.yaml
+      required: true
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/UniFiIdentityResourcesResponse.yaml
+
+  get:
+    tags:
+      - UniFi Identity
+    summary: 10.6 Fetch the Resources Assigned to User Groups
+    operationId: FetchUserGroupResources
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      '200':
+        description: A successful response.
+        content:
+          application/json:
+            schema:
+              $ref: transports/UniFiIdentityResourcesResponse.yaml

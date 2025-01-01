@@ -1,0 +1,12 @@
+type: object
+properties:
+  actor:
+    $ref: SystemLogActor.yaml
+  event:
+    $ref: SystemLogEvent.yaml
+  authentication:
+    $ref: SystemLogAuthentication.yaml
+  target:
+    type: array
+    items:
+      $ref: SystemLogTarget.yaml

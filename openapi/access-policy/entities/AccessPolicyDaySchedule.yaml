@@ -1,0 +1,8 @@
+type: object
+properties:
+  start_time:
+    title: Start time of the access period
+    type: string
+  end_time:
+    title: End time of the access period
+    type: string

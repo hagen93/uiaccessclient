@@ -1,0 +1,6 @@
+type: object
+properties:
+  evacuation:
+    type: boolean
+  lockdown:
+    type: boolean

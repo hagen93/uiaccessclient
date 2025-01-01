@@ -1,0 +1,9 @@
+type: object
+properties:
+  user_id:
+    type: array
+    description: "Get it from the API, /api/v1/developer/users\n The api documentation\
+      \ reads as a method for one user ID, but the repeated\n string implies that\
+      \ it may support multiple user IDs at once."
+    items:
+      type: string

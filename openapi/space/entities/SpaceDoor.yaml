@@ -1,0 +1,29 @@
+type: object
+properties:
+  id:
+    title: Identity ID of the door group
+    type: string
+  name:
+    title: Name of the door
+    type: string
+  full_name:
+    title: Full name of the door
+    type: string
+  floor_id:
+    title: Identity ID of the floor
+    type: string
+  type:
+    title: Type of the door
+    type: string
+  is_bind_hub:
+    title: Indicate whether the door has bound to a hub device. It can only be
+    type: boolean
+  door_lock_relay_status:
+    type: string
+    description: 'used for remote opening if it''s bound.
+
+
+      Door lock status. enum door_lock_relay_status {lock,unlock}'
+  door_position_status:
+    title: 'DPS: Door position status, including both open and close . A null'
+    type: string

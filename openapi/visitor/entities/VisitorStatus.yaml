@@ -1,0 +1,10 @@
+type: string
+default: UNKNOWN
+enum:
+  - UNKNOWN
+  - UPCOMING
+  - VISITED
+  - VISITING
+  - CANCELLED
+  - NO_VISIT
+  - ACTIVE

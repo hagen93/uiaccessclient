@@ -1,0 +1,13 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Name of the holiday group.
+  description:
+    title: Description of the holiday group
+    type: string
+  holidays:
+    type: array
+    description: show a list of the holidays within the holiday group.
+    items:
+      $ref: ../entities/AccessPolicyHoliday.yaml

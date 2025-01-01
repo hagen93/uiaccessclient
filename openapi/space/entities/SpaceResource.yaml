@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    title: Identity ID of the door
+    type: string
+  name:
+    title: Name of the door
+    type: string
+  type:
+    title: Type of the door
+    type: string
+  is_bind_hub:
+    type: boolean
+    description: Indicate whether the door has bound to a hub device.

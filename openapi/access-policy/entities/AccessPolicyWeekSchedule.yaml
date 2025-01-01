@@ -1,0 +1,37 @@
+type: object
+properties:
+  sunday:
+    title: Schedule for Sunday
+    type: array
+    items:
+      $ref: AccessPolicyDaySchedule.yaml
+  monday:
+    title: Schedule for Monday
+    type: array
+    items:
+      $ref: AccessPolicyDaySchedule.yaml
+  tuesday:
+    title: Schedule for Tuesday
+    type: array
+    items:
+      $ref: AccessPolicyDaySchedule.yaml
+  wednesday:
+    title: Schedule for Wednesday
+    type: array
+    items:
+      $ref: AccessPolicyDaySchedule.yaml
+  thursday:
+    title: Schedule for Thursday
+    type: array
+    items:
+      $ref: AccessPolicyDaySchedule.yaml
+  friday:
+    title: Schedule for Friday
+    type: array
+    items:
+      $ref: AccessPolicyDaySchedule.yaml
+  saturday:
+    title: Schedule for Saturday
+    type: array
+    items:
+      $ref: AccessPolicyDaySchedule.yaml

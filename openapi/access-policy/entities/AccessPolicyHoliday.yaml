@@ -1,0 +1,23 @@
+type: object
+properties:
+  description:
+    type: string
+    description: Description of the holiday.
+  id:
+    type: string
+    description: Identity ID of the holiday.
+  name:
+    type: string
+    description: Name of the holiday.
+  repeat:
+    type: boolean
+    description: Indicate whether the holiday repeats annually.
+  start_time:
+    title: Start time of the holiday, provided in UTC format
+    type: string
+  end_time:
+    type: string
+    description: 'according to RFC3339.
+
+
+      End time of the holiday, provided in UTC format'

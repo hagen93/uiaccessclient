@@ -1,0 +1,10 @@
+type: object
+properties:
+  name:
+    type: string
+  week_schedule:
+    $ref: ../entities/AccessPolicyWeekSchedule.yaml
+  holiday_group_id:
+    type: string
+  holiday_schedule:
+    $ref: ../entities/AccessPolicyHolidaySchedule.yaml

@@ -1,0 +1,10 @@
+type: object
+properties:
+  error_code:
+    type: string
+  error_msg:
+    type: string
+  user_email:
+    type: string
+  user_id:
+    type: string

@@ -1,0 +1,8 @@
+type: object
+properties:
+  token:
+    title: token of the nfc card
+    type: string
+  force_add:
+    title: determine whether to overwrite an NFC card that has
+    type: boolean
