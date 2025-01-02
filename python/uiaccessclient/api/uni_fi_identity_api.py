@@ -19,11 +19,11 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
-from uiaccessclient.models.uni_fi_identity_assign_user_group_resources_request import UniFiIdentityAssignUserGroupResourcesRequest
-from uiaccessclient.models.uni_fi_identity_assign_user_resources_request import UniFiIdentityAssignUserResourcesRequest
+from uiaccessclient.models.assign_uni_fi_identity_user_group_resources_request import AssignUniFiIdentityUserGroupResourcesRequest
+from uiaccessclient.models.assign_uni_fi_identity_user_resources_request import AssignUniFiIdentityUserResourcesRequest
+from uiaccessclient.models.send_uni_fi_identity_invitations_request import SendUniFiIdentityInvitationsRequest
 from uiaccessclient.models.uni_fi_identity_invitation_status_response import UniFiIdentityInvitationStatusResponse
 from uiaccessclient.models.uni_fi_identity_resources_response import UniFiIdentityResourcesResponse
-from uiaccessclient.models.uni_fi_identity_send_unifi_identity_invitations_request import UniFiIdentitySendUnifiIdentityInvitationsRequest
 
 from uiaccessclient.api_client import ApiClient, RequestSerialized
 from uiaccessclient.api_response import ApiResponse
@@ -47,7 +47,7 @@ class UniFiIdentityApi:
     def assign_user_group_resources(
         self,
         id: StrictStr,
-        uni_fi_identity_assign_user_group_resources_request: UniFiIdentityAssignUserGroupResourcesRequest,
+        assign_uni_fi_identity_user_group_resources_request: AssignUniFiIdentityUserGroupResourcesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -66,8 +66,8 @@ class UniFiIdentityApi:
 
         :param id: (required)
         :type id: str
-        :param uni_fi_identity_assign_user_group_resources_request: (required)
-        :type uni_fi_identity_assign_user_group_resources_request: UniFiIdentityAssignUserGroupResourcesRequest
+        :param assign_uni_fi_identity_user_group_resources_request: (required)
+        :type assign_uni_fi_identity_user_group_resources_request: AssignUniFiIdentityUserGroupResourcesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -92,7 +92,7 @@ class UniFiIdentityApi:
 
         _param = self._assign_user_group_resources_serialize(
             id=id,
-            uni_fi_identity_assign_user_group_resources_request=uni_fi_identity_assign_user_group_resources_request,
+            assign_uni_fi_identity_user_group_resources_request=assign_uni_fi_identity_user_group_resources_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -117,7 +117,7 @@ class UniFiIdentityApi:
     def assign_user_group_resources_with_http_info(
         self,
         id: StrictStr,
-        uni_fi_identity_assign_user_group_resources_request: UniFiIdentityAssignUserGroupResourcesRequest,
+        assign_uni_fi_identity_user_group_resources_request: AssignUniFiIdentityUserGroupResourcesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -136,8 +136,8 @@ class UniFiIdentityApi:
 
         :param id: (required)
         :type id: str
-        :param uni_fi_identity_assign_user_group_resources_request: (required)
-        :type uni_fi_identity_assign_user_group_resources_request: UniFiIdentityAssignUserGroupResourcesRequest
+        :param assign_uni_fi_identity_user_group_resources_request: (required)
+        :type assign_uni_fi_identity_user_group_resources_request: AssignUniFiIdentityUserGroupResourcesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -162,7 +162,7 @@ class UniFiIdentityApi:
 
         _param = self._assign_user_group_resources_serialize(
             id=id,
-            uni_fi_identity_assign_user_group_resources_request=uni_fi_identity_assign_user_group_resources_request,
+            assign_uni_fi_identity_user_group_resources_request=assign_uni_fi_identity_user_group_resources_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -187,7 +187,7 @@ class UniFiIdentityApi:
     def assign_user_group_resources_without_preload_content(
         self,
         id: StrictStr,
-        uni_fi_identity_assign_user_group_resources_request: UniFiIdentityAssignUserGroupResourcesRequest,
+        assign_uni_fi_identity_user_group_resources_request: AssignUniFiIdentityUserGroupResourcesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -206,8 +206,8 @@ class UniFiIdentityApi:
 
         :param id: (required)
         :type id: str
-        :param uni_fi_identity_assign_user_group_resources_request: (required)
-        :type uni_fi_identity_assign_user_group_resources_request: UniFiIdentityAssignUserGroupResourcesRequest
+        :param assign_uni_fi_identity_user_group_resources_request: (required)
+        :type assign_uni_fi_identity_user_group_resources_request: AssignUniFiIdentityUserGroupResourcesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -232,7 +232,7 @@ class UniFiIdentityApi:
 
         _param = self._assign_user_group_resources_serialize(
             id=id,
-            uni_fi_identity_assign_user_group_resources_request=uni_fi_identity_assign_user_group_resources_request,
+            assign_uni_fi_identity_user_group_resources_request=assign_uni_fi_identity_user_group_resources_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -252,7 +252,7 @@ class UniFiIdentityApi:
     def _assign_user_group_resources_serialize(
         self,
         id,
-        uni_fi_identity_assign_user_group_resources_request,
+        assign_uni_fi_identity_user_group_resources_request,
         _request_auth,
         _content_type,
         _headers,
@@ -280,8 +280,8 @@ class UniFiIdentityApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if uni_fi_identity_assign_user_group_resources_request is not None:
-            _body_params = uni_fi_identity_assign_user_group_resources_request
+        if assign_uni_fi_identity_user_group_resources_request is not None:
+            _body_params = assign_uni_fi_identity_user_group_resources_request
 
 
         # set the HTTP header `Accept`
@@ -333,7 +333,7 @@ class UniFiIdentityApi:
     def assign_user_resources(
         self,
         id: StrictStr,
-        uni_fi_identity_assign_user_resources_request: UniFiIdentityAssignUserResourcesRequest,
+        assign_uni_fi_identity_user_resources_request: AssignUniFiIdentityUserResourcesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -352,8 +352,8 @@ class UniFiIdentityApi:
 
         :param id: (required)
         :type id: str
-        :param uni_fi_identity_assign_user_resources_request: (required)
-        :type uni_fi_identity_assign_user_resources_request: UniFiIdentityAssignUserResourcesRequest
+        :param assign_uni_fi_identity_user_resources_request: (required)
+        :type assign_uni_fi_identity_user_resources_request: AssignUniFiIdentityUserResourcesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -378,7 +378,7 @@ class UniFiIdentityApi:
 
         _param = self._assign_user_resources_serialize(
             id=id,
-            uni_fi_identity_assign_user_resources_request=uni_fi_identity_assign_user_resources_request,
+            assign_uni_fi_identity_user_resources_request=assign_uni_fi_identity_user_resources_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -403,7 +403,7 @@ class UniFiIdentityApi:
     def assign_user_resources_with_http_info(
         self,
         id: StrictStr,
-        uni_fi_identity_assign_user_resources_request: UniFiIdentityAssignUserResourcesRequest,
+        assign_uni_fi_identity_user_resources_request: AssignUniFiIdentityUserResourcesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -422,8 +422,8 @@ class UniFiIdentityApi:
 
         :param id: (required)
         :type id: str
-        :param uni_fi_identity_assign_user_resources_request: (required)
-        :type uni_fi_identity_assign_user_resources_request: UniFiIdentityAssignUserResourcesRequest
+        :param assign_uni_fi_identity_user_resources_request: (required)
+        :type assign_uni_fi_identity_user_resources_request: AssignUniFiIdentityUserResourcesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -448,7 +448,7 @@ class UniFiIdentityApi:
 
         _param = self._assign_user_resources_serialize(
             id=id,
-            uni_fi_identity_assign_user_resources_request=uni_fi_identity_assign_user_resources_request,
+            assign_uni_fi_identity_user_resources_request=assign_uni_fi_identity_user_resources_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -473,7 +473,7 @@ class UniFiIdentityApi:
     def assign_user_resources_without_preload_content(
         self,
         id: StrictStr,
-        uni_fi_identity_assign_user_resources_request: UniFiIdentityAssignUserResourcesRequest,
+        assign_uni_fi_identity_user_resources_request: AssignUniFiIdentityUserResourcesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -492,8 +492,8 @@ class UniFiIdentityApi:
 
         :param id: (required)
         :type id: str
-        :param uni_fi_identity_assign_user_resources_request: (required)
-        :type uni_fi_identity_assign_user_resources_request: UniFiIdentityAssignUserResourcesRequest
+        :param assign_uni_fi_identity_user_resources_request: (required)
+        :type assign_uni_fi_identity_user_resources_request: AssignUniFiIdentityUserResourcesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -518,7 +518,7 @@ class UniFiIdentityApi:
 
         _param = self._assign_user_resources_serialize(
             id=id,
-            uni_fi_identity_assign_user_resources_request=uni_fi_identity_assign_user_resources_request,
+            assign_uni_fi_identity_user_resources_request=assign_uni_fi_identity_user_resources_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -538,7 +538,7 @@ class UniFiIdentityApi:
     def _assign_user_resources_serialize(
         self,
         id,
-        uni_fi_identity_assign_user_resources_request,
+        assign_uni_fi_identity_user_resources_request,
         _request_auth,
         _content_type,
         _headers,
@@ -566,8 +566,8 @@ class UniFiIdentityApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if uni_fi_identity_assign_user_resources_request is not None:
-            _body_params = uni_fi_identity_assign_user_resources_request
+        if assign_uni_fi_identity_user_resources_request is not None:
+            _body_params = assign_uni_fi_identity_user_resources_request
 
 
         # set the HTTP header `Accept`
@@ -1394,7 +1394,7 @@ class UniFiIdentityApi:
     @validate_call
     def send_unifi_identity_invitations(
         self,
-        uni_fi_identity_send_unifi_identity_invitations_request: UniFiIdentitySendUnifiIdentityInvitationsRequest,
+        send_uni_fi_identity_invitations_request: SendUniFiIdentityInvitationsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1411,8 +1411,8 @@ class UniFiIdentityApi:
         """10.1 Send Unifi Identity Invitations
 
 
-        :param uni_fi_identity_send_unifi_identity_invitations_request: (required)
-        :type uni_fi_identity_send_unifi_identity_invitations_request: UniFiIdentitySendUnifiIdentityInvitationsRequest
+        :param send_uni_fi_identity_invitations_request: (required)
+        :type send_uni_fi_identity_invitations_request: SendUniFiIdentityInvitationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1436,7 +1436,7 @@ class UniFiIdentityApi:
         """ # noqa: E501
 
         _param = self._send_unifi_identity_invitations_serialize(
-            uni_fi_identity_send_unifi_identity_invitations_request=uni_fi_identity_send_unifi_identity_invitations_request,
+            send_uni_fi_identity_invitations_request=send_uni_fi_identity_invitations_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1460,7 +1460,7 @@ class UniFiIdentityApi:
     @validate_call
     def send_unifi_identity_invitations_with_http_info(
         self,
-        uni_fi_identity_send_unifi_identity_invitations_request: UniFiIdentitySendUnifiIdentityInvitationsRequest,
+        send_uni_fi_identity_invitations_request: SendUniFiIdentityInvitationsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1477,8 +1477,8 @@ class UniFiIdentityApi:
         """10.1 Send Unifi Identity Invitations
 
 
-        :param uni_fi_identity_send_unifi_identity_invitations_request: (required)
-        :type uni_fi_identity_send_unifi_identity_invitations_request: UniFiIdentitySendUnifiIdentityInvitationsRequest
+        :param send_uni_fi_identity_invitations_request: (required)
+        :type send_uni_fi_identity_invitations_request: SendUniFiIdentityInvitationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1502,7 +1502,7 @@ class UniFiIdentityApi:
         """ # noqa: E501
 
         _param = self._send_unifi_identity_invitations_serialize(
-            uni_fi_identity_send_unifi_identity_invitations_request=uni_fi_identity_send_unifi_identity_invitations_request,
+            send_uni_fi_identity_invitations_request=send_uni_fi_identity_invitations_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1526,7 +1526,7 @@ class UniFiIdentityApi:
     @validate_call
     def send_unifi_identity_invitations_without_preload_content(
         self,
-        uni_fi_identity_send_unifi_identity_invitations_request: UniFiIdentitySendUnifiIdentityInvitationsRequest,
+        send_uni_fi_identity_invitations_request: SendUniFiIdentityInvitationsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1543,8 +1543,8 @@ class UniFiIdentityApi:
         """10.1 Send Unifi Identity Invitations
 
 
-        :param uni_fi_identity_send_unifi_identity_invitations_request: (required)
-        :type uni_fi_identity_send_unifi_identity_invitations_request: UniFiIdentitySendUnifiIdentityInvitationsRequest
+        :param send_uni_fi_identity_invitations_request: (required)
+        :type send_uni_fi_identity_invitations_request: SendUniFiIdentityInvitationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1568,7 +1568,7 @@ class UniFiIdentityApi:
         """ # noqa: E501
 
         _param = self._send_unifi_identity_invitations_serialize(
-            uni_fi_identity_send_unifi_identity_invitations_request=uni_fi_identity_send_unifi_identity_invitations_request,
+            send_uni_fi_identity_invitations_request=send_uni_fi_identity_invitations_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1587,7 +1587,7 @@ class UniFiIdentityApi:
 
     def _send_unifi_identity_invitations_serialize(
         self,
-        uni_fi_identity_send_unifi_identity_invitations_request,
+        send_uni_fi_identity_invitations_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1613,8 +1613,8 @@ class UniFiIdentityApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if uni_fi_identity_send_unifi_identity_invitations_request is not None:
-            _body_params = uni_fi_identity_send_unifi_identity_invitations_request
+        if send_uni_fi_identity_invitations_request is not None:
+            _body_params = send_uni_fi_identity_invitations_request
 
 
         # set the HTTP header `Accept`

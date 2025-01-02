@@ -3,4 +3,15 @@ properties:
   resources:
     type: array
     items:
-      $ref: UniFiIdentityResource.yaml
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        short_name:
+          type: string
+        deleted:
+          type: boolean
+        metadata:
+          type: string

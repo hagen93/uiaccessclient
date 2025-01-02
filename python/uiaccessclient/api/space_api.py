@@ -19,17 +19,17 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
-from uiaccessclient.models.space_create_door_group_request import SpaceCreateDoorGroupRequest
-from uiaccessclient.models.space_door_emergency_status_response import SpaceDoorEmergencyStatusResponse
-from uiaccessclient.models.space_door_locking_rule_response import SpaceDoorLockingRuleResponse
-from uiaccessclient.models.space_door_response import SpaceDoorResponse
-from uiaccessclient.models.space_door_status_response import SpaceDoorStatusResponse
-from uiaccessclient.models.space_doors_response import SpaceDoorsResponse
+from uiaccessclient.models.create_door_group_request import CreateDoorGroupRequest
+from uiaccessclient.models.door_emergency_status_response import DoorEmergencyStatusResponse
+from uiaccessclient.models.door_locking_rule_response import DoorLockingRuleResponse
+from uiaccessclient.models.door_response import DoorResponse
+from uiaccessclient.models.door_status_response import DoorStatusResponse
+from uiaccessclient.models.doors_response import DoorsResponse
+from uiaccessclient.models.set_door_emergency_status_request import SetDoorEmergencyStatusRequest
+from uiaccessclient.models.set_temporary_door_locking_rule_request import SetTemporaryDoorLockingRuleRequest
 from uiaccessclient.models.space_resource_response import SpaceResourceResponse
 from uiaccessclient.models.space_resources_response import SpaceResourcesResponse
-from uiaccessclient.models.space_set_door_emergency_status_request import SpaceSetDoorEmergencyStatusRequest
-from uiaccessclient.models.space_set_temporary_door_locking_rule_request import SpaceSetTemporaryDoorLockingRuleRequest
-from uiaccessclient.models.space_update_door_group_request import SpaceUpdateDoorGroupRequest
+from uiaccessclient.models.update_door_group_request import UpdateDoorGroupRequest
 
 from uiaccessclient.api_client import ApiClient, RequestSerialized
 from uiaccessclient.api_response import ApiResponse
@@ -52,7 +52,7 @@ class SpaceApi:
     @validate_call
     def create_door_group(
         self,
-        space_create_door_group_request: SpaceCreateDoorGroupRequest,
+        create_door_group_request: CreateDoorGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -69,8 +69,8 @@ class SpaceApi:
         """7.2 Create Door Group
 
 
-        :param space_create_door_group_request: (required)
-        :type space_create_door_group_request: SpaceCreateDoorGroupRequest
+        :param create_door_group_request: (required)
+        :type create_door_group_request: CreateDoorGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -94,7 +94,7 @@ class SpaceApi:
         """ # noqa: E501
 
         _param = self._create_door_group_serialize(
-            space_create_door_group_request=space_create_door_group_request,
+            create_door_group_request=create_door_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -118,7 +118,7 @@ class SpaceApi:
     @validate_call
     def create_door_group_with_http_info(
         self,
-        space_create_door_group_request: SpaceCreateDoorGroupRequest,
+        create_door_group_request: CreateDoorGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -135,8 +135,8 @@ class SpaceApi:
         """7.2 Create Door Group
 
 
-        :param space_create_door_group_request: (required)
-        :type space_create_door_group_request: SpaceCreateDoorGroupRequest
+        :param create_door_group_request: (required)
+        :type create_door_group_request: CreateDoorGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -160,7 +160,7 @@ class SpaceApi:
         """ # noqa: E501
 
         _param = self._create_door_group_serialize(
-            space_create_door_group_request=space_create_door_group_request,
+            create_door_group_request=create_door_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -184,7 +184,7 @@ class SpaceApi:
     @validate_call
     def create_door_group_without_preload_content(
         self,
-        space_create_door_group_request: SpaceCreateDoorGroupRequest,
+        create_door_group_request: CreateDoorGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -201,8 +201,8 @@ class SpaceApi:
         """7.2 Create Door Group
 
 
-        :param space_create_door_group_request: (required)
-        :type space_create_door_group_request: SpaceCreateDoorGroupRequest
+        :param create_door_group_request: (required)
+        :type create_door_group_request: CreateDoorGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -226,7 +226,7 @@ class SpaceApi:
         """ # noqa: E501
 
         _param = self._create_door_group_serialize(
-            space_create_door_group_request=space_create_door_group_request,
+            create_door_group_request=create_door_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -245,7 +245,7 @@ class SpaceApi:
 
     def _create_door_group_serialize(
         self,
-        space_create_door_group_request,
+        create_door_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -271,8 +271,8 @@ class SpaceApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if space_create_door_group_request is not None:
-            _body_params = space_create_door_group_request
+        if create_door_group_request is not None:
+            _body_params = create_door_group_request
 
 
         # set the HTTP header `Accept`
@@ -836,7 +836,7 @@ class SpaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SpaceDoorsResponse:
+    ) -> DoorsResponse:
         """7.8 Fetch All Doors
 
 
@@ -870,7 +870,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorsResponse",
+            '200': "DoorsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -898,7 +898,7 @@ class SpaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SpaceDoorsResponse]:
+    ) -> ApiResponse[DoorsResponse]:
         """7.8 Fetch All Doors
 
 
@@ -932,7 +932,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorsResponse",
+            '200': "DoorsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -994,7 +994,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorsResponse",
+            '200': "DoorsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1080,7 +1080,7 @@ class SpaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SpaceDoorResponse:
+    ) -> DoorResponse:
         """7.7 Fetch Door
 
 
@@ -1117,7 +1117,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorResponse",
+            '200': "DoorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1146,7 +1146,7 @@ class SpaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SpaceDoorResponse]:
+    ) -> ApiResponse[DoorResponse]:
         """7.7 Fetch Door
 
 
@@ -1183,7 +1183,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorResponse",
+            '200': "DoorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1249,7 +1249,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorResponse",
+            '200': "DoorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1339,7 +1339,7 @@ class SpaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SpaceDoorEmergencyStatusResponse:
+    ) -> DoorEmergencyStatusResponse:
         """7.13 Fetch Door Emergency Status
 
 
@@ -1379,7 +1379,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorEmergencyStatusResponse",
+            '200': "DoorEmergencyStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1409,7 +1409,7 @@ class SpaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SpaceDoorEmergencyStatusResponse]:
+    ) -> ApiResponse[DoorEmergencyStatusResponse]:
         """7.13 Fetch Door Emergency Status
 
 
@@ -1449,7 +1449,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorEmergencyStatusResponse",
+            '200': "DoorEmergencyStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1519,7 +1519,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorEmergencyStatusResponse",
+            '200': "DoorEmergencyStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2152,7 +2152,7 @@ class SpaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SpaceDoorLockingRuleResponse:
+    ) -> DoorLockingRuleResponse:
         """7.11 Fetch Door Locking Rule
 
 
@@ -2195,7 +2195,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorLockingRuleResponse",
+            '200': "DoorLockingRuleResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2226,7 +2226,7 @@ class SpaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SpaceDoorLockingRuleResponse]:
+    ) -> ApiResponse[DoorLockingRuleResponse]:
         """7.11 Fetch Door Locking Rule
 
 
@@ -2269,7 +2269,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorLockingRuleResponse",
+            '200': "DoorLockingRuleResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2343,7 +2343,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorLockingRuleResponse",
+            '200': "DoorLockingRuleResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2442,7 +2442,7 @@ class SpaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SpaceDoorStatusResponse:
+    ) -> DoorStatusResponse:
         """7.9 Remote Door Unlocking
 
 
@@ -2479,7 +2479,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorStatusResponse",
+            '200': "DoorStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2508,7 +2508,7 @@ class SpaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SpaceDoorStatusResponse]:
+    ) -> ApiResponse[DoorStatusResponse]:
         """7.9 Remote Door Unlocking
 
 
@@ -2545,7 +2545,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorStatusResponse",
+            '200': "DoorStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2611,7 +2611,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorStatusResponse",
+            '200': "DoorStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2687,7 +2687,7 @@ class SpaceApi:
     @validate_call
     def set_door_emergency_status(
         self,
-        space_set_door_emergency_status_request: SpaceSetDoorEmergencyStatusRequest,
+        set_door_emergency_status_request: SetDoorEmergencyStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2700,12 +2700,12 @@ class SpaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SpaceDoorStatusResponse:
+    ) -> DoorStatusResponse:
         """7.12 Set Door Emergency Status
 
 
-        :param space_set_door_emergency_status_request: (required)
-        :type space_set_door_emergency_status_request: SpaceSetDoorEmergencyStatusRequest
+        :param set_door_emergency_status_request: (required)
+        :type set_door_emergency_status_request: SetDoorEmergencyStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2729,7 +2729,7 @@ class SpaceApi:
         """ # noqa: E501
 
         _param = self._set_door_emergency_status_serialize(
-            space_set_door_emergency_status_request=space_set_door_emergency_status_request,
+            set_door_emergency_status_request=set_door_emergency_status_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2737,7 +2737,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorStatusResponse",
+            '200': "DoorStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2753,7 +2753,7 @@ class SpaceApi:
     @validate_call
     def set_door_emergency_status_with_http_info(
         self,
-        space_set_door_emergency_status_request: SpaceSetDoorEmergencyStatusRequest,
+        set_door_emergency_status_request: SetDoorEmergencyStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2766,12 +2766,12 @@ class SpaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SpaceDoorStatusResponse]:
+    ) -> ApiResponse[DoorStatusResponse]:
         """7.12 Set Door Emergency Status
 
 
-        :param space_set_door_emergency_status_request: (required)
-        :type space_set_door_emergency_status_request: SpaceSetDoorEmergencyStatusRequest
+        :param set_door_emergency_status_request: (required)
+        :type set_door_emergency_status_request: SetDoorEmergencyStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2795,7 +2795,7 @@ class SpaceApi:
         """ # noqa: E501
 
         _param = self._set_door_emergency_status_serialize(
-            space_set_door_emergency_status_request=space_set_door_emergency_status_request,
+            set_door_emergency_status_request=set_door_emergency_status_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2803,7 +2803,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorStatusResponse",
+            '200': "DoorStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2819,7 +2819,7 @@ class SpaceApi:
     @validate_call
     def set_door_emergency_status_without_preload_content(
         self,
-        space_set_door_emergency_status_request: SpaceSetDoorEmergencyStatusRequest,
+        set_door_emergency_status_request: SetDoorEmergencyStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2836,8 +2836,8 @@ class SpaceApi:
         """7.12 Set Door Emergency Status
 
 
-        :param space_set_door_emergency_status_request: (required)
-        :type space_set_door_emergency_status_request: SpaceSetDoorEmergencyStatusRequest
+        :param set_door_emergency_status_request: (required)
+        :type set_door_emergency_status_request: SetDoorEmergencyStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2861,7 +2861,7 @@ class SpaceApi:
         """ # noqa: E501
 
         _param = self._set_door_emergency_status_serialize(
-            space_set_door_emergency_status_request=space_set_door_emergency_status_request,
+            set_door_emergency_status_request=set_door_emergency_status_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2869,7 +2869,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorStatusResponse",
+            '200': "DoorStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2880,7 +2880,7 @@ class SpaceApi:
 
     def _set_door_emergency_status_serialize(
         self,
-        space_set_door_emergency_status_request,
+        set_door_emergency_status_request,
         _request_auth,
         _content_type,
         _headers,
@@ -2906,8 +2906,8 @@ class SpaceApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if space_set_door_emergency_status_request is not None:
-            _body_params = space_set_door_emergency_status_request
+        if set_door_emergency_status_request is not None:
+            _body_params = set_door_emergency_status_request
 
 
         # set the HTTP header `Accept`
@@ -2959,7 +2959,7 @@ class SpaceApi:
     def set_temporary_door_locking_rule(
         self,
         id: StrictStr,
-        space_set_temporary_door_locking_rule_request: SpaceSetTemporaryDoorLockingRuleRequest,
+        set_temporary_door_locking_rule_request: SetTemporaryDoorLockingRuleRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2972,14 +2972,14 @@ class SpaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SpaceDoorStatusResponse:
+    ) -> DoorStatusResponse:
         """7.10 Set Temporary Door Locking Rule
 
 
         :param id: (required)
         :type id: str
-        :param space_set_temporary_door_locking_rule_request: (required)
-        :type space_set_temporary_door_locking_rule_request: SpaceSetTemporaryDoorLockingRuleRequest
+        :param set_temporary_door_locking_rule_request: (required)
+        :type set_temporary_door_locking_rule_request: SetTemporaryDoorLockingRuleRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3004,7 +3004,7 @@ class SpaceApi:
 
         _param = self._set_temporary_door_locking_rule_serialize(
             id=id,
-            space_set_temporary_door_locking_rule_request=space_set_temporary_door_locking_rule_request,
+            set_temporary_door_locking_rule_request=set_temporary_door_locking_rule_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3012,7 +3012,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorStatusResponse",
+            '200': "DoorStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3029,7 +3029,7 @@ class SpaceApi:
     def set_temporary_door_locking_rule_with_http_info(
         self,
         id: StrictStr,
-        space_set_temporary_door_locking_rule_request: SpaceSetTemporaryDoorLockingRuleRequest,
+        set_temporary_door_locking_rule_request: SetTemporaryDoorLockingRuleRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3042,14 +3042,14 @@ class SpaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SpaceDoorStatusResponse]:
+    ) -> ApiResponse[DoorStatusResponse]:
         """7.10 Set Temporary Door Locking Rule
 
 
         :param id: (required)
         :type id: str
-        :param space_set_temporary_door_locking_rule_request: (required)
-        :type space_set_temporary_door_locking_rule_request: SpaceSetTemporaryDoorLockingRuleRequest
+        :param set_temporary_door_locking_rule_request: (required)
+        :type set_temporary_door_locking_rule_request: SetTemporaryDoorLockingRuleRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3074,7 +3074,7 @@ class SpaceApi:
 
         _param = self._set_temporary_door_locking_rule_serialize(
             id=id,
-            space_set_temporary_door_locking_rule_request=space_set_temporary_door_locking_rule_request,
+            set_temporary_door_locking_rule_request=set_temporary_door_locking_rule_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3082,7 +3082,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorStatusResponse",
+            '200': "DoorStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3099,7 +3099,7 @@ class SpaceApi:
     def set_temporary_door_locking_rule_without_preload_content(
         self,
         id: StrictStr,
-        space_set_temporary_door_locking_rule_request: SpaceSetTemporaryDoorLockingRuleRequest,
+        set_temporary_door_locking_rule_request: SetTemporaryDoorLockingRuleRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3118,8 +3118,8 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param space_set_temporary_door_locking_rule_request: (required)
-        :type space_set_temporary_door_locking_rule_request: SpaceSetTemporaryDoorLockingRuleRequest
+        :param set_temporary_door_locking_rule_request: (required)
+        :type set_temporary_door_locking_rule_request: SetTemporaryDoorLockingRuleRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3144,7 +3144,7 @@ class SpaceApi:
 
         _param = self._set_temporary_door_locking_rule_serialize(
             id=id,
-            space_set_temporary_door_locking_rule_request=space_set_temporary_door_locking_rule_request,
+            set_temporary_door_locking_rule_request=set_temporary_door_locking_rule_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3152,7 +3152,7 @@ class SpaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SpaceDoorStatusResponse",
+            '200': "DoorStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3164,7 +3164,7 @@ class SpaceApi:
     def _set_temporary_door_locking_rule_serialize(
         self,
         id,
-        space_set_temporary_door_locking_rule_request,
+        set_temporary_door_locking_rule_request,
         _request_auth,
         _content_type,
         _headers,
@@ -3192,8 +3192,8 @@ class SpaceApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if space_set_temporary_door_locking_rule_request is not None:
-            _body_params = space_set_temporary_door_locking_rule_request
+        if set_temporary_door_locking_rule_request is not None:
+            _body_params = set_temporary_door_locking_rule_request
 
 
         # set the HTTP header `Accept`
@@ -3245,7 +3245,7 @@ class SpaceApi:
     def update_door_group(
         self,
         id: StrictStr,
-        space_update_door_group_request: SpaceUpdateDoorGroupRequest,
+        update_door_group_request: UpdateDoorGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3264,8 +3264,8 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param space_update_door_group_request: (required)
-        :type space_update_door_group_request: SpaceUpdateDoorGroupRequest
+        :param update_door_group_request: (required)
+        :type update_door_group_request: UpdateDoorGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3290,7 +3290,7 @@ class SpaceApi:
 
         _param = self._update_door_group_serialize(
             id=id,
-            space_update_door_group_request=space_update_door_group_request,
+            update_door_group_request=update_door_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3315,7 +3315,7 @@ class SpaceApi:
     def update_door_group_with_http_info(
         self,
         id: StrictStr,
-        space_update_door_group_request: SpaceUpdateDoorGroupRequest,
+        update_door_group_request: UpdateDoorGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3334,8 +3334,8 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param space_update_door_group_request: (required)
-        :type space_update_door_group_request: SpaceUpdateDoorGroupRequest
+        :param update_door_group_request: (required)
+        :type update_door_group_request: UpdateDoorGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3360,7 +3360,7 @@ class SpaceApi:
 
         _param = self._update_door_group_serialize(
             id=id,
-            space_update_door_group_request=space_update_door_group_request,
+            update_door_group_request=update_door_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3385,7 +3385,7 @@ class SpaceApi:
     def update_door_group_without_preload_content(
         self,
         id: StrictStr,
-        space_update_door_group_request: SpaceUpdateDoorGroupRequest,
+        update_door_group_request: UpdateDoorGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3404,8 +3404,8 @@ class SpaceApi:
 
         :param id: (required)
         :type id: str
-        :param space_update_door_group_request: (required)
-        :type space_update_door_group_request: SpaceUpdateDoorGroupRequest
+        :param update_door_group_request: (required)
+        :type update_door_group_request: UpdateDoorGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3430,7 +3430,7 @@ class SpaceApi:
 
         _param = self._update_door_group_serialize(
             id=id,
-            space_update_door_group_request=space_update_door_group_request,
+            update_door_group_request=update_door_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3450,7 +3450,7 @@ class SpaceApi:
     def _update_door_group_serialize(
         self,
         id,
-        space_update_door_group_request,
+        update_door_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -3478,8 +3478,8 @@ class SpaceApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if space_update_door_group_request is not None:
-            _body_params = space_update_door_group_request
+        if update_door_group_request is not None:
+            _body_params = update_door_group_request
 
 
         # set the HTTP header `Accept`

@@ -18,12 +18,12 @@ from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
 from typing_extensions import Annotated
-from uiaccessclient.models.credential_enroll_nfc_card_request import CredentialEnrollNfcCardRequest
-from uiaccessclient.models.credential_nfc_card_response import CredentialNfcCardResponse
-from uiaccessclient.models.credential_nfc_card_session_response import CredentialNfcCardSessionResponse
-from uiaccessclient.models.credential_nfc_card_token_response import CredentialNfcCardTokenResponse
-from uiaccessclient.models.credential_nfc_cards_response import CredentialNfcCardsResponse
-from uiaccessclient.models.credential_pin_code_response import CredentialPinCodeResponse
+from uiaccessclient.models.enroll_nfc_card_request import EnrollNfcCardRequest
+from uiaccessclient.models.nfc_card_response import NfcCardResponse
+from uiaccessclient.models.nfc_card_session_response import NfcCardSessionResponse
+from uiaccessclient.models.nfc_card_token_response import NfcCardTokenResponse
+from uiaccessclient.models.nfc_cards_response import NfcCardsResponse
+from uiaccessclient.models.pin_code_response import PinCodeResponse
 
 from uiaccessclient.api_client import ApiClient, RequestSerialized
 from uiaccessclient.api_response import ApiResponse
@@ -59,7 +59,7 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CredentialNfcCardResponse:
+    ) -> NfcCardResponse:
         """6.9 Delete NFC Card
 
 
@@ -96,7 +96,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardResponse",
+            '200': "NfcCardResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -125,7 +125,7 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CredentialNfcCardResponse]:
+    ) -> ApiResponse[NfcCardResponse]:
         """6.9 Delete NFC Card
 
 
@@ -162,7 +162,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardResponse",
+            '200': "NfcCardResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -228,7 +228,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardResponse",
+            '200': "NfcCardResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -304,7 +304,7 @@ class CredentialApi:
     @validate_call
     def enroll_nfc_card(
         self,
-        credential_enroll_nfc_card_request: CredentialEnrollNfcCardRequest,
+        enroll_nfc_card_request: EnrollNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -317,12 +317,12 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CredentialNfcCardSessionResponse:
+    ) -> NfcCardSessionResponse:
         """6.2 Enroll NFC Card
 
 
-        :param credential_enroll_nfc_card_request: (required)
-        :type credential_enroll_nfc_card_request: CredentialEnrollNfcCardRequest
+        :param enroll_nfc_card_request: (required)
+        :type enroll_nfc_card_request: EnrollNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -346,7 +346,7 @@ class CredentialApi:
         """ # noqa: E501
 
         _param = self._enroll_nfc_card_serialize(
-            credential_enroll_nfc_card_request=credential_enroll_nfc_card_request,
+            enroll_nfc_card_request=enroll_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -354,7 +354,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardSessionResponse",
+            '200': "NfcCardSessionResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -370,7 +370,7 @@ class CredentialApi:
     @validate_call
     def enroll_nfc_card_with_http_info(
         self,
-        credential_enroll_nfc_card_request: CredentialEnrollNfcCardRequest,
+        enroll_nfc_card_request: EnrollNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -383,12 +383,12 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CredentialNfcCardSessionResponse]:
+    ) -> ApiResponse[NfcCardSessionResponse]:
         """6.2 Enroll NFC Card
 
 
-        :param credential_enroll_nfc_card_request: (required)
-        :type credential_enroll_nfc_card_request: CredentialEnrollNfcCardRequest
+        :param enroll_nfc_card_request: (required)
+        :type enroll_nfc_card_request: EnrollNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -412,7 +412,7 @@ class CredentialApi:
         """ # noqa: E501
 
         _param = self._enroll_nfc_card_serialize(
-            credential_enroll_nfc_card_request=credential_enroll_nfc_card_request,
+            enroll_nfc_card_request=enroll_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -420,7 +420,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardSessionResponse",
+            '200': "NfcCardSessionResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -436,7 +436,7 @@ class CredentialApi:
     @validate_call
     def enroll_nfc_card_without_preload_content(
         self,
-        credential_enroll_nfc_card_request: CredentialEnrollNfcCardRequest,
+        enroll_nfc_card_request: EnrollNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -453,8 +453,8 @@ class CredentialApi:
         """6.2 Enroll NFC Card
 
 
-        :param credential_enroll_nfc_card_request: (required)
-        :type credential_enroll_nfc_card_request: CredentialEnrollNfcCardRequest
+        :param enroll_nfc_card_request: (required)
+        :type enroll_nfc_card_request: EnrollNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -478,7 +478,7 @@ class CredentialApi:
         """ # noqa: E501
 
         _param = self._enroll_nfc_card_serialize(
-            credential_enroll_nfc_card_request=credential_enroll_nfc_card_request,
+            enroll_nfc_card_request=enroll_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -486,7 +486,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardSessionResponse",
+            '200': "NfcCardSessionResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -497,7 +497,7 @@ class CredentialApi:
 
     def _enroll_nfc_card_serialize(
         self,
-        credential_enroll_nfc_card_request,
+        enroll_nfc_card_request,
         _request_auth,
         _content_type,
         _headers,
@@ -523,8 +523,8 @@ class CredentialApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if credential_enroll_nfc_card_request is not None:
-            _body_params = credential_enroll_nfc_card_request
+        if enroll_nfc_card_request is not None:
+            _body_params = enroll_nfc_card_request
 
 
         # set the HTTP header `Accept`
@@ -587,7 +587,7 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CredentialNfcCardsResponse:
+    ) -> NfcCardsResponse:
         """6.8 Fetch All NFC Cards
 
 
@@ -621,7 +621,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardsResponse",
+            '200': "NfcCardsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -649,7 +649,7 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CredentialNfcCardsResponse]:
+    ) -> ApiResponse[NfcCardsResponse]:
         """6.8 Fetch All NFC Cards
 
 
@@ -683,7 +683,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardsResponse",
+            '200': "NfcCardsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -745,7 +745,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardsResponse",
+            '200': "NfcCardsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -831,7 +831,7 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CredentialNfcCardResponse:
+    ) -> NfcCardResponse:
         """6.7 Fetch NFC Card
 
 
@@ -868,7 +868,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardResponse",
+            '200': "NfcCardResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -897,7 +897,7 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CredentialNfcCardResponse]:
+    ) -> ApiResponse[NfcCardResponse]:
         """6.7 Fetch NFC Card
 
 
@@ -934,7 +934,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardResponse",
+            '200': "NfcCardResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1000,7 +1000,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardResponse",
+            '200': "NfcCardResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1089,7 +1089,7 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CredentialNfcCardTokenResponse:
+    ) -> NfcCardTokenResponse:
         """6.3 Fetch NFC Card Enrollment Status
 
 
@@ -1126,7 +1126,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardTokenResponse",
+            '200': "NfcCardTokenResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1155,7 +1155,7 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CredentialNfcCardTokenResponse]:
+    ) -> ApiResponse[NfcCardTokenResponse]:
         """6.3 Fetch NFC Card Enrollment Status
 
 
@@ -1192,7 +1192,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardTokenResponse",
+            '200': "NfcCardTokenResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1258,7 +1258,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardTokenResponse",
+            '200': "NfcCardTokenResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1346,7 +1346,7 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CredentialPinCodeResponse:
+    ) -> PinCodeResponse:
         """6.1 Generate a PIN Code
 
 
@@ -1380,7 +1380,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialPinCodeResponse",
+            '200': "PinCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1408,7 +1408,7 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CredentialPinCodeResponse]:
+    ) -> ApiResponse[PinCodeResponse]:
         """6.1 Generate a PIN Code
 
 
@@ -1442,7 +1442,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialPinCodeResponse",
+            '200': "PinCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1504,7 +1504,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialPinCodeResponse",
+            '200': "PinCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1590,7 +1590,7 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CredentialNfcCardSessionResponse:
+    ) -> NfcCardSessionResponse:
         """6.4 Remove a Session Created for NFC Card Enrollment
 
 
@@ -1627,7 +1627,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardSessionResponse",
+            '200': "NfcCardSessionResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1656,7 +1656,7 @@ class CredentialApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CredentialNfcCardSessionResponse]:
+    ) -> ApiResponse[NfcCardSessionResponse]:
         """6.4 Remove a Session Created for NFC Card Enrollment
 
 
@@ -1693,7 +1693,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardSessionResponse",
+            '200': "NfcCardSessionResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1759,7 +1759,7 @@ class CredentialApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CredentialNfcCardSessionResponse",
+            '200': "NfcCardSessionResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

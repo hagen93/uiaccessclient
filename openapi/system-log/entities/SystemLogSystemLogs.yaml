@@ -1,6 +1,0 @@
-type: object
-properties:
-  hits:
-    type: array
-    items:
-      $ref: SystemLogSystemLog.yaml

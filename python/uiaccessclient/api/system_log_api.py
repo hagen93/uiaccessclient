@@ -19,11 +19,11 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
-from uiaccessclient.models.system_log_export_system_logs_request import SystemLogExportSystemLogsRequest
-from uiaccessclient.models.system_log_export_system_logs_response import SystemLogExportSystemLogsResponse
-from uiaccessclient.models.system_log_fetch_resources_in_system_logs_response import SystemLogFetchResourcesInSystemLogsResponse
-from uiaccessclient.models.system_log_fetch_static_resources_in_system_logs_response import SystemLogFetchStaticResourcesInSystemLogsResponse
-from uiaccessclient.models.system_log_fetch_system_logs_response import SystemLogFetchSystemLogsResponse
+from uiaccessclient.models.export_system_logs_request import ExportSystemLogsRequest
+from uiaccessclient.models.export_system_logs_response import ExportSystemLogsResponse
+from uiaccessclient.models.fetch_resources_in_system_logs_response import FetchResourcesInSystemLogsResponse
+from uiaccessclient.models.fetch_static_resources_in_system_logs_response import FetchStaticResourcesInSystemLogsResponse
+from uiaccessclient.models.fetch_system_logs_response import FetchSystemLogsResponse
 
 from uiaccessclient.api_client import ApiClient, RequestSerialized
 from uiaccessclient.api_response import ApiResponse
@@ -46,7 +46,7 @@ class SystemLogApi:
     @validate_call
     def export_system_logs(
         self,
-        system_log_export_system_logs_request: SystemLogExportSystemLogsRequest,
+        export_system_logs_request: ExportSystemLogsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -59,12 +59,12 @@ class SystemLogApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SystemLogExportSystemLogsResponse:
+    ) -> ExportSystemLogsResponse:
         """9.3 Export System Logs
 
 
-        :param system_log_export_system_logs_request: (required)
-        :type system_log_export_system_logs_request: SystemLogExportSystemLogsRequest
+        :param export_system_logs_request: (required)
+        :type export_system_logs_request: ExportSystemLogsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -88,7 +88,7 @@ class SystemLogApi:
         """ # noqa: E501
 
         _param = self._export_system_logs_serialize(
-            system_log_export_system_logs_request=system_log_export_system_logs_request,
+            export_system_logs_request=export_system_logs_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -96,7 +96,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SystemLogExportSystemLogsResponse",
+            '200': "ExportSystemLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -112,7 +112,7 @@ class SystemLogApi:
     @validate_call
     def export_system_logs_with_http_info(
         self,
-        system_log_export_system_logs_request: SystemLogExportSystemLogsRequest,
+        export_system_logs_request: ExportSystemLogsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -125,12 +125,12 @@ class SystemLogApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SystemLogExportSystemLogsResponse]:
+    ) -> ApiResponse[ExportSystemLogsResponse]:
         """9.3 Export System Logs
 
 
-        :param system_log_export_system_logs_request: (required)
-        :type system_log_export_system_logs_request: SystemLogExportSystemLogsRequest
+        :param export_system_logs_request: (required)
+        :type export_system_logs_request: ExportSystemLogsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -154,7 +154,7 @@ class SystemLogApi:
         """ # noqa: E501
 
         _param = self._export_system_logs_serialize(
-            system_log_export_system_logs_request=system_log_export_system_logs_request,
+            export_system_logs_request=export_system_logs_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -162,7 +162,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SystemLogExportSystemLogsResponse",
+            '200': "ExportSystemLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -178,7 +178,7 @@ class SystemLogApi:
     @validate_call
     def export_system_logs_without_preload_content(
         self,
-        system_log_export_system_logs_request: SystemLogExportSystemLogsRequest,
+        export_system_logs_request: ExportSystemLogsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -195,8 +195,8 @@ class SystemLogApi:
         """9.3 Export System Logs
 
 
-        :param system_log_export_system_logs_request: (required)
-        :type system_log_export_system_logs_request: SystemLogExportSystemLogsRequest
+        :param export_system_logs_request: (required)
+        :type export_system_logs_request: ExportSystemLogsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -220,7 +220,7 @@ class SystemLogApi:
         """ # noqa: E501
 
         _param = self._export_system_logs_serialize(
-            system_log_export_system_logs_request=system_log_export_system_logs_request,
+            export_system_logs_request=export_system_logs_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -228,7 +228,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SystemLogExportSystemLogsResponse",
+            '200': "ExportSystemLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -239,7 +239,7 @@ class SystemLogApi:
 
     def _export_system_logs_serialize(
         self,
-        system_log_export_system_logs_request,
+        export_system_logs_request,
         _request_auth,
         _content_type,
         _headers,
@@ -265,8 +265,8 @@ class SystemLogApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if system_log_export_system_logs_request is not None:
-            _body_params = system_log_export_system_logs_request
+        if export_system_logs_request is not None:
+            _body_params = export_system_logs_request
 
 
         # set the HTTP header `Accept`
@@ -330,7 +330,7 @@ class SystemLogApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SystemLogFetchResourcesInSystemLogsResponse:
+    ) -> FetchResourcesInSystemLogsResponse:
         """9.4 Fetch Resources in System Logs
 
 
@@ -367,7 +367,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SystemLogFetchResourcesInSystemLogsResponse",
+            '200': "FetchResourcesInSystemLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -396,7 +396,7 @@ class SystemLogApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SystemLogFetchResourcesInSystemLogsResponse]:
+    ) -> ApiResponse[FetchResourcesInSystemLogsResponse]:
         """9.4 Fetch Resources in System Logs
 
 
@@ -433,7 +433,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SystemLogFetchResourcesInSystemLogsResponse",
+            '200': "FetchResourcesInSystemLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -499,7 +499,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SystemLogFetchResourcesInSystemLogsResponse",
+            '200': "FetchResourcesInSystemLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -588,7 +588,7 @@ class SystemLogApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SystemLogFetchStaticResourcesInSystemLogsResponse:
+    ) -> FetchStaticResourcesInSystemLogsResponse:
         """9.5 Fetch Static Resources in System Logs
 
 
@@ -625,7 +625,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SystemLogFetchStaticResourcesInSystemLogsResponse",
+            '200': "FetchStaticResourcesInSystemLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -654,7 +654,7 @@ class SystemLogApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SystemLogFetchStaticResourcesInSystemLogsResponse]:
+    ) -> ApiResponse[FetchStaticResourcesInSystemLogsResponse]:
         """9.5 Fetch Static Resources in System Logs
 
 
@@ -691,7 +691,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SystemLogFetchStaticResourcesInSystemLogsResponse",
+            '200': "FetchStaticResourcesInSystemLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -757,7 +757,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SystemLogFetchStaticResourcesInSystemLogsResponse",
+            '200': "FetchStaticResourcesInSystemLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -851,7 +851,7 @@ class SystemLogApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SystemLogFetchSystemLogsResponse:
+    ) -> FetchSystemLogsResponse:
         """9.2 Fetch System Logs
 
 
@@ -903,7 +903,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SystemLogFetchSystemLogsResponse",
+            '200': "FetchSystemLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -937,7 +937,7 @@ class SystemLogApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SystemLogFetchSystemLogsResponse]:
+    ) -> ApiResponse[FetchSystemLogsResponse]:
         """9.2 Fetch System Logs
 
 
@@ -989,7 +989,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SystemLogFetchSystemLogsResponse",
+            '200': "FetchSystemLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1075,7 +1075,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SystemLogFetchSystemLogsResponse",
+            '200': "FetchSystemLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

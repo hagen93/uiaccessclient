@@ -19,22 +19,22 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
-from uiaccessclient.models.access_policy_access_policies_response import AccessPolicyAccessPoliciesResponse
-from uiaccessclient.models.shared_status_code_response import SharedStatusCodeResponse
-from uiaccessclient.models.user_assign_user_access_policy_request import UserAssignUserAccessPolicyRequest
-from uiaccessclient.models.user_assign_user_group_access_policy_request import UserAssignUserGroupAccessPolicyRequest
-from uiaccessclient.models.user_assign_user_nfc_card_request import UserAssignUserNfcCardRequest
-from uiaccessclient.models.user_assign_user_pin_code_request import UserAssignUserPinCodeRequest
-from uiaccessclient.models.user_assign_user_to_user_group_request import UserAssignUserToUserGroupRequest
-from uiaccessclient.models.user_create_user_group_request import UserCreateUserGroupRequest
-from uiaccessclient.models.user_create_user_request import UserCreateUserRequest
-from uiaccessclient.models.user_unassign_user_from_user_group_request import UserUnassignUserFromUserGroupRequest
-from uiaccessclient.models.user_update_user_group_request import UserUpdateUserGroupRequest
-from uiaccessclient.models.user_update_user_request import UserUpdateUserRequest
-from uiaccessclient.models.user_user_group_response import UserUserGroupResponse
-from uiaccessclient.models.user_user_groups_response import UserUserGroupsResponse
-from uiaccessclient.models.user_user_response import UserUserResponse
-from uiaccessclient.models.user_users_response import UserUsersResponse
+from uiaccessclient.models.access_policies_response import AccessPoliciesResponse
+from uiaccessclient.models.assign_user_access_policy_request import AssignUserAccessPolicyRequest
+from uiaccessclient.models.assign_user_group_access_policy_request import AssignUserGroupAccessPolicyRequest
+from uiaccessclient.models.assign_user_nfc_card_request import AssignUserNfcCardRequest
+from uiaccessclient.models.assign_user_pin_code_request import AssignUserPinCodeRequest
+from uiaccessclient.models.assign_user_to_user_group_request import AssignUserToUserGroupRequest
+from uiaccessclient.models.create_user_group_request import CreateUserGroupRequest
+from uiaccessclient.models.create_user_request import CreateUserRequest
+from uiaccessclient.models.status_code_response import StatusCodeResponse
+from uiaccessclient.models.unassign_user_from_user_group_request import UnassignUserFromUserGroupRequest
+from uiaccessclient.models.update_user_group_request import UpdateUserGroupRequest
+from uiaccessclient.models.update_user_request import UpdateUserRequest
+from uiaccessclient.models.user_group_response import UserGroupResponse
+from uiaccessclient.models.user_groups_response import UserGroupsResponse
+from uiaccessclient.models.user_response import UserResponse
+from uiaccessclient.models.users_response import UsersResponse
 
 from uiaccessclient.api_client import ApiClient, RequestSerialized
 from uiaccessclient.api_response import ApiResponse
@@ -58,7 +58,7 @@ class UserApi:
     def assign_user_access_policy(
         self,
         id: StrictStr,
-        user_assign_user_access_policy_request: UserAssignUserAccessPolicyRequest,
+        assign_user_access_policy_request: AssignUserAccessPolicyRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -71,14 +71,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SharedStatusCodeResponse:
+    ) -> StatusCodeResponse:
         """3.6 Assign Access Policy to User
 
 
         :param id: (required)
         :type id: str
-        :param user_assign_user_access_policy_request: (required)
-        :type user_assign_user_access_policy_request: UserAssignUserAccessPolicyRequest
+        :param assign_user_access_policy_request: (required)
+        :type assign_user_access_policy_request: AssignUserAccessPolicyRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -103,7 +103,7 @@ class UserApi:
 
         _param = self._assign_user_access_policy_serialize(
             id=id,
-            user_assign_user_access_policy_request=user_assign_user_access_policy_request,
+            assign_user_access_policy_request=assign_user_access_policy_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -111,7 +111,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -128,7 +128,7 @@ class UserApi:
     def assign_user_access_policy_with_http_info(
         self,
         id: StrictStr,
-        user_assign_user_access_policy_request: UserAssignUserAccessPolicyRequest,
+        assign_user_access_policy_request: AssignUserAccessPolicyRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -141,14 +141,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SharedStatusCodeResponse]:
+    ) -> ApiResponse[StatusCodeResponse]:
         """3.6 Assign Access Policy to User
 
 
         :param id: (required)
         :type id: str
-        :param user_assign_user_access_policy_request: (required)
-        :type user_assign_user_access_policy_request: UserAssignUserAccessPolicyRequest
+        :param assign_user_access_policy_request: (required)
+        :type assign_user_access_policy_request: AssignUserAccessPolicyRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -173,7 +173,7 @@ class UserApi:
 
         _param = self._assign_user_access_policy_serialize(
             id=id,
-            user_assign_user_access_policy_request=user_assign_user_access_policy_request,
+            assign_user_access_policy_request=assign_user_access_policy_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -181,7 +181,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -198,7 +198,7 @@ class UserApi:
     def assign_user_access_policy_without_preload_content(
         self,
         id: StrictStr,
-        user_assign_user_access_policy_request: UserAssignUserAccessPolicyRequest,
+        assign_user_access_policy_request: AssignUserAccessPolicyRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -217,8 +217,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param user_assign_user_access_policy_request: (required)
-        :type user_assign_user_access_policy_request: UserAssignUserAccessPolicyRequest
+        :param assign_user_access_policy_request: (required)
+        :type assign_user_access_policy_request: AssignUserAccessPolicyRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -243,7 +243,7 @@ class UserApi:
 
         _param = self._assign_user_access_policy_serialize(
             id=id,
-            user_assign_user_access_policy_request=user_assign_user_access_policy_request,
+            assign_user_access_policy_request=assign_user_access_policy_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -251,7 +251,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -263,7 +263,7 @@ class UserApi:
     def _assign_user_access_policy_serialize(
         self,
         id,
-        user_assign_user_access_policy_request,
+        assign_user_access_policy_request,
         _request_auth,
         _content_type,
         _headers,
@@ -291,8 +291,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if user_assign_user_access_policy_request is not None:
-            _body_params = user_assign_user_access_policy_request
+        if assign_user_access_policy_request is not None:
+            _body_params = assign_user_access_policy_request
 
 
         # set the HTTP header `Accept`
@@ -344,7 +344,7 @@ class UserApi:
     def assign_user_group_access_policy(
         self,
         id: StrictStr,
-        user_assign_user_group_access_policy_request: UserAssignUserGroupAccessPolicyRequest,
+        assign_user_group_access_policy_request: AssignUserGroupAccessPolicyRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -357,14 +357,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UserUserGroupResponse:
+    ) -> UserGroupResponse:
         """3.21 Assign Access Policy to User Group
 
 
         :param id: (required)
         :type id: str
-        :param user_assign_user_group_access_policy_request: (required)
-        :type user_assign_user_group_access_policy_request: UserAssignUserGroupAccessPolicyRequest
+        :param assign_user_group_access_policy_request: (required)
+        :type assign_user_group_access_policy_request: AssignUserGroupAccessPolicyRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -389,7 +389,7 @@ class UserApi:
 
         _param = self._assign_user_group_access_policy_serialize(
             id=id,
-            user_assign_user_group_access_policy_request=user_assign_user_group_access_policy_request,
+            assign_user_group_access_policy_request=assign_user_group_access_policy_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -397,7 +397,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserGroupResponse",
+            '200': "UserGroupResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -414,7 +414,7 @@ class UserApi:
     def assign_user_group_access_policy_with_http_info(
         self,
         id: StrictStr,
-        user_assign_user_group_access_policy_request: UserAssignUserGroupAccessPolicyRequest,
+        assign_user_group_access_policy_request: AssignUserGroupAccessPolicyRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -427,14 +427,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UserUserGroupResponse]:
+    ) -> ApiResponse[UserGroupResponse]:
         """3.21 Assign Access Policy to User Group
 
 
         :param id: (required)
         :type id: str
-        :param user_assign_user_group_access_policy_request: (required)
-        :type user_assign_user_group_access_policy_request: UserAssignUserGroupAccessPolicyRequest
+        :param assign_user_group_access_policy_request: (required)
+        :type assign_user_group_access_policy_request: AssignUserGroupAccessPolicyRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -459,7 +459,7 @@ class UserApi:
 
         _param = self._assign_user_group_access_policy_serialize(
             id=id,
-            user_assign_user_group_access_policy_request=user_assign_user_group_access_policy_request,
+            assign_user_group_access_policy_request=assign_user_group_access_policy_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -467,7 +467,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserGroupResponse",
+            '200': "UserGroupResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -484,7 +484,7 @@ class UserApi:
     def assign_user_group_access_policy_without_preload_content(
         self,
         id: StrictStr,
-        user_assign_user_group_access_policy_request: UserAssignUserGroupAccessPolicyRequest,
+        assign_user_group_access_policy_request: AssignUserGroupAccessPolicyRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -503,8 +503,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param user_assign_user_group_access_policy_request: (required)
-        :type user_assign_user_group_access_policy_request: UserAssignUserGroupAccessPolicyRequest
+        :param assign_user_group_access_policy_request: (required)
+        :type assign_user_group_access_policy_request: AssignUserGroupAccessPolicyRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -529,7 +529,7 @@ class UserApi:
 
         _param = self._assign_user_group_access_policy_serialize(
             id=id,
-            user_assign_user_group_access_policy_request=user_assign_user_group_access_policy_request,
+            assign_user_group_access_policy_request=assign_user_group_access_policy_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -537,7 +537,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserGroupResponse",
+            '200': "UserGroupResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -549,7 +549,7 @@ class UserApi:
     def _assign_user_group_access_policy_serialize(
         self,
         id,
-        user_assign_user_group_access_policy_request,
+        assign_user_group_access_policy_request,
         _request_auth,
         _content_type,
         _headers,
@@ -577,8 +577,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if user_assign_user_group_access_policy_request is not None:
-            _body_params = user_assign_user_group_access_policy_request
+        if assign_user_group_access_policy_request is not None:
+            _body_params = assign_user_group_access_policy_request
 
 
         # set the HTTP header `Accept`
@@ -630,7 +630,7 @@ class UserApi:
     def assign_user_nfc_card(
         self,
         id: StrictStr,
-        user_assign_user_nfc_card_request: UserAssignUserNfcCardRequest,
+        assign_user_nfc_card_request: AssignUserNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -643,14 +643,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SharedStatusCodeResponse:
+    ) -> StatusCodeResponse:
         """3.7 Assign NFC Card from User
 
 
         :param id: (required)
         :type id: str
-        :param user_assign_user_nfc_card_request: (required)
-        :type user_assign_user_nfc_card_request: UserAssignUserNfcCardRequest
+        :param assign_user_nfc_card_request: (required)
+        :type assign_user_nfc_card_request: AssignUserNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -675,7 +675,7 @@ class UserApi:
 
         _param = self._assign_user_nfc_card_serialize(
             id=id,
-            user_assign_user_nfc_card_request=user_assign_user_nfc_card_request,
+            assign_user_nfc_card_request=assign_user_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -683,7 +683,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -700,7 +700,7 @@ class UserApi:
     def assign_user_nfc_card_with_http_info(
         self,
         id: StrictStr,
-        user_assign_user_nfc_card_request: UserAssignUserNfcCardRequest,
+        assign_user_nfc_card_request: AssignUserNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -713,14 +713,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SharedStatusCodeResponse]:
+    ) -> ApiResponse[StatusCodeResponse]:
         """3.7 Assign NFC Card from User
 
 
         :param id: (required)
         :type id: str
-        :param user_assign_user_nfc_card_request: (required)
-        :type user_assign_user_nfc_card_request: UserAssignUserNfcCardRequest
+        :param assign_user_nfc_card_request: (required)
+        :type assign_user_nfc_card_request: AssignUserNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -745,7 +745,7 @@ class UserApi:
 
         _param = self._assign_user_nfc_card_serialize(
             id=id,
-            user_assign_user_nfc_card_request=user_assign_user_nfc_card_request,
+            assign_user_nfc_card_request=assign_user_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -753,7 +753,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -770,7 +770,7 @@ class UserApi:
     def assign_user_nfc_card_without_preload_content(
         self,
         id: StrictStr,
-        user_assign_user_nfc_card_request: UserAssignUserNfcCardRequest,
+        assign_user_nfc_card_request: AssignUserNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -789,8 +789,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param user_assign_user_nfc_card_request: (required)
-        :type user_assign_user_nfc_card_request: UserAssignUserNfcCardRequest
+        :param assign_user_nfc_card_request: (required)
+        :type assign_user_nfc_card_request: AssignUserNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -815,7 +815,7 @@ class UserApi:
 
         _param = self._assign_user_nfc_card_serialize(
             id=id,
-            user_assign_user_nfc_card_request=user_assign_user_nfc_card_request,
+            assign_user_nfc_card_request=assign_user_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -823,7 +823,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -835,7 +835,7 @@ class UserApi:
     def _assign_user_nfc_card_serialize(
         self,
         id,
-        user_assign_user_nfc_card_request,
+        assign_user_nfc_card_request,
         _request_auth,
         _content_type,
         _headers,
@@ -863,8 +863,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if user_assign_user_nfc_card_request is not None:
-            _body_params = user_assign_user_nfc_card_request
+        if assign_user_nfc_card_request is not None:
+            _body_params = assign_user_nfc_card_request
 
 
         # set the HTTP header `Accept`
@@ -916,7 +916,7 @@ class UserApi:
     def assign_user_pin_code(
         self,
         id: StrictStr,
-        user_assign_user_pin_code_request: UserAssignUserPinCodeRequest,
+        assign_user_pin_code_request: AssignUserPinCodeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -929,14 +929,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SharedStatusCodeResponse:
+    ) -> StatusCodeResponse:
         """3.9 Assign PIN Code to User
 
 
         :param id: (required)
         :type id: str
-        :param user_assign_user_pin_code_request: (required)
-        :type user_assign_user_pin_code_request: UserAssignUserPinCodeRequest
+        :param assign_user_pin_code_request: (required)
+        :type assign_user_pin_code_request: AssignUserPinCodeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -961,7 +961,7 @@ class UserApi:
 
         _param = self._assign_user_pin_code_serialize(
             id=id,
-            user_assign_user_pin_code_request=user_assign_user_pin_code_request,
+            assign_user_pin_code_request=assign_user_pin_code_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -969,7 +969,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -986,7 +986,7 @@ class UserApi:
     def assign_user_pin_code_with_http_info(
         self,
         id: StrictStr,
-        user_assign_user_pin_code_request: UserAssignUserPinCodeRequest,
+        assign_user_pin_code_request: AssignUserPinCodeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -999,14 +999,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SharedStatusCodeResponse]:
+    ) -> ApiResponse[StatusCodeResponse]:
         """3.9 Assign PIN Code to User
 
 
         :param id: (required)
         :type id: str
-        :param user_assign_user_pin_code_request: (required)
-        :type user_assign_user_pin_code_request: UserAssignUserPinCodeRequest
+        :param assign_user_pin_code_request: (required)
+        :type assign_user_pin_code_request: AssignUserPinCodeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1031,7 +1031,7 @@ class UserApi:
 
         _param = self._assign_user_pin_code_serialize(
             id=id,
-            user_assign_user_pin_code_request=user_assign_user_pin_code_request,
+            assign_user_pin_code_request=assign_user_pin_code_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1039,7 +1039,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1056,7 +1056,7 @@ class UserApi:
     def assign_user_pin_code_without_preload_content(
         self,
         id: StrictStr,
-        user_assign_user_pin_code_request: UserAssignUserPinCodeRequest,
+        assign_user_pin_code_request: AssignUserPinCodeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1075,8 +1075,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param user_assign_user_pin_code_request: (required)
-        :type user_assign_user_pin_code_request: UserAssignUserPinCodeRequest
+        :param assign_user_pin_code_request: (required)
+        :type assign_user_pin_code_request: AssignUserPinCodeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1101,7 +1101,7 @@ class UserApi:
 
         _param = self._assign_user_pin_code_serialize(
             id=id,
-            user_assign_user_pin_code_request=user_assign_user_pin_code_request,
+            assign_user_pin_code_request=assign_user_pin_code_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1109,7 +1109,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1121,7 +1121,7 @@ class UserApi:
     def _assign_user_pin_code_serialize(
         self,
         id,
-        user_assign_user_pin_code_request,
+        assign_user_pin_code_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1149,8 +1149,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if user_assign_user_pin_code_request is not None:
-            _body_params = user_assign_user_pin_code_request
+        if assign_user_pin_code_request is not None:
+            _body_params = assign_user_pin_code_request
 
 
         # set the HTTP header `Accept`
@@ -1202,7 +1202,7 @@ class UserApi:
     def assign_user_to_user_group(
         self,
         id: StrictStr,
-        user_assign_user_to_user_group_request: UserAssignUserToUserGroupRequest,
+        assign_user_to_user_group_request: AssignUserToUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1215,14 +1215,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SharedStatusCodeResponse:
+    ) -> StatusCodeResponse:
         """3.16 Assign User to User Group
 
 
         :param id: (required)
         :type id: str
-        :param user_assign_user_to_user_group_request: (required)
-        :type user_assign_user_to_user_group_request: UserAssignUserToUserGroupRequest
+        :param assign_user_to_user_group_request: (required)
+        :type assign_user_to_user_group_request: AssignUserToUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1247,7 +1247,7 @@ class UserApi:
 
         _param = self._assign_user_to_user_group_serialize(
             id=id,
-            user_assign_user_to_user_group_request=user_assign_user_to_user_group_request,
+            assign_user_to_user_group_request=assign_user_to_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1255,7 +1255,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1272,7 +1272,7 @@ class UserApi:
     def assign_user_to_user_group_with_http_info(
         self,
         id: StrictStr,
-        user_assign_user_to_user_group_request: UserAssignUserToUserGroupRequest,
+        assign_user_to_user_group_request: AssignUserToUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1285,14 +1285,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SharedStatusCodeResponse]:
+    ) -> ApiResponse[StatusCodeResponse]:
         """3.16 Assign User to User Group
 
 
         :param id: (required)
         :type id: str
-        :param user_assign_user_to_user_group_request: (required)
-        :type user_assign_user_to_user_group_request: UserAssignUserToUserGroupRequest
+        :param assign_user_to_user_group_request: (required)
+        :type assign_user_to_user_group_request: AssignUserToUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1317,7 +1317,7 @@ class UserApi:
 
         _param = self._assign_user_to_user_group_serialize(
             id=id,
-            user_assign_user_to_user_group_request=user_assign_user_to_user_group_request,
+            assign_user_to_user_group_request=assign_user_to_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1325,7 +1325,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1342,7 +1342,7 @@ class UserApi:
     def assign_user_to_user_group_without_preload_content(
         self,
         id: StrictStr,
-        user_assign_user_to_user_group_request: UserAssignUserToUserGroupRequest,
+        assign_user_to_user_group_request: AssignUserToUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1361,8 +1361,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param user_assign_user_to_user_group_request: (required)
-        :type user_assign_user_to_user_group_request: UserAssignUserToUserGroupRequest
+        :param assign_user_to_user_group_request: (required)
+        :type assign_user_to_user_group_request: AssignUserToUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1387,7 +1387,7 @@ class UserApi:
 
         _param = self._assign_user_to_user_group_serialize(
             id=id,
-            user_assign_user_to_user_group_request=user_assign_user_to_user_group_request,
+            assign_user_to_user_group_request=assign_user_to_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1395,7 +1395,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1407,7 +1407,7 @@ class UserApi:
     def _assign_user_to_user_group_serialize(
         self,
         id,
-        user_assign_user_to_user_group_request,
+        assign_user_to_user_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1435,8 +1435,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if user_assign_user_to_user_group_request is not None:
-            _body_params = user_assign_user_to_user_group_request
+        if assign_user_to_user_group_request is not None:
+            _body_params = assign_user_to_user_group_request
 
 
         # set the HTTP header `Accept`
@@ -1487,7 +1487,7 @@ class UserApi:
     @validate_call
     def create_user(
         self,
-        user_create_user_request: UserCreateUserRequest,
+        create_user_request: CreateUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1500,12 +1500,12 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UserUserResponse:
+    ) -> UserResponse:
         """3.2 Create User
 
 
-        :param user_create_user_request: (required)
-        :type user_create_user_request: UserCreateUserRequest
+        :param create_user_request: (required)
+        :type create_user_request: CreateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1529,7 +1529,7 @@ class UserApi:
         """ # noqa: E501
 
         _param = self._create_user_serialize(
-            user_create_user_request=user_create_user_request,
+            create_user_request=create_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1537,7 +1537,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserResponse",
+            '200': "UserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1553,7 +1553,7 @@ class UserApi:
     @validate_call
     def create_user_with_http_info(
         self,
-        user_create_user_request: UserCreateUserRequest,
+        create_user_request: CreateUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1566,12 +1566,12 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UserUserResponse]:
+    ) -> ApiResponse[UserResponse]:
         """3.2 Create User
 
 
-        :param user_create_user_request: (required)
-        :type user_create_user_request: UserCreateUserRequest
+        :param create_user_request: (required)
+        :type create_user_request: CreateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1595,7 +1595,7 @@ class UserApi:
         """ # noqa: E501
 
         _param = self._create_user_serialize(
-            user_create_user_request=user_create_user_request,
+            create_user_request=create_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1603,7 +1603,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserResponse",
+            '200': "UserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1619,7 +1619,7 @@ class UserApi:
     @validate_call
     def create_user_without_preload_content(
         self,
-        user_create_user_request: UserCreateUserRequest,
+        create_user_request: CreateUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1636,8 +1636,8 @@ class UserApi:
         """3.2 Create User
 
 
-        :param user_create_user_request: (required)
-        :type user_create_user_request: UserCreateUserRequest
+        :param create_user_request: (required)
+        :type create_user_request: CreateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1661,7 +1661,7 @@ class UserApi:
         """ # noqa: E501
 
         _param = self._create_user_serialize(
-            user_create_user_request=user_create_user_request,
+            create_user_request=create_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1669,7 +1669,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserResponse",
+            '200': "UserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1680,7 +1680,7 @@ class UserApi:
 
     def _create_user_serialize(
         self,
-        user_create_user_request,
+        create_user_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1706,8 +1706,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if user_create_user_request is not None:
-            _body_params = user_create_user_request
+        if create_user_request is not None:
+            _body_params = create_user_request
 
 
         # set the HTTP header `Accept`
@@ -1771,7 +1771,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SharedStatusCodeResponse:
+    ) -> StatusCodeResponse:
         """3.15 Delete User Group
 
 
@@ -1808,7 +1808,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1837,7 +1837,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SharedStatusCodeResponse]:
+    ) -> ApiResponse[StatusCodeResponse]:
         """3.15 Delete User Group
 
 
@@ -1874,7 +1874,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1940,7 +1940,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2028,7 +2028,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UserUserGroupsResponse:
+    ) -> UserGroupsResponse:
         """3.12 Fetch All User Groups
 
 
@@ -2062,7 +2062,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserGroupsResponse",
+            '200': "UserGroupsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2090,7 +2090,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UserUserGroupsResponse]:
+    ) -> ApiResponse[UserGroupsResponse]:
         """3.12 Fetch All User Groups
 
 
@@ -2124,7 +2124,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserGroupsResponse",
+            '200': "UserGroupsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2186,7 +2186,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserGroupsResponse",
+            '200': "UserGroupsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2274,7 +2274,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UserUsersResponse:
+    ) -> UsersResponse:
         """3.5 Fetch All Users
 
 
@@ -2317,7 +2317,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUsersResponse",
+            '200': "UsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2348,7 +2348,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UserUsersResponse]:
+    ) -> ApiResponse[UsersResponse]:
         """3.5 Fetch All Users
 
 
@@ -2391,7 +2391,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUsersResponse",
+            '200': "UsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2465,7 +2465,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUsersResponse",
+            '200': "UsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2566,7 +2566,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UserUsersResponse:
+    ) -> UsersResponse:
         """3.19 Fetch All Users in a User Group
 
 
@@ -2603,7 +2603,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUsersResponse",
+            '200': "UsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2632,7 +2632,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UserUsersResponse]:
+    ) -> ApiResponse[UsersResponse]:
         """3.19 Fetch All Users in a User Group
 
 
@@ -2669,7 +2669,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUsersResponse",
+            '200': "UsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2735,7 +2735,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUsersResponse",
+            '200': "UsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2825,7 +2825,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UserUserResponse:
+    ) -> UserResponse:
         """3.4 Fetch User
 
 
@@ -2865,7 +2865,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserResponse",
+            '200': "UserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2895,7 +2895,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UserUserResponse]:
+    ) -> ApiResponse[UserResponse]:
         """3.4 Fetch User
 
 
@@ -2935,7 +2935,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserResponse",
+            '200': "UserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3005,7 +3005,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserResponse",
+            '200': "UserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3100,7 +3100,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AccessPolicyAccessPoliciesResponse:
+    ) -> AccessPoliciesResponse:
         """3.20 Fetch the Access Policies Assigned to a User
 
 
@@ -3140,7 +3140,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccessPolicyAccessPoliciesResponse",
+            '200': "AccessPoliciesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3170,7 +3170,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AccessPolicyAccessPoliciesResponse]:
+    ) -> ApiResponse[AccessPoliciesResponse]:
         """3.20 Fetch the Access Policies Assigned to a User
 
 
@@ -3210,7 +3210,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccessPolicyAccessPoliciesResponse",
+            '200': "AccessPoliciesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3280,7 +3280,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccessPolicyAccessPoliciesResponse",
+            '200': "AccessPoliciesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3374,7 +3374,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AccessPolicyAccessPoliciesResponse:
+    ) -> AccessPoliciesResponse:
         """3.22 Fetch the Access Policies Assigned to a User Group
 
 
@@ -3411,7 +3411,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccessPolicyAccessPoliciesResponse",
+            '200': "AccessPoliciesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3440,7 +3440,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AccessPolicyAccessPoliciesResponse]:
+    ) -> ApiResponse[AccessPoliciesResponse]:
         """3.22 Fetch the Access Policies Assigned to a User Group
 
 
@@ -3477,7 +3477,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccessPolicyAccessPoliciesResponse",
+            '200': "AccessPoliciesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3543,7 +3543,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AccessPolicyAccessPoliciesResponse",
+            '200': "AccessPoliciesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3632,7 +3632,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UserUserGroupResponse:
+    ) -> UserGroupResponse:
         """3.13 Fetch User Group
 
 
@@ -3669,7 +3669,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserGroupResponse",
+            '200': "UserGroupResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3698,7 +3698,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UserUserGroupResponse]:
+    ) -> ApiResponse[UserGroupResponse]:
         """3.13 Fetch User Group
 
 
@@ -3735,7 +3735,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserGroupResponse",
+            '200': "UserGroupResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3801,7 +3801,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserGroupResponse",
+            '200': "UserGroupResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3890,7 +3890,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UserUsersResponse:
+    ) -> UsersResponse:
         """3.18 Fetch Users in a User Group
 
 
@@ -3927,7 +3927,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUsersResponse",
+            '200': "UsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3956,7 +3956,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UserUsersResponse]:
+    ) -> ApiResponse[UsersResponse]:
         """3.18 Fetch Users in a User Group
 
 
@@ -3993,7 +3993,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUsersResponse",
+            '200': "UsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4059,7 +4059,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUsersResponse",
+            '200': "UsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4136,7 +4136,7 @@ class UserApi:
     def unassign_user_from_user_group(
         self,
         id: StrictStr,
-        user_unassign_user_from_user_group_request: UserUnassignUserFromUserGroupRequest,
+        unassign_user_from_user_group_request: UnassignUserFromUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4149,14 +4149,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SharedStatusCodeResponse:
+    ) -> StatusCodeResponse:
         """3.17 Uniassigh User from User Group
 
 
         :param id: (required)
         :type id: str
-        :param user_unassign_user_from_user_group_request: (required)
-        :type user_unassign_user_from_user_group_request: UserUnassignUserFromUserGroupRequest
+        :param unassign_user_from_user_group_request: (required)
+        :type unassign_user_from_user_group_request: UnassignUserFromUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4181,7 +4181,7 @@ class UserApi:
 
         _param = self._unassign_user_from_user_group_serialize(
             id=id,
-            user_unassign_user_from_user_group_request=user_unassign_user_from_user_group_request,
+            unassign_user_from_user_group_request=unassign_user_from_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4189,7 +4189,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4206,7 +4206,7 @@ class UserApi:
     def unassign_user_from_user_group_with_http_info(
         self,
         id: StrictStr,
-        user_unassign_user_from_user_group_request: UserUnassignUserFromUserGroupRequest,
+        unassign_user_from_user_group_request: UnassignUserFromUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4219,14 +4219,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SharedStatusCodeResponse]:
+    ) -> ApiResponse[StatusCodeResponse]:
         """3.17 Uniassigh User from User Group
 
 
         :param id: (required)
         :type id: str
-        :param user_unassign_user_from_user_group_request: (required)
-        :type user_unassign_user_from_user_group_request: UserUnassignUserFromUserGroupRequest
+        :param unassign_user_from_user_group_request: (required)
+        :type unassign_user_from_user_group_request: UnassignUserFromUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4251,7 +4251,7 @@ class UserApi:
 
         _param = self._unassign_user_from_user_group_serialize(
             id=id,
-            user_unassign_user_from_user_group_request=user_unassign_user_from_user_group_request,
+            unassign_user_from_user_group_request=unassign_user_from_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4259,7 +4259,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4276,7 +4276,7 @@ class UserApi:
     def unassign_user_from_user_group_without_preload_content(
         self,
         id: StrictStr,
-        user_unassign_user_from_user_group_request: UserUnassignUserFromUserGroupRequest,
+        unassign_user_from_user_group_request: UnassignUserFromUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4295,8 +4295,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param user_unassign_user_from_user_group_request: (required)
-        :type user_unassign_user_from_user_group_request: UserUnassignUserFromUserGroupRequest
+        :param unassign_user_from_user_group_request: (required)
+        :type unassign_user_from_user_group_request: UnassignUserFromUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4321,7 +4321,7 @@ class UserApi:
 
         _param = self._unassign_user_from_user_group_serialize(
             id=id,
-            user_unassign_user_from_user_group_request=user_unassign_user_from_user_group_request,
+            unassign_user_from_user_group_request=unassign_user_from_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4329,7 +4329,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4341,7 +4341,7 @@ class UserApi:
     def _unassign_user_from_user_group_serialize(
         self,
         id,
-        user_unassign_user_from_user_group_request,
+        unassign_user_from_user_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -4369,8 +4369,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if user_unassign_user_from_user_group_request is not None:
-            _body_params = user_unassign_user_from_user_group_request
+        if unassign_user_from_user_group_request is not None:
+            _body_params = unassign_user_from_user_group_request
 
 
         # set the HTTP header `Accept`
@@ -4435,7 +4435,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SharedStatusCodeResponse:
+    ) -> StatusCodeResponse:
         """3.8 Unassign NFC Card from User
 
 
@@ -4475,7 +4475,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4505,7 +4505,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SharedStatusCodeResponse]:
+    ) -> ApiResponse[StatusCodeResponse]:
         """3.8 Unassign NFC Card from User
 
 
@@ -4545,7 +4545,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4615,7 +4615,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4709,7 +4709,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SharedStatusCodeResponse:
+    ) -> StatusCodeResponse:
         """3.10 Unassign PIN Code from user
 
 
@@ -4746,7 +4746,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4775,7 +4775,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SharedStatusCodeResponse]:
+    ) -> ApiResponse[StatusCodeResponse]:
         """3.10 Unassign PIN Code from user
 
 
@@ -4812,7 +4812,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4878,7 +4878,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4955,7 +4955,7 @@ class UserApi:
     def update_user(
         self,
         id: StrictStr,
-        user_update_user_request: UserUpdateUserRequest,
+        update_user_request: UpdateUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4968,14 +4968,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UserUserResponse:
+    ) -> UserResponse:
         """3.3 Update User
 
 
         :param id: (required)
         :type id: str
-        :param user_update_user_request: (required)
-        :type user_update_user_request: UserUpdateUserRequest
+        :param update_user_request: (required)
+        :type update_user_request: UpdateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5000,7 +5000,7 @@ class UserApi:
 
         _param = self._update_user_serialize(
             id=id,
-            user_update_user_request=user_update_user_request,
+            update_user_request=update_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5008,7 +5008,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserResponse",
+            '200': "UserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5025,7 +5025,7 @@ class UserApi:
     def update_user_with_http_info(
         self,
         id: StrictStr,
-        user_update_user_request: UserUpdateUserRequest,
+        update_user_request: UpdateUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5038,14 +5038,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UserUserResponse]:
+    ) -> ApiResponse[UserResponse]:
         """3.3 Update User
 
 
         :param id: (required)
         :type id: str
-        :param user_update_user_request: (required)
-        :type user_update_user_request: UserUpdateUserRequest
+        :param update_user_request: (required)
+        :type update_user_request: UpdateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5070,7 +5070,7 @@ class UserApi:
 
         _param = self._update_user_serialize(
             id=id,
-            user_update_user_request=user_update_user_request,
+            update_user_request=update_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5078,7 +5078,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserResponse",
+            '200': "UserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5095,7 +5095,7 @@ class UserApi:
     def update_user_without_preload_content(
         self,
         id: StrictStr,
-        user_update_user_request: UserUpdateUserRequest,
+        update_user_request: UpdateUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5114,8 +5114,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param user_update_user_request: (required)
-        :type user_update_user_request: UserUpdateUserRequest
+        :param update_user_request: (required)
+        :type update_user_request: UpdateUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5140,7 +5140,7 @@ class UserApi:
 
         _param = self._update_user_serialize(
             id=id,
-            user_update_user_request=user_update_user_request,
+            update_user_request=update_user_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5148,7 +5148,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserUserResponse",
+            '200': "UserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5160,7 +5160,7 @@ class UserApi:
     def _update_user_serialize(
         self,
         id,
-        user_update_user_request,
+        update_user_request,
         _request_auth,
         _content_type,
         _headers,
@@ -5188,8 +5188,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if user_update_user_request is not None:
-            _body_params = user_update_user_request
+        if update_user_request is not None:
+            _body_params = update_user_request
 
 
         # set the HTTP header `Accept`
@@ -5241,7 +5241,7 @@ class UserApi:
     def update_user_group(
         self,
         id: StrictStr,
-        user_update_user_group_request: UserUpdateUserGroupRequest,
+        update_user_group_request: UpdateUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5254,14 +5254,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SharedStatusCodeResponse:
+    ) -> StatusCodeResponse:
         """3.14 Update User Group
 
 
         :param id: (required)
         :type id: str
-        :param user_update_user_group_request: (required)
-        :type user_update_user_group_request: UserUpdateUserGroupRequest
+        :param update_user_group_request: (required)
+        :type update_user_group_request: UpdateUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5286,7 +5286,7 @@ class UserApi:
 
         _param = self._update_user_group_serialize(
             id=id,
-            user_update_user_group_request=user_update_user_group_request,
+            update_user_group_request=update_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5294,7 +5294,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5311,7 +5311,7 @@ class UserApi:
     def update_user_group_with_http_info(
         self,
         id: StrictStr,
-        user_update_user_group_request: UserUpdateUserGroupRequest,
+        update_user_group_request: UpdateUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5324,14 +5324,14 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SharedStatusCodeResponse]:
+    ) -> ApiResponse[StatusCodeResponse]:
         """3.14 Update User Group
 
 
         :param id: (required)
         :type id: str
-        :param user_update_user_group_request: (required)
-        :type user_update_user_group_request: UserUpdateUserGroupRequest
+        :param update_user_group_request: (required)
+        :type update_user_group_request: UpdateUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5356,7 +5356,7 @@ class UserApi:
 
         _param = self._update_user_group_serialize(
             id=id,
-            user_update_user_group_request=user_update_user_group_request,
+            update_user_group_request=update_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5364,7 +5364,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5381,7 +5381,7 @@ class UserApi:
     def update_user_group_without_preload_content(
         self,
         id: StrictStr,
-        user_update_user_group_request: UserUpdateUserGroupRequest,
+        update_user_group_request: UpdateUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5400,8 +5400,8 @@ class UserApi:
 
         :param id: (required)
         :type id: str
-        :param user_update_user_group_request: (required)
-        :type user_update_user_group_request: UserUpdateUserGroupRequest
+        :param update_user_group_request: (required)
+        :type update_user_group_request: UpdateUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5426,7 +5426,7 @@ class UserApi:
 
         _param = self._update_user_group_serialize(
             id=id,
-            user_update_user_group_request=user_update_user_group_request,
+            update_user_group_request=update_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5434,7 +5434,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5446,7 +5446,7 @@ class UserApi:
     def _update_user_group_serialize(
         self,
         id,
-        user_update_user_group_request,
+        update_user_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -5474,8 +5474,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if user_update_user_group_request is not None:
-            _body_params = user_update_user_group_request
+        if update_user_group_request is not None:
+            _body_params = update_user_group_request
 
 
         # set the HTTP header `Accept`
@@ -5526,7 +5526,7 @@ class UserApi:
     @validate_call
     def user_groups_post(
         self,
-        user_create_user_group_request: UserCreateUserGroupRequest,
+        create_user_group_request: CreateUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5539,12 +5539,12 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SharedStatusCodeResponse:
+    ) -> StatusCodeResponse:
         """3.11 Create User Group
 
 
-        :param user_create_user_group_request: (required)
-        :type user_create_user_group_request: UserCreateUserGroupRequest
+        :param create_user_group_request: (required)
+        :type create_user_group_request: CreateUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5568,7 +5568,7 @@ class UserApi:
         """ # noqa: E501
 
         _param = self._user_groups_post_serialize(
-            user_create_user_group_request=user_create_user_group_request,
+            create_user_group_request=create_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5576,7 +5576,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5592,7 +5592,7 @@ class UserApi:
     @validate_call
     def user_groups_post_with_http_info(
         self,
-        user_create_user_group_request: UserCreateUserGroupRequest,
+        create_user_group_request: CreateUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5605,12 +5605,12 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SharedStatusCodeResponse]:
+    ) -> ApiResponse[StatusCodeResponse]:
         """3.11 Create User Group
 
 
-        :param user_create_user_group_request: (required)
-        :type user_create_user_group_request: UserCreateUserGroupRequest
+        :param create_user_group_request: (required)
+        :type create_user_group_request: CreateUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5634,7 +5634,7 @@ class UserApi:
         """ # noqa: E501
 
         _param = self._user_groups_post_serialize(
-            user_create_user_group_request=user_create_user_group_request,
+            create_user_group_request=create_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5642,7 +5642,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5658,7 +5658,7 @@ class UserApi:
     @validate_call
     def user_groups_post_without_preload_content(
         self,
-        user_create_user_group_request: UserCreateUserGroupRequest,
+        create_user_group_request: CreateUserGroupRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5675,8 +5675,8 @@ class UserApi:
         """3.11 Create User Group
 
 
-        :param user_create_user_group_request: (required)
-        :type user_create_user_group_request: UserCreateUserGroupRequest
+        :param create_user_group_request: (required)
+        :type create_user_group_request: CreateUserGroupRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5700,7 +5700,7 @@ class UserApi:
         """ # noqa: E501
 
         _param = self._user_groups_post_serialize(
-            user_create_user_group_request=user_create_user_group_request,
+            create_user_group_request=create_user_group_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5708,7 +5708,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5719,7 +5719,7 @@ class UserApi:
 
     def _user_groups_post_serialize(
         self,
-        user_create_user_group_request,
+        create_user_group_request,
         _request_auth,
         _content_type,
         _headers,
@@ -5745,8 +5745,8 @@ class UserApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if user_create_user_group_request is not None:
-            _body_params = user_create_user_group_request
+        if create_user_group_request is not None:
+            _body_params = create_user_group_request
 
 
         # set the HTTP header `Accept`

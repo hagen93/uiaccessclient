@@ -10,4 +10,4 @@
         content:
           application/json:
             schema:
-              $ref: transports/DeviceDevicesResponse.yaml
+              $ref: transports/DevicesResponse.yaml

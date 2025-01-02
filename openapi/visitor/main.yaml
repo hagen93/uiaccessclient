@@ -8,7 +8,7 @@
       content:
         application/json:
           schema:
-            $ref: transports/VisitorCreateVisitorRequest.yaml
+            $ref: transports/CreateVisitorRequest.yaml
       required: true
     responses:
       '200':
@@ -16,7 +16,7 @@
         content:
           application/json:
             schema:
-              $ref: transports/VisitorVisitorResponse.yaml
+              $ref: transports/VisitorResponse.yaml
 
   get:
     tags:
@@ -68,7 +68,7 @@
         content:
           application/json:
             schema:
-              $ref: transports/VisitorVisitorsResponse.yaml
+              $ref: transports/VisitorsResponse.yaml
 
 /visitors/{id}:
   get:
@@ -89,7 +89,7 @@
         content:
           application/json:
             schema:
-              $ref: transports/VisitorVisitorResponse.yaml
+              $ref: transports/VisitorResponse.yaml
 
   put:
     tags:
@@ -106,7 +106,7 @@
       content:
         application/json:
           schema:
-            $ref: transports/VisitorUpdateVisitorRequest.yaml
+            $ref: transports/UpdateVisitorRequest.yaml
       required: true
     responses:
       '200':
@@ -114,7 +114,7 @@
         content:
           application/json:
             schema:
-              $ref: transports/VisitorVisitorResponse.yaml
+              $ref: transports/VisitorResponse.yaml
 
   delete:
     tags:
@@ -133,7 +133,7 @@
         content:
           application/json:
             schema:
-              $ref: transports/VisitorVisitorResponse.yaml
+              $ref: transports/VisitorResponse.yaml
 
 /visitors/{id}/nfc_cards:
   put:
@@ -153,7 +153,7 @@
         content:
           application/json:
             schema:
-              $ref: ../shared/SharedStatusCodeResponse.yaml
+              $ref: ../common/StatusCodeResponse.yaml
 
 /visitors/{id}/nfc_cards/delete:
   put:
@@ -171,7 +171,7 @@
       content:
         application/json:
           schema:
-            $ref: transports/VisitorUnassignVisitorNfcCardRequest.yaml
+            $ref: transports/UnassignVisitorNfcCardRequest.yaml
       required: true
     responses:
       '200':
@@ -179,7 +179,7 @@
         content:
           application/json:
             schema:
-              $ref: ../shared/SharedStatusCodeResponse.yaml
+              $ref: ../common/StatusCodeResponse.yaml
 
 /visitors/{id}/pin_codes:
   put:
@@ -197,7 +197,7 @@
       content:
         application/json:
           schema:
-            $ref: transports/VisitorAssignVisitorPinCodeRequest.yaml
+            $ref: transports/AssignVisitorPinCodeRequest.yaml
       required: true
     responses:
       '200':
@@ -205,7 +205,7 @@
         content:
           application/json:
             schema:
-              $ref: ../shared/SharedStatusCodeResponse.yaml
+              $ref: ../common/StatusCodeResponse.yaml
 
   delete:
     tags:
@@ -225,4 +225,4 @@
         content:
           application/json:
             schema:
-              $ref: ../shared/SharedStatusCodeResponse.yaml
+              $ref: ../common/StatusCodeResponse.yaml

@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from uiaccessclient.models.uni_fi_identity_resource import UniFiIdentityResource
+from uiaccessclient.models.uni_fi_identity_resource_list_resources_inner import UniFiIdentityResourceListResourcesInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UniFiIdentityResourceList(BaseModel):
     """
     UniFiIdentityResourceList
     """ # noqa: E501
-    resources: Optional[List[UniFiIdentityResource]] = None
+    resources: Optional[List[UniFiIdentityResourceListResourcesInner]] = None
     __properties: ClassVar[List[str]] = ["resources"]
 
     model_config = ConfigDict(
@@ -88,7 +88,7 @@ class UniFiIdentityResourceList(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "resources": [UniFiIdentityResource.from_dict(_item) for _item in obj["resources"]] if obj.get("resources") is not None else None
+            "resources": [UniFiIdentityResourceListResourcesInner.from_dict(_item) for _item in obj["resources"]] if obj.get("resources") is not None else None
         })
         return _obj
 

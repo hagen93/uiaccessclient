@@ -1,0 +1,51 @@
+type: object
+properties:
+  actor:
+    type: object
+    properties:
+      alternative_id:
+        type: string
+      alternative_name:
+        type: string
+      display_name:
+        type: string
+      id:
+        type: string
+      type:
+        type: string
+  event:
+    type: object
+    properties:
+      display_message:
+        type: string
+      published:
+        type: integer
+        format: int32
+      reason:
+        type: string
+      result:
+        type: string
+      type:
+        type: string
+  authentication:
+    type: object
+    properties:
+      credential_provider:
+        type: string
+      issuer:
+        type: string
+  target:
+    type: array
+    items:
+      type: object
+      properties:
+        alternative_id:
+          type: string
+        alternative_name:
+          type: string
+        display_name:
+          type: string
+        id:
+          type: string
+        type:
+          type: string

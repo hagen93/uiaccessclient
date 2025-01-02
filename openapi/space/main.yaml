@@ -31,7 +31,7 @@
       content:
         application/json:
           schema:
-            $ref: transports/SpaceCreateDoorGroupRequest.yaml
+            $ref: transports/CreateDoorGroupRequest.yaml
       required: true
     responses:
       '200':
@@ -89,7 +89,7 @@
       content:
         application/json:
           schema:
-            $ref: transports/SpaceUpdateDoorGroupRequest.yaml
+            $ref: transports/UpdateDoorGroupRequest.yaml
       required: true
     responses:
       '200':
@@ -136,7 +136,7 @@
         content:
           application/json:
             schema:
-              $ref: transports/SpaceDoorResponse.yaml
+              $ref: transports/DoorResponse.yaml
 
 /doors:
   get:
@@ -150,7 +150,7 @@
         content:
           application/json:
             schema:
-              $ref: transports/SpaceDoorsResponse.yaml
+              $ref: transports/DoorsResponse.yaml
 
 /doors/{id}/unlock:
   put:
@@ -170,7 +170,7 @@
         content:
           application/json:
             schema:
-              $ref: transports/SpaceDoorStatusResponse.yaml
+              $ref: transports/DoorStatusResponse.yaml
 
 /doors/{id}/lock_rule:
   put:
@@ -188,7 +188,7 @@
       content:
         application/json:
           schema:
-            $ref: transports/SpaceSetTemporaryDoorLockingRuleRequest.yaml
+            $ref: transports/SetTemporaryDoorLockingRuleRequest.yaml
       required: true
     responses:
       '200':
@@ -196,7 +196,7 @@
         content:
           application/json:
             schema:
-              $ref: transports/SpaceDoorStatusResponse.yaml
+              $ref: transports/DoorStatusResponse.yaml
 
   get:
     tags:
@@ -237,7 +237,7 @@
         content:
           application/json:
             schema:
-              $ref: transports/SpaceDoorLockingRuleResponse.yaml
+              $ref: transports/DoorLockingRuleResponse.yaml
 
 /doors/settings/emergency:
   put:
@@ -249,7 +249,7 @@
       content:
         application/json:
           schema:
-            $ref: transports/SpaceSetDoorEmergencyStatusRequest.yaml
+            $ref: transports/SetDoorEmergencyStatusRequest.yaml
       required: true
     responses:
       '200':
@@ -257,7 +257,7 @@
         content:
           application/json:
             schema:
-              $ref: transports/SpaceDoorStatusResponse.yaml
+              $ref: transports/DoorStatusResponse.yaml
 
   get:
     tags:
@@ -281,4 +281,4 @@
         content:
           application/json:
             schema:
-              $ref: transports/SpaceDoorEmergencyStatusResponse.yaml
+              $ref: transports/DoorEmergencyStatusResponse.yaml

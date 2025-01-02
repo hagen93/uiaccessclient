@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from uiaccessclient.models.device_devices_response import DeviceDevicesResponse
+from uiaccessclient.models.devices_response import DevicesResponse
 
 from uiaccessclient.api_client import ApiClient, RequestSerialized
 from uiaccessclient.api_response import ApiResponse
@@ -51,7 +51,7 @@ class DeviceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeviceDevicesResponse:
+    ) -> DevicesResponse:
         """8.1 Fetch Devices
 
 
@@ -85,7 +85,7 @@ class DeviceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeviceDevicesResponse",
+            '200': "DevicesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -113,7 +113,7 @@ class DeviceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeviceDevicesResponse]:
+    ) -> ApiResponse[DevicesResponse]:
         """8.1 Fetch Devices
 
 
@@ -147,7 +147,7 @@ class DeviceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeviceDevicesResponse",
+            '200': "DevicesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -209,7 +209,7 @@ class DeviceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeviceDevicesResponse",
+            '200': "DevicesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

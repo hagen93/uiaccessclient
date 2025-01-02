@@ -45,7 +45,7 @@
         content:
           application/json:
             schema:
-              $ref: transports/SystemLogFetchSystemLogsResponse.yaml
+              $ref: transports/FetchSystemLogsResponse.yaml
 
 /system/logs/export:
   post:
@@ -57,7 +57,7 @@
       content:
         application/json:
           schema:
-            $ref: transports/SystemLogExportSystemLogsRequest.yaml
+            $ref: transports/ExportSystemLogsRequest.yaml
       required: true
     responses:
       '200':
@@ -65,7 +65,7 @@
         content:
           application/json:
             schema:
-              $ref: transports/SystemLogExportSystemLogsResponse.yaml
+              $ref: transports/ExportSystemLogsResponse.yaml
 
 /system/logs/resource/{id}:
   get:
@@ -89,7 +89,7 @@
         content:
           application/json:
             schema:
-              $ref: transports/SystemLogFetchResourcesInSystemLogsResponse.yaml
+              $ref: transports/FetchResourcesInSystemLogsResponse.yaml
 
 /system/static/{path}:
   get:
@@ -111,4 +111,4 @@
         content:
           application/json:
             schema:
-              $ref: transports/SystemLogFetchStaticResourcesInSystemLogsResponse.yaml
+              $ref: transports/FetchStaticResourcesInSystemLogsResponse.yaml

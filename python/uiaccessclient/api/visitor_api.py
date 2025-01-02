@@ -19,13 +19,13 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
-from uiaccessclient.models.shared_status_code_response import SharedStatusCodeResponse
-from uiaccessclient.models.visitor_assign_visitor_pin_code_request import VisitorAssignVisitorPinCodeRequest
-from uiaccessclient.models.visitor_create_visitor_request import VisitorCreateVisitorRequest
-from uiaccessclient.models.visitor_unassign_visitor_nfc_card_request import VisitorUnassignVisitorNfcCardRequest
-from uiaccessclient.models.visitor_update_visitor_request import VisitorUpdateVisitorRequest
-from uiaccessclient.models.visitor_visitor_response import VisitorVisitorResponse
-from uiaccessclient.models.visitor_visitors_response import VisitorVisitorsResponse
+from uiaccessclient.models.assign_visitor_pin_code_request import AssignVisitorPinCodeRequest
+from uiaccessclient.models.create_visitor_request import CreateVisitorRequest
+from uiaccessclient.models.status_code_response import StatusCodeResponse
+from uiaccessclient.models.unassign_visitor_nfc_card_request import UnassignVisitorNfcCardRequest
+from uiaccessclient.models.update_visitor_request import UpdateVisitorRequest
+from uiaccessclient.models.visitor_response import VisitorResponse
+from uiaccessclient.models.visitors_response import VisitorsResponse
 
 from uiaccessclient.api_client import ApiClient, RequestSerialized
 from uiaccessclient.api_response import ApiResponse
@@ -61,7 +61,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SharedStatusCodeResponse:
+    ) -> StatusCodeResponse:
         """4.7 Assign Visitor NFC Card
 
 
@@ -98,7 +98,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -127,7 +127,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SharedStatusCodeResponse]:
+    ) -> ApiResponse[StatusCodeResponse]:
         """4.7 Assign Visitor NFC Card
 
 
@@ -164,7 +164,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -230,7 +230,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -307,7 +307,7 @@ class VisitorApi:
     def assign_visitor_pin_code(
         self,
         id: StrictStr,
-        visitor_assign_visitor_pin_code_request: VisitorAssignVisitorPinCodeRequest,
+        assign_visitor_pin_code_request: AssignVisitorPinCodeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -320,14 +320,14 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SharedStatusCodeResponse:
+    ) -> StatusCodeResponse:
         """4.9 Assign Visitor Pin Code
 
 
         :param id: (required)
         :type id: str
-        :param visitor_assign_visitor_pin_code_request: (required)
-        :type visitor_assign_visitor_pin_code_request: VisitorAssignVisitorPinCodeRequest
+        :param assign_visitor_pin_code_request: (required)
+        :type assign_visitor_pin_code_request: AssignVisitorPinCodeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -352,7 +352,7 @@ class VisitorApi:
 
         _param = self._assign_visitor_pin_code_serialize(
             id=id,
-            visitor_assign_visitor_pin_code_request=visitor_assign_visitor_pin_code_request,
+            assign_visitor_pin_code_request=assign_visitor_pin_code_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -360,7 +360,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -377,7 +377,7 @@ class VisitorApi:
     def assign_visitor_pin_code_with_http_info(
         self,
         id: StrictStr,
-        visitor_assign_visitor_pin_code_request: VisitorAssignVisitorPinCodeRequest,
+        assign_visitor_pin_code_request: AssignVisitorPinCodeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -390,14 +390,14 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SharedStatusCodeResponse]:
+    ) -> ApiResponse[StatusCodeResponse]:
         """4.9 Assign Visitor Pin Code
 
 
         :param id: (required)
         :type id: str
-        :param visitor_assign_visitor_pin_code_request: (required)
-        :type visitor_assign_visitor_pin_code_request: VisitorAssignVisitorPinCodeRequest
+        :param assign_visitor_pin_code_request: (required)
+        :type assign_visitor_pin_code_request: AssignVisitorPinCodeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -422,7 +422,7 @@ class VisitorApi:
 
         _param = self._assign_visitor_pin_code_serialize(
             id=id,
-            visitor_assign_visitor_pin_code_request=visitor_assign_visitor_pin_code_request,
+            assign_visitor_pin_code_request=assign_visitor_pin_code_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -430,7 +430,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -447,7 +447,7 @@ class VisitorApi:
     def assign_visitor_pin_code_without_preload_content(
         self,
         id: StrictStr,
-        visitor_assign_visitor_pin_code_request: VisitorAssignVisitorPinCodeRequest,
+        assign_visitor_pin_code_request: AssignVisitorPinCodeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -466,8 +466,8 @@ class VisitorApi:
 
         :param id: (required)
         :type id: str
-        :param visitor_assign_visitor_pin_code_request: (required)
-        :type visitor_assign_visitor_pin_code_request: VisitorAssignVisitorPinCodeRequest
+        :param assign_visitor_pin_code_request: (required)
+        :type assign_visitor_pin_code_request: AssignVisitorPinCodeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -492,7 +492,7 @@ class VisitorApi:
 
         _param = self._assign_visitor_pin_code_serialize(
             id=id,
-            visitor_assign_visitor_pin_code_request=visitor_assign_visitor_pin_code_request,
+            assign_visitor_pin_code_request=assign_visitor_pin_code_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -500,7 +500,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -512,7 +512,7 @@ class VisitorApi:
     def _assign_visitor_pin_code_serialize(
         self,
         id,
-        visitor_assign_visitor_pin_code_request,
+        assign_visitor_pin_code_request,
         _request_auth,
         _content_type,
         _headers,
@@ -540,8 +540,8 @@ class VisitorApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if visitor_assign_visitor_pin_code_request is not None:
-            _body_params = visitor_assign_visitor_pin_code_request
+        if assign_visitor_pin_code_request is not None:
+            _body_params = assign_visitor_pin_code_request
 
 
         # set the HTTP header `Accept`
@@ -592,7 +592,7 @@ class VisitorApi:
     @validate_call
     def create_visitor(
         self,
-        visitor_create_visitor_request: VisitorCreateVisitorRequest,
+        create_visitor_request: CreateVisitorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -605,12 +605,12 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> VisitorVisitorResponse:
+    ) -> VisitorResponse:
         """4.2 Create a new visitor
 
 
-        :param visitor_create_visitor_request: (required)
-        :type visitor_create_visitor_request: VisitorCreateVisitorRequest
+        :param create_visitor_request: (required)
+        :type create_visitor_request: CreateVisitorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -634,7 +634,7 @@ class VisitorApi:
         """ # noqa: E501
 
         _param = self._create_visitor_serialize(
-            visitor_create_visitor_request=visitor_create_visitor_request,
+            create_visitor_request=create_visitor_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -642,7 +642,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VisitorVisitorResponse",
+            '200': "VisitorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -658,7 +658,7 @@ class VisitorApi:
     @validate_call
     def create_visitor_with_http_info(
         self,
-        visitor_create_visitor_request: VisitorCreateVisitorRequest,
+        create_visitor_request: CreateVisitorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -671,12 +671,12 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[VisitorVisitorResponse]:
+    ) -> ApiResponse[VisitorResponse]:
         """4.2 Create a new visitor
 
 
-        :param visitor_create_visitor_request: (required)
-        :type visitor_create_visitor_request: VisitorCreateVisitorRequest
+        :param create_visitor_request: (required)
+        :type create_visitor_request: CreateVisitorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -700,7 +700,7 @@ class VisitorApi:
         """ # noqa: E501
 
         _param = self._create_visitor_serialize(
-            visitor_create_visitor_request=visitor_create_visitor_request,
+            create_visitor_request=create_visitor_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -708,7 +708,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VisitorVisitorResponse",
+            '200': "VisitorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -724,7 +724,7 @@ class VisitorApi:
     @validate_call
     def create_visitor_without_preload_content(
         self,
-        visitor_create_visitor_request: VisitorCreateVisitorRequest,
+        create_visitor_request: CreateVisitorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -741,8 +741,8 @@ class VisitorApi:
         """4.2 Create a new visitor
 
 
-        :param visitor_create_visitor_request: (required)
-        :type visitor_create_visitor_request: VisitorCreateVisitorRequest
+        :param create_visitor_request: (required)
+        :type create_visitor_request: CreateVisitorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -766,7 +766,7 @@ class VisitorApi:
         """ # noqa: E501
 
         _param = self._create_visitor_serialize(
-            visitor_create_visitor_request=visitor_create_visitor_request,
+            create_visitor_request=create_visitor_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -774,7 +774,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VisitorVisitorResponse",
+            '200': "VisitorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -785,7 +785,7 @@ class VisitorApi:
 
     def _create_visitor_serialize(
         self,
-        visitor_create_visitor_request,
+        create_visitor_request,
         _request_auth,
         _content_type,
         _headers,
@@ -811,8 +811,8 @@ class VisitorApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if visitor_create_visitor_request is not None:
-            _body_params = visitor_create_visitor_request
+        if create_visitor_request is not None:
+            _body_params = create_visitor_request
 
 
         # set the HTTP header `Accept`
@@ -876,7 +876,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> VisitorVisitorResponse:
+    ) -> VisitorResponse:
         """4.6 Delete a visitor by ID
 
 
@@ -913,7 +913,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VisitorVisitorResponse",
+            '200': "VisitorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -942,7 +942,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[VisitorVisitorResponse]:
+    ) -> ApiResponse[VisitorResponse]:
         """4.6 Delete a visitor by ID
 
 
@@ -979,7 +979,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VisitorVisitorResponse",
+            '200': "VisitorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1045,7 +1045,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VisitorVisitorResponse",
+            '200': "VisitorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1138,7 +1138,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> VisitorVisitorsResponse:
+    ) -> VisitorsResponse:
         """4.4 Fetch all visitors
 
 
@@ -1187,7 +1187,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VisitorVisitorsResponse",
+            '200': "VisitorsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1220,7 +1220,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[VisitorVisitorsResponse]:
+    ) -> ApiResponse[VisitorsResponse]:
         """4.4 Fetch all visitors
 
 
@@ -1269,7 +1269,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VisitorVisitorsResponse",
+            '200': "VisitorsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1351,7 +1351,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VisitorVisitorsResponse",
+            '200': "VisitorsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1463,7 +1463,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> VisitorVisitorResponse:
+    ) -> VisitorResponse:
         """4.3 Fetch visitor details by ID
 
 
@@ -1500,7 +1500,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VisitorVisitorResponse",
+            '200': "VisitorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1529,7 +1529,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[VisitorVisitorResponse]:
+    ) -> ApiResponse[VisitorResponse]:
         """4.3 Fetch visitor details by ID
 
 
@@ -1566,7 +1566,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VisitorVisitorResponse",
+            '200': "VisitorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1632,7 +1632,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VisitorVisitorResponse",
+            '200': "VisitorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1709,7 +1709,7 @@ class VisitorApi:
     def unassign_visitor_nfc_card(
         self,
         id: StrictStr,
-        visitor_unassign_visitor_nfc_card_request: VisitorUnassignVisitorNfcCardRequest,
+        unassign_visitor_nfc_card_request: UnassignVisitorNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1722,14 +1722,14 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SharedStatusCodeResponse:
+    ) -> StatusCodeResponse:
         """4.8 Unassign Visitor NFC Card
 
 
         :param id: (required)
         :type id: str
-        :param visitor_unassign_visitor_nfc_card_request: (required)
-        :type visitor_unassign_visitor_nfc_card_request: VisitorUnassignVisitorNfcCardRequest
+        :param unassign_visitor_nfc_card_request: (required)
+        :type unassign_visitor_nfc_card_request: UnassignVisitorNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1754,7 +1754,7 @@ class VisitorApi:
 
         _param = self._unassign_visitor_nfc_card_serialize(
             id=id,
-            visitor_unassign_visitor_nfc_card_request=visitor_unassign_visitor_nfc_card_request,
+            unassign_visitor_nfc_card_request=unassign_visitor_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1762,7 +1762,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1779,7 +1779,7 @@ class VisitorApi:
     def unassign_visitor_nfc_card_with_http_info(
         self,
         id: StrictStr,
-        visitor_unassign_visitor_nfc_card_request: VisitorUnassignVisitorNfcCardRequest,
+        unassign_visitor_nfc_card_request: UnassignVisitorNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1792,14 +1792,14 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SharedStatusCodeResponse]:
+    ) -> ApiResponse[StatusCodeResponse]:
         """4.8 Unassign Visitor NFC Card
 
 
         :param id: (required)
         :type id: str
-        :param visitor_unassign_visitor_nfc_card_request: (required)
-        :type visitor_unassign_visitor_nfc_card_request: VisitorUnassignVisitorNfcCardRequest
+        :param unassign_visitor_nfc_card_request: (required)
+        :type unassign_visitor_nfc_card_request: UnassignVisitorNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1824,7 +1824,7 @@ class VisitorApi:
 
         _param = self._unassign_visitor_nfc_card_serialize(
             id=id,
-            visitor_unassign_visitor_nfc_card_request=visitor_unassign_visitor_nfc_card_request,
+            unassign_visitor_nfc_card_request=unassign_visitor_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1832,7 +1832,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1849,7 +1849,7 @@ class VisitorApi:
     def unassign_visitor_nfc_card_without_preload_content(
         self,
         id: StrictStr,
-        visitor_unassign_visitor_nfc_card_request: VisitorUnassignVisitorNfcCardRequest,
+        unassign_visitor_nfc_card_request: UnassignVisitorNfcCardRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1868,8 +1868,8 @@ class VisitorApi:
 
         :param id: (required)
         :type id: str
-        :param visitor_unassign_visitor_nfc_card_request: (required)
-        :type visitor_unassign_visitor_nfc_card_request: VisitorUnassignVisitorNfcCardRequest
+        :param unassign_visitor_nfc_card_request: (required)
+        :type unassign_visitor_nfc_card_request: UnassignVisitorNfcCardRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1894,7 +1894,7 @@ class VisitorApi:
 
         _param = self._unassign_visitor_nfc_card_serialize(
             id=id,
-            visitor_unassign_visitor_nfc_card_request=visitor_unassign_visitor_nfc_card_request,
+            unassign_visitor_nfc_card_request=unassign_visitor_nfc_card_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1902,7 +1902,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1914,7 +1914,7 @@ class VisitorApi:
     def _unassign_visitor_nfc_card_serialize(
         self,
         id,
-        visitor_unassign_visitor_nfc_card_request,
+        unassign_visitor_nfc_card_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1942,8 +1942,8 @@ class VisitorApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if visitor_unassign_visitor_nfc_card_request is not None:
-            _body_params = visitor_unassign_visitor_nfc_card_request
+        if unassign_visitor_nfc_card_request is not None:
+            _body_params = unassign_visitor_nfc_card_request
 
 
         # set the HTTP header `Accept`
@@ -2007,7 +2007,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SharedStatusCodeResponse:
+    ) -> StatusCodeResponse:
         """4.10 Unassisgn Visitor Pin Code
 
 
@@ -2044,7 +2044,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2073,7 +2073,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SharedStatusCodeResponse]:
+    ) -> ApiResponse[StatusCodeResponse]:
         """4.10 Unassisgn Visitor Pin Code
 
 
@@ -2110,7 +2110,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2176,7 +2176,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SharedStatusCodeResponse",
+            '200': "StatusCodeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2253,7 +2253,7 @@ class VisitorApi:
     def update_visitor(
         self,
         id: StrictStr,
-        visitor_update_visitor_request: VisitorUpdateVisitorRequest,
+        update_visitor_request: UpdateVisitorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2266,14 +2266,14 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> VisitorVisitorResponse:
+    ) -> VisitorResponse:
         """4.5 Update a visitor by ID
 
 
         :param id: (required)
         :type id: str
-        :param visitor_update_visitor_request: (required)
-        :type visitor_update_visitor_request: VisitorUpdateVisitorRequest
+        :param update_visitor_request: (required)
+        :type update_visitor_request: UpdateVisitorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2298,7 +2298,7 @@ class VisitorApi:
 
         _param = self._update_visitor_serialize(
             id=id,
-            visitor_update_visitor_request=visitor_update_visitor_request,
+            update_visitor_request=update_visitor_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2306,7 +2306,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VisitorVisitorResponse",
+            '200': "VisitorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2323,7 +2323,7 @@ class VisitorApi:
     def update_visitor_with_http_info(
         self,
         id: StrictStr,
-        visitor_update_visitor_request: VisitorUpdateVisitorRequest,
+        update_visitor_request: UpdateVisitorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2336,14 +2336,14 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[VisitorVisitorResponse]:
+    ) -> ApiResponse[VisitorResponse]:
         """4.5 Update a visitor by ID
 
 
         :param id: (required)
         :type id: str
-        :param visitor_update_visitor_request: (required)
-        :type visitor_update_visitor_request: VisitorUpdateVisitorRequest
+        :param update_visitor_request: (required)
+        :type update_visitor_request: UpdateVisitorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2368,7 +2368,7 @@ class VisitorApi:
 
         _param = self._update_visitor_serialize(
             id=id,
-            visitor_update_visitor_request=visitor_update_visitor_request,
+            update_visitor_request=update_visitor_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2376,7 +2376,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VisitorVisitorResponse",
+            '200': "VisitorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2393,7 +2393,7 @@ class VisitorApi:
     def update_visitor_without_preload_content(
         self,
         id: StrictStr,
-        visitor_update_visitor_request: VisitorUpdateVisitorRequest,
+        update_visitor_request: UpdateVisitorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2412,8 +2412,8 @@ class VisitorApi:
 
         :param id: (required)
         :type id: str
-        :param visitor_update_visitor_request: (required)
-        :type visitor_update_visitor_request: VisitorUpdateVisitorRequest
+        :param update_visitor_request: (required)
+        :type update_visitor_request: UpdateVisitorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2438,7 +2438,7 @@ class VisitorApi:
 
         _param = self._update_visitor_serialize(
             id=id,
-            visitor_update_visitor_request=visitor_update_visitor_request,
+            update_visitor_request=update_visitor_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2446,7 +2446,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VisitorVisitorResponse",
+            '200': "VisitorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2458,7 +2458,7 @@ class VisitorApi:
     def _update_visitor_serialize(
         self,
         id,
-        visitor_update_visitor_request,
+        update_visitor_request,
         _request_auth,
         _content_type,
         _headers,
@@ -2486,8 +2486,8 @@ class VisitorApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if visitor_update_visitor_request is not None:
-            _body_params = visitor_update_visitor_request
+        if update_visitor_request is not None:
+            _body_params = update_visitor_request
 
 
         # set the HTTP header `Accept`
