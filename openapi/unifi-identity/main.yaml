@@ -17,6 +17,8 @@
           application/json:
             schema:
               $ref: transports/UniFiIdentityInvitationStatusResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /users/identity/assignments:
   get:
@@ -39,6 +41,8 @@
           application/json:
             schema:
               $ref: transports/UniFiIdentityResourcesResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /users/{id}/identity/assignments:
   post:
@@ -65,6 +69,8 @@
           application/json:
             schema:
               $ref: transports/UniFiIdentityResourcesResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   get:
     tags:
@@ -84,6 +90,8 @@
           application/json:
             schema:
               $ref: transports/UniFiIdentityResourcesResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /user_groups/{id}/identity/assignments:
   post:
@@ -110,6 +118,8 @@
           application/json:
             schema:
               $ref: transports/UniFiIdentityResourcesResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   get:
     tags:
@@ -129,3 +139,5 @@
           application/json:
             schema:
               $ref: transports/UniFiIdentityResourcesResponse.yaml
+      default:
+        $ref: ../common/Error.yaml

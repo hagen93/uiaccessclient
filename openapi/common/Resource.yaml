@@ -1,5 +1,5 @@
 type: object
-title: SharedResource
+title: Resource
 properties:
   id:
     title: ID of the door group

@@ -28,9 +28,9 @@ class UserGroupsResponse(BaseModel):
     UserGroupsResponse
     """ # noqa: E501
     code: Optional[StrictStr] = None
-    data: Optional[List[UserGroup]] = None
     msg: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["code", "data", "msg"]
+    data: Optional[List[UserGroup]] = None
+    __properties: ClassVar[List[str]] = ["code", "msg", "data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,8 +91,8 @@ class UserGroupsResponse(BaseModel):
 
         _obj = cls.model_validate({
             "code": obj.get("code"),
-            "data": [UserGroup.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
-            "msg": obj.get("msg")
+            "msg": obj.get("msg"),
+            "data": [UserGroup.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
         })
         return _obj
 

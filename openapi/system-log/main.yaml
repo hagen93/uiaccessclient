@@ -46,6 +46,8 @@
           application/json:
             schema:
               $ref: transports/FetchSystemLogsResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /system/logs/export:
   post:
@@ -66,6 +68,8 @@
           application/json:
             schema:
               $ref: transports/ExportSystemLogsResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /system/logs/resource/{id}:
   get:
@@ -90,6 +94,8 @@
           application/json:
             schema:
               $ref: transports/FetchResourcesInSystemLogsResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /system/static/{path}:
   get:
@@ -112,3 +118,5 @@
           application/json:
             schema:
               $ref: transports/FetchStaticResourcesInSystemLogsResponse.yaml
+      default:
+        $ref: ../common/Error.yaml

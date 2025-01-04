@@ -1,0 +1,91 @@
+type: object
+properties:
+  code:
+    type: string
+    oneOf:
+      - const: CODE_PARAMS_INVALID
+        description: The provided parameters are invalid.
+      - const: CODE_SYSTEM_ERROR
+        description: An error occurred on the server's end.
+      - const: CODE_RESOURCE_NOT_FOUND
+        description: The requested resource was not found.
+      - const: CODE_OPERATION_FORBIDDEN
+        description: The requested operation is not allowed.
+      - const: CODE_AUTH_FAILED
+        description: Authentication failed.
+      - const: CODE_ACCESS_TOKEN_INVALID
+        description: The provided access token is invalid.
+      - const: CODE_UNAUTHORIZED
+        description: You not are allowed to perform this action.
+      - const: CODE_NOT_EXISTS
+        description: The requested item does not exist.
+      - const: CODE_USER_EMAIL_ERROR
+        description: The provided email format is invalid.
+      - const: CODE_USER_ACCOUNT_NOT_EXIST
+        description: The requested user account does not exist.
+      - const: CODE_USER_WORKER_NOT_EXISTS
+        description: The requested user does not exist.
+      - const: CODE_USER_NAME_DUPLICATED
+        description: The provided name already exists.
+      - const: CODE_USER_CSV_IMPORT_INCOMPLETE_PROP
+        description: Please provide both first name and last name.
+      - const: CODE_ACCESS_POLICY_USER_TIMEZONE_NOT_FOUND
+        description: The requested workday schedule could not be found.
+      - const: CODE_ACCESS_POLICY_HOLIDAY_TIMEZONE_NOT_FOUND
+        description: The requested holiday schedule could not be found.
+      - const: CODE_ACCESS_POLICY_HOLIDAY_GROUP_NOT_FOUND
+        description: The requested holiday group could not be found.
+      - const: CODE_ACCESS_POLICY_HOLIDAY_NOT_FOUND
+        description: The requested holiday could not be found.
+      - const: CODE_ACCESS_POLICY_SCHEDULE_NOT_FOUND
+        description: The requested schedule could not be found.
+      - const: CODE_ACCESS_POLICY_HOLIDAY_NAME_EXIST
+        description: The provided holiday name already exists.
+      - const: CODE_ACCESS_POLICY_HOLIDAY_GROUP_NAME_EXIST
+        description: The provided holiday group name already exists.
+      - const: CODE_ACCESS_POLICY_SCHEDULE_NAME_EXIST
+        description: The provided schedule name already exists.
+      - const: CODE_ACCESS_POLICY_SCHEDULE_CAN_NOT_DELETE
+        description: The schedule could not be deleted.
+      - const: CODE_ACCESS_POLICY_HOLIDAY_GROUP_CAN_NOT_DELETE
+        description: The holiday group could not be deleted.
+      - const: CODE_CREDS_NFC_HAS_BIND_USER
+        description: The NFC card is already registered and assigned to another user.
+      - const: CODE_CREDS_DISABLE_TRANSFER_UID_USER_NFC
+        description: The UniFi Identity Enterprise user's NFC card is not transferrable.
+      - const: CODE_CREDS_NFC_READ_SESSION_NOT_FOUND
+        description: Failed to obtain the NFC read session.
+      - const: CODE_CREDS_NFC_READ_POLL_TOKEN_EMPTY
+        description: The NFC token is empty.
+      - const: CODE_CREDS_NFC_CARD_IS_PROVISION
+        description: The NFC card is already registered at another site.
+      - const: CODE_CREDS_NFC_CARD_PROVISION_FAILED
+        description: Please hold the NFC card against the reader for more than 5 seconds.
+      - const: CODE_CREDS_NFC_CARD_INVALID
+        description: The card type is not supported. Please use a UA Card.
+      - const: CODE_CREDS_NFC_CARD_CANNOT_BE_DELETE
+        description: The NFC card could not be deleted.
+      - const: CODE_CREDS_PIN_CODE_CREDS_ALREADY_EXIST
+        description: The PIN code already exists.
+      - const: CODE_CREDS_PIN_CODE_CREDS_LENGTH_INVALID
+        description: The PIN code length does not meet the preset requirements.
+      - const: CODE_SPACE_DEVICE_BOUND_LOCATION_NOT_FOUND
+        description: The device's location was not found.
+      - const: CODE_DEVICE_DEVICE_VERSION_NOT_FOUND
+        description: The firmware version is up to date.
+      - const: CODE_DEVICE_DEVICE_VERSION_TOO_OLD
+        description: The firmware version is too old. Please update to the latest version.
+      - const: CODE_DEVICE_DEVICE_BUSY
+        description: The camera is currently in use.
+      - const: CODE_DEVICE_DEVICE_NOT_FOUND
+        description: The device was not found.
+      - const: CODE_DEVICE_DEVICE_OFFLINE
+        description: The device is currently offline.
+      - const: CODE_OTHERS_UID_ADOPTED_NOT_SUPPORTED
+        description: The API is not available after upgrading to Identity Enterprise.
+      - const: CODE_HOLIDAY_GROUP_CAN_NOT_DELETE
+        description: The holiday group could not be deleted.
+      - const: CODE_HOLIDAY_GROUP_CAN_NOT_EDIT
+        description: The holiday group could not be edited.
+  msg:
+    type: string

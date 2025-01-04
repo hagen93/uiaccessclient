@@ -54,6 +54,7 @@ from uiaccessclient.models.door_response import DoorResponse
 from uiaccessclient.models.door_status_response import DoorStatusResponse
 from uiaccessclient.models.doors_response import DoorsResponse
 from uiaccessclient.models.enroll_nfc_card_request import EnrollNfcCardRequest
+from uiaccessclient.models.error_response import ErrorResponse
 from uiaccessclient.models.export_system_logs_request import ExportSystemLogsRequest
 from uiaccessclient.models.export_system_logs_response import ExportSystemLogsResponse
 from uiaccessclient.models.fetch_resources_in_system_logs_response import FetchResourcesInSystemLogsResponse
@@ -80,7 +81,7 @@ from uiaccessclient.models.space_resource import SpaceResource
 from uiaccessclient.models.space_resource_response import SpaceResourceResponse
 from uiaccessclient.models.space_resource_topology import SpaceResourceTopology
 from uiaccessclient.models.space_resources_response import SpaceResourcesResponse
-from uiaccessclient.models.status_code_response import StatusCodeResponse
+from uiaccessclient.models.success_response import SuccessResponse
 from uiaccessclient.models.system_log import SystemLog
 from uiaccessclient.models.system_log_source import SystemLogSource
 from uiaccessclient.models.system_log_source_actor import SystemLogSourceActor

@@ -1,10 +1,8 @@
-type: object
-properties:
-  code:
-    type: string
-  data:
-    type: array
-    items:
-      $ref: ../entities/UniFiIdentityInvitationStatus.yaml
-  msg:
-    type: string
+allOf:
+  - $ref: ../../common/SuccessResponse.yaml
+  - type: object
+    properties:
+      data:
+        type: array
+        items:
+          $ref: ../entities/UniFiIdentityInvitationStatus.yaml

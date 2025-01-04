@@ -28,9 +28,9 @@ class AccessPolicyHolidayGroupSummaryResponse(BaseModel):
     AccessPolicyHolidayGroupSummaryResponse
     """ # noqa: E501
     code: Optional[StrictStr] = None
-    data: Optional[List[AccessPolicyHolidayGroupSummary]] = None
     msg: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["code", "data", "msg"]
+    data: Optional[List[AccessPolicyHolidayGroupSummary]] = None
+    __properties: ClassVar[List[str]] = ["code", "msg", "data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,8 +91,8 @@ class AccessPolicyHolidayGroupSummaryResponse(BaseModel):
 
         _obj = cls.model_validate({
             "code": obj.get("code"),
-            "data": [AccessPolicyHolidayGroupSummary.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
-            "msg": obj.get("msg")
+            "msg": obj.get("msg"),
+            "data": [AccessPolicyHolidayGroupSummary.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
         })
         return _obj
 

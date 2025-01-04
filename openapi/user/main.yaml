@@ -17,6 +17,8 @@
           application/json:
             schema:
               $ref: transports/UserResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /users/{id}:
   put:
@@ -43,6 +45,8 @@
           application/json:
             schema:
               $ref: transports/UserResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   get:
     tags:
@@ -68,6 +72,8 @@
           application/json:
             schema:
               $ref: transports/UserResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /users/users:
   get:
@@ -102,6 +108,8 @@
           application/json:
             schema:
               $ref: transports/UsersResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /users/{id}/access_policies:
   put:
@@ -127,7 +135,9 @@
         content:
           application/json:
             schema:
-              $ref: ../common/StatusCodeResponse.yaml
+              $ref: ../common/SuccessResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   get:
     tags:
@@ -154,6 +164,8 @@
           application/json:
             schema:
               $ref: ../access-policy/transports/AccessPoliciesResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /users/{id}/nfc_cards:
   put:
@@ -179,7 +191,9 @@
         content:
           application/json:
             schema:
-              $ref: ../common/StatusCodeResponse.yaml
+              $ref: ../common/SuccessResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /users/{id}/nfc_cards/delete:
   delete:
@@ -203,7 +217,9 @@
         content:
           application/json:
             schema:
-              $ref: ../common/StatusCodeResponse.yaml
+              $ref: ../common/SuccessResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /users/{id}/pin_codes:
   put:
@@ -229,7 +245,9 @@
         content:
           application/json:
             schema:
-              $ref: ../common/StatusCodeResponse.yaml
+              $ref: ../common/SuccessResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   delete:
     tags:
@@ -248,7 +266,9 @@
         content:
           application/json:
             schema:
-              $ref: ../common/StatusCodeResponse.yaml
+              $ref: ../common/SuccessResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /user_groups:
   post:
@@ -267,7 +287,9 @@
         content:
           application/json:
             schema:
-              $ref: ../common/StatusCodeResponse.yaml
+              $ref: ../common/SuccessResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   get:
     tags:
@@ -281,6 +303,8 @@
           application/json:
             schema:
               $ref: transports/UserGroupsResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /user_groups/{id}:
   get:
@@ -301,6 +325,8 @@
           application/json:
             schema:
               $ref: transports/UserGroupResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   put:
     tags:
@@ -325,7 +351,9 @@
         content:
           application/json:
             schema:
-              $ref: ../common/StatusCodeResponse.yaml
+              $ref: ../common/SuccessResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   delete:
     tags:
@@ -344,7 +372,9 @@
         content:
           application/json:
             schema:
-              $ref: ../common/StatusCodeResponse.yaml
+              $ref: ../common/SuccessResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /user_groups/{id}/users:
   post:
@@ -370,7 +400,9 @@
         content:
           application/json:
             schema:
-              $ref: ../common/StatusCodeResponse.yaml
+              $ref: ../common/SuccessResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   get:
     tags:
@@ -391,6 +423,8 @@
           application/json:
             schema:
               $ref: transports/UsersResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /user_groups/{id}/user/delete:
   post:
@@ -416,7 +450,9 @@
         content:
           application/json:
             schema:
-              $ref: ../common/StatusCodeResponse.yaml
+              $ref: ../common/SuccessResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /user_groups/{id}/users/all:
   get:
@@ -438,6 +474,8 @@
           application/json:
             schema:
               $ref: transports/UsersResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /user_groups/{id}/access_policies:
   put:
@@ -464,6 +502,8 @@
           application/json:
             schema:
               $ref: transports/UserGroupResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   get:
     tags:
@@ -484,3 +524,5 @@
           application/json:
             schema:
               $ref: ../access-policy/transports/AccessPoliciesResponse.yaml
+      default:
+        $ref: ../common/Error.yaml

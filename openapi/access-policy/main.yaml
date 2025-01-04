@@ -17,6 +17,8 @@
           application/json:
             schema:
               $ref: transports/AccessPolicyResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   get:
     tags:
@@ -30,6 +32,8 @@
           application/json:
             schema:
               $ref: transports/AccessPoliciesResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /access_policies/{id}:
   put:
@@ -56,6 +60,8 @@
           application/json:
             schema:
               $ref: transports/AccessPolicyResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   delete:
     tags:
@@ -75,6 +81,8 @@
           application/json:
             schema:
               $ref: transports/AccessPolicyResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   get:
     tags:
@@ -95,6 +103,8 @@
           application/json:
             schema:
               $ref: transports/AccessPolicyResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /access_policies/holiday_groups:
   post:
@@ -115,6 +125,8 @@
           application/json:
             schema:
               $ref: transports/AccessPolicyHolidayGroupResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   get:
     tags:
@@ -128,6 +140,8 @@
           application/json:
             schema:
               $ref: transports/AccessPolicyHolidayGroupSummaryResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /access_policies/holiday_groups/{id}:
   put:
@@ -154,6 +168,8 @@
           application/json:
             schema:
               $ref: transports/AccessPolicyHolidayGroupResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   delete:
     tags:
@@ -174,6 +190,8 @@
           application/json:
             schema:
               $ref: transports/AccessPolicyHolidayGroupResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   get:
     tags:
@@ -194,6 +212,8 @@
           application/json:
             schema:
               $ref: transports/AccessPolicyHolidayGroupResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /access_policies/schedules:
   post:
@@ -214,6 +234,8 @@
           application/json:
             schema:
               $ref: transports/AccessPolicyScheduleResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   get:
     tags:
@@ -227,6 +249,8 @@
           application/json:
             schema:
               $ref: transports/AccessPolicySchedulesResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
 /access_policies/schedules/{id}:
   put:
@@ -253,6 +277,8 @@
           application/json:
             schema:
               $ref: transports/AccessPolicyScheduleResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   get:
     tags:
@@ -273,6 +299,8 @@
           application/json:
             schema:
               $ref: transports/AccessPolicyScheduleResponse.yaml
+      default:
+        $ref: ../common/Error.yaml
 
   delete:
     tags:
@@ -293,3 +321,5 @@
           application/json:
             schema:
               $ref: transports/AccessPolicyScheduleResponse.yaml
+      default:
+        $ref: ../common/Error.yaml

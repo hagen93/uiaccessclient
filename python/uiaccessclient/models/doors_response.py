@@ -28,9 +28,9 @@ class DoorsResponse(BaseModel):
     DoorsResponse
     """ # noqa: E501
     code: Optional[StrictStr] = None
-    data: Optional[List[Door]] = None
     msg: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["code", "data", "msg"]
+    data: Optional[List[Door]] = None
+    __properties: ClassVar[List[str]] = ["code", "msg", "data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,8 +91,8 @@ class DoorsResponse(BaseModel):
 
         _obj = cls.model_validate({
             "code": obj.get("code"),
-            "data": [Door.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
-            "msg": obj.get("msg")
+            "msg": obj.get("msg"),
+            "data": [Door.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
         })
         return _obj
 

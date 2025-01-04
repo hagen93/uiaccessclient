@@ -28,9 +28,9 @@ class UniFiIdentityInvitationStatusResponse(BaseModel):
     UniFiIdentityInvitationStatusResponse
     """ # noqa: E501
     code: Optional[StrictStr] = None
-    data: Optional[List[UniFiIdentityInvitationStatus]] = None
     msg: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["code", "data", "msg"]
+    data: Optional[List[UniFiIdentityInvitationStatus]] = None
+    __properties: ClassVar[List[str]] = ["code", "msg", "data"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -91,8 +91,8 @@ class UniFiIdentityInvitationStatusResponse(BaseModel):
 
         _obj = cls.model_validate({
             "code": obj.get("code"),
-            "data": [UniFiIdentityInvitationStatus.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None,
-            "msg": obj.get("msg")
+            "msg": obj.get("msg"),
+            "data": [UniFiIdentityInvitationStatus.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
         })
         return _obj
 

@@ -27,7 +27,7 @@ from uiaccessclient.models.assign_user_pin_code_request import AssignUserPinCode
 from uiaccessclient.models.assign_user_to_user_group_request import AssignUserToUserGroupRequest
 from uiaccessclient.models.create_user_group_request import CreateUserGroupRequest
 from uiaccessclient.models.create_user_request import CreateUserRequest
-from uiaccessclient.models.status_code_response import StatusCodeResponse
+from uiaccessclient.models.success_response import SuccessResponse
 from uiaccessclient.models.unassign_user_from_user_group_request import UnassignUserFromUserGroupRequest
 from uiaccessclient.models.update_user_group_request import UpdateUserGroupRequest
 from uiaccessclient.models.update_user_request import UpdateUserRequest
@@ -71,7 +71,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> StatusCodeResponse:
+    ) -> SuccessResponse:
         """3.6 Assign Access Policy to User
 
 
@@ -111,7 +111,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -141,7 +141,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[StatusCodeResponse]:
+    ) -> ApiResponse[SuccessResponse]:
         """3.6 Assign Access Policy to User
 
 
@@ -181,7 +181,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -251,7 +251,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -643,7 +643,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> StatusCodeResponse:
+    ) -> SuccessResponse:
         """3.7 Assign NFC Card from User
 
 
@@ -683,7 +683,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -713,7 +713,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[StatusCodeResponse]:
+    ) -> ApiResponse[SuccessResponse]:
         """3.7 Assign NFC Card from User
 
 
@@ -753,7 +753,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -823,7 +823,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -929,7 +929,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> StatusCodeResponse:
+    ) -> SuccessResponse:
         """3.9 Assign PIN Code to User
 
 
@@ -969,7 +969,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -999,7 +999,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[StatusCodeResponse]:
+    ) -> ApiResponse[SuccessResponse]:
         """3.9 Assign PIN Code to User
 
 
@@ -1039,7 +1039,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1109,7 +1109,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1215,7 +1215,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> StatusCodeResponse:
+    ) -> SuccessResponse:
         """3.16 Assign User to User Group
 
 
@@ -1255,7 +1255,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1285,7 +1285,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[StatusCodeResponse]:
+    ) -> ApiResponse[SuccessResponse]:
         """3.16 Assign User to User Group
 
 
@@ -1325,7 +1325,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1395,7 +1395,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1771,7 +1771,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> StatusCodeResponse:
+    ) -> SuccessResponse:
         """3.15 Delete User Group
 
 
@@ -1808,7 +1808,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1837,7 +1837,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[StatusCodeResponse]:
+    ) -> ApiResponse[SuccessResponse]:
         """3.15 Delete User Group
 
 
@@ -1874,7 +1874,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1940,7 +1940,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4149,7 +4149,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> StatusCodeResponse:
+    ) -> SuccessResponse:
         """3.17 Uniassigh User from User Group
 
 
@@ -4189,7 +4189,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4219,7 +4219,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[StatusCodeResponse]:
+    ) -> ApiResponse[SuccessResponse]:
         """3.17 Uniassigh User from User Group
 
 
@@ -4259,7 +4259,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4329,7 +4329,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4435,7 +4435,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> StatusCodeResponse:
+    ) -> SuccessResponse:
         """3.8 Unassign NFC Card from User
 
 
@@ -4475,7 +4475,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4505,7 +4505,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[StatusCodeResponse]:
+    ) -> ApiResponse[SuccessResponse]:
         """3.8 Unassign NFC Card from User
 
 
@@ -4545,7 +4545,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4615,7 +4615,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4709,7 +4709,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> StatusCodeResponse:
+    ) -> SuccessResponse:
         """3.10 Unassign PIN Code from user
 
 
@@ -4746,7 +4746,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4775,7 +4775,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[StatusCodeResponse]:
+    ) -> ApiResponse[SuccessResponse]:
         """3.10 Unassign PIN Code from user
 
 
@@ -4812,7 +4812,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4878,7 +4878,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5254,7 +5254,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> StatusCodeResponse:
+    ) -> SuccessResponse:
         """3.14 Update User Group
 
 
@@ -5294,7 +5294,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5324,7 +5324,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[StatusCodeResponse]:
+    ) -> ApiResponse[SuccessResponse]:
         """3.14 Update User Group
 
 
@@ -5364,7 +5364,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5434,7 +5434,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5539,7 +5539,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> StatusCodeResponse:
+    ) -> SuccessResponse:
         """3.11 Create User Group
 
 
@@ -5576,7 +5576,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5605,7 +5605,7 @@ class UserApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[StatusCodeResponse]:
+    ) -> ApiResponse[SuccessResponse]:
         """3.11 Create User Group
 
 
@@ -5642,7 +5642,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5708,7 +5708,7 @@ class UserApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

@@ -21,7 +21,7 @@ from typing import List, Optional
 from typing_extensions import Annotated
 from uiaccessclient.models.assign_visitor_pin_code_request import AssignVisitorPinCodeRequest
 from uiaccessclient.models.create_visitor_request import CreateVisitorRequest
-from uiaccessclient.models.status_code_response import StatusCodeResponse
+from uiaccessclient.models.success_response import SuccessResponse
 from uiaccessclient.models.unassign_visitor_nfc_card_request import UnassignVisitorNfcCardRequest
 from uiaccessclient.models.update_visitor_request import UpdateVisitorRequest
 from uiaccessclient.models.visitor_response import VisitorResponse
@@ -61,7 +61,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> StatusCodeResponse:
+    ) -> SuccessResponse:
         """4.7 Assign Visitor NFC Card
 
 
@@ -98,7 +98,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -127,7 +127,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[StatusCodeResponse]:
+    ) -> ApiResponse[SuccessResponse]:
         """4.7 Assign Visitor NFC Card
 
 
@@ -164,7 +164,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -230,7 +230,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -320,7 +320,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> StatusCodeResponse:
+    ) -> SuccessResponse:
         """4.9 Assign Visitor Pin Code
 
 
@@ -360,7 +360,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -390,7 +390,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[StatusCodeResponse]:
+    ) -> ApiResponse[SuccessResponse]:
         """4.9 Assign Visitor Pin Code
 
 
@@ -430,7 +430,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -500,7 +500,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1722,7 +1722,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> StatusCodeResponse:
+    ) -> SuccessResponse:
         """4.8 Unassign Visitor NFC Card
 
 
@@ -1762,7 +1762,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1792,7 +1792,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[StatusCodeResponse]:
+    ) -> ApiResponse[SuccessResponse]:
         """4.8 Unassign Visitor NFC Card
 
 
@@ -1832,7 +1832,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1902,7 +1902,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2007,7 +2007,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> StatusCodeResponse:
+    ) -> SuccessResponse:
         """4.10 Unassisgn Visitor Pin Code
 
 
@@ -2044,7 +2044,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2073,7 +2073,7 @@ class VisitorApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[StatusCodeResponse]:
+    ) -> ApiResponse[SuccessResponse]:
         """4.10 Unassisgn Visitor Pin Code
 
 
@@ -2110,7 +2110,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2176,7 +2176,7 @@ class VisitorApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "StatusCodeResponse",
+            '200': "SuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
