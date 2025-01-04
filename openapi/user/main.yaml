@@ -12,7 +12,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -40,7 +39,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -67,7 +65,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -88,7 +85,7 @@
           must
         schema:
           type: string
-      - name: pageNum
+      - name: page_num
         in: query
         description: 'include "expand[]=access_policy" in the request URL paramters
 
@@ -96,14 +93,13 @@
           Current page number in the pagination'
         schema:
           type: integer
-      - name: pageSize
+      - name: page_size
         in: query
         description: Number of users per page.
         schema:
           type: integer
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -131,7 +127,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -159,7 +154,6 @@
           type: boolean
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -187,7 +181,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -213,7 +206,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -241,7 +233,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -262,7 +253,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -283,7 +273,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -298,7 +287,6 @@
     operationId: FetchAllUserGroups
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -320,7 +308,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -347,7 +334,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -368,7 +354,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -396,7 +381,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -418,7 +402,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -446,7 +429,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -469,7 +451,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -497,7 +478,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -519,7 +499,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:

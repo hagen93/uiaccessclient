@@ -44,11 +44,9 @@ properties:
   start_time:
     title: Start time of the visit
     type: string
-    format: int64
   end_time:
     title: End time of the visit
     type: string
-    format: int64
   nfc_cards:
     title: NFC cards associated with the visitor
     type: array

@@ -20,7 +20,6 @@ properties:
     type: string
   onboard_time:
     type: string
-    format: int64
   nfc_cards:
     type: array
     items:

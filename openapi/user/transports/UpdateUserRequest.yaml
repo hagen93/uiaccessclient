@@ -10,6 +10,5 @@ properties:
     type: string
   onboard_time:
     type: string
-    format: int64
   status:
     $ref: ../entities/UserStatus.yaml

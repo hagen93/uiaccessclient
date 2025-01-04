@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="uiaccessclient",
-    version="0.9.0",
+    version="0.9.1",
     description="UniFi Access API",
     keywords=["UniFi Access API"],
     install_requires=[

@@ -1,7 +1,0 @@
-allOf:
-  - $ref: ../../common/SuccessResponse.yaml
-  - type: object
-    properties:
-      data:
-        title: I assume this is an object, but not documented in API
-        type: string

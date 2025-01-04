@@ -21,11 +21,9 @@ properties:
   start_time:
     title: 'Start time of the visit, ex: 1688546460'
     type: string
-    format: int64
   end_time:
     title: 'End time of the visit, ex: 1688572799'
     type: string
-    format: int64
   visit_reason:
     type: string
     description: Visit reason, see VisitReason enum.

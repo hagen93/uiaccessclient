@@ -2,7 +2,5 @@ type: object
 properties:
   start_time:
     type: string
-    format: int64
   end_time:
     type: string
-    format: int64

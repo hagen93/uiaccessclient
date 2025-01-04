@@ -16,13 +16,12 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictInt, StrictStr
-from typing import Optional
+from pydantic import Field, StrictBytes, StrictInt, StrictStr
+from typing import Optional, Tuple, Union
 from typing_extensions import Annotated
 from uiaccessclient.models.export_system_logs_request import ExportSystemLogsRequest
-from uiaccessclient.models.export_system_logs_response import ExportSystemLogsResponse
 from uiaccessclient.models.fetch_resources_in_system_logs_response import FetchResourcesInSystemLogsResponse
-from uiaccessclient.models.fetch_static_resources_in_system_logs_response import FetchStaticResourcesInSystemLogsResponse
+from uiaccessclient.models.fetch_system_logs_request import FetchSystemLogsRequest
 from uiaccessclient.models.fetch_system_logs_response import FetchSystemLogsResponse
 
 from uiaccessclient.api_client import ApiClient, RequestSerialized
@@ -59,7 +58,7 @@ class SystemLogApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ExportSystemLogsResponse:
+    ) -> str:
         """9.3 Export System Logs
 
 
@@ -96,7 +95,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ExportSystemLogsResponse",
+            '200': "str",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -125,7 +124,7 @@ class SystemLogApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ExportSystemLogsResponse]:
+    ) -> ApiResponse[str]:
         """9.3 Export System Logs
 
 
@@ -162,7 +161,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ExportSystemLogsResponse",
+            '200': "str",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -228,7 +227,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ExportSystemLogsResponse",
+            '200': "str",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -273,6 +272,7 @@ class SystemLogApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
+                    'text/csv', 
                     'application/json'
                 ]
             )
@@ -317,7 +317,7 @@ class SystemLogApi:
     @validate_call
     def fetch_resources_in_system_logs(
         self,
-        id: Annotated[StrictStr, Field(description="Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}]")],
+        id: Annotated[StrictStr, Field(description="Resource ID is obtained from targets categorized as the 'activities_resource' type in system logs.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -334,7 +334,7 @@ class SystemLogApi:
         """9.4 Fetch Resources in System Logs
 
 
-        :param id: Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}] (required)
+        :param id: Resource ID is obtained from targets categorized as the 'activities_resource' type in system logs. (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -383,7 +383,7 @@ class SystemLogApi:
     @validate_call
     def fetch_resources_in_system_logs_with_http_info(
         self,
-        id: Annotated[StrictStr, Field(description="Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}]")],
+        id: Annotated[StrictStr, Field(description="Resource ID is obtained from targets categorized as the 'activities_resource' type in system logs.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -400,7 +400,7 @@ class SystemLogApi:
         """9.4 Fetch Resources in System Logs
 
 
-        :param id: Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}] (required)
+        :param id: Resource ID is obtained from targets categorized as the 'activities_resource' type in system logs. (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -449,7 +449,7 @@ class SystemLogApi:
     @validate_call
     def fetch_resources_in_system_logs_without_preload_content(
         self,
-        id: Annotated[StrictStr, Field(description="Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}]")],
+        id: Annotated[StrictStr, Field(description="Resource ID is obtained from targets categorized as the 'activities_resource' type in system logs.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -466,7 +466,7 @@ class SystemLogApi:
         """9.4 Fetch Resources in System Logs
 
 
-        :param id: Resource ID is obtained from targets categorized as the  'activities_resource' type in system logs. \"target\": [{\"type\":  \"activities_resource\",\"id\": \"0418d6a38f00-b6906057-  2a90-4426-835c-b5b172381fec\",\"display_name\": \"Resource\",\"alternate_id\":  \"\",\"alternate_name\": \"\"}] (required)
+        :param id: Resource ID is obtained from targets categorized as the 'activities_resource' type in system logs. (required)
         :type id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -575,7 +575,7 @@ class SystemLogApi:
     @validate_call
     def fetch_static_resources_in_system_logs(
         self,
-        path: Annotated[StrictStr, Field(description="Resource paths, currently supporting /avatar, /capture, and  activities_resource.")],
+        path: Annotated[StrictStr, Field(description="Resource paths, currently supporting avatar, capture, and activities_resource.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -588,11 +588,11 @@ class SystemLogApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FetchStaticResourcesInSystemLogsResponse:
+    ) -> bytearray:
         """9.5 Fetch Static Resources in System Logs
 
 
-        :param path: Resource paths, currently supporting /avatar, /capture, and  activities_resource. (required)
+        :param path: Resource paths, currently supporting avatar, capture, and activities_resource. (required)
         :type path: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -625,7 +625,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchStaticResourcesInSystemLogsResponse",
+            '200': "bytearray",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -641,7 +641,7 @@ class SystemLogApi:
     @validate_call
     def fetch_static_resources_in_system_logs_with_http_info(
         self,
-        path: Annotated[StrictStr, Field(description="Resource paths, currently supporting /avatar, /capture, and  activities_resource.")],
+        path: Annotated[StrictStr, Field(description="Resource paths, currently supporting avatar, capture, and activities_resource.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -654,11 +654,11 @@ class SystemLogApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FetchStaticResourcesInSystemLogsResponse]:
+    ) -> ApiResponse[bytearray]:
         """9.5 Fetch Static Resources in System Logs
 
 
-        :param path: Resource paths, currently supporting /avatar, /capture, and  activities_resource. (required)
+        :param path: Resource paths, currently supporting avatar, capture, and activities_resource. (required)
         :type path: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -691,7 +691,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchStaticResourcesInSystemLogsResponse",
+            '200': "bytearray",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -707,7 +707,7 @@ class SystemLogApi:
     @validate_call
     def fetch_static_resources_in_system_logs_without_preload_content(
         self,
-        path: Annotated[StrictStr, Field(description="Resource paths, currently supporting /avatar, /capture, and  activities_resource.")],
+        path: Annotated[StrictStr, Field(description="Resource paths, currently supporting avatar, capture, and activities_resource.")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -724,7 +724,7 @@ class SystemLogApi:
         """9.5 Fetch Static Resources in System Logs
 
 
-        :param path: Resource paths, currently supporting /avatar, /capture, and  activities_resource. (required)
+        :param path: Resource paths, currently supporting avatar, capture, and activities_resource. (required)
         :type path: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -757,7 +757,7 @@ class SystemLogApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FetchStaticResourcesInSystemLogsResponse",
+            '200': "bytearray",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -802,7 +802,8 @@ class SystemLogApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json'
+                    'video/*', 
+                    'image/*'
                 ]
             )
 
@@ -833,12 +834,9 @@ class SystemLogApi:
     @validate_call
     def fetch_system_logs(
         self,
+        fetch_system_logs_request: FetchSystemLogsRequest,
         page_num: Annotated[Optional[StrictInt], Field(description="Current page number in the pagination.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of logs per page.")] = None,
-        body_topic: Optional[StrictStr] = None,
-        body_since: Annotated[Optional[StrictInt], Field(description="Fetch different system logs by topic. enum topic {critical,door_openings,updates,device_events,admin_activity,visitor}")] = None,
-        body_until: Annotated[Optional[StrictInt], Field(description="Start time for log fetching, ex: 1689304925")] = None,
-        body_actor_id: Annotated[Optional[StrictStr], Field(description="End time for log fetching, ex: 1689804925  Identity ID of the actor (user, visitor, and device), ex:  3e1f196e-c97b-4748-aecb-eab5e9c251b2")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -855,18 +853,12 @@ class SystemLogApi:
         """9.2 Fetch System Logs
 
 
+        :param fetch_system_logs_request: (required)
+        :type fetch_system_logs_request: FetchSystemLogsRequest
         :param page_num: Current page number in the pagination.
         :type page_num: int
         :param page_size: Number of logs per page.
         :type page_size: int
-        :param body_topic:
-        :type body_topic: str
-        :param body_since: Fetch different system logs by topic. enum topic {critical,door_openings,updates,device_events,admin_activity,visitor}
-        :type body_since: int
-        :param body_until: Start time for log fetching, ex: 1689304925
-        :type body_until: int
-        :param body_actor_id: End time for log fetching, ex: 1689804925  Identity ID of the actor (user, visitor, and device), ex:  3e1f196e-c97b-4748-aecb-eab5e9c251b2
-        :type body_actor_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -890,12 +882,9 @@ class SystemLogApi:
         """ # noqa: E501
 
         _param = self._fetch_system_logs_serialize(
+            fetch_system_logs_request=fetch_system_logs_request,
             page_num=page_num,
             page_size=page_size,
-            body_topic=body_topic,
-            body_since=body_since,
-            body_until=body_until,
-            body_actor_id=body_actor_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -919,12 +908,9 @@ class SystemLogApi:
     @validate_call
     def fetch_system_logs_with_http_info(
         self,
+        fetch_system_logs_request: FetchSystemLogsRequest,
         page_num: Annotated[Optional[StrictInt], Field(description="Current page number in the pagination.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of logs per page.")] = None,
-        body_topic: Optional[StrictStr] = None,
-        body_since: Annotated[Optional[StrictInt], Field(description="Fetch different system logs by topic. enum topic {critical,door_openings,updates,device_events,admin_activity,visitor}")] = None,
-        body_until: Annotated[Optional[StrictInt], Field(description="Start time for log fetching, ex: 1689304925")] = None,
-        body_actor_id: Annotated[Optional[StrictStr], Field(description="End time for log fetching, ex: 1689804925  Identity ID of the actor (user, visitor, and device), ex:  3e1f196e-c97b-4748-aecb-eab5e9c251b2")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -941,18 +927,12 @@ class SystemLogApi:
         """9.2 Fetch System Logs
 
 
+        :param fetch_system_logs_request: (required)
+        :type fetch_system_logs_request: FetchSystemLogsRequest
         :param page_num: Current page number in the pagination.
         :type page_num: int
         :param page_size: Number of logs per page.
         :type page_size: int
-        :param body_topic:
-        :type body_topic: str
-        :param body_since: Fetch different system logs by topic. enum topic {critical,door_openings,updates,device_events,admin_activity,visitor}
-        :type body_since: int
-        :param body_until: Start time for log fetching, ex: 1689304925
-        :type body_until: int
-        :param body_actor_id: End time for log fetching, ex: 1689804925  Identity ID of the actor (user, visitor, and device), ex:  3e1f196e-c97b-4748-aecb-eab5e9c251b2
-        :type body_actor_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -976,12 +956,9 @@ class SystemLogApi:
         """ # noqa: E501
 
         _param = self._fetch_system_logs_serialize(
+            fetch_system_logs_request=fetch_system_logs_request,
             page_num=page_num,
             page_size=page_size,
-            body_topic=body_topic,
-            body_since=body_since,
-            body_until=body_until,
-            body_actor_id=body_actor_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1005,12 +982,9 @@ class SystemLogApi:
     @validate_call
     def fetch_system_logs_without_preload_content(
         self,
+        fetch_system_logs_request: FetchSystemLogsRequest,
         page_num: Annotated[Optional[StrictInt], Field(description="Current page number in the pagination.")] = None,
         page_size: Annotated[Optional[StrictInt], Field(description="Number of logs per page.")] = None,
-        body_topic: Optional[StrictStr] = None,
-        body_since: Annotated[Optional[StrictInt], Field(description="Fetch different system logs by topic. enum topic {critical,door_openings,updates,device_events,admin_activity,visitor}")] = None,
-        body_until: Annotated[Optional[StrictInt], Field(description="Start time for log fetching, ex: 1689304925")] = None,
-        body_actor_id: Annotated[Optional[StrictStr], Field(description="End time for log fetching, ex: 1689804925  Identity ID of the actor (user, visitor, and device), ex:  3e1f196e-c97b-4748-aecb-eab5e9c251b2")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1027,18 +1001,12 @@ class SystemLogApi:
         """9.2 Fetch System Logs
 
 
+        :param fetch_system_logs_request: (required)
+        :type fetch_system_logs_request: FetchSystemLogsRequest
         :param page_num: Current page number in the pagination.
         :type page_num: int
         :param page_size: Number of logs per page.
         :type page_size: int
-        :param body_topic:
-        :type body_topic: str
-        :param body_since: Fetch different system logs by topic. enum topic {critical,door_openings,updates,device_events,admin_activity,visitor}
-        :type body_since: int
-        :param body_until: Start time for log fetching, ex: 1689304925
-        :type body_until: int
-        :param body_actor_id: End time for log fetching, ex: 1689804925  Identity ID of the actor (user, visitor, and device), ex:  3e1f196e-c97b-4748-aecb-eab5e9c251b2
-        :type body_actor_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1062,12 +1030,9 @@ class SystemLogApi:
         """ # noqa: E501
 
         _param = self._fetch_system_logs_serialize(
+            fetch_system_logs_request=fetch_system_logs_request,
             page_num=page_num,
             page_size=page_size,
-            body_topic=body_topic,
-            body_since=body_since,
-            body_until=body_until,
-            body_actor_id=body_actor_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1086,12 +1051,9 @@ class SystemLogApi:
 
     def _fetch_system_logs_serialize(
         self,
+        fetch_system_logs_request,
         page_num,
         page_size,
-        body_topic,
-        body_since,
-        body_until,
-        body_actor_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1116,31 +1078,17 @@ class SystemLogApi:
         # process the query parameters
         if page_num is not None:
             
-            _query_params.append(('pageNum', page_num))
+            _query_params.append(('page_num', page_num))
             
         if page_size is not None:
             
-            _query_params.append(('pageSize', page_size))
-            
-        if body_topic is not None:
-            
-            _query_params.append(('body.topic', body_topic))
-            
-        if body_since is not None:
-            
-            _query_params.append(('body.since', body_since))
-            
-        if body_until is not None:
-            
-            _query_params.append(('body.until', body_until))
-            
-        if body_actor_id is not None:
-            
-            _query_params.append(('body.actorId', body_actor_id))
+            _query_params.append(('page_size', page_size))
             
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if fetch_system_logs_request is not None:
+            _body_params = fetch_system_logs_request
 
 
         # set the HTTP header `Accept`
@@ -1151,6 +1099,19 @@ class SystemLogApi:
                 ]
             )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1158,7 +1119,7 @@ class SystemLogApi:
         ]
 
         return self.api_client.param_serialize(
-            method='GET',
+            method='POST',
             resource_path='/system/logs',
             path_params=_path_params,
             query_params=_query_params,

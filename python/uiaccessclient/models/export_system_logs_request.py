@@ -26,11 +26,11 @@ class ExportSystemLogsRequest(BaseModel):
     """
     ExportSystemLogsRequest
     """ # noqa: E501
-    topic: Optional[StrictStr] = None
-    since: Optional[StrictInt] = None
-    until: Optional[StrictInt] = None
-    timezone: Optional[StrictStr] = None
-    actor_id: Optional[StrictStr] = Field(default=None, description="Identity ID of the actor (user, visitor, and device), ex:  3e1f196e-c97b-4748-aecb-eab5e9c251b2")
+    topic: Optional[StrictStr] = Field(default=None, description="Fetch different system logs by topic.")
+    since: Optional[StrictInt] = Field(default=None, description="Start time for log fetching.")
+    until: Optional[StrictInt] = Field(default=None, description="End time for log fetching. Note that the since and until periods cannot exceed one month.")
+    timezone: Optional[StrictStr] = Field(default=None, description="Timezone for formatting time.")
+    actor_id: Optional[StrictStr] = Field(default=None, description="Identity ID of the actor (user, visitor, and device).")
     __properties: ClassVar[List[str]] = ["topic", "since", "until", "timezone", "actor_id"]
 
     model_config = ConfigDict(

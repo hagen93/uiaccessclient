@@ -1,8 +1,11 @@
 type: object
 properties:
   resource_type:
-    title: enum resource_type {ev_station,vpn,wifi}
     type: string
+    oneOf:
+      - const: ev_station
+      - const: vpn
+      - const: wifi
   resource_ids:
     type: array
     description: Identity ID of the resources.

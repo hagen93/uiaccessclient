@@ -12,7 +12,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -47,11 +46,11 @@
         in: query
         schema:
           type: string
-      - name: pageNum
+      - name: page_num
         in: query
         schema:
           type: integer
-      - name: pageSize
+      - name: page_size
         in: query
         schema:
           type: integer
@@ -66,7 +65,6 @@
             type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -89,7 +87,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -116,7 +113,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -137,7 +133,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -159,7 +154,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -187,7 +181,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -215,7 +208,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -237,7 +229,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:

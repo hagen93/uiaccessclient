@@ -15,7 +15,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -37,7 +36,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -52,7 +50,6 @@
     operationId: FetchAllDoorGroups
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -74,7 +71,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -101,7 +97,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -122,7 +117,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -144,7 +138,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -160,7 +153,6 @@
     operationId: FetchAllDoors
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -182,7 +174,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -210,7 +201,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -250,10 +240,8 @@
         description: 'End time of the set rule, ex: 1708672257'
         schema:
           type: integer
-          format: int32
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -275,7 +263,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -301,7 +288,6 @@
           type: boolean
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:

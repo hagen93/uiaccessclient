@@ -12,7 +12,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -36,7 +35,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -64,7 +62,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -85,7 +82,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -113,7 +109,6 @@
       required: true
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:
@@ -134,7 +129,6 @@
           type: string
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:

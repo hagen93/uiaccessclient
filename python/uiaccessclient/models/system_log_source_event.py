@@ -27,11 +27,12 @@ class SystemLogSourceEvent(BaseModel):
     SystemLogSourceEvent
     """ # noqa: E501
     display_message: Optional[StrictStr] = None
+    log_key: Optional[StrictStr] = None
     published: Optional[StrictInt] = None
     reason: Optional[StrictStr] = None
     result: Optional[StrictStr] = None
     type: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["display_message", "published", "reason", "result", "type"]
+    __properties: ClassVar[List[str]] = ["display_message", "log_key", "published", "reason", "result", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,6 +86,7 @@ class SystemLogSourceEvent(BaseModel):
 
         _obj = cls.model_validate({
             "display_message": obj.get("display_message"),
+            "log_key": obj.get("log_key"),
             "published": obj.get("published"),
             "reason": obj.get("reason"),
             "result": obj.get("result"),

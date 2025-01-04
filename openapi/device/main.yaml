@@ -6,7 +6,6 @@
     operationId: FetchDevices
     responses:
       '200':
-        description: A successful response.
         content:
           application/json:
             schema:

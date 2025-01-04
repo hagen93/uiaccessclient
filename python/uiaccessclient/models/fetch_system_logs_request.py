@@ -17,30 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from typing_extensions import Annotated
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ExportSystemLogsResponse(BaseModel):
+class FetchSystemLogsRequest(BaseModel):
     """
-    ExportSystemLogsResponse
+    FetchSystemLogsRequest
     """ # noqa: E501
-    code: Optional[StrictStr] = None
-    msg: Optional[StrictStr] = None
-    file: Optional[Union[Annotated[bytes, Field(strict=True)], Annotated[str, Field(strict=True)]]] = None
-    __properties: ClassVar[List[str]] = ["code", "msg", "file"]
-
-    @field_validator('file')
-    def file_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$", value):
-            raise ValueError(r"must validate the regular expression /^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/")
-        return value
+    topic: Optional[StrictStr] = Field(default=None, description="Fetch different system logs by topic.")
+    since: Optional[StrictInt] = Field(default=None, description="Start time for log fetching.")
+    until: Optional[StrictInt] = Field(default=None, description="End time for log fetching.")
+    actor_id: Optional[StrictStr] = Field(default=None, description="Identity ID of the actor (user, visitor, and device).")
+    __properties: ClassVar[List[str]] = ["topic", "since", "until", "actor_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -60,7 +50,7 @@ class ExportSystemLogsResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ExportSystemLogsResponse from a JSON string"""
+        """Create an instance of FetchSystemLogsRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -85,7 +75,7 @@ class ExportSystemLogsResponse(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ExportSystemLogsResponse from a dict"""
+        """Create an instance of FetchSystemLogsRequest from a dict"""
         if obj is None:
             return None
 
@@ -93,9 +83,10 @@ class ExportSystemLogsResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "code": obj.get("code"),
-            "msg": obj.get("msg"),
-            "file": obj.get("file")
+            "topic": obj.get("topic"),
+            "since": obj.get("since"),
+            "until": obj.get("until"),
+            "actor_id": obj.get("actor_id")
         })
         return _obj
 

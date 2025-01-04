@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from uiaccessclient.models.system_log_source import SystemLogSource
@@ -27,11 +28,11 @@ class SystemLog(BaseModel):
     """
     SystemLog
     """ # noqa: E501
-    timestamp: Optional[StrictStr] = None
+    timestamp: Optional[datetime] = Field(default=None, alias="@timestamp")
     id: Optional[StrictStr] = Field(default=None, alias="_id")
     source: Optional[SystemLogSource] = Field(default=None, alias="_source")
     tag: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["timestamp", "_id", "_source", "tag"]
+    __properties: ClassVar[List[str]] = ["@timestamp", "_id", "_source", "tag"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,7 +88,7 @@ class SystemLog(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "timestamp": obj.get("timestamp"),
+            "@timestamp": obj.get("@timestamp"),
             "_id": obj.get("_id"),
             "_source": SystemLogSource.from_dict(obj["_source"]) if obj.get("_source") is not None else None,
             "tag": obj.get("tag")

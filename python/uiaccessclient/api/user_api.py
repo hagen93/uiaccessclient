@@ -2507,11 +2507,11 @@ class UserApi:
             
         if page_num is not None:
             
-            _query_params.append(('pageNum', page_num))
+            _query_params.append(('page_num', page_num))
             
         if page_size is not None:
             
-            _query_params.append(('pageSize', page_size))
+            _query_params.append(('page_size', page_size))
             
         # process the header parameters
         # process the form parameters

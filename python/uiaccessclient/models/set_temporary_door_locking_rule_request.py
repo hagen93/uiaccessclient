@@ -26,7 +26,7 @@ class SetTemporaryDoorLockingRuleRequest(BaseModel):
     """
     SetTemporaryDoorLockingRuleRequest
     """ # noqa: E501
-    type: Optional[StrictStr] = Field(default=None, description="enum type {keep_lock,keep_unlock,custom,reset,lock_early} keep_lock is used to set the door to the \"keep locked\" state, while keep_unlock is used to set it to the \"keep unlocked\" state. custom allows customization of the unlock time duration, and reset is used to restore the door to its initial state (not applicable to the \"lock_early\" state). NOTE: If the door is currently on an unlock schedule ( schedule ), you can use lock_early to lock the door early.")
+    type: Optional[StrictStr] = Field(default=None, description="keep_lock is used to set the door to the \"keep locked\" state, while keep_unlock is used to set it to the \"keep unlocked\" state. custom allows customization of the unlock time duration, and reset is used to restore the door to its initial state (not applicable to the \"lock_early\" state). NOTE: If the door is currently on an unlock schedule, you can use lock_early to lock the door early.'")
     interval: Optional[StrictInt] = None
     __properties: ClassVar[List[str]] = ["type", "interval"]
 

@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -28,8 +29,8 @@ class ResourcesInSystemLog(BaseModel):
     """ # noqa: E501
     video_record: Optional[StrictStr] = None
     video_record_thumbnail: Optional[StrictStr] = None
-    created_at: Optional[StrictStr] = None
-    updated_at: Optional[StrictStr] = None
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
     __properties: ClassVar[List[str]] = ["video_record", "video_record_thumbnail", "created_at", "updated_at"]
 
     model_config = ConfigDict(

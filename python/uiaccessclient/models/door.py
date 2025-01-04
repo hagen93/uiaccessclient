@@ -32,7 +32,7 @@ class Door(BaseModel):
     floor_id: Optional[StrictStr] = None
     type: Optional[StrictStr] = None
     is_bind_hub: Optional[StrictBool] = None
-    door_lock_relay_status: Optional[StrictStr] = Field(default=None, description="used for remote opening if it's bound.  Door lock status. enum door_lock_relay_status {lock,unlock}")
+    door_lock_relay_status: Optional[StrictStr] = Field(default=None, description="Door lock status.")
     door_position_status: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["id", "name", "full_name", "floor_id", "type", "is_bind_hub", "door_lock_relay_status", "door_position_status"]
 

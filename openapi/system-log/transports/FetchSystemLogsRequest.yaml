@@ -25,10 +25,7 @@ properties:
     description: Start time for log fetching.
   until:
     type: integer
-    description: End time for log fetching. Note that the since and until periods cannot exceed one month.
-  timezone:
-    type: string
-    description: Timezone for formatting time.
+    description: End time for log fetching.
   actor_id:
     type: string
     description: Identity ID of the actor (user, visitor, and device).
