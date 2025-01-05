@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,11 +26,10 @@ class Device(BaseModel):
     """
     Device
     """ # noqa: E501
-    id: Optional[StrictStr] = None
-    name: Optional[StrictStr] = None
-    type: Optional[StrictStr] = None
-    full_name: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "type", "full_name"]
+    id: Optional[StrictStr] = Field(default=None, description="Identity ID of the device.")
+    name: Optional[StrictStr] = Field(default=None, description="Name of the device.")
+    type: Optional[StrictStr] = Field(default=None, description="Type of the device.")
+    __properties: ClassVar[List[str]] = ["id", "name", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,8 +84,7 @@ class Device(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "name": obj.get("name"),
-            "type": obj.get("type"),
-            "full_name": obj.get("full_name")
+            "type": obj.get("type")
         })
         return _obj
 

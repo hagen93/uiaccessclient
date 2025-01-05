@@ -2,9 +2,10 @@ type: object
 properties:
   id:
     type: string
+    description: Identity ID of the device.
   name:
     type: string
+    description: Name of the device.
   type:
     type: string
-  full_name:
-    type: string
+    description: Type of the device.
