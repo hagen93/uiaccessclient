@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="uiaccessclient",
-    version="0.9.1",
+    version="0.9.2",
     description="UniFi Access API",
     keywords=["UniFi Access API"],
     install_requires=[
@@ -13,4 +13,8 @@ setup(
     ],
     packages=find_packages(),
     include_package_data=True,
+    project_urls={
+        "Source": "https://github.com/hagen93/uiaccessclient",
+        "Documentation": "https://core-config-gfoz.uid.alpha.ui.com/configs/unifi-access/api_reference.pdf",
+    },
 )
