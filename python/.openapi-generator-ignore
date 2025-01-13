@@ -1,3 +1,4 @@
-*/docs/
-*/test/
-*README.md
+/uiaccessclient/*
+!/uiaccessclient/openapi/
+/uiaccessclient/openapi/docs/
+/uiaccessclient/openapi/test/

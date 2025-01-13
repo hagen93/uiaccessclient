@@ -1,2 +1,4 @@
+__pycache__/
+
 */.openapi-generator/
 /openapitools.json
